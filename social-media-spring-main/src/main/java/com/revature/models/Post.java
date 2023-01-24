@@ -1,15 +1,9 @@
 package com.revature.models;
 
+import javax.persistence.*;
 import java.util.List;
 
-import javax.persistence.*;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
 @Table(name = "posts")
 public class Post {
 
