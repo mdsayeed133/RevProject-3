@@ -41,20 +41,26 @@ export default function Navbar() {
     }
   }
 
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Toolbar className="d-flex justify-content-around">
+          <Typography variant="h6" component="div">
             Revature Social
           </Typography>
-          <div>
-            <Link to="/">Main Feed</Link> |
-            <Link to="/trainerprofile" >Trainers</Link> | 
-            <Link to="/createtrainer">Create Trainer | </Link>
-            <Link to="/advancedsearch">Advanced Search</Link>
+          <div className="d-flex justify-content-around">
+            <div>
+              <Link to="/">Main Feed</Link> |
+              <Link to="/trainerprofile" >Trainers</Link> |
+              <Link to="/createtrainer">Create Trainer | </Link>
+              <Link to="/advancedsearch">Advanced Search</Link>
+            </div>
           </div>
-          <div>
+          <div className="d-flex">
+            <div>
+              <h2><em>*Guest*</em></h2>
+            </div>
             <Tooltip disableFocusListener disableTouchListener title={tipTitle}>
               <IconButton
                 size="large"
