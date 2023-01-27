@@ -48,6 +48,14 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Revature Social
           </Typography>
+          {/* <div>
+            <ul>
+              <li>home</li>
+              <li>trainers</li>
+              <li>feed</li>
+              <li>contact</li>
+            </ul>
+          </div> */}
             <div>
             <Tooltip disableFocusListener disableTouchListener title={tipTitle}>
             <IconButton
