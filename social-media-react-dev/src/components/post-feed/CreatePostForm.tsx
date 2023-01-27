@@ -2,7 +2,7 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { Box, Button } from '@mui/material';
 import { apiUpsertPost } from '../../remote/social-media-api/post.api';
-
+import '../post-feed/CreatePostForm.css'
 
 export default function CreatePostForm() {
 
@@ -14,6 +14,7 @@ export default function CreatePostForm() {
   }
 
   return (
+    //</div className={styles.postCont}>
     <React.Fragment>
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
       <TextField
@@ -39,5 +40,6 @@ export default function CreatePostForm() {
         </Button>
       </Box>
     </React.Fragment>
+    //</div>
   );
 }
