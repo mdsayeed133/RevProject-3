@@ -5,6 +5,7 @@
 .profile-container {
     border: 1px solid black;
     height: 600px;
+    width: 75%;
 }
 
 .name-box {
@@ -13,4 +14,9 @@
 
 .profile-pic {
     border: 1px solid black;
+}
+
+.posted-comments {
+    border: 1px solid black;
+    
 }

@@ -1,3 +1,10 @@
++===============+
+| helpful hints |
++===============+
+- All <em> tags refer to information that is to be rendered using React 
+
+
+
 +==============+
 | Color Scheme |
 +==============+
@@ -19,3 +26,7 @@
 +========================+
 | Removed code for later |
 +========================+
+
+
++=====================+
+| 

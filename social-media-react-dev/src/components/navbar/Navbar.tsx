@@ -51,6 +51,7 @@ export default function Navbar() {
           <div>
             <Link to="/">Main Feed</Link> |
             <Link to="/trainerprofile" >Trainers</Link> | 
+            <Link to="/createtrainer">Create Trainer | </Link>
             <Link to="/advancedsearch">Advanced Search</Link>
           </div>
           <div>
