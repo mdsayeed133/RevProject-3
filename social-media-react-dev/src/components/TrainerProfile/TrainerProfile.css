@@ -1,0 +1,16 @@
+* {
+    scroll-behavior: smooth;
+}
+
+.profile-container {
+    border: 1px solid black;
+    height: 600px;
+}
+
+.name-box {
+    border: 1px solid black;
+}
+
+.profile-pic {
+    border: 1px solid black;
+}
