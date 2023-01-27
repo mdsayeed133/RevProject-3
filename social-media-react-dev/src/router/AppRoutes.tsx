@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import AdvancedSearch from '../components/AdvancedSearch/advancedSearch';
+import CreateComments from '../components/Comments/CreateComments';
+import ShowComments from '../components/Comments/ShowComments';
 import CreateTrainer from '../components/CreateTrainer/CreateTrainer';
 import Login from '../components/login/Login';
 import { PostFeed } from '../components/post-feed/PostFeed';
@@ -17,5 +19,7 @@ export const AppRoutes: React.FC<unknown> = () => (
     <Route path="/trainerprofile" element={<TrainerProfile />}/>
     <Route path="/advancedsearch" element={<AdvancedSearch/>}/>
     <Route path="/createtrainer" element={<CreateTrainer/>}/>
+    <Route path="/createcomments" element={<CreateComments/>}/>
+    <Route path="/showcomments" element={<ShowComments/>}/>
   </Routes>
 )

@@ -10,27 +10,27 @@ const AdvancedSearch = () => {
         <h4>Where</h4>
         <div className='where'>
           <input type="checkbox" id='where' name='where' value="All" />All
-          <input type="checkbox" id='where' name='where' value="Trainers" />Trainers
-          <input type="checkbox" id='where' name='where' value="Posts" />Posts
-          <input type="checkbox" id='where' name='where' value="Users" />Users
+    <br />      <input type="checkbox" id='where' name='where' value="Trainers" />Trainers
+    <br />       <input type="checkbox" id='where' name='where' value="Posts" />Posts
+    <br />      <input type="checkbox" id='where' name='where' value="Users" />Users
         </div>
 
         <h4>status</h4>
         <div className='status'>
           <input type="checkbox" id='status' name='status' value="All" />All
-          <input type="checkbox" id='status' name='status' value="Active" />Active
-          <input type="checkbox" id='status' name='status' value="Inactive" />Inactive
+<br />          <input type="checkbox" id='status' name='status' value="Active" />Active
+<br />          <input type="checkbox" id='status' name='status' value="Inactive" />Inactive
         </div>
 
         <h4>Department</h4>
         <div className='department'>
           <input type="checkbox" id='department' name='department' value="All" />All
-          <input type="checkbox" id='department' name='department' value="Trainer" />Trainer
-          <input type="checkbox" id='department' name='department' value="QC" />QC
-          <input type="checkbox" id='department' name='department' value="HR" />HR
-          <input type="checkbox" id='department' name='department' value="CoE" />CoE
-          <input type="checkbox" id='department' name='department' value="PDP" />PDP
-          <input type="checkbox" id='department' name='department' value="Recruiters" />Recruiters
+  <br />        <input type="checkbox" id='department' name='department' value="Trainer" />Trainer
+  <br />        <input type="checkbox" id='department' name='department' value="QC" />QC
+  <br />        <input type="checkbox" id='department' name='department' value="HR" />HR
+  <br />        <input type="checkbox" id='department' name='department' value="CoE" />CoE
+  <br />        <input type="checkbox" id='department' name='department' value="PDP" />PDP
+  <br />        <input type="checkbox" id='department' name='department' value="Recruiters" />Recruiters
         
 
   <h3>Search Terms</h3>
@@ -40,7 +40,7 @@ Exclude: <input type="text" />
 </div>
 
 <button className='clearEntry'>Clear Entries</button>
-<button className='search'>Search</button></div>
+<button className='advancedsearch'>Search</button></div>
 
       </div>
 

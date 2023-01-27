@@ -1,23 +1,31 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar'
 import '../TrainerProfile/TrainerProfile.css'
-
+import { useNavigate } from 'react-router'
 const TrainerProfile = () => {
+
+    // useNavigate to "navigate"
+    const navigate = useNavigate();
+    const showComments = async () => {
+        navigate("/showcomments")
+    }
+    const createComments = async () => {
+        navigate("/createcomments")
+    }
     return (
         <>
             <Navbar />
-            <div>TrainerProfile</div>
             {/* create barebones trainer profile. use jamboard as reference */}
             <div className="profile-container container">
                 <div className="row">
-                    <div className="col-md-6">
-                        <div className="name-box">
+                    <div className="col-md-6 name-box">
+                        <div className="">
                             <h2 className="profile-name" id="trainerName">Name: <em>Ben P.</em></h2>
                             <h3>Department: <em>Trainer</em></h3>
                         </div>
-                        <div className="btn-box">
-                            <button>Show comments</button>
-                            <button>Create comments</button>
+                        <div className="btn-box d-flex justify-content-around">
+                            <button className="comment-btn" onClick={showComments}>Show comments</button>
+                            <button className="comment-btn" onClick={createComments}>Create comments</button>
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -29,15 +37,16 @@ const TrainerProfile = () => {
                             <div className="image-container d-block">
                                 <img src="https://via.placeholder.com/150" alt="" />
                                 <br></br>
-                                <button className="follow-btn">Follow</button><button className="follow-btn">Unfollow</button>
+                                <button className="follow-btn">Follow</button>
+                                <button className="follow-btn">Unfollow</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 {/* this should hold the posted comments upon a click */}
-                <div className="posted-comments">
+                {/* <div className="posted-comments">
                     <h2><em>comments will populate below</em></h2>
-                </div>
+                </div> */}
             </div>
         </>
     )

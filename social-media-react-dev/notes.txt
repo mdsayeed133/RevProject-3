@@ -28,5 +28,23 @@
 +========================+
 
 
-+=====================+
-| 
++=======================+
+| Technology Used Icons |
++=======================+
+- react
+- spring
+- typescript
+- postgres
+- aws 
+- html
+- css 
+
+
++===============+
+| Socials Icons |
++===============+
+- twitter
+- meta 
+- reddit 
+- telegram
+- email (contact)
