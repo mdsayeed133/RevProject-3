@@ -8,6 +8,7 @@ import Login from '../components/login/Login';
 import { PostFeed } from '../components/post-feed/PostFeed';
 import Register from '../components/register/Register';
 import TrainerProfile from '../components/TrainerProfile/TrainerProfile';
+import Trainers from '../components/Trainers/Trainers';
 import UserProfile from '../components/UserProfile/UserProfile';
 
 export const AppRoutes: React.FC<unknown> = () => (
@@ -16,6 +17,7 @@ export const AppRoutes: React.FC<unknown> = () => (
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
     <Route path="/userprofile" element={<UserProfile />}/>
+    <Route path="/trainers" element={<Trainers/>}/>
     <Route path="/trainerprofile" element={<TrainerProfile />}/>
     <Route path="/advancedsearch" element={<AdvancedSearch/>}/>
     <Route path="/createtrainer" element={<CreateTrainer/>}/>

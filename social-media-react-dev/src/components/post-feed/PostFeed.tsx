@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
 import TextField from '@mui/material/TextField';
 import { apiUpsertPost } from '../../remote/social-media-api/post.api';
+import Footer from '../Footer/Footer';
 
 
 export const PostFeed = () => {
@@ -63,6 +64,7 @@ export const PostFeed = () => {
 
     let noPostsText = <></>;
 
+    // displays if there are currently no posts made
     if (post.length === 0) {
         noPostsText =
             <h2 style={{ textAlign: 'center', marginTop: '3%', color: 'gray' }}>
@@ -90,6 +92,7 @@ export const PostFeed = () => {
                 </Grid>
             </Grid>
             {noPostsText}
+            <Footer/>
         </>
     )
 };
