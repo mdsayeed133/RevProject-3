@@ -10,6 +10,8 @@
    
 }
 
+
+
 .TrainerRanking_Container{
     background-color: lightblue;
     float: left;
@@ -30,8 +32,18 @@
 
 .leaderboard{
     border: 2px solid black;
+    vertical-align: middle;
+    margin: 10px;
+    
 }
 
 .userratings{
     border: 2px solid black;
+}
+
+.scoreBoard{
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+    
 }

@@ -1,4 +1,111 @@
-*{
-    background-color: darkorange;
-    color: white;
+* {
+    box-sizing: border-box;
+  }
+
+body{
+    
+    margin: 0;
+    display: flex;
+    
+
+    /*Elements on top of each other*/
+    flex-direction: column;
+
+    /*Bring items center vertically*/
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: "Concert-One", sans-serif;
+    font-size: 14px;
+    /*Degree indicates where it will change the color*/
+    background: #C6DEA6; 
+}
+
+.CreatePostForm{
+    
+    border: 2px solid black;
+    border-radius: 45px;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin: 15px;
+    margin-top: 3pt;
+    border-width: 3px;
+    width: 790px;
+    height: 480px;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    color: black;
+    text-align: center;
+    
+
+}
+
+#userInput{
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.score{
+    padding-left: 160px;
+}
+
+.profilePic{
+    padding-left: 160px;
+}
+
+.tagContainer{
+    text-align: center;
+}
+
+#userInputScore{
+    width: 40px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+#userInputResponse{
+    width: 610px;
+    height: 150px;
+    border-style: none;
+    text-align: center;
+}
+
+#tags{
+    border-style: none;
+    width: 200px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    
+}
+
+
+
+.buttonContainer{
+    padding-top: 25px;
+   text-align: center;
+}
+
+.button{
+    display: inline-block;
+    width: 610px;
+    height: 30px;
+    background-color: #7ebdc3;
+
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: black;
+    font-weight: bold;
+
+    border-style: none;
+
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: #94dce3;
+    opacity: 0.8;
 }
