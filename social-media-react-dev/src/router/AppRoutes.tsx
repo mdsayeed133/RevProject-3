@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
-import AdvancedSearch from '../components/AdvancedSearch/advancedSearch';
+import AdvancedSearch from '../components/advancedSearch/advancedSearch';
 import CreateComments from '../components/Comments/CreateComments';
 import ShowComments from '../components/Comments/ShowComments';
 import CreateTrainer from '../components/CreateTrainer/CreateTrainer';
