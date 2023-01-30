@@ -3,8 +3,8 @@ package com.revature.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tag")
-public class Tag {
+@Table(name = "tags")
+public class Tags {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,14 +14,14 @@ public class Tag {
     @Column(nullable = false, unique = true)
     private String tagName ;
 
-    public Tag(){};
+    public Tags(){}
 
-    public Tag(int id, String tagName){
+    public Tags(int id, String tagName){
         this.id = id;
         this.tagName = tagName;
     }
 
-    public Tag(String tagName) {
+    public Tags(String tagName) {
         this.tagName = tagName;
     }
 

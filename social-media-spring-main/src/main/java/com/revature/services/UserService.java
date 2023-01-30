@@ -2,7 +2,6 @@ package com.revature.services;
 
 import com.revature.models.User;
 import com.revature.repositories.UserRepository;
-import com.revature.models.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -25,14 +24,12 @@ public class UserService {
     }
     public boolean updatePassword(int userId, String newPassword){
         User user = userRepository.findById(userId).orElse(null);
-        if(user == null){
-            return false;
-        }
+        if(user == null){return false;}
         user.setPassword(newPassword);
         userRepository.save(user);
         return true;
 
-    };
+    }
 
     public User save(User user) {
         return userRepository.save(user);
