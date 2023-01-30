@@ -1,6 +1,10 @@
 package com.revature.models;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
+import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -14,20 +18,32 @@ public class User {
     private String firstName;
     private String lastName;
 
-    /*        User created = new User(0,
-                registerRequest.getEmail(),
-                registerRequest.getPassword(),
-                registerRequest.getFirstName(),
-                registerRequest.getLastName());*/
+    @ManyToMany(mappedBy = "followers")
+    private List<Employee> followedEmployees;
+
+    @CreatedDate
+    private Instant date;
+
     public User() {
     }
 
-    public User(int id, String email, String password, String firstName, String lastName) {
+    public User(int id, String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant date) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.followedEmployees = followedEmployees;
+        this.date = date;
+    }
+
+    public User(String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant date) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.followedEmployees = followedEmployees;
+        this.date = date;
     }
 
     public User(String email, String password, String firstName, String lastName) {
@@ -75,5 +91,21 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Employee> getFollowedEmployees() {
+        return followedEmployees;
+    }
+
+    public void setFollowedEmployees(List<Employee> followedEmployees) {
+        this.followedEmployees = followedEmployees;
+    }
+
+    public Instant getDate() {
+        return date;
+    }
+
+    public void setDate(Instant date) {
+        this.date = date;
     }
 }

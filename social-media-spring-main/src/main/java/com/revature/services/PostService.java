@@ -25,7 +25,10 @@ public class PostService {
 		return this.postRepository.save(post);
 	}
 
-	public List<Post> getAllTop() {
-		return postRepository.findAllByPostType(PostType.Top);
+	public List<Post> getAllRating() {
+		return postRepository.findAllByPostType(PostType.Rating);
 	}
+
+//	public Object getAllTop() {
+//	}
 }
