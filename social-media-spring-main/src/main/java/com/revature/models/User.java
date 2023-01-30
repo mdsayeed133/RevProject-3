@@ -1,6 +1,9 @@
 package com.revature.models;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
+import java.time.Instant;
 
 @Entity
 @Table(name = "users")
@@ -13,6 +16,9 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
+
+    @CreatedDate
+    private Instant date;
 
     /*        User created = new User(0,
                 registerRequest.getEmail(),

@@ -1,6 +1,9 @@
 package com.revature.models;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
+import java.time.Instant;
 import java.util.List;
 
 @Entity
@@ -8,10 +11,10 @@ import java.util.List;
 public class Post {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String text;
-	private String imageUrl;
+	private int imageId;
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Post> comments;
 	@ManyToOne
@@ -19,32 +22,33 @@ public class Post {
 
 	private PostType postType;
 
+	private Rating rating;
+
+	@CreatedDate
+	private Instant date;
+
 	public Post() {
 	}
 
-	public Post(String text, String imageUrl, List<Post> comments, User author, PostType postType) {
+	public Post(String text, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant date) {
 		this.text = text;
-		this.imageUrl = imageUrl;
+		this.imageId = imageId;
 		this.comments = comments;
 		this.author = author;
 		this.postType = postType;
+		this.rating = rating;
+		this.date = date;
 	}
 
-	public Post(int id, String text, String imageUrl, List<Post> comments, User author, PostType postType) {
+	public Post(int id, String text, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant date) {
 		this.id = id;
 		this.text = text;
-		this.imageUrl = imageUrl;
+		this.imageId = imageId;
 		this.comments = comments;
 		this.author = author;
 		this.postType = postType;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		this.rating = rating;
+		this.date = date;
 	}
 
 	public String getText() {
@@ -55,12 +59,12 @@ public class Post {
 		this.text = text;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public int getImageId() {
+		return imageId;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImageId(int imageId) {
+		this.imageId = imageId;
 	}
 
 	public List<Post> getComments() {
@@ -85,5 +89,13 @@ public class Post {
 
 	public void setPostType(PostType postType) {
 		this.postType = postType;
+	}
+
+	public Rating getRating() {
+		return rating;
+	}
+
+	public void setRating(Rating rating) {
+		this.rating = rating;
 	}
 }
