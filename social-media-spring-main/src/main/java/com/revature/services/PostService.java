@@ -29,6 +29,5 @@ public class PostService {
 		return postRepository.findAllByPostType(PostType.Rating);
 	}
 
-//	public Object getAllTop() {
-//	}
+
 }
