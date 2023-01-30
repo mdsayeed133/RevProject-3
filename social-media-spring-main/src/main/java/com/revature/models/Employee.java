@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "employees")
-public class Employees {
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,7 +28,7 @@ public class Employees {
     @Column(name = "date", updatable = false, insertable = false)
     private Timestamp date;
 
-    public Employees() {
+    public Employee() {
         this.date = new Timestamp(System.currentTimeMillis());
     }
 
