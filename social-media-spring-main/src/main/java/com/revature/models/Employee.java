@@ -1,7 +1,11 @@
 package com.revature.models;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "employees")
@@ -18,19 +22,25 @@ public class Employee {
     private String lastName;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "author")
+    @JoinColumn(name = "author_user_id")
     private User author;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "departmentId")
+    @JoinColumn(name = "department_id")
     private Department department;
 
-    @Column(name = "date", updatable = false, insertable = false)
-    private Timestamp date;
+    @ManyToMany
+    @JoinTable(
+            name = "user_follow_employee",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> followers;
 
-    public Employee() {
-        this.date = new Timestamp(System.currentTimeMillis());
-    }
+
+    @CreatedDate
+    @Column(name = "date", updatable = false)
+    private Instant date;
 
     // getters and setters
 }

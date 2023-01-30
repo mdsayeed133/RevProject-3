@@ -10,9 +10,6 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "rating")
-    private Rating rating;
 
     @Column(nullable = false)
     private String tagName ;
@@ -21,6 +18,10 @@ public class Tag {
 
     public Tag(int id, String tagName){
         this.id = id;
+        this.tagName = tagName;
+    }
+
+    public Tag(String tagName) {
         this.tagName = tagName;
     }
 
@@ -40,12 +41,4 @@ public class Tag {
         this.tagName = tagName;
     }
 
-    @Override
-    public String toString() {
-        return "Tags{" +
-                "id=" + id +
-                ", rating=" + rating +
-                ", tagName='" + tagName + '\'' +
-                '}';
-    }
 }

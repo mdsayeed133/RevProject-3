@@ -15,13 +15,15 @@ public class Post {
 	private int id;
 	private String text;
 	private int imageId;
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Post> comments;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private User author;
 
 	private PostType postType;
 
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "rating_id")
 	private Rating rating;
 
 	@CreatedDate
