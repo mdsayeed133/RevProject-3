@@ -1,0 +1,37 @@
+.tagline{
+    white-space: nowrap;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 45px;
+    margin: 15px;
+    margin-top: 3pt;
+    border-width: 3px;
+    width: fit-content;
+   
+}
+
+.TrainerRanking_Container{
+    background-color: lightblue;
+    float: left;
+    width: 50%;
+    position: relative;
+   
+   
+}
+
+.userreview_container{
+    background-color: lightcyan;
+    width: 50%;
+    float: left;
+   
+  
+    
+}
+
+.leaderboard{
+    border: 2px solid black;
+}
+
+.userratings{
+    border: 2px solid black;
+}

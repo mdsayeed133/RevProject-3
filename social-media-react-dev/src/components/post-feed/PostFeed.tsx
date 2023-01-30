@@ -9,6 +9,10 @@ import { UserContext } from '../../context/user.context';
 import TextField from '@mui/material/TextField';
 import { apiUpsertPost } from '../../remote/social-media-api/post.api';
 import Footer from '../Footer/Footer';
+import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFill, BsFillEmojiFrownFill, BsFillEmojiNeutralFill, BsFillEmojiSmileFill, BsFillEmojiSunglassesFill} from "react-icons/bs";
+
+
+import '../post-feed/PostFeed.css'
 
 
 export const PostFeed = () => {
@@ -62,37 +66,144 @@ export const PostFeed = () => {
         fetchData()
     }, []);
 
-    let noPostsText = <></>;
-
-    // displays if there are currently no posts made
-    if (post.length === 0) {
-        noPostsText =
-            <h2 style={{ textAlign: 'center', marginTop: '3%', color: 'gray' }}>
-                There are no posts, share your thoughts!
-            </h2>;
-    }
-
     return (
         // component to edit for changes in the PostFeed
         <>
             <Navbar />
-            <Container maxWidth="xl" sx={{
-                backgroundColor: '#fff',
-                height: 'auto'
-            }}>
-                <h2 style={{ textAlign: 'center' }}>{welcomeText}</h2>
-                {postForm}
-            </Container>
-            <Grid container justifyContent={"center"}>
-                <Grid item sx={{ width: '60%', mb: '20px' }} >
-                    {post.map((item) => (
-                        <PostCard post={item} key={item.id} />
-                    ))
-                    }
-                </Grid>
-            </Grid>
-            {noPostsText}
-            <Footer/>
+            {/* kw: create sticky sidebar containing "following/add trainer"? */}
+            <div className="post-feed-container container">
+                <div className="row">
+                    <div className="col-md-3">
+                        <section className="sidebar-section">
+                            <div className="widget make-sticky">
+                                <div className="add-button">
+                                    <button>Add Trainer</button>
+                                </div>
+                                <p>Following:</p>
+                                <ul> <em>**this auto pops**</em>
+                                    <li><em>Ben P.</em></li>
+                                    <li><em>Trainer</em></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <div className="col-md-7">
+                        <div className="post-feed-content">
+                            <h3>Display information here</h3>
+                            <div className="post-card">
+                                <div className="post-user d-flex">
+                                    <img src="genericUser.png" className="post-user-image" alt="" />
+                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
+                                </div>
+                                <div className="post-message-body">
+                                    <div className="post-headline d-flex justify-content-between">
+                                        <p>Name: <em>Trainer Name</em></p>
+                                        <p>Rating: <em>5/10</em></p>
+                                    </div>
+                                    <div className="post-message d-flex justify-content-between">
+                                        <p>Department: <em>Trainer Department</em></p>
+                                        <p>Posted by: <em>User</em></p>
+                                    </div>
+                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
+                                </div>
+                                <div className="d-flex justify-content-between">
+                                    <button>View comments</button>
+                                    <div className="react-box">
+                                        {/* how many icons are too much */}
+                                        <BsFillEmojiAngryFill size="2em" />
+                                    </div>
+                                </div>
+                            </div>
+                            <p><em>**THEN EVERYTHING POPULATES BELOW**</em></p>
+                            <div className="post-card">
+                                <div className="post-user d-flex">
+                                    <img src="genericUser.png" className="post-user-image" alt="" />
+                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
+                                </div>
+                                <div className="post-message-body">
+                                    <div className="post-headline d-flex justify-content-between">
+                                        <p>Name: <em>Trainer Name</em></p>
+                                        <p>Rating: <em>5/10</em></p>
+                                    </div>
+                                    <div className="post-message d-flex justify-content-between">
+                                        <p>Department: <em>Trainer Department</em></p>
+                                        <p>Posted by: <em>User</em></p>
+                                    </div>
+                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
+                                </div>
+                                <div className="d-flex justify-content-between">
+                                    <button>View comments</button>
+                                    <div className="react-box">
+                                        {/* how many icons are too much */}
+                                        <BsFillEmojiDizzyFill size="2em" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="post-card">
+                                <div className="post-user d-flex">
+                                    <img src="genericUser.png" className="post-user-image" alt="" />
+                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
+                                </div>
+                                <div className="post-message-body">
+                                    <div className="post-headline d-flex justify-content-between">
+                                        <p>Name: <em>Trainer Name</em></p>
+                                        <p>Rating: <em>5/10</em></p>
+                                    </div>
+                                    <div className="post-message d-flex justify-content-between">
+                                        <p>Department: <em>Trainer Department</em></p>
+                                        <p>Posted by: <em>User</em></p>
+                                    </div>
+                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
+                                </div>
+                            </div>
+                            <div className="post-card">
+                                <div className="post-user d-flex">
+                                    <img src="genericUser.png" className="post-user-image" alt="" />
+                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
+                                </div>
+                                <div className="post-message-body">
+                                    <div className="post-headline d-flex justify-content-between">
+                                        <p>Name: <em>Trainer Name</em></p>
+                                        <p>Rating: <em>5/10</em></p>
+                                    </div>
+                                    <div className="post-message d-flex justify-content-between">
+                                        <p>Department: <em>Trainer Department</em></p>
+                                        <p>Posted by: <em>User</em></p>
+                                    </div>
+                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
+                                </div>
+                            </div>
+                            <div className="post-card">
+                                <div className="post-user d-flex">
+                                    <img src="genericUser.png" className="post-user-image" alt="" />
+                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
+                                </div>
+                                <div className="post-message-body">
+                                    <div className="post-headline d-flex justify-content-between">
+                                        <p>Name: <em>Trainer Name</em></p>
+                                        <p>Rating: <em>5/10</em></p>
+                                    </div>
+                                    <div className="post-message d-flex justify-content-between">
+                                        <p>Department: <em>Trainer Department</em></p>
+                                        <p>Posted by: <em>User</em></p>
+                                    </div>
+                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
+                                </div>
+                                <div className="d-flex justify-content-between">
+                                    <button>View comments</button>
+                                    <div className="react-box">
+                                        {/* how many icons are too much */}
+                                        <BsFillEmojiDizzyFill size="2em" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <Footer />
         </>
     )
 };

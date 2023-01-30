@@ -6,12 +6,22 @@ const TrainerProfile = () => {
 
     // useNavigate to "navigate"
     const navigate = useNavigate();
-    const showComments = async () => {
-        navigate("/showcomments")
-    }
+    // const showComments = async () => {
+    //     navigate("/showcomments")
+    // }
     const createComments = async () => {
         navigate("/createcomments")
     }
+    // const comments = 'yes';
+
+    // React.useEffect(()=> {
+    //     if (comments !=){
+    //         console.log("show comments")
+    //     } else {
+    //         const element: HTMLElement = document.getElementById('showComment') as HTMLElement
+    //         element.innerHTML = 'display everything'
+    //     }
+    // })
     return (
         <>
             <Navbar />
@@ -24,7 +34,7 @@ const TrainerProfile = () => {
                             <h3>Department: <em>Trainer</em></h3>
                         </div>
                         <div className="btn-box d-flex justify-content-around">
-                            <button className="comment-btn" onClick={showComments}>Show comments</button>
+                            <button className="comment-btn">Show comments</button>
                             <button className="comment-btn" onClick={createComments}>Create comments</button>
                         </div>
                     </div>
@@ -44,9 +54,9 @@ const TrainerProfile = () => {
                     </div>
                 </div>
                 {/* this should hold the posted comments upon a click */}
-                {/* <div className="posted-comments">
+                <div className="posted-comments d-none">
                     <h2><em>comments will populate below</em></h2>
-                </div> */}
+                </div>
             </div>
         </>
     )

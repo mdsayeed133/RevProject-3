@@ -1,0 +1,38 @@
+.post-feed-container {
+    height: 2000px;
+}
+.post-card {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.post-message-body {
+    border-top: 1px solid black;
+}
+
+.post-user-image {
+    width: 20%;
+}
+.sidebar-section {
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 100%;
+    position: relative;
+    width: 200px;
+    /* test sticky css */
+    /* position: absolute; */
+    
+}
+.widget {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.make-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 30px;
+}
