@@ -29,7 +29,8 @@ const CreatePostForm = () => {
     </div>
     <div className="inputContainer">
         <h2 id="inputQuestion">Enter your reasoning why</h2>
-        <input id="userInputResponse" type="text" />
+        <textarea id="userInputResponse" ></textarea>
+        {/* <input id="userInputResponse" type="text" /> */}
     </div>
     <div className="tagContainer">
         <h2>Select Up To 3 Tags</h2>

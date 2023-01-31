@@ -38,7 +38,7 @@ body{
     margin-top: 3pt;
     border-width: 3px;
     width: 790px;
-    height: 500px;
+    height: 515px;
 
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
@@ -61,11 +61,11 @@ body{
 
 }
 
-
-
 #userInput{
     white-space: nowrap;
     display: inline-block;
+
+    
     
 }
 
@@ -91,7 +91,7 @@ body{
 
 .tagContainer{
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
 
@@ -111,8 +111,14 @@ body{
     width: 610px;
     height: 150px;
     border-style: none;
-    text-align: center;
-    
+
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
+    line-height: 1em;
+
+    font-size: 16px;
+     
 }
 
 
@@ -121,11 +127,13 @@ body{
     width: 200px;
     height: 30px;
     display: inline-block;
-    padding-left: 20px;
+    padding-left: -20px; 
     text-align: center;
+
+    margin-right: 10px;
+    
     
 }
-
 
 
 .buttonContainer{
@@ -136,7 +144,7 @@ body{
 .button{
     display: inline-block;
     width: 610px;
-    height: 30px;
+    height: 40px;
     background-color: #7ebdc3;
 
     font-size: 20px;
