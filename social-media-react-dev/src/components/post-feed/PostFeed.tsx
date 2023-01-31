@@ -13,6 +13,7 @@ import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFi
 
 
 import '../post-feed/PostFeed.css'
+import { useNavigate } from 'react-router-dom';
 
 
 export const PostFeed = () => {
@@ -66,6 +67,12 @@ export const PostFeed = () => {
         fetchData()
     }, []);
 
+    // navigate to post component
+    const navigate = useNavigate();
+    
+    const createPost = async()=>{
+        navigate("/createpostform")
+    }
     return (
         // component to edit for changes in the PostFeed
         <>
@@ -78,6 +85,7 @@ export const PostFeed = () => {
                             <div className="widget make-sticky">
                                 <div className="add-button">
                                     <button>Add Trainer</button>
+                                    <button onClick={createPost}>Create Post</button>
                                 </div>
                                 <p>Following:</p>
                                 <ul> <em>**this auto pops**</em>

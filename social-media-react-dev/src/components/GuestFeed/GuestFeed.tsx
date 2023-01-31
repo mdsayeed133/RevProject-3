@@ -134,9 +134,7 @@ const GuestFeed = () => {
   <span>Like</span>
 </button>
 
-<button className='dislikebutton'>
-  <span>Dislike</span>
-</button>
+
 
 </div>
 

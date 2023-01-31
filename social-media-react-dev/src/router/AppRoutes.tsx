@@ -1,11 +1,16 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
+<<<<<<< HEAD
 import AdvancedSearch from '../components/advancedSearch/advancedSearch';
+=======
+// import AdvancedSearch from '../components/AdvancedSearch/advancedSearch';
+>>>>>>> b5e80abf613fdc9d999e90cc1cc43fc06548c4e4
 import CreateComments from '../components/Comments/CreateComments';
 import ShowComments from '../components/Comments/ShowComments';
 import CreateTrainer from '../components/CreateTrainer/CreateTrainer';
 import GuestFeed from '../components/GuestFeed/GuestFeed';
 import Login from '../components/login/Login';
+import CreatePostForm from '../components/post-feed/CreatePostForm';
 import { PostFeed } from '../components/post-feed/PostFeed';
 import Register from '../components/register/Register';
 import TrainerProfile from '../components/TrainerProfile/TrainerProfile';
@@ -20,10 +25,11 @@ export const AppRoutes: React.FC<unknown> = () => (
     <Route path="/userprofile" element={<UserProfile />}/>
     <Route path="/trainers" element={<Trainers/>}/>
     <Route path="/trainerprofile" element={<TrainerProfile />}/>
-    <Route path="/advancedsearch" element={<AdvancedSearch/>}/>
+    {/* <Route path="/advancedsearch" element={<AdvancedSearch/>}/> */}
     <Route path="/createtrainer" element={<CreateTrainer/>}/>
     <Route path="/createcomments" element={<CreateComments/>}/>
     <Route path="/showcomments" element={<ShowComments/>}/>
+    {/* <Route path="/createpost" element={<CreatePostForm/>}/> */}
     <Route path="/guest" element={<GuestFeed/>}/>
   </Routes>
 )

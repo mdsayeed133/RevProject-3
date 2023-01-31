@@ -44,6 +44,7 @@ const CreatePostForm = () => {
 
   return (
     //</div className={styles.postCont}>
+    <>
     <React.Fragment>
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
       <TextField
@@ -69,6 +70,8 @@ const CreatePostForm = () => {
         </Button>
       </Box>
     </React.Fragment>
+    
+    </>
     //</div>
   );
 }
