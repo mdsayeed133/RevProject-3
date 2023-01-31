@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+class UserServiceTest {
 
     @Mock
     private UserRepository userRepository;
@@ -45,24 +45,43 @@ public class UserServiceTest {
         mockUser.setFollowedEmployees(followedEmployees);
     }
     @Test
-    public void findByCredentialsTest() {
+    void findByCredentialsTest() {
         when(userRepository.findByEmailAndPassword("test@example.com", "password")).thenReturn(Optional.of(mockUser));
         Optional<User> result = userService.findByCredentials("test@example.com", "password");
         assertThat(result.get(), equalTo(mockUser));
     }
 
     @Test
-    public void getAllFollowingTest() {
+    void getAllFollowingTest() {
         when(userRepository.findById(0)).thenReturn(Optional.of(mockUser));
         List<Employee> result = userService.getAllFollowing(0);
         assertThat(result, equalTo(mockUser.getFollowedEmployees()));
     }
 
     @Test
-    public void getUserByIdTest() {
+    void getUserByIdTest() {
         when(userRepository.findById(0)).thenReturn(Optional.of(mockUser));
         Optional<User> result = userService.getUserById(0);
         assertThat(result.get(), equalTo(mockUser));
     }
 
+    @Test
+    void updatePasswordTest() {
+        when(userRepository.findById(0)).thenReturn(Optional.of(mockUser));
+        boolean result = userService.updatePassword(0, "newPassword");
+        assertThat(result, equalTo(true));
+        verify(userRepository, times(1)).save(mockUser);
+        assertThat(mockUser.getPassword(), equalTo("newPassword"));
+    }
+
+    @Test
+    void getUserByName_ShouldReturnMatchedUsers() {
+        userRepository.save(mockUser);
+
+        List<User> result = userService.getUserByName("John");
+
+        assertThat(result, notNullValue());
+        assertThat(result.size(), is(1));
+        assertThat(result, hasItem(mockUser));
+    }
 }
