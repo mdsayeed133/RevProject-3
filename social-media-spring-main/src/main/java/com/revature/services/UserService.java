@@ -40,7 +40,9 @@ public class UserService {
     }
 
     public Optional<List<User>> getUserByName(String search){
-        return userRepository.findByName(search);
+        Optional<List<User>> results = userRepository.findByNameStartsWith(search);
+        return results;
+
     }
 
     public User save(User user) {
