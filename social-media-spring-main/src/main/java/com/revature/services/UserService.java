@@ -1,9 +1,11 @@
 package com.revature.services;
 
+import com.revature.models.Employee;
 import com.revature.models.User;
 import com.revature.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,6 +21,13 @@ public class UserService {
         return userRepository.findByEmailAndPassword(email, password);
     }
 
+
+    public List<Employee> getAllFollowing(int userId)
+    {
+        User user = userRepository.findById(userId).orElse(null);
+        return user.getFollowedEmployees();
+    }
+
     public Optional<User> getUserById(int id){
         return userRepository.findById(id);
     }
@@ -30,6 +39,7 @@ public class UserService {
         return true;
 
     }
+
 
     public User save(User user) {
         return userRepository.save(user);
