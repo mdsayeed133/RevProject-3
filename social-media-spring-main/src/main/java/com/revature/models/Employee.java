@@ -52,6 +52,15 @@ public class Employee {
         this.department = department;
     }
 
+    public Employee(Integer id, String firstName, String lastName, User author, Department department, Instant date) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.author = author;
+        this.department = department;
+        this.date = date;
+    }
+
     public Employee(Integer id, String firstName, String lastName, User author, Department department, List<User> followers, Instant date) {
         this.id = id;
         this.firstName = firstName;

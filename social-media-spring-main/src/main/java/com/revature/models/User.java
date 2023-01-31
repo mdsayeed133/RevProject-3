@@ -28,6 +28,15 @@ public class User {
     public User() {
     }
 
+    public User(int id, String email, String password, String firstName, String lastName, Instant date) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.date = date;
+    }
+
     public User(int id, String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant date) {
         this.id = id;
         this.email = email;
