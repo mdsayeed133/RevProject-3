@@ -12,10 +12,9 @@ const GuestFeed = () => {
             {/* fs: */}
             <div className='summaryPart'>
                 <div className='tagline_comment'>
-                    <h2>A place to connect the future with the Past.</h2>
-                    <h4 className='tagline'>Find your trainer</h4>
-                    <h4 className='tagline'>Connect with your batchmates</h4>
-                    <h4 className='tagline'>Rate your Trainer</h4>
+                    <h2>Welcome to RevRater, Where we connect to our future</h2>
+                    <h4 className='tagline'>Find an Employee</h4>
+                    <h4 className='tagline'>Rate the Employee </h4>
                     <h4 className='tagline'>View what others have to say !</h4>
                 </div>
                     </div>
@@ -32,7 +31,7 @@ const GuestFeed = () => {
                      <h3 className='rankingname'>Bonny N.</h3>
                       <h6>Skills: <em>java, html, React, Javascript</em></h6>
                         <h6>Followers: <em>80 </em></h6>
-                          <h6>Reviews:78</h6>
+                          <h6>Reviews: <em>78</em></h6>
                       <div className='scoreBoard'>
                       <h5>Overall Rating: <em>4.9/5</em></h5>
                         </div>
@@ -42,22 +41,22 @@ const GuestFeed = () => {
                         <div className='leaderboard'>
                     <img src="https://via.placeholder.com/150" alt="" />
                      <h3 className='rankingname'>Name</h3>
-                      <p>Skills: <em> java,React,HTML</em></p>
-                        <p>Followers: <em>70 Followers</em></p>
-                          <p>Reviews: <em>70 Reviews</em></p>
+                        <h6>Skills: <em>java, html, React, Javascript</em></h6>
+                          <h6>Followers: <em>80 </em></h6>
+                            <h6>Reviews: <em>78</em></h6>
                       <div className='scoreBoard'>
-                         <p>Rating: <em>4.7/5</em></p>
+                         <h5>Overall Rating: <em>4.7/5</em></h5>
                         </div>
                           </div>        
 
                           <div className='leaderboard'>
                     <img src="https://via.placeholder.com/150" alt="" />
                      <h3 className='rankingname'>Name</h3>
-                      <p>Skills: <em> java,React,HTML</em></p>
-                        <p>Followers: <em>68 Followers</em></p>
-                          <p>Reviews: <em>67 Reviews</em></p>
+                       <h6>Skills: <em>java, html, React, Javascript</em></h6>
+                         <h6>Followers: <em>80 </em></h6>
+                           <h6>Reviews: <em>78</em></h6>
                       <div className='scoreBoard'>
-                         <p>Rating: <em>4.5/5</em></p>
+                         <h5>Overall Rating: <em>4.5/5</em></h5>
                         </div>
                           </div>        
 
@@ -80,9 +79,7 @@ const GuestFeed = () => {
                   <span>Like</span>
                 </button>
 
-                <button className='dislikebutton'>
-                  <span>Dislike</span>
-                </button>
+              
 
                 </div>
 
@@ -98,9 +95,6 @@ const GuestFeed = () => {
   <span>Like</span>
 </button>
 
-<button className='dislikebutton'>
-  <span>Dislike</span>
-</button>
 
 </div>
 
@@ -116,9 +110,7 @@ const GuestFeed = () => {
   <span>Like</span>
 </button>
 
-<button className='dislikebutton'>
-  <span>Dislike</span>
-</button>
+
 
 </div>
 

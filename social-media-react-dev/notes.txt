@@ -10,11 +10,13 @@
 +===============+
 | Color Scheme1 |
 +===============+
-dff2d8
-c6dea6
-7ebdc3
-7a6263
-cdo097
+:root{
+    --color1: #dff2d8;
+    --color2: #c6dea6;
+    --color3: #7ebdc3;
+    --color4: #7a6263;
+    --color5: #ced097;
+}
 
 +===============+
 | Color Scheme2 |

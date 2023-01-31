@@ -25,7 +25,7 @@ export const AppRoutes: React.FC<unknown> = () => (
     <Route path="/createtrainer" element={<CreateTrainer/>}/>
     <Route path="/createcomments" element={<CreateComments/>}/>
     <Route path="/showcomments" element={<ShowComments/>}/>
-    {/* <Route path="/createpost" element={<CreatePostForm/>}/> */}
+    <Route path="/createpostform" element={<CreatePostForm/>}/>
     <Route path="/guest" element={<GuestFeed/>}/>
   </Routes>
 )
