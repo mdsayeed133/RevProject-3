@@ -2,6 +2,7 @@ package com.revature.services;
 
 import com.revature.models.Employee;
 import com.revature.models.User;
+import com.revature.repositories.EmployeeRepository;
 import com.revature.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,8 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
+    private EmployeeRepository employeeRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -53,5 +55,28 @@ public class UserService {
         return allResults;
     }
 
+    public boolean follow(int userId, int employeeId){
+        User user = userRepository.findById(userId).orElse(null);
+        Employee emp = employeeRepository.findById(employeeId).orElse(null);
+        List<Employee> list = user.getFollowedEmployees();
+        if(list.contains(emp)) {
+            list.remove(emp);
+            user.setFollowedEmployees(list);
+            userRepository.save(user);
+            return true;
+        }return false;
+    }
+
+    public boolean unFollow(int userId, int employeeId){
+        User user = userRepository.findById(userId).orElse(null);
+        Employee emp = employeeRepository.findById(employeeId).orElse(null);
+        List<Employee> list = user.getFollowedEmployees();
+        if(!list.contains(emp)) {
+            list.add(emp);
+            user.setFollowedEmployees(list);
+            userRepository.save(user);
+            return true;
+        }return false;
+    }
 
 }

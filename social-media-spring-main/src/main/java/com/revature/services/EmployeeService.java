@@ -19,6 +19,6 @@ public class EmployeeService {
     {
         return employeeRepository.findById(empId).orElse(null);
     }
-    findRatingsByEmployeeId()
+
 
 }

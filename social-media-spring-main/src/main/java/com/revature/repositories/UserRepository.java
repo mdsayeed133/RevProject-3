@@ -14,10 +14,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByEmailAndPassword(String email, String password);
     @Transactional
-    @Query("FROM User u WHERE u.first_name LIKE %:first_name%")
+    @Query("FROM users u WHERE u.first_name LIKE %:first_name%")
     Optional<List<User>> findByFirstNameStartsWith(@Param("first_name")String search);
     @Transactional
-    @Query("FROM User u WHERE u.last_name LIKE %:last_name%")
+    @Query("FROM users u WHERE u.last_name LIKE %:last_name%")
     Optional<List<User>> findByLastNameStartsWith(@Param("last_name")String search);
 
 
