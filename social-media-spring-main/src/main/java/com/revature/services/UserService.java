@@ -5,7 +5,7 @@ import com.revature.models.User;
 import com.revature.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 import java.util.Optional;
 
 @Service
@@ -39,11 +39,13 @@ public class UserService {
 
     }
 
-    public Optional<List<User>> getUserByName(String search){
-        Optional<List<User>> results = userRepository.findByNameStartsWith(search);
-        return results;
-
+    public List<User> getUserByName(String search){
+        List<User> firstResults = userRepository.findByFirstNameStartsWith(search);
+        List<User> lastResults = userRepository.findByLastNameStartsWith(search);
+        firstResults.addAll(lastResults);
+        return firstResults;
     }
+
 
     public User save(User user) {
         return userRepository.save(user);

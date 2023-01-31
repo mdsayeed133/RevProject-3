@@ -12,8 +12,12 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByEmailAndPassword(String email, String password);
-    @Query("FROM User u WHERE u.username LIKE %:name%")
-    Optional<List<User>> findByNameStartsWith(@Param("name")String search);
+    @Query("FROM User u WHERE u.first_name LIKE %:first_name%")
+    List<User> findByFirstNameStartsWith(@Param("first_name")String search);
+
+    @Query("FROM User u WHERE u.last_name LIKE %:last_name%")
+    List<User> findByLastNameStartsWith(@Param("last_name")String search);
+
 
 
 
