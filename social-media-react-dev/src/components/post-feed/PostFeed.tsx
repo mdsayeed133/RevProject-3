@@ -73,6 +73,9 @@ export const PostFeed = () => {
     const createPost = async()=>{
         navigate("/createpostform")
     }
+
+    // I want to have the emoticons display
+
     return (
         // component to edit for changes in the PostFeed
         <>
@@ -84,7 +87,7 @@ export const PostFeed = () => {
                         <section className="sidebar-section">
                             <div className="widget make-sticky">
                                 <div className="add-button">
-                                    <button>Add Trainer</button>
+                                    <button>Add Employee</button>
                                     <button onClick={createPost}>Create Post</button>
                                 </div>
                                 <p>Following:</p>

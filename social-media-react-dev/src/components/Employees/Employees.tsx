@@ -1,24 +1,24 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../navbar/Navbar'
-import '../Trainers/Trainers.css'
+import './Employees.css'
 
-const Trainers = () => {
+const Employees = () => {
 
     // import navigate
     const navigate = useNavigate();
 
     const seeProfile = async () => {
-        navigate('/trainerprofile')
+        navigate('/employeeprofile')
     }
     return (
         <>
             <Navbar />
-            <div className="trainers-container container">
-                <h1>Display trainers</h1>
+            <div className="Employees-container container">
+                <h1>Display employees</h1>
                 <p><em>auto populate...</em></p>
-                <div className="display-trainers">
-                    {/* this card format will auto generate the trainers */}
+                <div className="display-Employees">
+                    {/* this card format will auto generate the Employees */}
                     <div className="trainer-card card d-flex jusity-content-between">
                         <img src="genericUser.png" className="card-img-top img-fluid" alt="..." />
                         <div className="comment-boxes">
@@ -56,4 +56,4 @@ const Trainers = () => {
     )
 }
 
-export default Trainers
+export default Employees

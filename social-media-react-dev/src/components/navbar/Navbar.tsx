@@ -42,6 +42,17 @@ export default function Navbar() {
     }
   }
 
+  // working on darkmode.... fun
+  const toggleDarkMode = ()=> setDarkMode(darkMode ? false:true);
+  const [darkMode, setDarkMode] = React.useState(false);
+
+  React.useEffect(()=> {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode])
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -55,8 +66,8 @@ export default function Navbar() {
             <div className="d-flex justify-content-around">
               <div>
                 <Link to="/">Main Feed</Link> |
-                <Link to="/trainers" >Trainers</Link> |
-                <Link to="/createtrainer">Create Trainer | </Link>
+                <Link to="/employees" >Employees</Link> |
+                <Link to="/createemployee">Create Employees | </Link>
                 <Link to="/guest"> Guest Feed | </Link>
                 <Link to="/advancedsearch">Advanced Search</Link>
               </div>
@@ -67,6 +78,7 @@ export default function Navbar() {
             <div>
               <h2><em>*Guest*</em></h2>
             </div>
+            <button className="darkmode-switch" onClick={()=>setDarkMode(!darkMode)}></button>
             <Tooltip disableFocusListener disableTouchListener title={tipTitle}>
               <IconButton
                 size="large"

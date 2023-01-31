@@ -1,16 +1,17 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
-// import AdvancedSearch from '../components/AdvancedSearch/advancedSearch';
+import AdvancedSearch from '../components/advancedSearch/AdvancedSearch';
 import CreateComments from '../components/Comments/CreateComments';
 import ShowComments from '../components/Comments/ShowComments';
-import CreateTrainer from '../components/CreateTrainer/CreateTrainer';
+import CreateEmployee from '../components/CreateEmployee/CreateEmployee';
 import GuestFeed from '../components/GuestFeed/GuestFeed';
 import Login from '../components/login/Login';
 import CreatePostForm from '../components/post-feed/CreatePostForm';
 import { PostFeed } from '../components/post-feed/PostFeed';
 import Register from '../components/register/Register';
-import TrainerProfile from '../components/TrainerProfile/TrainerProfile';
-import Trainers from '../components/Trainers/Trainers';
+import SignUp from '../components/register/SignUp';
+import EmployeeProfile from '../components/EmployeeProfile/EmployeeProfile';
+import Employees from '../components/Employees/Employees';
 import UserProfile from '../components/UserProfile/UserProfile';
 
 export const AppRoutes: React.FC<unknown> = () => (
@@ -19,13 +20,14 @@ export const AppRoutes: React.FC<unknown> = () => (
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
     <Route path="/userprofile" element={<UserProfile />}/>
-    <Route path="/trainers" element={<Trainers/>}/>
-    <Route path="/trainerprofile" element={<TrainerProfile />}/>
-    {/* <Route path="/advancedsearch" element={<AdvancedSearch/>}/> */}
-    <Route path="/createtrainer" element={<CreateTrainer/>}/>
+    <Route path="/employees" element={<Employees/>}/>
+    <Route path="/employeeprofile" element={<EmployeeProfile />}/>
+    <Route path="/advancedsearch" element={<AdvancedSearch/>}/>
+    <Route path="/createemployee" element={<CreateEmployee/>}/>
     <Route path="/createcomments" element={<CreateComments/>}/>
     <Route path="/showcomments" element={<ShowComments/>}/>
     <Route path="/createpostform" element={<CreatePostForm/>}/>
     <Route path="/guest" element={<GuestFeed/>}/>
+    <Route path="/signup" element={<SignUp/>}/>
   </Routes>
 )

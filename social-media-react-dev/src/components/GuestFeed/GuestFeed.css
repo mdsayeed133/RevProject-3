@@ -2,7 +2,7 @@
     white-space: nowrap;
     display: inline-block;
     border: 2px solid black;
-    border-radius: 45px;
+    border-radius: 95px;
     margin: 15px;
     margin-top: 3pt;
     border-width: 3px;
@@ -10,40 +10,99 @@
    
 }
 
+.tagline{
+    border: 2px solid black ;
+    border-radius: 90px;
+    padding: 20px;
+    width: 25%;
+    text-align: center;
+}
 
+.welcomegreeting{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 .TrainerRanking_Container{
-    background-color: lightblue;
+    background-color: lightcyan;
     float: left;
     width: 50%;
     position: relative;
-   
-   
+      
 }
 
 .userreview_container{
     background-color: lightcyan;
     width: 50%;
     float: left;
-   
-  
-    
+      
 }
 
 .leaderboard{
-    border: 2px solid black;
+    border: 3px solid black;
     vertical-align: middle;
-    margin: 10px;
+    margin-top: 2%;
+    margin-bottom: 40%;
+    margin: 2%;
+    padding: 10px;
+    width: 90;
+    border-bottom: 5px solid black;
     
+    
+       
 }
 
 .userratings{
-    border: 2px solid black;
+    border: 3px solid black;
+    margin-top: 2%;
+    
 }
 
 .scoreBoard{
     white-space: nowrap;
-    display: inline-block;
-    vertical-align: middle;
     
+    text-align: right;
+   
+    
+}
+
+.imgfeed{
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 20%;
+    margin-bottom: 16%;
+}
+
+.instructorinfo{
+  text-align: center;
+  margin-top: -29%;
+    position: relative;
+    bottom: 10%;
+   
+    
+}
+
+.employeename{
+    text-align: left;
+    margin-top: 5px;
+   
+}
+
+.paragrapfeed{
+    text-align: center;
+}
+
+.likebutton{
+    text-align: center;
+    border: 2px solid black;
+    padding: 2%;
+    margin-right: 40%;
+    margin-top: -10%;
+  
+}
+.likebuttons{
+    text-align: center;
+    border: 2px solid black;
+    padding: 2%;
+    margin-left: 40%;
+    margin-top: -10%;
 }

@@ -16,3 +16,8 @@ code {
 * {
   scroll-behavior: smooth;
 }
+
+.dark {
+  background-color: #474c55;
+  color: lightgray;
+}

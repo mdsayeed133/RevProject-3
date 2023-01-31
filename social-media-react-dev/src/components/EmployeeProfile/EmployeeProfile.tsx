@@ -1,8 +1,8 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar'
-import '../TrainerProfile/TrainerProfile.css'
+import './EmployeeProfile.css'
 import { useNavigate } from 'react-router'
-const TrainerProfile = () => {
+const EmployeeProfile = () => {
 
     // useNavigate to "navigate"
     const navigate = useNavigate();
@@ -62,4 +62,4 @@ const TrainerProfile = () => {
     )
 }
 
-export default TrainerProfile
+export default EmployeeProfile

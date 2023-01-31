@@ -1,19 +1,25 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar'
+import { useNavigate } from 'react-router-dom'
 
 import '../GuestFeed/GuestFeed.css'
 
 const GuestFeed = () => {
 
+  const navigate = useNavigate();
+
+  const login = async () => {
+    navigate("/login")
+  }
     return (
         <>
             <Navbar />
             <div>GuestFeed</div>
             {/* fs: */}
             <div className='summaryPart'>
+            <h2 className='welcomegreeting'>Welcome to RevRater, Where we connect to our future</h2>
                 <div className='tagline_comment'>
-                    <h2>Welcome to RevRater, Where we connect to our future</h2>
-                    <h4 className='tagline'>Find an Employee</h4>
+                   <h4 className='tagline'>Find an Employee</h4>
                     <h4 className='tagline'>Rate the Employee </h4>
                     <h4 className='tagline'>View what others have to say !</h4>
                 </div>
@@ -25,40 +31,62 @@ const GuestFeed = () => {
             <div className='trainerRanking'>
                      <h3>Current Trainer Rankings...</h3>
                 </div>
-                    
+                   
                 <div className='leaderboard'>
-                    <img src="https://via.placeholder.com/150" alt="" />
-                     <h3 className='rankingname'>Bonny N.</h3>
-                      <h6>Skills: <em>java, html, React, Javascript</em></h6>
+
+                <div className='imgcenter'>
+                <h3 className='employeename'>Bonny N.</h3>
+                  <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
+                   
+                         </div>
+                  <div className='instructorinfo'>
+                     <h6>Skills: <em>java, html, React, Javascript</em></h6>
                         <h6>Followers: <em>80 </em></h6>
                           <h6>Reviews: <em>78</em></h6>
-                      <div className='scoreBoard'>
+                             </div>
+                   <div className='scoreBoard'>
                       <h5>Overall Rating: <em>4.9/5</em></h5>
                         </div>
                         
                         </div>
 
+                       
                         <div className='leaderboard'>
-                    <img src="https://via.placeholder.com/150" alt="" />
-                     <h3 className='rankingname'>Name</h3>
-                        <h6>Skills: <em>java, html, React, Javascript</em></h6>
-                          <h6>Followers: <em>80 </em></h6>
-                            <h6>Reviews: <em>78</em></h6>
-                      <div className='scoreBoard'>
-                         <h5>Overall Rating: <em>4.7/5</em></h5>
-                        </div>
-                          </div>        
 
-                          <div className='leaderboard'>
-                    <img src="https://via.placeholder.com/150" alt="" />
-                     <h3 className='rankingname'>Name</h3>
-                       <h6>Skills: <em>java, html, React, Javascript</em></h6>
-                         <h6>Followers: <em>80 </em></h6>
-                           <h6>Reviews: <em>78</em></h6>
-                      <div className='scoreBoard'>
-                         <h5>Overall Rating: <em>4.5/5</em></h5>
+                        <div className='imgcenter'>
+                <h3 className='employeename'>Bonny N.</h3>
+                  <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
+                   
+                         </div>
+                  <div className='instructorinfo'>
+                     <h6>Skills: <em>java, html, React, Javascript</em></h6>
+                        <h6>Followers: <em>80 </em></h6>
+                          <h6>Reviews: <em>78</em></h6>
+                             </div>
+                   <div className='scoreBoard'>
+                      <h5>Overall Rating: <em>4.9/5</em></h5>
                         </div>
-                          </div>        
+
+                        </div>
+
+                        <div className='leaderboard'>
+                          
+                <div className='imgcenter'>
+                <h3 className='employeename'>Bonny N.</h3>
+                  <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
+                   
+                         </div>
+                  <div className='instructorinfo'>
+                     <h6>Skills: <em>java, html, React, Javascript</em></h6>
+                        <h6>Followers: <em>80 </em></h6>
+                          <h6>Reviews: <em>78</em></h6>
+                             </div>
+                   <div className='scoreBoard'>
+                      <h5>Overall Rating: <em>4.9/5</em></h5>
+                        </div>
+                        </div>
+
+                           
 
 
             </div>
@@ -70,67 +98,49 @@ const GuestFeed = () => {
                 </div>
                <div className='userratings'>
 
-                <p>i was able to sleep properly for the first time in weeks</p>
-                   <p> User: <em>NotaBot</em></p> 
+                <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+                   
+                   <p> User: <em>NotaBot</em></p>
                    <p>Trainer: <em>Benjamin P.</em></p>
-                   <p>Rating: <em>5/5</em></p>
+                     <p>Rating: <em>5/5</em></p>
+                     
 
-                   <button className='likebutton'>
-                  <span>Like</span>
-                </button>
 
-              
+                   <button className='likebuttons' onClick={login}>Like </button>
+                   <button className='likebutton' onClick={login}>Reply</button>
 
-                </div>
+              </div>
+
+              <div className='userratings'>
+
+               <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+   
+                    <p> User: <em>NotaBot</em></p>
+                      <p>Trainer: <em>Benjamin P.</em></p>
+                       <p>Rating: <em>5/5</em></p>
+     
+
+
+                     <button className='likebuttons' onClick={login}>Like </button>
+                           <button className='likebutton' onClick={login}>Reply</button>
+
+                     </div>
 
                 <div className='userratings'>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis purus eget lectus convallis, 
-    eget malesuada tortor finibus. Pellentesque sem leo, ullamcorper et ex vel, laoreet vulputate nisl.</p>
-   <p> User: <em>NotaBot</em></p> 
-   <p>Trainer: <em>Benjamin P.</em></p>
-   <p>Rating: <em>5/5</em></p>
-
-   <button className='likebutton'>
-  <span>Like</span>
-</button>
+                   <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+                   
+                      <p> User: <em>NotaBot</em></p>
+                        <p>Trainer: <em>Benjamin P.</em></p>
+                          <p>Rating: <em>5/5</em></p>
+                     
 
 
-</div>
+                   <button className='likebuttons' onClick={login}>Like </button>
+                   <button className='likebutton' onClick={login}>Reply</button>
 
-<div className='userratings'>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis purus eget lectus convallis, 
-    eget malesuada tortor finibus. Pellentesque sem leo, ullamcorper et ex vel, laoreet vulputate nisl.</p>
-   <p> User: <em>NotaBot</em></p> 
-   <p>Trainer: <em>Benjamin P.</em></p>
-   <p>Rating: <em>5/5</em></p>
-
-   <button className='likebutton'>
-  <span>Like</span>
-</button>
-
-
-
-</div>
-
-<div className='userratings'>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis purus eget lectus convallis, 
-    eget malesuada tortor finibus. Pellentesque sem leo, ullamcorper et ex vel, laoreet vulputate nisl.</p>
-   <p> User: <em>NotaBot</em></p> 
-   <p>Trainer: <em>Benjamin P.</em></p>
-   <p>Rating: <em>5/5</em></p>
-
-   <button className='likebutton'>
-  <span>Like</span>
-</button>
-
-
-
-</div>
-
- </div>
+              </div>
+                    </div>
 
 
 
