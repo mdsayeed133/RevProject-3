@@ -5,6 +5,8 @@ import com.revature.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeService {
 
@@ -18,6 +20,11 @@ public class EmployeeService {
     public Employee getEmployeeById(int empId)
     {
         return employeeRepository.findById(empId).orElse(null);
+    }
+
+    public List<Employee> getAllEmpoloyees(){
+        List<Employee> emp = employeeRepository.findAll();
+        return emp;
     }
 
 
