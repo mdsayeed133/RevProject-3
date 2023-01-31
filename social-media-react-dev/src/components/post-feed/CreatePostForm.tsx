@@ -15,6 +15,7 @@ export default function CreatePostForm() {
 
   return (
     //</div className={styles.postCont}>
+    <>
     <React.Fragment>
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
       <TextField
@@ -40,6 +41,8 @@ export default function CreatePostForm() {
         </Button>
       </Box>
     </React.Fragment>
+    
+    </>
     //</div>
     
   );
