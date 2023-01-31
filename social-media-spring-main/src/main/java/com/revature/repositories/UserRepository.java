@@ -13,14 +13,10 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByEmailAndPassword(String email, String password);
-    @Transactional
-    @Query("FROM users u WHERE u.first_name LIKE %:first_name%")
-    Optional<List<User>> findByFirstNameStartsWith(@Param("first_name")String search);
-    @Transactional
-    @Query("FROM users u WHERE u.last_name LIKE %:last_name%")
-    Optional<List<User>> findByLastNameStartsWith(@Param("last_name")String search);
 
+    Optional<List<User>> findByFirstNameContainingIgnoreCase(String firstName);;
 
+    Optional<List<User>> findByLastNameContainingIgnoreCase(String lastName);
 
 
 }

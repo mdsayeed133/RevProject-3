@@ -4,6 +4,7 @@ import com.revature.models.Employee;
 import com.revature.models.User;
 import com.revature.repositories.EmployeeRepository;
 import com.revature.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,8 +17,10 @@ public class UserService {
     private UserRepository userRepository;
     private EmployeeRepository employeeRepository;
 
-    public UserService(UserRepository userRepository) {
+    @Autowired
+    public UserService(UserRepository userRepository, EmployeeRepository employeeRepository) {
         this.userRepository = userRepository;
+        this.employeeRepository= employeeRepository;
     }
 
     public Optional<User> findByCredentials(String email, String password) {
@@ -47,13 +50,13 @@ public class UserService {
 
     public List<User> getUserByName(String search){
         List<User> allResults= new ArrayList<>();
-        List<User> firstResults = userRepository.findByFirstNameStartsWith(search).orElse(null);
-        List<User> lastResults = userRepository.findByLastNameStartsWith(search).orElse(null);
+        List<User> firstResults = userRepository.findByFirstNameContainingIgnoreCase(search).orElse(null);
+        List<User> lastResults = userRepository.findByLastNameContainingIgnoreCase(search).orElse(null);
         if (firstResults!=null)allResults.addAll(firstResults);
         if(lastResults!=null)allResults.addAll(lastResults);
-        if(allResults==null) return null;
         return allResults;
     }
+
 
     public boolean follow(int userId, int employeeId){
         User user = userRepository.findById(userId).orElse(null);

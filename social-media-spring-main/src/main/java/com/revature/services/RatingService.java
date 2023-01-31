@@ -33,14 +33,14 @@ public class RatingService {
 
     public Employee getEmployeeByTags(Tags tag1, Tags tag2, Tags tag3)
     {
-
+        return null;
     }
 
     public double getEmployeeAvgRating(int employeeId)
     {
         Employee employee = employeeService.getEmployeeById(employeeId);
         List<Rating> ratingList = ratingRepository.findByEmployee(employee).orElse(null);
-
+        if(ratingList==null) return 0.0;
         double total = 0;
         for(int x = 0; x < ratingList.size(); x++)
         {
@@ -50,8 +50,6 @@ public class RatingService {
 
         return averageScore;
     }
-
-
 
 
 

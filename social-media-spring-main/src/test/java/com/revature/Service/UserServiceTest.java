@@ -66,6 +66,13 @@ class UserServiceTest {
     }
 
     @Test
+    void createUserTest(){
+        when(userRepository.save(mockUser)).thenReturn(mockUser);
+        User newUser= userService.save(mockUser);
+        assertThat(newUser, equalTo(mockUser));
+    }
+
+    @Test
     void updatePasswordTest() {
         when(userRepository.findById(0)).thenReturn(Optional.of(mockUser));
         boolean result = userService.updatePassword(0, "newPassword");
@@ -76,12 +83,16 @@ class UserServiceTest {
 
     @Test
     void getUserByName_ShouldReturnMatchedUsers() {
+        String search= mockUser.getFirstName();//John
         userRepository.save(mockUser);
-
-        List<User> result = userService.getUserByName("John");
+        List<User> userList= List.of(new User[]{mockUser});
+        when(userRepository.findByFirstNameContainingIgnoreCase(search)).thenReturn(Optional.of(userList));
+        List<User> result = userService.getUserByName(search);
 
         assertThat(result, notNullValue());
         assertThat(result.size(), is(1));
         assertThat(result, hasItem(mockUser));
+
+
     }
 }
