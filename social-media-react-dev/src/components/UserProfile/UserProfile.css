@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+    font-family: "Concert-One", sans-serif;
+ }
+
+ :root{
+    --color1: #dff2d8;
+    --color2: #c6dea6;
+    --color3: #7ebdc3;
+    --color4: #7a6263;
+    --color5: #ced097;
+}
+
+.user-profile-container{
+
+    margin-top: 40px;
+
+    display: flex;
+    
+
+    /*Elements on top of each other*/
+    flex-direction: column;
+
+    /*Bring items center vertically*/
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 14px;
+
+}
+
+.profile-grid{
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.profile-grid > div{
+
+    text-align: center;
+}
+
+
+
