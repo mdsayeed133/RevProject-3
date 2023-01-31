@@ -4,6 +4,7 @@ import AdvancedSearch from '../components/advancedSearch/advancedSearch';
 import CreateComments from '../components/Comments/CreateComments';
 import ShowComments from '../components/Comments/ShowComments';
 import CreateTrainer from '../components/CreateTrainer/CreateTrainer';
+import GuestFeed from '../components/GuestFeed/GuestFeed';
 import Login from '../components/login/Login';
 import { PostFeed } from '../components/post-feed/PostFeed';
 import Register from '../components/register/Register';
@@ -23,5 +24,6 @@ export const AppRoutes: React.FC<unknown> = () => (
     <Route path="/createtrainer" element={<CreateTrainer/>}/>
     <Route path="/createcomments" element={<CreateComments/>}/>
     <Route path="/showcomments" element={<ShowComments/>}/>
+    <Route path="/guest" element={<GuestFeed/>}/>
   </Routes>
 )

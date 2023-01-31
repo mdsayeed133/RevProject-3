@@ -43,56 +43,32 @@ const CreatePostForm = () => {
   }
 
   return (
-    <div className="CreatePostForm">
-        <div className="headerContainer">
-          <h2 id="userInput">Username</h2>
-          <h2 className="score" id="userInput">
-            <input id="userInputScore" type="text"> / 10 </input>
-          </h2>
-          <h2 className="profilePic" id="userInput"> ProfilePic </h2>
-          
-    </div>
-    <div className="inputContainer">
-        <h2>Enter your reasoning why</h2>
-        <input id="userInputResponse" type="text"></input>
-    </div>
-    <div className="tagContainer">
-        <h2>Select Up To 3 Tags</h2>
-        <select name="tags" id="tags" required >
-                <option value="none" selected disabled hidden></option>
-                <option value="boring">Boring</option>
-                <option value="interesting">Interesting</option>
-                <option value="childish">Childish</option>
-                <option value="mature">Mature</option>
-                <option value="inconsiderate">Inconsiderate</option>
-                <option value="understanding">Understanding</option>
-        </select>
-        <select name="tags" id="tags">
-                <option value="none" selected disabled hidden></option>
-                <option value="boring">Boring</option>
-                <option value="interesting">Interesting</option>
-                <option value="childish">Childish</option>
-                <option value="mature">Mature</option>
-                <option value="inconsiderate">Inconsiderate</option>
-                <option value="understanding">Understanding</option>
-        </select>
-        <select name="tags" id="tags">
-                <option value="none" selected disabled hidden></option>
-                <option value="boring">Boring</option>
-                <option value="interesting">Interesting</option>
-                <option value="childish">Childish</option>
-                <option value="mature">Mature</option>
-                <option value="inconsiderate">Inconsiderate</option>
-                <option value="understanding">Understanding</option>
-        </select>
-        
-    </div>
-    <div className="buttonContainer">
-        <button className="button" type="button">Submit</button>
-    </div>
-    </div>
-    
+    //</div className={styles.postCont}>
+    <React.Fragment>
+      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+      <TextField
+        required
+          id="filled-multiline-static"
+          label="Thoughts You Would Like to Share?"
+          fullWidth
+        />
+        <TextField
+            id="postImage"
+            name="postImage"
+            label="Add an Image or Diagram?"
+            fullWidth
+            variant="standard"
+        />
+        <Button 
+            type="submit"
+            variant="contained"
+            sx={{ mt: 3, ml: 1 }}
+            color="warning"
+        >
+            Create Post
+        </Button>
+      </Box>
+    </React.Fragment>
+    //</div>
   );
 }
-
-export default CreatePostForm;

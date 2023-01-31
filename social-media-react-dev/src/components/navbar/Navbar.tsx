@@ -12,6 +12,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
 import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
+import '../navbar/Navbar.css'
 
 export default function Navbar() {
 
@@ -41,21 +42,26 @@ export default function Navbar() {
     }
   }
 
-  
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent">
         <Toolbar className="d-flex justify-content-around">
           <Typography variant="h6" component="div">
-            Revature Social
+            RevRater
           </Typography>
-          <div className="d-flex justify-content-around">
-            <div>
-              <Link to="/">Main Feed</Link> |
-              <Link to="/trainers" >Trainers</Link> |
-              <Link to="/createtrainer">Create Trainer | </Link>
-              <Link to="/advancedsearch">Advanced Search</Link>
+          <div className="d-block">
+            <input type="search" name="searchbox" id="searchbox" placeholder="enter employee name here"className="nav-search" />
+            <div className="d-flex justify-content-around">
+              <div>
+                <Link to="/">Main Feed</Link> |
+                <Link to="/trainers" >Trainers</Link> |
+                <Link to="/createtrainer">Create Trainer | </Link>
+                <Link to="/guest"> Guest Feed | </Link>
+                <Link to="/advancedsearch">Advanced Search</Link>
+              </div>
             </div>
+
           </div>
           <div className="d-flex">
             <div>
