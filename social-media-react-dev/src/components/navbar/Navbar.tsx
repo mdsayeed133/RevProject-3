@@ -44,6 +44,7 @@ export default function Navbar() {
 
   // working on darkmode.... fun
   const toggleDarkMode = ()=> setDarkMode(darkMode ? false:true);
+  const storedDarkMode = localStorage.getItem("DARK_MODE");
   const [darkMode, setDarkMode] = React.useState(false);
 
   React.useEffect(()=> {

@@ -85,11 +85,7 @@ const GuestFeed = () => {
                       <h5>Overall Rating: <em>4.9/5</em></h5>
                         </div>
                         </div>
-
-                           
-
-
-            </div>
+                   </div>
 
 
             <div className='userreview_container'>
