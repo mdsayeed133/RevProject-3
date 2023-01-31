@@ -103,8 +103,9 @@ export const PostFeed = () => {
                             <h3>Display information here</h3>
                             <div className="post-card">
                                 <div className="post-user d-flex">
-                                    <img src="genericUser.png" className="post-user-image" alt="" />
-                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
+                                    {/* <img src="genericUser.png" className="post-user-image" alt="" /> */}
+                                    <BsFillEmojiAngryFill size="4em"/>
+                                    <h4><em>"I really couldn't get much out of it...</em></h4>
                                 </div>
                                 <div className="post-message-body">
                                     <div className="post-headline d-flex justify-content-between">
@@ -120,16 +121,14 @@ export const PostFeed = () => {
                                 <div className="d-flex justify-content-between">
                                     <button>View comments</button>
                                     <div className="react-box">
-                                        {/* how many icons are too much */}
-                                        <BsFillEmojiAngryFill size="2em" />
                                     </div>
                                 </div>
                             </div>
                             <p><em>**THEN EVERYTHING POPULATES BELOW**</em></p>
                             <div className="post-card">
                                 <div className="post-user d-flex">
-                                    <img src="genericUser.png" className="post-user-image" alt="" />
-                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
+                                    <BsFillEmojiDizzyFill size="4em"/>
+                                    <h4><em>"I really couldn't get much out of it...</em></h4>
                                 </div>
                                 <div className="post-message-body">
                                     <div className="post-headline d-flex justify-content-between">
@@ -152,7 +151,24 @@ export const PostFeed = () => {
                             </div>
                             <div className="post-card">
                                 <div className="post-user d-flex">
-                                    <img src="genericUser.png" className="post-user-image" alt="" />
+                                    <BsFillEmojiExpressionlessFill size="4em"/>
+                                    <h4><em>"I really couldn't get much out of it...</em></h4>
+                                </div>
+                                <div className="post-message-body">
+                                    <div className="post-headline d-flex justify-content-between">
+                                        <p>Name: <em>Trainer Name</em></p>
+                                        <p>Rating: <em>5/10</em></p>
+                                    </div>
+                                    <div className="post-message d-flex justify-content-between">
+                                        <p>Department: <em>Trainer Department</em></p>
+                                        <p>Posted by: <em>User</em></p>
+                                    </div>
+                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
+                                </div>
+                            </div>
+                            <div className="post-card">
+                                <div className="post-user d-flex">
+                                    <BsFillEmojiSmileFill size="4em"/>
                                     <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
                                 </div>
                                 <div className="post-message-body">
@@ -169,24 +185,7 @@ export const PostFeed = () => {
                             </div>
                             <div className="post-card">
                                 <div className="post-user d-flex">
-                                    <img src="genericUser.png" className="post-user-image" alt="" />
-                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
-                                </div>
-                                <div className="post-message-body">
-                                    <div className="post-headline d-flex justify-content-between">
-                                        <p>Name: <em>Trainer Name</em></p>
-                                        <p>Rating: <em>5/10</em></p>
-                                    </div>
-                                    <div className="post-message d-flex justify-content-between">
-                                        <p>Department: <em>Trainer Department</em></p>
-                                        <p>Posted by: <em>User</em></p>
-                                    </div>
-                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
-                                </div>
-                            </div>
-                            <div className="post-card">
-                                <div className="post-user d-flex">
-                                    <img src="genericUser.png" className="post-user-image" alt="" />
+                                    <BsFillEmojiSunglassesFill size="4em" />
                                     <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
                                 </div>
                                 <div className="post-message-body">

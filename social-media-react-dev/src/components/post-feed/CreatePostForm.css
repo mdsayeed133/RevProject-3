@@ -19,17 +19,17 @@
 
 .CreatePostForm{
     
-    border: 2px solid black;
-    border-radius: 45px;
+    border: 1px solid gray;
+    border-radius: 40px;
     padding-top: 20px;
     padding-left: 20px;
-    margin: 15px;
-    margin-top: 3pt;
-    border-width: 3px;
+    margin: 30px auto;
     width: 790px;
     height: 515px;
 
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+     */
+    box-shadow: 2px 2px 2px gray;
 
     color: black;
     text-align: center;
@@ -53,10 +53,13 @@
 #userInput{
     white-space: nowrap;
     display: inline-block;
-
-    
-    
 }
+
+#userInputResponse {
+    background-color: aliceblue;
+    border: 1px solid black;
+}
+
 
 .score{
     padding-left: 160px;

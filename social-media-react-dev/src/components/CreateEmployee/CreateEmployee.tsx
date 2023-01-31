@@ -1,8 +1,40 @@
 import React from 'react'
 import './CreateEmployee.css'
 import Navbar from '../navbar/Navbar'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 const CreateEmployee = () => {
+
+
+
+   const navigate = useNavigate();
+
+   const employeeprofile = async()=>{
+    navigate("/employeeprofile")}
+
+    const [firstName, setfirstName] = useState("");
+    const [lastName, setLastname] = useState("");
+    const [department, set]
+
+
+
+const validateForm = () => {
+    if (!firstName || !lastName ||!department) {
+      return false;
+    }
+    return true;
+  };
+
+
+const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!validateForm()) {
+      setError("All fields are required");
+      return;
+    }
+
+
     return (
         <>
         <Navbar/>
@@ -10,7 +42,7 @@ const CreateEmployee = () => {
         <div className='createemployee_container'>
             <div className='firstname'>
               <h3>First Name</h3>
-              <input type="text" name="firstname" id="firstname" placeholder='Fist Name' />
+              <input type="text" name='lastname' id="firstname" placeholder='Fist Name' />
             </div>
         <div>
             <h4>Last Name</h4>
@@ -28,6 +60,8 @@ const CreateEmployee = () => {
                <option value="Recruiters">Recruiters</option>
             </select>
         </div>
+
+        <button onClick={employeeprofile }>Submit</button>
 
         </div>
         </>

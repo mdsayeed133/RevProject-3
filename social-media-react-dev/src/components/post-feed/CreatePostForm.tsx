@@ -22,52 +22,51 @@ export default function CreatePostForm() {
         <div className="headerContainer">
           <h2 id="userInput">Username</h2>
           <h2 className="score" id="userInput">
-            <input id="userInputScore" type="text" /> / 10 
+            <input id="userInputScore" type="text" /> / 10
           </h2>
           <h2 className="profilePic" id="userInput"> ProfilePic </h2>
-          
-    </div>
-    <div className="inputContainer">
-        <h2 id="inputQuestion">Enter your reasoning why</h2>
-        <textarea id="userInputResponse" ></textarea>
-        {/* <input id="userInputResponse" type="text" /> */}
-    </div>
-    <div className="tagContainer">
-        <h2>Select Up To 3 Tags</h2>
-        <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
-                <option value="DEFAULT" disabled></option>
-                <option value="boring">Boring</option>
-                <option value="interesting">Interesting</option>
-                <option value="childish">Childish</option>
-                <option value="mature">Mature</option>
-                <option value="inconsiderate">Inconsiderate</option>
-                <option value="understanding">Understanding</option>
-        </select>
-        <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
-                <option value="DEFAULT" disabled></option>
-                <option value="boring">Boring</option>
-                <option value="interesting">Interesting</option>
-                <option value="childish">Childish</option>
-                <option value="mature">Mature</option>
-                <option value="inconsiderate">Inconsiderate</option>
-                <option value="understanding">Understanding</option>
-        </select>
-        <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
-                <option value="DEFAULT" disabled></option>
-                <option value="boring">Boring</option>
-                <option value="interesting">Interesting</option>
-                <option value="childish">Childish</option>
-                <option value="mature">Mature</option>
-                <option value="inconsiderate">Inconsiderate</option>
-                <option value="understanding">Understanding</option>
-        </select>
-        
-    </div>
-    <div className="buttonContainer">
-        <button className="button" type="button">Submit</button>
-    </div>
-    </div>
-    
+
+        </div>
+        <div className="inputContainer">
+          <h2 id="inputQuestion">Enter your reasoning why</h2>
+          <textarea id="userInputResponse" ></textarea>
+          {/* <input id="userInputResponse" type="text" /> */}
+        </div>
+        <div className="tagContainer">
+          <h2>Select Up To 3 Tags</h2>
+          <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
+            <option value="DEFAULT" disabled></option>
+            <option value="boring">Boring</option>
+            <option value="interesting">Interesting</option>
+            <option value="childish">Childish</option>
+            <option value="mature">Mature</option>
+            <option value="inconsiderate">Inconsiderate</option>
+            <option value="understanding">Understanding</option>
+          </select>
+          <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
+            <option value="DEFAULT" disabled></option>
+            <option value="boring">Boring</option>
+            <option value="interesting">Interesting</option>
+            <option value="childish">Childish</option>
+            <option value="mature">Mature</option>
+            <option value="inconsiderate">Inconsiderate</option>
+            <option value="understanding">Understanding</option>
+          </select>
+          <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
+            <option value="DEFAULT" disabled></option>
+            <option value="boring">Boring</option>
+            <option value="interesting">Interesting</option>
+            <option value="childish">Childish</option>
+            <option value="mature">Mature</option>
+            <option value="inconsiderate">Inconsiderate</option>
+            <option value="understanding">Understanding</option>
+          </select>
+
+        </div>
+        <div className="buttonContainer">
+          <button className="button" type="button">Submit</button>
+        </div>
+      </div>
 
 
 
@@ -77,7 +76,8 @@ export default function CreatePostForm() {
 
 
 
-      
+
+
       {/* <section className="create-post-section">
         <div className="post-container container">
           <h2>Create Your Post</h2>
