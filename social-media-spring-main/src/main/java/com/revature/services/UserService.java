@@ -51,7 +51,6 @@ public class UserService {
         List<User> lastResults = userRepository.findByLastNameStartsWith(search).orElse(null);
         if (firstResults!=null)allResults.addAll(firstResults);
         if(lastResults!=null)allResults.addAll(lastResults);
-        if(allResults==null) return null;
         return allResults;
     }
 
