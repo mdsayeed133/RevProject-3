@@ -47,6 +47,14 @@ public class User {
         this.date = date;
     }
 
+    public User(String email, String password, String firstName, String lastName, List<Employee> followedEmployees) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.followedEmployees = followedEmployees;
+    }
+
     public User(String email, String password, String firstName, String lastName) {
         this.email = email;
         this.password = password;

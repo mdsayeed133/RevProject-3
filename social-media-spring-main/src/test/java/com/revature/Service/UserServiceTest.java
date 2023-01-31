@@ -17,5 +17,5 @@ public class UserServiceTest {
     @InjectMocks
     private UserService uS;
 
-    User u = new User();
+
 }

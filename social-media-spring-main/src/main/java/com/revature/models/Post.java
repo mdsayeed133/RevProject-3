@@ -53,6 +53,22 @@ public class Post {
 		this.date = date;
 	}
 
+	public Post(String text, List<Post> comments, User author, PostType postType) {
+		this.text = text;
+		this.comments = comments;
+		this.author = author;
+		this.postType = postType;
+	}
+
+	public Post(String text, int imageId, List<Post> comments, User author, PostType postType, Rating rating) {
+		this.text = text;
+		this.imageId = imageId;
+		this.comments = comments;
+		this.author = author;
+		this.postType = postType;
+		this.rating = rating;
+	}
+
 	public String getText() {
 		return text;
 	}

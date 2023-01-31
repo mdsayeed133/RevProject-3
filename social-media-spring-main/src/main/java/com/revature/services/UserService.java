@@ -21,7 +21,6 @@ public class UserService {
         return userRepository.findByEmailAndPassword(email, password);
     }
 
-
     public List<Employee> getAllFollowing(int userId)
     {
         User user = userRepository.findById(userId).orElse(null);
@@ -40,8 +39,9 @@ public class UserService {
 
     }
 
-
     public User save(User user) {
         return userRepository.save(user);
     }
+
+
 }
