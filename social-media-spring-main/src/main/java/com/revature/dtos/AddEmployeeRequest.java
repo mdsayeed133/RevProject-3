@@ -4,7 +4,6 @@ public class AddEmployeeRequest {
     private String firstName;
     
     private String lastName;
-    
     private int authorId;
     private int departmentId;
 
