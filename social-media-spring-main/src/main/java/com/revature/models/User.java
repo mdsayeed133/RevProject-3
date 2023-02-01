@@ -21,7 +21,7 @@ public class User {
     private String lastName;
 
     @ManyToMany(mappedBy = "followers")
-    private ArrayList<Employee> followedEmployees;
+    private List<Employee> followedEmployees;
 
     @CreatedDate
     private Instant date;
@@ -38,7 +38,7 @@ public class User {
         this.date = date;
     }
 
-    public User(int id, String email, String password, String firstName, String lastName, ArrayList<Employee> followedEmployees, Instant date) {
+    public User(int id, String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant date) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -48,7 +48,7 @@ public class User {
         this.date = date;
     }
 
-    public User(String email, String password, String firstName, String lastName, ArrayList<Employee> followedEmployees, Instant date) {
+    public User(String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant date) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -57,7 +57,7 @@ public class User {
         this.date = date;
     }
 
-    public User(String email, String password, String firstName, String lastName, ArrayList<Employee> followedEmployees) {
+    public User(String email, String password, String firstName, String lastName, List<Employee> followedEmployees) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -112,11 +112,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public ArrayList<Employee> getFollowedEmployees() {
+    public List<Employee> getFollowedEmployees() {
         return followedEmployees;
     }
 
-    public void setFollowedEmployees(ArrayList<Employee> followedEmployees) {
+    public void setFollowedEmployees(List<Employee> followedEmployees) {
         this.followedEmployees = followedEmployees;
     }
 

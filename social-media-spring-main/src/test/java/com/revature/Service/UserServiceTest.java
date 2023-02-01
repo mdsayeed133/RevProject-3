@@ -42,8 +42,8 @@ class UserServiceTest {
     public void setup(){
         mockDepartment= new Department(1,"trainer");
         mockUser = new User(0, "test@example.com", "password", "John", "Doe", Instant.now());
-        mockEmployee = new Employee(0,"Ben","Ten",mockUser,mockDepartment,Instant.now());
-        mockEmployee2= new Employee(0, "Ben2","2",mockUser,mockDepartment,Instant.now());
+        mockEmployee = new Employee(1,"Ben","Ten",mockUser,mockDepartment,Instant.now());
+        mockEmployee2= new Employee(2, "Ben2","2",mockUser,mockDepartment,Instant.now());
         ArrayList<Employee> followedEmployees = new ArrayList<Employee>();
         followedEmployees.add(mockEmployee);
         followedEmployees.add(mockEmployee2);
@@ -101,7 +101,7 @@ class UserServiceTest {
     }
     @Test
     void followEmployeeTest() {
-        Employee newEmployee = new Employee(4,"Ben","Bee",mockUser,mockDepartment,Instant.now());
+        Employee newEmployee = new Employee(3,"Ben3","Bee",mockUser,mockDepartment,Instant.now());
         when(userRepository.findById(mockUser.getId())).thenReturn(Optional.of(mockUser));
         when(employeeRepository.findById(newEmployee.getId())).thenReturn(Optional.of(newEmployee));
         when(userRepository.save(mockUser)).thenReturn(mockUser);

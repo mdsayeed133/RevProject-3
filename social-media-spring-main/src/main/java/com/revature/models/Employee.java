@@ -30,13 +30,13 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_follow_employee",
             joinColumns = @JoinColumn(name = "employee_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private ArrayList<User> followers;
+    private List<User> followers;
 
 
     @CreatedDate
@@ -62,7 +62,7 @@ public class Employee {
         this.date = date;
     }
 
-    public Employee(Integer id, String firstName, String lastName, User author, Department department, ArrayList<User> followers, Instant date) {
+    public Employee(Integer id, String firstName, String lastName, User author, Department department, List<User> followers, Instant date) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -72,7 +72,7 @@ public class Employee {
         this.date = date;
     }
 
-    public Employee(String firstName, String lastName, User author, Department department, ArrayList<User> followers) {
+    public Employee(String firstName, String lastName, User author, Department department, List<User> followers) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.author = author;
@@ -120,11 +120,11 @@ public class Employee {
         this.department = department;
     }
 
-    public ArrayList<User> getFollowers() {
+    public List<User> getFollowers() {
         return followers;
     }
 
-    public void setFollowers(ArrayList<User> followers) {
+    public void setFollowers(List<User> followers) {
         this.followers = followers;
     }
 
