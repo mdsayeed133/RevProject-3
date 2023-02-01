@@ -41,7 +41,7 @@ public class RatingService {
         Employee employee = employeeService.getEmployeeById(employeeId);
         List<Rating> ratingList = ratingRepository.findByEmployee(employee).orElse(null);
         if(ratingList==null) return 0.0;
-        double total = 0d;
+        double total = 0.0d;
         for(int x = 0; x < ratingList.size(); x++)
         {
             total += ratingList.get(x).getScore();

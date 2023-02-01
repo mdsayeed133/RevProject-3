@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    public List<Employee> findByDepartment(Department departments);
+    Optional<List<Employee>> findByDepartment(Department departments);
 
     Optional<List<Employee>> findByFirstNameContainingIgnoreCase(String firstName);
 

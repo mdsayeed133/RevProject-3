@@ -15,14 +15,15 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+
     private UserRepository userRepository;
 
-    private EmployeeRepository employeeRepository;
+    private EmployeeService employeeService;
 
     @Autowired
-    public UserService(UserRepository userRepository, EmployeeRepository employeeRepository) {
+    public UserService(UserRepository userRepository, EmployeeService employeeService) {
         this.userRepository = userRepository;
-        this.employeeRepository= employeeRepository;
+        this.employeeService= employeeService;
     }
 
     public Optional<User> findByCredentials(String email, String password) {
@@ -62,7 +63,7 @@ public class UserService {
 
     public boolean unFollow(int userId, int employeeId){
         User user = userRepository.findById(userId).orElse(null);
-        Employee emp = employeeRepository.findById(employeeId).orElse(null);
+        Employee emp = employeeService.getEmployeeById(employeeId);
         if(user==null||emp==null) return false;
         ArrayList<Employee> list = (ArrayList<Employee>) user.getFollowedEmployees();
         if(list.contains(emp)) {
@@ -75,7 +76,7 @@ public class UserService {
 
     public boolean follow(int userId, int employeeId){
         User user = userRepository.findById(userId).orElse(null);
-        Employee emp = employeeRepository.findById(employeeId).orElse(null);
+        Employee emp = employeeService.getEmployeeById(employeeId);
         if(user==null||emp==null) return false;
         ArrayList<Employee> list = (ArrayList<Employee>) user.getFollowedEmployees();
         if(!list.contains(emp)) {

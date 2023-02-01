@@ -3,8 +3,8 @@ package com.revature.Service;
 import com.revature.models.Department;
 import com.revature.models.Employee;
 import com.revature.models.User;
-import com.revature.repositories.EmployeeRepository;
 import com.revature.repositories.UserRepository;
+import com.revature.services.EmployeeService;
 import com.revature.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ class UserServiceTest {
     @Mock
     private UserRepository userRepository;
     @Mock
-    private EmployeeRepository employeeRepository;
+    private EmployeeService employeeService;
     @InjectMocks
     private UserService userService;
 
@@ -103,7 +103,7 @@ class UserServiceTest {
     void followEmployeeTest() {
         Employee newEmployee = new Employee(3,"Ben3","Bee",mockUser,mockDepartment,Instant.now());
         when(userRepository.findById(mockUser.getId())).thenReturn(Optional.of(mockUser));
-        when(employeeRepository.findById(newEmployee.getId())).thenReturn(Optional.of(newEmployee));
+        when(employeeService.getEmployeeById(newEmployee.getId())).thenReturn(newEmployee);
         when(userRepository.save(mockUser)).thenReturn(mockUser);
 
         boolean result = userService.follow(mockUser.getId(), newEmployee.getId());
@@ -113,7 +113,7 @@ class UserServiceTest {
     @Test
     void unFollowEmployeeTest() {
         when(userRepository.findById(mockUser.getId())).thenReturn(Optional.of(mockUser));
-        when(employeeRepository.findById(mockEmployee.getId())).thenReturn(Optional.of(mockEmployee));
+        when(employeeService.getEmployeeById(mockEmployee.getId())).thenReturn(mockEmployee);
         when(userRepository.save(mockUser)).thenReturn(mockUser);
         boolean result = userService.unFollow(mockUser.getId(), mockEmployee.getId());
         assertTrue(result);

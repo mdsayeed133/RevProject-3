@@ -4,7 +4,6 @@ import com.revature.models.Department;
 import com.revature.models.Employee;
 import com.revature.models.User;
 import com.revature.repositories.EmployeeRepository;
-import com.revature.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +14,12 @@ import java.util.List;
 public class EmployeeService {
 
     private EmployeeRepository employeeRepository;
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository) {
+    public EmployeeService(EmployeeRepository employeeRepository, UserService userService) {
         this.employeeRepository = employeeRepository;
+        this.userService = userService;
     }
 
     public Employee getEmployeeById(int empId)
@@ -32,14 +32,13 @@ public class EmployeeService {
     }
 
     public Employee createEmployee(int userId, Employee empRepo){
-        User user = userRepository.findById(userId).orElse(null);
+        User user = userService.getUserById(userId).orElse(null);
         Employee newEmployee = new Employee(empRepo.getFirstName(), empRepo.getLastName(), user, empRepo.getDepartment());
         return newEmployee;
     }
 
     public List<Employee> getEmployeeByDepartment(Department department){
-        List<Employee> emp = employeeRepository.findByDepartment(department);
-        return emp;
+        return employeeRepository.findByDepartment(department).orElse(null);
     }
 
     public List<Employee> getEmployeeByName(String search){
