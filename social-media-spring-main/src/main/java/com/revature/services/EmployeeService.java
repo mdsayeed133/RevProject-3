@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import com.revature.dtos.AddEmployeeRequest;
 import com.revature.models.Department;
 import com.revature.models.Employee;
 import com.revature.models.User;
@@ -16,10 +17,13 @@ public class EmployeeService {
     private EmployeeRepository employeeRepository;
     private UserService userService;
 
+    private DepartmentService departmentService;
+
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository, UserService userService) {
+    public EmployeeService(EmployeeRepository employeeRepository, UserService userService, DepartmentService departmentService) {
         this.employeeRepository = employeeRepository;
         this.userService = userService;
+        this.departmentService = departmentService;
     }
 
     public Employee getEmployeeById(int empId)
@@ -31,10 +35,12 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee createEmployee(int userId, Employee empRepo){
+    public Employee createEmployee(AddEmployeeRequest addEmployeeRequest){
+        int userId= addEmployeeRequest.getAuthorId();
+        Department department= departmentService.getDepartmentById(addEmployeeRequest.getDepartmentId());
         User user = userService.getUserById(userId).orElse(null);
-        Employee newEmployee = new Employee(empRepo.getFirstName(), empRepo.getLastName(), user, empRepo.getDepartment());
-        return newEmployee;
+        Employee newEmployee = new Employee(addEmployeeRequest.getFirstName(), addEmployeeRequest.getLastName(), user,department);
+        return employeeRepository.save(newEmployee);
     }
 
     public List<Employee> getEmployeeByDepartment(Department department){
