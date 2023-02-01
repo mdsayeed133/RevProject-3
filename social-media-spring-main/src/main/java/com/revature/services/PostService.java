@@ -20,7 +20,7 @@ public class PostService {
 
 	public Post getPostById(int postId)
 	{
-		return PostRepository.findById(postId).orElse(null);
+		return postRepository.findById(postId).orElse(null);
 	}
 
 	public List<Post> getAll() {
@@ -39,7 +39,7 @@ public class PostService {
 		int userId= ratingPostRequest.getUserId();
 		User user = userService.getUserById(userId).orElse(null);
 		Post newRatingPost = new Post(ratingPostRequest.getText(), ratingPostRequest.getImageId(), userId, );
-		return PostRepository.save(newRatingPost);
+		return postRepository.save(newRatingPost);
 	}
 
 
