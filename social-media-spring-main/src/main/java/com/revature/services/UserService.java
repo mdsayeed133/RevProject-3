@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,12 +17,13 @@ public class UserService {
 
     private UserRepository userRepository;
 
-    private EmployeeService employeeService;
+    private EmployeeRepository employeeRepository;
+
 
     @Autowired
-    public UserService(UserRepository userRepository, EmployeeService employeeService) {
+    public UserService(UserRepository userRepository, EmployeeRepository employeeRepository) {
         this.userRepository = userRepository;
-        this.employeeService= employeeService;
+        this.employeeRepository = employeeRepository;
     }
 
     public Optional<User> findByCredentials(String email, String password) {
@@ -63,7 +63,7 @@ public class UserService {
 
     public boolean unFollow(int userId, int employeeId){
         User user = userRepository.findById(userId).orElse(null);
-        Employee emp = employeeService.getEmployeeById(employeeId);
+        Employee emp = employeeRepository.findById(employeeId).orElse(null);
         if(user==null||emp==null) return false;
         ArrayList<Employee> list = (ArrayList<Employee>) user.getFollowedEmployees();
         if(list.contains(emp)) {
@@ -76,7 +76,7 @@ public class UserService {
 
     public boolean follow(int userId, int employeeId){
         User user = userRepository.findById(userId).orElse(null);
-        Employee emp = employeeService.getEmployeeById(employeeId);
+        Employee emp = employeeRepository.findById(employeeId).orElse(null);
         if(user==null||emp==null) return false;
         ArrayList<Employee> list = (ArrayList<Employee>) user.getFollowedEmployees();
         if(!list.contains(emp)) {

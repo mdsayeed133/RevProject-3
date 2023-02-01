@@ -13,6 +13,6 @@ public interface PostRepository extends JpaRepository<Post, Integer>{
 
     List<Post> findAllByPostType(PostType postType);
 
-    List<Post> getAllComments(PostType postType);
+   // List<Post> getAllComments(PostType postType);
 
 }

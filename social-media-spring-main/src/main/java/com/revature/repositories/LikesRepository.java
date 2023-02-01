@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository
 public interface LikesRepository extends JpaRepository<Likes, Integer> {
 
-    public int countLikes(Post post);
+   // public int countLikes(Post post);
 
 }

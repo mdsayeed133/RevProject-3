@@ -16,6 +16,8 @@ public class LikesService {
 
 
 
+
+
     @Autowired
     public LikesService(LikesRepository likesRepo, PostService postService, UserService userService) {
         this.likesRepo = likesRepo;
@@ -36,11 +38,13 @@ public class LikesService {
             return false;
         }
     }
-
+/*
     public int likesAmount(int postId)
     {
         Post searchPost = postService.getPostById(postId);
         return likesRepo.countLikes(searchPost);
     }
+
+ */
 
 }

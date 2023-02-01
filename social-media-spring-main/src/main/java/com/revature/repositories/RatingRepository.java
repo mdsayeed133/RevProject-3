@@ -14,8 +14,8 @@ public interface RatingRepository extends JpaRepository<Rating, Integer> {
 
     public Optional<List<Rating>> findByEmployee(Employee employee);
 
-    public Optional<List<Employee>> findByTag(Tag tag1);
+   // public Optional<List<Employee>> findByTag(Tag tag1);
 
-    public Optional<List<Employee>> findTop3ByScore();
+  //  public Optional<List<Employee>> findTop3ByScore();
 
 }

@@ -39,26 +39,26 @@ public class RatingService {
         Rating newRating = new Rating(emp, rDTO.getScore(), tag1, tag2, tag3);
         return ratingRepository.save(newRating);
     }
-
+/*
     public List<Employee> getEmployeeByTags(int tag1)
     {
         Tag searchTag = tagRepository.findById(tag1).orElse(null);
         return ratingRepository.findByTag(searchTag).orElse(null);
     }
 
+ */
+
     public double getEmployeeAvgRating(int employeeId)
     {
         Employee employee = employeeService.getEmployeeById(employeeId);
         List<Rating> ratingList = ratingRepository.findByEmployee(employee).orElse(null);
-
+        if(ratingList==null)return 0.0d;
         double total = 0;
         for(int x = 0; x < ratingList.size(); x++)
         {
             total += ratingList.get(x).getScore();
         }
-        double averageScore = total / ratingList.size();
-
-        return averageScore;
+        return total / ratingList.size();
     }
 
 

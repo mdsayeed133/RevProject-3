@@ -1,8 +1,5 @@
 package com.revature.dtos;
 
-import com.revature.models.Post;
-import com.revature.models.User;
-
 public class LikesDTO {
 
     private int postId;

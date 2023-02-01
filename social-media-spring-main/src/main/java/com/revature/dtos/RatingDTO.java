@@ -1,6 +1,5 @@
 package com.revature.dtos;
 
-import com.revature.models.Tag;
 
 public class RatingDTO {
 

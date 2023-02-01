@@ -14,7 +14,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -53,8 +53,7 @@ public class Employee {
         this.department = department;
     }
 
-    public Employee(Integer id, String firstName, String lastName, User author, Department department, Instant date) {
-        this.id = id;
+    public Employee(String firstName, String lastName, User author, Department department, Instant date) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.author = author;
@@ -62,7 +61,7 @@ public class Employee {
         this.date = date;
     }
 
-    public Employee(Integer id, String firstName, String lastName, User author, Department department, List<User> followers, Instant date) {
+    public Employee(int id, String firstName, String lastName, User author, Department department, List<User> followers, Instant date) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -78,6 +77,15 @@ public class Employee {
         this.author = author;
         this.department = department;
         this.followers = followers;
+    }
+
+    public Employee(int id, String firstName, String lastName, User author, Department department, Instant date) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.author = author;
+        this.department = department;
+        this.date = date;
     }
 
     public Integer getId() {

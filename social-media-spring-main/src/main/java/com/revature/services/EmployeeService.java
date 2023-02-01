@@ -8,6 +8,7 @@ import com.revature.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class EmployeeService {
         int userId= addEmployeeRequest.getAuthorId();
         Department department= departmentService.getDepartmentById(addEmployeeRequest.getDepartmentId());
         User user = userService.getUserById(userId).orElse(null);
-        Employee newEmployee = new Employee(addEmployeeRequest.getFirstName(), addEmployeeRequest.getLastName(), user,department);
+        Employee newEmployee = new Employee(addEmployeeRequest.getFirstName(), addEmployeeRequest.getLastName(), user,department, Instant.now());
         return employeeRepository.save(newEmployee);
     }
 

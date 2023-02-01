@@ -13,7 +13,7 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String text;
+	private String message;
 	private int imageId;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Post> comments;
@@ -27,41 +27,41 @@ public class Post {
 	private Rating rating;
 
 	@CreatedDate
-	private Instant date;
+	private Instant CreatedDate;
 
 	public Post() {
 	}
 
-	public Post(String text, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant date) {
-		this.text = text;
+	public Post(String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant CreatedDate) {
+		this.message = message;
 		this.imageId = imageId;
 		this.comments = comments;
 		this.author = author;
 		this.postType = postType;
 		this.rating = rating;
-		this.date = date;
+		this.CreatedDate = CreatedDate;
 	}
 
-	public Post(int id, String text, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant date) {
+	public Post(int id, String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant CreatedDate) {
 		this.id = id;
-		this.text = text;
+		this.message = message;
 		this.imageId = imageId;
 		this.comments = comments;
 		this.author = author;
 		this.postType = postType;
 		this.rating = rating;
-		this.date = date;
+		this.CreatedDate = CreatedDate;
 	}
 
-	public Post(String text, List<Post> comments, User author, PostType postType) {
-		this.text = text;
+	public Post(String message, List<Post> comments, User author, PostType postType) {
+		this.message = message;
 		this.comments = comments;
 		this.author = author;
 		this.postType = postType;
 	}
 
-	public Post(String text, int imageId, List<Post> comments, User author, PostType postType, Rating rating) {
-		this.text = text;
+	public Post(String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating) {
+		this.message = message;
 		this.imageId = imageId;
 		this.comments = comments;
 		this.author = author;
@@ -69,12 +69,12 @@ public class Post {
 		this.rating = rating;
 	}
 
-	public String getText() {
-		return text;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public int getImageId() {
