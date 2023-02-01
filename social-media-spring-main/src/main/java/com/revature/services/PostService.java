@@ -5,6 +5,7 @@ import java.util.List;
 import com.revature.dtos.AddEmployeeRequest;
 import com.revature.dtos.RatingPostRequest;
 import com.revature.models.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.repositories.PostRepository;
@@ -13,7 +14,8 @@ import com.revature.repositories.PostRepository;
 public class PostService {
 
 	private PostRepository postRepository;
-	
+	private UserService userService;
+
 	public PostService(PostRepository postRepository) {
 		this.postRepository = postRepository;
 	}
@@ -38,8 +40,12 @@ public class PostService {
 	public Post createRatingPost(RatingPostRequest ratingPostRequest){
 		int userId= ratingPostRequest.getUserId();
 		User user = userService.getUserById(userId).orElse(null);
-		Post newRatingPost = new Post(ratingPostRequest.getText(), ratingPostRequest.getImageId(), userId, );
+		Post newRatingPost = new Post(ratingPostRequest.getText(), ratingPostRequest.getImageId(), null, user, ratingPostRequest.getPostType(), null);
 		return postRepository.save(newRatingPost);
+	}
+
+	public List<Post> getComments(){
+		return postRepository.getAllComments(PostType.Comment);
 	}
 
 
