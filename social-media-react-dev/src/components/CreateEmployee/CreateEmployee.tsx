@@ -22,7 +22,7 @@ const CreateEmployee: React.FC<any> = (props: any) => {
 
 
   const validateForm = () => {
-    if (!firstName || !lastName || !department || department === "Select a department"){
+    if (!firstName || !lastName || !department) {
       return false;
     }
     return true;
@@ -31,7 +31,7 @@ const CreateEmployee: React.FC<any> = (props: any) => {
   //fix validate code and add route to add employee button   
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!validateForm()) {
+    if (!firstName || !lastName || !department || department === "Select a department") {
       setError("All fields are required");
       return;
     }
@@ -72,8 +72,8 @@ const CreateEmployee: React.FC<any> = (props: any) => {
                   <option value="Recruiters">Recruiters</option>
                 </select>
               </div>
-
-              <button onClick={employeeprofile}>Submit</button>
+              
+              <button type='submit' onClick={employeeprofile}>Submit</button>
 
             </form>
 
