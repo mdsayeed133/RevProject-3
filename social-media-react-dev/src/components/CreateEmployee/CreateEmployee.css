@@ -1,0 +1,27 @@
+
+.create-employee-container {
+    width: 75%;
+    background-color: aliceblue;
+}
+
+.text-container {
+    /* border: 1px solid black; */
+    margin-top: 40px;
+}
+.input-container {
+    width: 75%;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px gray;
+    padding-top: 30px;
+    
+}
+.top-row {
+    /* border: 1px solid black; */
+    align-items: center;
+    justify-content: center;
+
+    
+}

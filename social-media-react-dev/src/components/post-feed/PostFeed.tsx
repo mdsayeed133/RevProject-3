@@ -102,6 +102,7 @@ export const PostFeed = () => {
                         <div className="post-feed-content">
                             <h3>Display information here</h3>
                             <div className="post-card">
+                                {/* example card */}
                                 <div className="post-user d-flex">
                                     {/* <img src="genericUser.png" className="post-user-image" alt="" /> */}
                                     <BsFillEmojiAngryFill size="4em"/>
@@ -121,9 +122,12 @@ export const PostFeed = () => {
                                 <div className="d-flex justify-content-between">
                                     <button>View comments</button>
                                     <div className="react-box">
+                                        <p className="comment-box">Comment box</p>
                                     </div>
                                 </div>
                             </div>
+
+                            {/* ************************************************************************************************************ */}
                             <p><em>**THEN EVERYTHING POPULATES BELOW**</em></p>
                             <div className="post-card">
                                 <div className="post-user d-flex">

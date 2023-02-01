@@ -53,7 +53,6 @@ const SignUp: React.FC<any> = (props: any) => {
                         <div className="holder">
                             <input className="input-box" type="text" name="firstName" placeholder="first name" onChange={gatherInput} />
                             <input className="input-box" type="text" name="lastName" placeholder="last name" onChange={gatherInput} />
-
                         </div>
                         <div className="image-holder">
                             <div className="user-image" id="userImage">
