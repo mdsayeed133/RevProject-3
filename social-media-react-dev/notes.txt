@@ -1,12 +1,62 @@
-+==============+
-| Color Scheme |
-+==============+
++===============+
+| helpful hints |
++===============+
+- All <em> tags refer to information that is to be rendered using React 
+- Jamboard here: https://jamboard.google.com/d/1k31R5UEf_kJtuk1af1_Z0shsMJMrC2EdkRc38tTJRRI/viewer?f=5
+
+
+
+*Coolors.co 
++===============+
+| Color Scheme1 |
++===============+
+:root{
+    --color1: #dff2d8;
+    --color2: #c6dea6;
+    --color3: #7ebdc3;
+    --color4: #7a6263;
+    --color5: #ced097;
+}
+
++===============+
+| Color Scheme2 |
++===============+
+30292f
+413f54
+5f5aa2
+355691
+3f4045
+
++===============+
+| Color Scheme3 |
++===============+
+000000
+2f4550
+586f7c
+b8dbd9
+f4f4f9
+
+
++================+
+| Reaction Icons |
++================+
+Total number: 7
+1) angry - BsFillEmojiAngryFill
+2) sad - BsFillEmojiFrownFill
+3) dizzy - BsFillEmojiDizzyFill
+4) emotionless - BsFillEmojiExpressionlessFill
+5) neutral - BsFillEmojiNeutralFill
+6) happy - BsFillEmojiSmileFill
+7) cool - BsFillSunglassesFill
+
 
 
 
 +====================+
-| Placeholder images |
+| Background images |
 +====================+
+**Pexels.com**
+- chalkboard [Photo by Miguel Á. Padriñán: https://www.pexels.com/photo/5-strike-symbol-1010973/]
 
 
 
@@ -16,6 +66,135 @@
 
 
 
+
+
++=======================+
+| Technology Used Icons |
++=======================+
+**Import using ReactIcons**
+- react
+- spring
+- typescript
+- postgres
+- aws 
+- html
+- css 
+
+
++===============+
+| Socials Icons |
++===============+
+**Import using ReactIcons**
+- twitter
+- meta 
+- reddit 
+- telegram
+- email (contact)
+
+
+
+==================================================================================================================
 +========================+
 | Removed code for later |
 +========================+
+"This serves as a welcome message for the user. If no posts made, display message "
+ let noPostsText = <></>;
+
+    // displays if there are currently no posts made
+    if (post.length === 0) {
+        noPostsText =
+            <h2 style={{ textAlign: 'center', marginTop: '3%', color: 'gray' }}>
+                There are no posts, share your thoughts!
+            </h2>;
+    }
+
+ {/* displays with account login? */}
+            <Container maxWidth="xl" sx={{
+                backgroundColor: '#fff',
+                height: 'auto'
+            }}>
+                <h2 style={{ textAlign: 'center' }}>{welcomeText}</h2>
+                {postForm}
+            </Container>
+            <Grid container justifyContent={"center"}>
+                <Grid item sx={{ width: '60%', mb: '20px' }} >
+                    {post.map((item) => (
+                        <PostCard post={item} key={item.id} />
+                    ))
+                    }
+                </Grid>
+            </Grid>
+            {noPostsText}
+
+
+return (
+    //</div className={styles.postCont}>
+    <React.Fragment>
+      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+      <TextField
+        required
+          id="filled-multiline-static"
+          label="Thoughts You Would Like to Share?"
+          fullWidth
+        />
+        <TextField
+            id="postImage"
+            name="postImage"
+            label="Add an Image or Diagram?"
+            fullWidth
+            variant="standard"
+        />
+        <Button 
+            type="submit"
+            variant="contained"
+            sx={{ mt: 3, ml: 1 }}
+            color="warning"
+        >
+            Create Post
+        </Button>
+      </Box>
+    </React.Fragment>
+    //</div>
+  );
+
+"REMOVED from CreatePostForm"
+return (
+    //</div className={styles.postCont}>
+    <React.Fragment>
+      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+      <TextField
+        required
+          id="filled-multiline-static"
+          label="Thoughts You Would Like to Share?"
+          fullWidth
+        />
+        <TextField
+            id="postImage"
+            name="postImage"
+            label="Add an Image or Diagram?"
+            fullWidth
+            variant="standard"
+        />
+        <Button 
+            type="submit"
+            variant="contained"
+            sx={{ mt: 3, ml: 1 }}
+            color="warning"
+        >
+            Create Post
+        </Button>
+      </Box>
+    </React.Fragment>
+    //</div>
+    
+  );
+
+
+
+//handle submiit for post form 
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   //const response = await apiUpsertPost(data);
+  //   apiUpsertPost(data);
+  // }

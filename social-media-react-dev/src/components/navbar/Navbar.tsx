@@ -8,60 +8,91 @@ import IconButton from '@mui/material/IconButton';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { apiLogout } from '../../remote/social-media-api/auth.api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
 import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
+import '../navbar/Navbar.css'
 
 export default function Navbar() {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const { user, setUser } = useContext(UserContext);
-    const [loggedIn, setLoggedIn] = useState(<></>);
-    const [tipTitle, setTipTitle] = useState('');
-    
-    
-    useEffect(() => {
-        if(user) {
-            setLoggedIn(<LogoutIcon />);
-            setTipTitle('Logout');
-        } else {
-            setLoggedIn(<LoginIcon />);
-            setTipTitle('Login');
-        }
-    }, [user]);
+  const { user, setUser } = useContext(UserContext);
+  const [loggedIn, setLoggedIn] = useState(<></>);
+  const [tipTitle, setTipTitle] = useState('');
 
-    function handleAuth() {
-        if(user) {
-            apiLogout();
-            setUser();
-        } else {
-           navigate('/login'); 
-        }
-    } 
+
+  useEffect(() => {
+    if (user) {
+      setLoggedIn(<LogoutIcon />);
+      setTipTitle('Logout');
+    } else {
+      setLoggedIn(<LoginIcon />);
+      setTipTitle('Login');
+    }
+  }, [user]);
+
+  function handleAuth() {
+    if (user) {
+      apiLogout();
+      setUser();
+    } else {
+      navigate('/login');
+    }
+  }
+
+  // working on darkmode.... fun
+  const toggleDarkMode = ()=> setDarkMode(darkMode ? false:true);
+  const storedDarkMode = localStorage.getItem("DARK_MODE");
+  const [darkMode, setDarkMode] = React.useState(false);
+
+  React.useEffect(()=> {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode])
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Revature Social
+        <Toolbar className="d-flex justify-content-around">
+          <Typography variant="h6" component="div">
+            RevRater
           </Typography>
+          <div className="d-block">
+            <input type="search" name="searchbox" id="searchbox" placeholder="enter employee name here"className="nav-search" />
+            <div className="d-flex justify-content-around">
+              <div>
+                <Link to="/">Main Feed</Link> |
+                <Link to="/employees" >Employees</Link> |
+                <Link to="/createemployee">Create Employees | </Link>
+                <Link to="/guest"> Guest Feed | </Link>
+                <Link to="/advancedsearch">Advanced Search</Link>
+              </div>
+            </div>
+
+          </div>
+          <div className="d-flex">
             <div>
+              <h2><em>*Guest*</em></h2>
+            </div>
+            <button className="darkmode-switch" onClick={()=>setDarkMode(!darkMode)}></button>
             <Tooltip disableFocusListener disableTouchListener title={tipTitle}>
-            <IconButton
+              <IconButton
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={() => handleAuth()}
                 color="inherit"
-            >
+              >
                 {loggedIn}
-            </IconButton>
+              </IconButton>
             </Tooltip>
-            </div>
+          </div>
         </Toolbar>
       </AppBar>
     </Box>
