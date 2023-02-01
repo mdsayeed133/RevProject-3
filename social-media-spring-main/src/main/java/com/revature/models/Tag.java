@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tags")
-public class Tags {
+public class Tag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,14 +14,14 @@ public class Tags {
     @Column(nullable = false, unique = true)
     private String tagName ;
 
-    public Tags(){}
+    public Tag(){}
 
-    public Tags(int id, String tagName){
+    public Tag(int id, String tagName){
         this.id = id;
         this.tagName = tagName;
     }
 
-    public Tags(String tagName) {
+    public Tag(String tagName) {
         this.tagName = tagName;
     }
 
