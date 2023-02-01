@@ -8,13 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
 public class UserService {
-
     private UserRepository userRepository;
+
     private EmployeeRepository employeeRepository;
 
     @Autowired
@@ -58,10 +60,11 @@ public class UserService {
     }
 
 
-    public boolean follow(int userId, int employeeId){
+    public boolean unFollow(int userId, int employeeId){
         User user = userRepository.findById(userId).orElse(null);
         Employee emp = employeeRepository.findById(employeeId).orElse(null);
-        List<Employee> list = user.getFollowedEmployees();
+        if(user==null||emp==null) return false;
+        ArrayList<Employee> list = user.getFollowedEmployees();
         if(list.contains(emp)) {
             list.remove(emp);
             user.setFollowedEmployees(list);
@@ -70,10 +73,11 @@ public class UserService {
         }return false;
     }
 
-    public boolean unFollow(int userId, int employeeId){
+    public boolean follow(int userId, int employeeId){
         User user = userRepository.findById(userId).orElse(null);
         Employee emp = employeeRepository.findById(employeeId).orElse(null);
-        List<Employee> list = user.getFollowedEmployees();
+        if(user==null||emp==null) return false;
+        ArrayList<Employee> list = (ArrayList<Employee>) user.getFollowedEmployees();
         if(!list.contains(emp)) {
             list.add(emp);
             user.setFollowedEmployees(list);

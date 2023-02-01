@@ -2,7 +2,6 @@ package com.revature.services;
 
 import com.revature.models.Department;
 import com.revature.models.Employee;
-import com.revature.models.Tags;
 import com.revature.models.User;
 import com.revature.repositories.EmployeeRepository;
 import com.revature.repositories.UserRepository;
@@ -29,8 +28,7 @@ public class EmployeeService {
     }
 
     public List<Employee> getAllEmployees(){
-        List<Employee> emp = employeeRepository.findAll();
-        return emp;
+        return employeeRepository.findAll();
     }
 
     public Employee createEmployee(int userId, Employee empRepo){

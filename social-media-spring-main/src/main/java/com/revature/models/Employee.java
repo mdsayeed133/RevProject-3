@@ -5,6 +5,7 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,7 +36,7 @@ public class Employee {
             joinColumns = @JoinColumn(name = "employee_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<User> followers;
+    private ArrayList<User> followers;
 
 
     @CreatedDate
@@ -61,7 +62,7 @@ public class Employee {
         this.date = date;
     }
 
-    public Employee(Integer id, String firstName, String lastName, User author, Department department, List<User> followers, Instant date) {
+    public Employee(Integer id, String firstName, String lastName, User author, Department department, ArrayList<User> followers, Instant date) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -71,7 +72,7 @@ public class Employee {
         this.date = date;
     }
 
-    public Employee(String firstName, String lastName, User author, Department department, List<User> followers) {
+    public Employee(String firstName, String lastName, User author, Department department, ArrayList<User> followers) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.author = author;
@@ -119,11 +120,11 @@ public class Employee {
         this.department = department;
     }
 
-    public List<User> getFollowers() {
+    public ArrayList<User> getFollowers() {
         return followers;
     }
 
-    public void setFollowers(List<User> followers) {
+    public void setFollowers(ArrayList<User> followers) {
         this.followers = followers;
     }
 

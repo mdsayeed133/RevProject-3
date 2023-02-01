@@ -3,6 +3,7 @@ package com.revature.Service;
 import com.revature.models.Department;
 import com.revature.models.Employee;
 import com.revature.models.User;
+import com.revature.repositories.EmployeeRepository;
 import com.revature.repositories.UserRepository;
 import com.revature.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,12 +14,13 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.Instant;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 
@@ -27,7 +29,8 @@ class UserServiceTest {
 
     @Mock
     private UserRepository userRepository;
-
+    @Mock
+    private EmployeeRepository employeeRepository;
     @InjectMocks
     private UserService userService;
 
@@ -41,7 +44,9 @@ class UserServiceTest {
         mockUser = new User(0, "test@example.com", "password", "John", "Doe", Instant.now());
         mockEmployee = new Employee(0,"Ben","Ten",mockUser,mockDepartment,Instant.now());
         mockEmployee2= new Employee(0, "Ben2","2",mockUser,mockDepartment,Instant.now());
-        List<Employee> followedEmployees = Arrays.asList(mockEmployee, mockEmployee2);
+        ArrayList<Employee> followedEmployees = new ArrayList<Employee>();
+        followedEmployees.add(mockEmployee);
+        followedEmployees.add(mockEmployee2);
         mockUser.setFollowedEmployees(followedEmployees);
     }
     @Test
@@ -82,7 +87,7 @@ class UserServiceTest {
     }
 
     @Test
-    void getUserByName_ShouldReturnMatchedUsers() {
+    void getUserByNameTest() {
         String search= mockUser.getFirstName();//John
         userRepository.save(mockUser);
         List<User> userList= List.of(new User[]{mockUser});
@@ -93,6 +98,25 @@ class UserServiceTest {
         assertThat(result.size(), is(1));
         assertThat(result, hasItem(mockUser));
 
-
     }
+    @Test
+    void followEmployeeTest() {
+        Employee newEmployee = new Employee(4,"Ben","Bee",mockUser,mockDepartment,Instant.now());
+        when(userRepository.findById(mockUser.getId())).thenReturn(Optional.of(mockUser));
+        when(employeeRepository.findById(newEmployee.getId())).thenReturn(Optional.of(newEmployee));
+        when(userRepository.save(mockUser)).thenReturn(mockUser);
+
+        boolean result = userService.follow(mockUser.getId(), newEmployee.getId());
+        assertTrue(result);
+    }
+
+    @Test
+    void unFollowEmployeeTest() {
+        when(userRepository.findById(mockUser.getId())).thenReturn(Optional.of(mockUser));
+        when(employeeRepository.findById(mockEmployee.getId())).thenReturn(Optional.of(mockEmployee));
+        when(userRepository.save(mockUser)).thenReturn(mockUser);
+        boolean result = userService.unFollow(mockUser.getId(), mockEmployee.getId());
+        assertTrue(result);
+    }
+
 }

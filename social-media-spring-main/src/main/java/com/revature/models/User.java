@@ -4,6 +4,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,7 @@ public class User {
     private String lastName;
 
     @ManyToMany(mappedBy = "followers")
-    private List<Employee> followedEmployees;
+    private ArrayList<Employee> followedEmployees;
 
     @CreatedDate
     private Instant date;
@@ -37,7 +38,7 @@ public class User {
         this.date = date;
     }
 
-    public User(int id, String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant date) {
+    public User(int id, String email, String password, String firstName, String lastName, ArrayList<Employee> followedEmployees, Instant date) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -47,7 +48,7 @@ public class User {
         this.date = date;
     }
 
-    public User(String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant date) {
+    public User(String email, String password, String firstName, String lastName, ArrayList<Employee> followedEmployees, Instant date) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -56,7 +57,7 @@ public class User {
         this.date = date;
     }
 
-    public User(String email, String password, String firstName, String lastName, List<Employee> followedEmployees) {
+    public User(String email, String password, String firstName, String lastName, ArrayList<Employee> followedEmployees) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -111,11 +112,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public List<Employee> getFollowedEmployees() {
+    public ArrayList<Employee> getFollowedEmployees() {
         return followedEmployees;
     }
 
-    public void setFollowedEmployees(List<Employee> followedEmployees) {
+    public void setFollowedEmployees(ArrayList<Employee> followedEmployees) {
         this.followedEmployees = followedEmployees;
     }
 
