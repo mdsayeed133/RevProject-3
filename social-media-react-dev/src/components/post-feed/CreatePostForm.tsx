@@ -32,6 +32,7 @@ export default function CreatePostForm() {
           <textarea id="userInputResponse" ></textarea>
           {/* <input id="userInputResponse" type="text" /> */}
         </div>
+        {/* maybe drop tags and stick with emoji */}
         <div className="tagContainer">
           <h2>Select Up To 3 Tags</h2>
           <select name="tags" id="tags" required defaultValue={'DEFAULT'}>

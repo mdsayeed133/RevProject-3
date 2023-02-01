@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar'
 
-const AdvancedSearch = () => {
+const AdvancedSearch: React.FC<any> = (props:any) => {
   return (
     <>
       <Navbar />

@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar'
 
-const CreateComments = () => {
+const CreateComments: React.FC<any> = (props:any) => {
     return (
         <>
         <Navbar/>

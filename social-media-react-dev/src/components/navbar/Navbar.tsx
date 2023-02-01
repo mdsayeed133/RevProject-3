@@ -14,7 +14,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
 import '../navbar/Navbar.css'
 
-export default function Navbar() {
+const Navbar: React.FC<any> = (props:any) => {
 
   const navigate = useNavigate();
 
@@ -98,3 +98,5 @@ export default function Navbar() {
     </Box>
   );
 }
+
+export default Navbar 
