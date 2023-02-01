@@ -14,15 +14,15 @@ const CreateEmployee: React.FC<any> = (props: any) => {
     navigate("/employeeprofile")
   }
 
-  const [firstName, setfirstName] = useState("");
-  const [lastName, setLastname] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [department, setDepartment] = useState("");
   const [error, setError] = useState("");
 
 
 
   const validateForm = () => {
-    if (!firstName || !lastName || !department) {
+    if (!firstName || !lastName || !department || department === "Select a department"){
       return false;
     }
     return true;
@@ -41,7 +41,7 @@ const CreateEmployee: React.FC<any> = (props: any) => {
   return (
     <>
       <Navbar />
-      <div className="create-employee-container container">
+      <div className="create-employee-container">
         <div className="text-container">
 
           {error && <p className="error-message">{error}</p>}
@@ -52,12 +52,13 @@ const CreateEmployee: React.FC<any> = (props: any) => {
                 <h3>First Name</h3>
                 <input type="text" value={firstName}
                   placeholder='First Name'
-                  onChange={(e) => setfirstName(e.target.value)} required
+                  onChange={(e) => setFirstName(e.target.value)} required
                 />
               </div>
               <div>
                 <h4>Last Name</h4>
-                <input type="text" name='lastname' id='firstname' placeholder='Last Name' />
+                <input type="text" value={lastName} placeholder='Last Name'
+                  onChange={(e) => setLastName(e.target.value)} required />
               </div>
 
               <div>

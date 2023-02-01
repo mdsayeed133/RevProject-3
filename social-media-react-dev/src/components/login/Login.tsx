@@ -16,6 +16,8 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../../context/user.context';
 import axios from 'axios';
 import Navbar from '../navbar/Navbar';
+import '../login/Login.css'
+import { FaUserCircle } from 'react-icons/fa';
 
 
 const theme = createTheme();
@@ -53,19 +55,36 @@ export default function Login() {
 
   return (
     <>
-      {/* <Navbar/> */}
+      <Navbar/>
       <div className="login-container container">
         <div className="text-container">
           <h1></h1>
           <h3>Please log in</h3>
-          <div className="input-box">
-            <input type="text" name="username" placeholder="username" onChange={gatherInput} />
-          </div>
-          <div className="input-box">
-            <input type="password" name="password" placeholder="password" onChange={gatherInput} />
+          <div className="user-input-container">
+            <FaUserCircle size="5em" />
+            <div className="boxes">
+              <div className="input-box">
+                <input type="text" name="username" placeholder="username" onChange={gatherInput} />
+              </div>
+              <div className="input-box">
+                <input type="password" name="password" placeholder="password" onChange={gatherInput} />
+              </div>
+
+            </div>
+            <button className="login-button" onClick={login}>Login</button>
+        <Grid container>
+          <Grid item>
+            {/* <Link href="register" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link> */}
+            <Link href="signup">
+              {"Don't have an account? Try Sign Up"}
+            </Link>
+          </Grid>
+        </Grid>
+
           </div>
 
-          <button className="login-button" onClick={login}>Login</button>
           {/* <button className="login-button" onClick={reset}>Reset Password</button> */}
         </div>
       </div>
