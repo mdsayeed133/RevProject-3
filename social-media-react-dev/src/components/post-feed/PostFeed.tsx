@@ -70,6 +70,9 @@ export const PostFeed = () => {
     // navigate to post component
     const navigate = useNavigate();
     
+    const addEmployee = async()=>{
+        navigate("/createemployee")
+    }
     const createPost = async()=>{
         navigate("/createpostform")
     }
@@ -87,7 +90,7 @@ export const PostFeed = () => {
                         <section className="sidebar-section">
                             <div className="widget make-sticky">
                                 <div className="add-button">
-                                    <button>Add Employee</button>
+                                    <button onClick={addEmployee}>Add Employee</button>
                                     <button onClick={createPost}>Create Post</button>
                                 </div>
                                 <p>Following:</p>

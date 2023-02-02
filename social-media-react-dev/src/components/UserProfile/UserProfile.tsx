@@ -44,9 +44,6 @@ const UserProfile = () => {
             </div>
                 <div className="posted-comments container">
                     <h2><em>comments will populate below</em></h2>
-
-                    <Post/>
-                    <Post/>
                     <Post/>
                     <Post/>
                 </div>
