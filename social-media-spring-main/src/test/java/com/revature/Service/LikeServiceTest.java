@@ -1,5 +1,6 @@
 package com.revature.Service;
 
+import com.revature.dtos.LikesDTO;
 import com.revature.models.Like;
 import com.revature.models.Post;
 import com.revature.models.User;
@@ -17,9 +18,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
@@ -45,4 +48,38 @@ public class LikeServiceTest {
         mocklike= new Like(mockPost,mockUser);
     }
 
+    @Test
+    void likePostTest()
+    {
+        LikesDTO lDTO = new LikesDTO(mockPost.getId(), mockUser.getId());
+        when(postService.getPostById(lDTO.getPostId())).thenReturn(mockPost);
+        when(userService.getUserById(lDTO.getUserId())).thenReturn(Optional.of(mockUser));
+        when(likesRepo.save(any())).thenReturn(mocklike);
+
+        Like result = service.likePost(lDTO);
+
+        assertThat(mocklike, equalTo(result));
+
+    }
+
+    @Test
+    void likesAmountTest()
+    {
+
+    }
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+

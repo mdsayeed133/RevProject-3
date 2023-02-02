@@ -140,4 +140,20 @@ public class Post {
 	public void setCreatedDate(Instant createdDate) {
 		CreatedDate = createdDate;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public Instant getCreatedDate() {
+		return CreatedDate;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setCreatedDate(Instant createdDate) {
+		CreatedDate = createdDate;
+	}
 }
