@@ -14,6 +14,7 @@ import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFi
 
 import '../post-feed/PostFeed.css'
 import { useNavigate } from 'react-router-dom';
+import CreateEmployee from '../CreateEmployee/CreateEmployee';
 
 
 export const PostFeed = () => {
@@ -69,6 +70,11 @@ export const PostFeed = () => {
 
     // navigate to post component
     const navigate = useNavigate();
+
+    
+
+  const CreateEmployee = async () => {
+    navigate("/CreateEmployee") }
     
     const createPost = async()=>{
         navigate("/createpostform")
@@ -87,7 +93,7 @@ export const PostFeed = () => {
                         <section className="sidebar-section">
                             <div className="widget make-sticky">
                                 <div className="add-button">
-                                    <button>Add Employee</button>
+                                    <button onClick={CreateEmployee}>Add Employee</button>
                                     <button onClick={createPost}>Create Post</button>
                                 </div>
                                 <p>Following:</p>
