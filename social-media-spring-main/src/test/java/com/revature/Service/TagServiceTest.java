@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class TagServiceTest {
+class TagServiceTest {
     @Mock
     private TagRepository tagRepository;
 

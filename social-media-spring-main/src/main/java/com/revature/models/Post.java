@@ -13,6 +13,7 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(columnDefinition = "TEXT")
 	private String message;
 	private int imageId;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
