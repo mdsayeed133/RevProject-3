@@ -8,8 +8,10 @@ import com.revature.services.LikeService;
 import com.revature.services.PostService;
 import com.revature.services.UserService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +19,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Mockito.when;
-
+@ExtendWith(MockitoExtension.class)
 public class LikeServiceTest {
     @Mock
     private PostService postService;
