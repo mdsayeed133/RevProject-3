@@ -1,0 +1,26 @@
+
+.user-info {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    text-align: center;
+}
+/* .deets {
+    text-align: center;
+} */
+
+#profilePic {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+.user-pic {
+    text-align: center;
+    /* margin-top: 20px; */
+}
+
+.posted-comments {
+    border-top: 2px solid black;
+}
