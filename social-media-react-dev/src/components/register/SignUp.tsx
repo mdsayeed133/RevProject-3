@@ -45,7 +45,6 @@ const SignUp: React.FC<any> = (props: any) => {
             <Navbar />
             <div className="signup-container container">
                 <div className="text-container">
-                    <h1></h1>
                     <h3>Please add your information</h3>
                     {/* firstname, lastname, username, password, address */}
                     <div className="input-container">

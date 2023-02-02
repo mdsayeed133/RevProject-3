@@ -41,7 +41,6 @@ const EmployeeProfile = () => {
                     <div className="col-md-6">
                         <div className="profile-pic d-flex justify-content-around">
                             <div className="status-box">
-                                <p>Status: <em>Active</em></p>
                                 <p>Rating: <em>7.89/10</em></p>
                             </div>
                             <div className="image-container d-block">

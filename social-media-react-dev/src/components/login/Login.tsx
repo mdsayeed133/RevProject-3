@@ -38,11 +38,12 @@ export default function Login() {
   // };
 
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const gatherInput = (input: any) => {
     //update
-    if (input.target.name === "username") {
-      setUsername(input.target.value)
+    if (input.target.name === "email") {
+      setEmail(input.target.value)
     } else {
       setPassword(input.target.value)
     }
@@ -50,7 +51,7 @@ export default function Login() {
 
   // login for success
   const login = async () => {
-    const response = await axios.post("", { username, password })
+    const response = await axios.post("", { email, password })
   }
 
   return (
@@ -64,7 +65,7 @@ export default function Login() {
             <FaUserCircle size="5em" />
             <div className="boxes">
               <div className="input-box">
-                <input type="text" name="username" placeholder="username" onChange={gatherInput} />
+                <input type="text" name="email" placeholder="email" onChange={gatherInput} />
               </div>
               <div className="input-box">
                 <input type="password" name="password" placeholder="password" onChange={gatherInput} />

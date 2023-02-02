@@ -41,6 +41,26 @@ const Navbar: React.FC<any> = (props:any) => {
       navigate('/login');
     }
   }
+  // change guest name
+  var status = false;
+  // var status = true;
+  React.useEffect(()=>{
+    if(status != true){
+      var element: HTMLElement = document.getElementById('userStatus') as HTMLElement; 
+      element.innerHTML = `GUEST`;
+    } else {
+      const element: HTMLElement = document.getElementById('userStatus') as HTMLElement;
+      element.innerHTML = `Logged in`;
+    }
+  })
+//   React.useEffect(() => {
+//     if (status != true) {
+//         console.log('not logged in')
+//     } else {
+//         const element: HTMLElement = document.getElementById('stat') as HTMLElement
+//         element.innerHTML = `Welcome to Revature Banking, ${props.targetUser.firstName}`
+//     }
+// })
 
   // working on darkmode.... fun
   const toggleDarkMode = ()=> setDarkMode(darkMode ? false:true);
@@ -77,7 +97,9 @@ const Navbar: React.FC<any> = (props:any) => {
           </div>
           <div className="d-flex">
             <div>
-              <h2><em>*Guest*</em></h2>
+              <Link to="/userprofile">
+                <h3 id="userStatus"></h3>
+              </Link>
             </div>
             <button className="darkmode-switch" onClick={()=>setDarkMode(!darkMode)}></button>
             <Tooltip disableFocusListener disableTouchListener title={tipTitle}>

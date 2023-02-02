@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Box, Container, Grid, Button } from '@mui/material';
 import Navbar from '../navbar/Navbar';
 import { PostCard } from './PostCard';
-import Post from '../../models/Post';
 import { apiGetAllPosts } from '../../remote/social-media-api/postFeed.api';
 import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
@@ -14,59 +13,59 @@ import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFi
 
 import '../post-feed/PostFeed.css'
 import { useNavigate } from 'react-router-dom';
-import CreateEmployee from '../CreateEmployee/CreateEmployee';
+import Post from './Post';
 
 
 export const PostFeed = () => {
-    const [post, setPosts] = useState<Post[]>([])
-    const { user } = useContext(UserContext);
-    let welcomeText = 'Welcome!'
-    let postForm = <></>;
+    // const [post, setPosts] = useState<Post[]>([])
+    // const { user } = useContext(UserContext);
+    // let welcomeText = 'Welcome!'
+    // let postForm = <></>;
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        let payload = new Post(0, data.get('postText')?.toString() || '', data.get('postImage')?.toString() || '', [], user, 'Top');
-        await apiUpsertPost(payload);
-        fetchData();
-    }
+    // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault();
+    //     const data = new FormData(event.currentTarget);
+    //     let payload = new Post(0, data.get('postText')?.toString() || '', data.get('postImage')?.toString() || '', [], user, 'Top');
+    //     await apiUpsertPost(payload);
+    //     fetchData();
+    // }
 
-    if (user) {
-        postForm = <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-                required
-                id="postText"
-                name='postText'
-                label="Thoughts You Would Like to Share?"
-                fullWidth
-            />
-            <TextField
-                id="postImage"
-                name="postImage"
-                label="Add an Image or Diagram?"
-                fullWidth
-                variant="standard"
-            />
-            <Button
-                type="submit"
-                variant="contained"
-                sx={{ mt: 3, ml: 1 }}
-                color="warning"
-            >
-                Create Post
-            </Button>
-        </Box>
+    // if (user) {
+    //     postForm = <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+    //         <TextField
+    //             required
+    //             id="postText"
+    //             name='postText'
+    //             label="Thoughts You Would Like to Share?"
+    //             fullWidth
+    //         />
+    //         <TextField
+    //             id="postImage"
+    //             name="postImage"
+    //             label="Add an Image or Diagram?"
+    //             fullWidth
+    //             variant="standard"
+    //         />
+    //         <Button
+    //             type="submit"
+    //             variant="contained"
+    //             sx={{ mt: 3, ml: 1 }}
+    //             color="warning"
+    //         >
+    //             Create Post
+    //         </Button>
+    //     </Box>
 
-        welcomeText = `Welcome, ${user.firstName}!`
-    }
-    const fetchData = async () => {
-        const result = await apiGetAllPosts()
-        setPosts(result.payload.reverse())
-    }
+    //     welcomeText = `Welcome, ${user.firstName}!`
+    // }
+    // const fetchData = async () => {
+    //     const result = await apiGetAllPosts()
+    //     setPosts(result.payload.reverse())
+    // }
 
-    useEffect(() => {
-        fetchData()
-    }, []);
+    // useEffect(() => {
+    //     fetchData()
+    // }, []);
 
     // navigate to post component
     const navigate = useNavigate();
@@ -76,6 +75,9 @@ export const PostFeed = () => {
   const CreateEmployee = async () => {
     navigate("/CreateEmployee") }
     
+    const addEmployee = async()=>{
+        navigate("/createemployee")
+    }
     const createPost = async()=>{
         navigate("/createpostform")
     }
@@ -93,7 +95,7 @@ export const PostFeed = () => {
                         <section className="sidebar-section">
                             <div className="widget make-sticky">
                                 <div className="add-button">
-                                    <button onClick={CreateEmployee}>Add Employee</button>
+                                    <button onClick={addEmployee}>Add Employee</button>
                                     <button onClick={createPost}>Create Post</button>
                                 </div>
                                 <p>Following:</p>
@@ -107,116 +109,14 @@ export const PostFeed = () => {
                     <div className="col-md-7">
                         <div className="post-feed-content">
                             <h3>Display information here</h3>
-                            <div className="post-card">
-                                {/* example card */}
-                                <div className="post-user d-flex">
-                                    {/* <img src="genericUser.png" className="post-user-image" alt="" /> */}
-                                    <BsFillEmojiAngryFill size="4em"/>
-                                    <h4><em>"I really couldn't get much out of it...</em></h4>
-                                </div>
-                                <div className="post-message-body">
-                                    <div className="post-headline d-flex justify-content-between">
-                                        <p>Name: <em>Trainer Name</em></p>
-                                        <p>Rating: <em>5/10</em></p>
-                                    </div>
-                                    <div className="post-message d-flex justify-content-between">
-                                        <p>Department: <em>Trainer Department</em></p>
-                                        <p>Posted by: <em>User</em></p>
-                                    </div>
-                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
-                                </div>
-                                <div className="d-flex justify-content-between">
-                                    <button>View comments</button>
-                                    <div className="react-box">
-                                        <p className="comment-box">Comment box</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <Post/>
+                            <Post/>
+                            <Post/>
+                            <Post/>
+                            <Post/>
+                            <Post/>
+                            <Post/>
 
-                            {/* ************************************************************************************************************ */}
-                            <p><em>**THEN EVERYTHING POPULATES BELOW**</em></p>
-                            <div className="post-card">
-                                <div className="post-user d-flex">
-                                    <BsFillEmojiDizzyFill size="4em"/>
-                                    <h4><em>"I really couldn't get much out of it...</em></h4>
-                                </div>
-                                <div className="post-message-body">
-                                    <div className="post-headline d-flex justify-content-between">
-                                        <p>Name: <em>Trainer Name</em></p>
-                                        <p>Rating: <em>5/10</em></p>
-                                    </div>
-                                    <div className="post-message d-flex justify-content-between">
-                                        <p>Department: <em>Trainer Department</em></p>
-                                        <p>Posted by: <em>User</em></p>
-                                    </div>
-                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
-                                </div>
-                                <div className="d-flex justify-content-between">
-                                    <button>View comments</button>
-                                    <div className="react-box">
-                                        {/* how many icons are too much */}
-                                        <BsFillEmojiDizzyFill size="2em" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="post-card">
-                                <div className="post-user d-flex">
-                                    <BsFillEmojiExpressionlessFill size="4em"/>
-                                    <h4><em>"I really couldn't get much out of it...</em></h4>
-                                </div>
-                                <div className="post-message-body">
-                                    <div className="post-headline d-flex justify-content-between">
-                                        <p>Name: <em>Trainer Name</em></p>
-                                        <p>Rating: <em>5/10</em></p>
-                                    </div>
-                                    <div className="post-message d-flex justify-content-between">
-                                        <p>Department: <em>Trainer Department</em></p>
-                                        <p>Posted by: <em>User</em></p>
-                                    </div>
-                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
-                                </div>
-                            </div>
-                            <div className="post-card">
-                                <div className="post-user d-flex">
-                                    <BsFillEmojiSmileFill size="4em"/>
-                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
-                                </div>
-                                <div className="post-message-body">
-                                    <div className="post-headline d-flex justify-content-between">
-                                        <p>Name: <em>Trainer Name</em></p>
-                                        <p>Rating: <em>5/10</em></p>
-                                    </div>
-                                    <div className="post-message d-flex justify-content-between">
-                                        <p>Department: <em>Trainer Department</em></p>
-                                        <p>Posted by: <em>User</em></p>
-                                    </div>
-                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
-                                </div>
-                            </div>
-                            <div className="post-card">
-                                <div className="post-user d-flex">
-                                    <BsFillEmojiSunglassesFill size="4em" />
-                                    <h4>Says: <em>"I really couldn't get much out of it...</em></h4>
-                                </div>
-                                <div className="post-message-body">
-                                    <div className="post-headline d-flex justify-content-between">
-                                        <p>Name: <em>Trainer Name</em></p>
-                                        <p>Rating: <em>5/10</em></p>
-                                    </div>
-                                    <div className="post-message d-flex justify-content-between">
-                                        <p>Department: <em>Trainer Department</em></p>
-                                        <p>Posted by: <em>User</em></p>
-                                    </div>
-                                    <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
-                                </div>
-                                <div className="d-flex justify-content-between">
-                                    <button>View comments</button>
-                                    <div className="react-box">
-                                        {/* how many icons are too much */}
-                                        <BsFillEmojiDizzyFill size="2em" />
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
