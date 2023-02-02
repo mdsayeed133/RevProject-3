@@ -43,7 +43,7 @@ public class RatingService {
         List<Employee> employees = ratingRepository.findByTag1OrTag2OrTag3(tag, tag, tag).orElse(null);
         if(employees==null)return null;
 
-        /* This code is initializing an empty HashMap called "employeeCount". It then iterates through the list of employees and for each employee,
+        /* This is initializing an empty HashMap called "employeeCount". It then iterates through the list of employees and for each employee,
         it retrieves the current count of that employee from the HashMap (if it exists), or sets it to 0 if it doesn't exist in the HashMap. Finally,
         it adds 1 to the count of the employee and puts the updated count back into the HashMap with the employee as the key. So, this code is counting
         the number of occurrences of each employee in the "employees" list.*/
