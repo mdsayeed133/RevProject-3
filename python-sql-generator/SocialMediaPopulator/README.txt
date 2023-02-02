@@ -1,0 +1,7 @@
+testDataBaseInstantiator.py is a main module that will run and generate an SQL file, containing sample randomized data that can be used to instantiate your own database (fresh install only) after you've run the Java Server for the first time. The purpose of testDataBaseInstantiator is to test your configurations files, and see a sneak preview of how your service will look populated with X number of users, with Y number of employees to rate, with configurable sample comments and replies.
+
+dataBaseInstantiator.py is the main module that you will run and generate the instantiation SQL, containing ONLY boilerplate definitions for your configurable service, including tags and departments that users may select from when creating employees. Run dataBaseInstantiator once after running the Java Server in creation mode only once, similar to testDataBaseInstantiator.
+
+If you run more than one module (or run either one more than once) you should expect logical errors in your database, so if you'd like to re-initialize your service, you'll need to restart your Java Server once again in create mode.
+
+tldr; Run testDataBaseInstantiator to check your settings and configurations prior to launching your service for real, if you'd like to see a sample. Otherwise run dataBaseInstantiator.py to only get your boilerplate setup for the service.
