@@ -70,6 +70,11 @@ public class Post {
 		this.rating = rating;
 	}
 
+	public Post(int id, String message) {
+		this.id = id;
+		this.message = message;
+	}
+
 	public String getMessage() {
 		return message;
 	}
