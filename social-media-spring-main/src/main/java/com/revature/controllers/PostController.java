@@ -39,9 +39,5 @@ public class PostController {
     	return ResponseEntity.ok(this.postService.upsert(post));
     }
 
-  //  @GetMapping("/feed")
-  //  public ResponseEntity<List<Post>> getAllTopPosts() {
-  //      return ResponseEntity.ok(this.postService.getAllTop());
-   // }
 
 }

@@ -5,6 +5,7 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -29,7 +30,7 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_follow_employee",
             joinColumns = @JoinColumn(name = "employee_id"),
@@ -42,6 +43,105 @@ public class Employee {
     @Column(name = "date", updatable = false)
     private Instant date;
 
-    // getters and setters
+    public Employee() {
+    }
+
+    public Employee(String firstName, String lastName, User author, Department department) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.author = author;
+        this.department = department;
+    }
+
+    public Employee(String firstName, String lastName, User author, Department department, Instant date) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.author = author;
+        this.department = department;
+        this.date = date;
+    }
+
+    public Employee(int id, String firstName, String lastName, User author, Department department, List<User> followers, Instant date) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.author = author;
+        this.department = department;
+        this.followers = followers;
+        this.date = date;
+    }
+
+    public Employee(String firstName, String lastName, User author, Department department, List<User> followers) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.author = author;
+        this.department = department;
+        this.followers = followers;
+    }
+
+    public Employee(int id, String firstName, String lastName, User author, Department department, Instant date) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.author = author;
+        this.department = department;
+        this.date = date;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public List<User> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(List<User> followers) {
+        this.followers = followers;
+    }
+
+    public Instant getDate() {
+        return date;
+    }
+
+    public void setDate(Instant date) {
+        this.date = date;
+    }
 }
 
