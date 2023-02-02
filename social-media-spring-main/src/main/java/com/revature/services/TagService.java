@@ -16,7 +16,7 @@ public class TagService {
         this.tagRepository = tagRepository;
     }
 
-    public Tag getTagById(int tagId)
+    public Tag findById(int tagId)
     {
         return tagRepository.findById(tagId).orElse(null);
     }

@@ -16,8 +16,8 @@ public class ProfanityServiceTest {
 
     @Test
     void filterProfanityTest(){
-        String testString= "FuCk and CuM";
-        String expectedString= "**** and ***";
+        String testString= "FuCk and CuM or bitCh FuCk and CuM or bitCh FuCk and CuM or bitCh";
+        String expectedString= "**** and *** or ***** **** and *** or ***** **** and *** or *****";
 
         String result = profanityService.filterProfanity(testString);
 

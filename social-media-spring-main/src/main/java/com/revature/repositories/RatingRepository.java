@@ -11,11 +11,9 @@ import java.util.Optional;
 
 @Repository
 public interface RatingRepository extends JpaRepository<Rating, Integer> {
+    Optional<List<Rating>> findByEmployee(Employee employee);
 
-    public Optional<List<Rating>> findByEmployee(Employee employee);
+   Optional<List<Employee>> findByTag1OrTag2OrTag3(Tag tag1,Tag tag2,Tag tag3);
 
-   // public Optional<List<Employee>> findByTag(Tag tag1);
-
-  //  public Optional<List<Employee>> findTop3ByScore();
 
 }

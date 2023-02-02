@@ -23,7 +23,7 @@ public class Post {
 
 	private PostType postType;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "rating_id")
 	private Rating rating;
 

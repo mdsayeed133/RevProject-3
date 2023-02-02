@@ -28,7 +28,7 @@ class TagServiceTest {
         Tag mockTag = new Tag(1, "TestTag");
         when(tagRepository.findById(mockTag.getId())).thenReturn(Optional.of(mockTag));
 
-        Tag result = tagService.getTagById(mockTag.getId());
+        Tag result = tagService.findById(mockTag.getId());
 
         assertThat(mockTag, equalTo(result));
     }

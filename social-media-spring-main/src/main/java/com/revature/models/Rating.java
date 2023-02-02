@@ -68,27 +68,27 @@ public class Rating {
         this.score = score;
     }
 
-    public Tag getTags1() {
+    public Tag getTag1() {
         return tag1;
     }
 
-    public void setTags1(Tag tag1) {
+    public void setTag1(Tag tag1) {
         this.tag1 = tag1;
     }
 
-    public Tag getTags2() {
+    public Tag getTag2() {
         return tag2;
     }
 
-    public void setTags2(Tag tag2) {
+    public void setTag2(Tag tag2) {
         this.tag2 = tag2;
     }
 
-    public Tag getTags3() {
+    public Tag getTag3() {
         return tag3;
     }
 
-    public void setTags3(Tag tag3) {
+    public void setTag3(Tag tag3) {
         this.tag3 = tag3;
     }
 }
