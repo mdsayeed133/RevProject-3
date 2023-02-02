@@ -132,4 +132,12 @@ public class Post {
 	public void setRating(Rating rating) {
 		this.rating = rating;
 	}
+
+	public Instant getCreatedDate() {
+		return CreatedDate;
+	}
+
+	public void setCreatedDate(Instant createdDate) {
+		CreatedDate = createdDate;
+	}
 }

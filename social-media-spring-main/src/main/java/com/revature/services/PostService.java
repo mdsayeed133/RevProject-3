@@ -1,12 +1,15 @@
 package com.revature.services;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import com.revature.dtos.CommentPostRequest;
 import com.revature.dtos.RatingDTO;
 import com.revature.dtos.RatingPostRequest;
 import com.revature.models.*;
+import com.revature.repositories.RatingRepository;
 import org.springframework.stereotype.Service;
 
 import com.revature.repositories.PostRepository;
@@ -16,6 +19,8 @@ public class PostService {
 
 	private PostRepository postRepository;
 	private UserService userService;
+
+	private RatingRepository ratingRepository;
 
 	private EmployeeService employeeService;
 
@@ -77,6 +82,19 @@ public class PostService {
 		return posts;
 	}
 
+	public List<Post> getUserFeed(int userId) {
+		List<Employee> employees= userService.getAllFollowing(userId);
+		List<Post> posts = new ArrayList<>();
+		for (Employee employee : employees) {
+			List<Rating> ratings = ratingRepository.findByEmployee(employee).orElse(null);
+			for (Rating rating : ratings) {
+				Post post = postRepository.findByRating(rating).orElse(null);
+				posts.add(post);
+			}
+		}
+		posts.sort(Comparator.comparing(Post::getCreatedDate).reversed());
+		return posts;
+	}
 
 
 }
