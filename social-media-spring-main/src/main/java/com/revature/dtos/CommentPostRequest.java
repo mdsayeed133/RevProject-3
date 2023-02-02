@@ -9,16 +9,16 @@ public class CommentPostRequest {
 
         private int imageId;
 
-        private PostType postType;
+        private int postId;
 
     public CommentPostRequest() {
     }
 
-    public CommentPostRequest(int userId, String text, int imageId, PostType postType) {
+    public CommentPostRequest(int userId, String text, int imageId, int postId) {
         this.userId = userId;
         this.text = text;
         this.imageId = imageId;
-        this.postType = postType;
+        this.postId = postId;
     }
 
     public int getUserId() {
@@ -45,11 +45,11 @@ public class CommentPostRequest {
         this.imageId = imageId;
     }
 
-    public PostType getPostType() {
-        return postType;
+    public int  getPostId() {
+        return postId;
     }
 
-    public void setPostType(PostType postType) {
-        this.postType = postType;
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 }

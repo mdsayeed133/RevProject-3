@@ -12,6 +12,8 @@ public class RatingPostRequest {
 
     private PostType postType;
 
+
+
     public RatingPostRequest() {
     }
 

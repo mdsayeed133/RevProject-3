@@ -1,6 +1,8 @@
 package com.revature.repositories;
 
+import com.revature.models.Employee;
 import com.revature.models.PostType;
+import com.revature.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.revature.models.Post;
@@ -13,6 +15,8 @@ public interface PostRepository extends JpaRepository<Post, Integer>{
 
     List<Post> findAllByPostType(PostType postType);
 
-   // List<Post> getAllComments(PostType postType);
+    List<Post> getPostsOfUser(User user);
+
+    List<Post> getPostsAboutEmployee(Employee employee);
 
 }

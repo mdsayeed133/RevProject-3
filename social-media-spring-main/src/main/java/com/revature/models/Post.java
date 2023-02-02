@@ -54,6 +54,16 @@ public class Post {
 		this.CreatedDate = CreatedDate;
 	}
 
+	public Post(int id, String message, int imageId, List<Post> comments, User author, PostType postType, Instant CreatedDate) {
+		this.id = id;
+		this.message = message;
+		this.imageId = imageId;
+		this.comments = comments;
+		this.author = author;
+		this.postType = postType;
+		this.CreatedDate = CreatedDate;
+	}
+
 	public Post(String message, List<Post> comments, User author, PostType postType) {
 		this.message = message;
 		this.comments = comments;
