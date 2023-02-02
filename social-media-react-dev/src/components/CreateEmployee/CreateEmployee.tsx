@@ -41,11 +41,11 @@ const CreateEmployee: React.FC<any> = (props: any) => {
   return (
     <>
       <Navbar />
-      <div className="create-employee-container">
+      <div className="create-employee-container container">
         <div className="text-container">
 
           {error && <p className="error-message">{error}</p>}
-          <div className='create-employee-container container'>
+          <div className='create-employee'>
 
             <form onSubmit={handleSubmit}>
               <div className='firstname'>

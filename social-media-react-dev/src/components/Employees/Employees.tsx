@@ -2,6 +2,7 @@ import React from 'react'
 import { FaUserCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../navbar/Navbar'
+import EmployeeCard from './EmployeeCard';
 import './Employees.css'
 
 const Employees = () => {
@@ -30,18 +31,7 @@ const Employees = () => {
                 <p><em>auto populate...</em></p>
                 <div className="display-Employees row" id="dispEmployee">
                     {/* this card format will auto generate the Employees */}
-                    <div className="col-md-3 employee-columns">
-                        <div className="card employee-card">
-                            <div className="employee-img">
-                                <FaUserCircle size="5em" />
-                            </div>
-                            <div className="card-body">
-                                <h5 className="card-title">Employee</h5>
-                                <p className="card-text">Department: <em>QC</em></p>
-                                <button className="btn btn-primary" onClick={seeProfile}>See Profile</button>
-                            </div>
-                        </div>
-                    </div>
+                    <EmployeeCard/>
                 </div>
             </div>
         </>

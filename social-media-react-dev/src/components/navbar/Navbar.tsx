@@ -42,8 +42,8 @@ const Navbar: React.FC<any> = (props:any) => {
     }
   }
   // change guest name
-  var status = false;
-  // var status = true;
+  var status = true;
+  // var status = false;
   React.useEffect(()=>{
     if(status != true){
       var element: HTMLElement = document.getElementById('userStatus') as HTMLElement 
@@ -97,7 +97,7 @@ const Navbar: React.FC<any> = (props:any) => {
           </div>
           <div className="d-flex">
             <div>
-              <h3 id="userStatus"></h3>
+              <Link to="/userprofile"><h3 id="userStatus"></h3></Link>
             </div>
             <button className="darkmode-switch" onClick={()=>setDarkMode(!darkMode)}></button>
             <Tooltip disableFocusListener disableTouchListener title={tipTitle}>
