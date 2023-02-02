@@ -5,9 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const CreateEmployee: React.FC<any> = (props: any) => {
-
-
-
   const navigate = useNavigate();
 
   const employeeprofile = async () => {
@@ -19,34 +16,31 @@ const CreateEmployee: React.FC<any> = (props: any) => {
   const [department, setDepartment] = useState("");
   const [error, setError] = useState("");
 
-
-
   const validateForm = () => {
-    if (!firstName || !lastName || !department) {
+    if (!firstName || !lastName || !department || department === "Select a department") {
       return false;
     }
     return true;
   };
 
-  //fix validate code and add route to add employee button   
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!firstName || !lastName || !department || department === "Select a department") {
+    if (!validateForm()) {
       setError("All fields are required");
       return;
     }
+    setError("");
+    employeeprofile();
   }
-
 
   return (
     <>
       <Navbar />
-      <div className="create-employee-container container">
+      <div className="create-employee-container">
         <div className="text-container">
-
           {error && <p className="error-message">{error}</p>}
-          <div className='create-employee'>
-
+          
+          <div className='create_employee'>
             <form onSubmit={handleSubmit}>
               <div className='firstname'>
                 <h3>First Name</h3>
@@ -63,8 +57,9 @@ const CreateEmployee: React.FC<any> = (props: any) => {
 
               <div>
                 <h3>Department</h3>
-                <label htmlFor="Department">Select a department:</label>
-                <select name="department" id="department">
+                
+                <select name="department" id="department" onChange={(e) => setDepartment(e.target.value)}>
+                  <option value="Select a department">Select a department</option>
                   <option value="Trainer">Trainer</option>
                   <option value="QC">QC</option>
                   <option value="HR">HR</option>
@@ -73,7 +68,7 @@ const CreateEmployee: React.FC<any> = (props: any) => {
                 </select>
               </div>
               
-              <button type='submit' onClick={employeeprofile}>Submit</button>
+              <button type='submit'>Submit</button>
 
             </form>
 

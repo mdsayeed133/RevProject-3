@@ -71,7 +71,16 @@ export const PostFeed:React.FC<any> = (props:any) => {
     // navigate to post component
     const navigate = useNavigate();
 
+<<<<<<< HEAD
     const addEmployee = async () => {
+=======
+    
+
+  const CreateEmployee = async () => {
+    navigate("/CreateEmployee") }
+    
+    const addEmployee = async()=>{
+>>>>>>> 29f7a04c29c32c8890aa8aa7d9f3b075ea1ab42d
         navigate("/createemployee")
     }
     const createPost = async () => {
