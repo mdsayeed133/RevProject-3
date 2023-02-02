@@ -42,10 +42,11 @@ public class RatingService {
         Tag tag= tagService.findById(tagId);
         List<Employee> employees = ratingRepository.findByTag1OrTag2OrTag3(tag, tag, tag).orElse(null);
         if(employees==null)return null;
-        /*
-        created a map with employee as the key and num of time the emp appears in the list as the value to have a SET amount
-        of employees and to use the value to order them.
-         */
+
+        /* This code is initializing an empty HashMap called "employeeCount". It then iterates through the list of employees and for each employee,
+        it retrieves the current count of that employee from the HashMap (if it exists), or sets it to 0 if it doesn't exist in the HashMap. Finally,
+        it adds 1 to the count of the employee and puts the updated count back into the HashMap with the employee as the key. So, this code is counting
+        the number of occurrences of each employee in the "employees" list.*/
         Map<Employee, Integer> employeeCount = new HashMap<>();
         for (Employee employee : employees) {
             int count = employeeCount.getOrDefault(employee, 0);
@@ -70,7 +71,7 @@ public class RatingService {
         return total / ratingList.size();
     }
 
-    public List<Tag> getTop3TagsByEmployee(int employeeId) {
+    public List<Tag> getTop3TagsOfEmployee(int employeeId) {
         Employee employee= employeeService.getEmployeeById(employeeId);
         List<Rating> ratings = ratingRepository.findByEmployee(employee).orElse(null);
         if(ratings==null) return null;
@@ -91,17 +92,56 @@ public class RatingService {
                 tagCountMap.put(tag3, tagCountMap.getOrDefault(tag3, 0) + 1);
             }
         }
-
+        /*This sorts the entries in the tagCountMap (which maps a Tag to its count) based on the values (the counts) in descending order.
+        It then maps the sorted entries to only contain the keys (the Tags), and collects the result into a List<Tag>. So, sortedTags will be a
+        List<Tag> containing the Tags sorted by their counts in descending order.*/
         List<Tag> sortedTags = tagCountMap.entrySet().stream()
                 .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
-
         return sortedTags.size() > 3 ? sortedTags.subList(0, 3) : sortedTags;
-
     }
 
+    public List<Employee> getTop3Employees(){
+        Map<Employee, Double> employeeScoreMap = new HashMap<>();
+        Map<Employee, Integer> employeeCountMap = new HashMap<>();
+        List<Rating> ratings= ratingRepository.findAll();
 
+        for (Rating rating : ratings) {
+            Employee employee = rating.getEmployee();
+            int score = rating.getScore();
+            if (!employeeScoreMap.containsKey(employee)) {
+                employeeScoreMap.put(employee, (double) score);
+                employeeCountMap.put(employee, 1);
+            } else {
+                double totalScore = employeeScoreMap.get(employee) + score;
+                int count = employeeCountMap.get(employee) + 1;
+                employeeScoreMap.put(employee, totalScore);
+                employeeCountMap.put(employee, count);
+            }
+        }
 
+        Map<Employee, Double> employeeAvgScoreMap = new HashMap<>();
+        for (Map.Entry<Employee, Double> entry : employeeScoreMap.entrySet()) {
+            Employee employee = entry.getKey();
+            double totalScore = entry.getValue();
+            int count = employeeCountMap.get(employee);
+            double avgScore = totalScore / count;
+            employeeAvgScoreMap.put(employee, avgScore);
+        }
 
+        List<Map.Entry<Employee, Double>> sortedEntries = new ArrayList<>(employeeAvgScoreMap.entrySet());
+
+        /* This is sorting the entries in a Map called sortedEntries in descending order based on the value of each entry. The value of each entry is the
+        average score of an employee. The sorting is performed by comparing the value of entry2 to entry1, and the sorting is done in descending order so
+        that the employee with the highest average score will be first in the sorted list.*/
+        sortedEntries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+
+        List<Employee> top3Employees = new ArrayList<>();
+        for (int i = 0; i < 3 && i < sortedEntries.size(); i++) {
+            top3Employees.add(sortedEntries.get(i).getKey());
+        }
+
+        return top3Employees;
+    }
 }
