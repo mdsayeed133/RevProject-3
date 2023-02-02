@@ -7,9 +7,7 @@ import com.revature.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 @Service
@@ -52,12 +50,12 @@ public class UserService {
     }
 
     public List<User> getUserByName(String search){
-        List<User> allResults= new ArrayList<>();
+        Set<User> allResults= new HashSet<>();
         List<User> firstResults = userRepository.findByFirstNameContainingIgnoreCase(search).orElse(null);
         List<User> lastResults = userRepository.findByLastNameContainingIgnoreCase(search).orElse(null);
         if (firstResults!=null)allResults.addAll(firstResults);
         if(lastResults!=null)allResults.addAll(lastResults);
-        return allResults;
+        return new ArrayList<>(allResults);
     }
 
 

@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class EmployeeService {
@@ -49,12 +51,12 @@ public class EmployeeService {
     }
 
     public List<Employee> getEmployeeByName(String search){
-        List<Employee> allResults= new ArrayList<>();
+        Set<Employee> allResults= new HashSet<>();
         List<Employee> firstResults = employeeRepository.findByFirstNameContainingIgnoreCase(search).orElse(null);
         List<Employee> lastResults = employeeRepository.findByLastNameContainingIgnoreCase(search).orElse(null);
         if (firstResults!=null)allResults.addAll(firstResults);
         if(lastResults!=null)allResults.addAll(lastResults);
-        return allResults;
+        return new ArrayList<>(allResults);
     }
 
 }
