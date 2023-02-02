@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import '../GuestFeed/GuestFeed.css'
 
-const GuestFeed: React.FC<any> = (props:any) => {
+const GuestFeed: React.FC<any> = (props: any) => {
 
   const navigate = useNavigate();
 
@@ -108,38 +108,22 @@ const GuestFeed: React.FC<any> = (props:any) => {
         </div>
 
         <div className='userratings'>
-
           <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
-
           <p> User: <em>NotaBot</em></p>
           <p>Trainer: <em>Benjamin P.</em></p>
           <p>Rating: <em>5/5</em></p>
-
-
-
           <button className='likebuttons' onClick={login}>Like </button>
           <button className='likebutton' onClick={login}>Reply</button>
-
         </div>
-
         <div className='userratings'>
-
           <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
-
           <p> User: <em>NotaBot</em></p>
           <p>Trainer: <em>Benjamin P.</em></p>
           <p>Rating: <em>5/5</em></p>
-
-
-
           <button className='likebuttons' onClick={login}>Like </button>
           <button className='likebutton' onClick={login}>Reply</button>
-
         </div>
       </div>
-
-
-
 
     </>
   )

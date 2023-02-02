@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaAngry } from 'react-icons/fa'
 import Navbar from '../navbar/Navbar'
 import Post from '../post-feed/Post'
 import '../UserProfile/UserProfile.css'
@@ -7,46 +8,218 @@ const UserProfile = () => {
     return (
         <>
             <Navbar />
-            {/* include batch, username, follow */}
-            <div>UserProfile</div>
-            <div className="profile-container container">
-                <div className="row">
-                    <div className="col-md-4">
-                        <div className="user-stats">
-                            <ul>
-                                <li>Join Date: <em></em></li>
-                                <li>Number of Posts: <em></em></li>
-                                <li>Average Rating Given: <em>6.58</em></li>
-                                <li>Favorite Tag: <em>Hard Grader</em></li>
-                                <li>Favorite Reaction: <em></em></li>
-                            </ul>
+            <div className="user-profile-container container">
+                <div className="profile-grid">
+                    <div className="post-info-container">
+                        <div className="join-date">
+                            <h4>Join Date:
+                                <p id="join-date-value">01/03/1989</p>
+                            </h4>
+                        </div>
+                        <div className="post-info-details">
+                            <h4 >Number of Posts:
+                                <p id="post-info-details">5000</p>
+                            </h4>
+                            <h4>Average Rating Given:
+                                <p id="post-info-details">6.58</p> / 10
+                            </h4>
+                            <h4>Favorite Tag:
+                                <p id="post-info-details">Hard Grader</p>
+                            </h4>
+                            <h4 className='image' >Favorite Image:
+                                <p id="trainer-favorite-img">
+                                    <FaAngry />
+                                </p>
+                            </h4>
                         </div>
                     </div>
-                    <div className="col-md-4">
-                        <div className="user-info">
-                            <div className="deets">
-                                <p className="details">First Name: <em id="dispPic">Harry</em></p>
-                                <p className="details">Last Name: <em>Limbres</em></p>
-                                <p className="details">Email: <em></em></p>
-                                <button className="btn btn-secondary">Reset Password</button>
 
+                    <div className="profile-info-container">
+                        <div className="personal-info-container">
+                            <h2 className="first-name" id='personal-fields'>First Name:
+                                <p id='inputs'>Benjamin</p>
+                            </h2>
+                            <h2 className="last-name" id='fields'>Last Name:
+                                <p id='inputs'>Petruzziello</p>
+                            </h2>
+                            <h2 className="email" id='fields'>Email:
+                                <p id='inputs'>BPetruzziello@gmail.com</p>
+                            </h2>
+                        </div>
+
+                        <div className="btn-box d-flex justify-content-around" id='password-btn'>
+                            <button className="reset-password-btn">Reset Password</button>
+                            {/* <button className="comment-btn" onClick={createComments}>Create comments</button> */}
+                        </div>
+                    </div>
+
+                    <div className="image-profile-container">
+                        <div className="square" id='square'>
+                            <p id='user-letter'>B</p>
+                        </div>
+                        <br></br>
+                        <div className='buttons-container'>
+                            <button className="view-profile-btn" id='view-profile'>View Public Profile</button>
+                            <br></br>
+                            {/* <button className="follow-btn" id='follow'>Follow</button>
+                                <br></br>
+                                <button className="follow-btn" id='unfollow'>Unfollow</button> */}
+                        </div>
+                    </div>
+                </div>
+                <br></br>
+                {/* Ratings by User */}
+
+                <div className="ratings-container">
+                    <div className='ratings-title'>
+                        <h2 className="user-ratings" id='ratings'>Ratings by this User:</h2>
+                    </div>
+
+                    <div className="post-container">
+                        <div className="user-container">
+                            <h2 className="username" id="username">Username:
+                                <p id='username-input'>BPetruzziello</p>
+                            </h2>
+                            <h2 className="rating-score" id="rating-score">Rating:
+                                <p id='rating-score-input'>7.3</p> / 10
+                            </h2>
+                            <h2 className="profile-pic" id="profile-pic">
+                                <div className="square-profile-post" id='square'>
+                                    <p id='user-letter-post'>B</p>
+                                </div>
+                                {/* <p id='profile-pic'>Picture</p>  */}
+                            </h2>
+                            <div className="reasoning-container" >
+                                <h2 id='reasoning'>Reasoning</h2>
+                                <p id="user-input-response" >
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem harum ipsum
+                                    exercitationem illum, distinctio porro? Quidem vero, labore consectetur
+                                    sunt ipsam eum cum? Exercitationem quam natus facere atque quibusdam qui.
+                                </p>
+                            </div>
+                            <div className="emotion-tag-container">
+                                <div className="emotion-container" id='emoticon'>
+                                    <h2 id='emoticon'>Emoticon</h2>
+                                    <p id="emoticon-img">
+                                        <FaAngry style={{ color: "red" }} />
+                                    </p>
+                                </div>
+                                <div className="tag-container" >
+                                    <h2 id='tag-options'>Tags:
+                                        <p className='tag1' id="tag" >Childish,</p>
+                                        <p className='tag1' id="tag">Dry,</p>
+                                        <p className='tag1' id="tag">Boring,</p>
+                                    </h2>
+                                </div>
+                            </div>
+                            <div className="button-container">
+                                <button className="edit" id='edit'>Edit</button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                {/* Ratings by User */}
+
+                <div className="ratings-container-1">
+
+
+                    <div className="post-container">
+                        <div className="user-container">
+                            <h2 className="username" id="username">Username:
+                                <p id='username-input'>BPetruzziello</p>
+                            </h2>
+                            <h2 className="rating-score" id="rating-score">Rating:
+                                <p id='rating-score-input'>7.11</p> / 10
+                            </h2>
+                            <h2 className="profile-pic" id="profile-pic">
+                                <div className="square-profile-post" id='square'>
+                                    <p id='user-letter-post'>B</p>
+                                </div>
+                            </h2>
+                            <div className="reasoning-container" >
+                                <h2 id='reasoning'>Reasoning</h2>
+                                <p id="user-input-response" >
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem harum ipsum
+                                    exercitationem illum, distinctio porro? Quidem vero, labore consectetur
+                                    sunt ipsam eum cum? Exercitationem quam natus facere atque quibusdam qui.
+                                </p>
+                            </div>
+                            <div className="emotion-tag-container">
+                                <div className="emotion-container" id='emoticon'>
+                                    <h2 id='emoticon'>Emoticon</h2>
+                                    <p id="emoticon-img">
+                                        <FaAngry style={{ color: "red" }} />
+                                    </p>
+                                </div>
+                                <div className="tag-container" >
+                                    <h2 id='tag-options'>Tags:
+                                        <p className='tag1' id="tag" >Terrible,</p>
+                                        <p className='tag1' id="tag">Lame,</p>
+                                        <p className='tag1' id="tag">Dumb,</p>
+                                    </h2>
+                                </div>
+                            </div>
+                            <div className="button-container">
+                                <button className="edit" id='edit'>Edit</button>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
-                        <div className="user-pic">
-                            <p id="profilePic">H</p>
-                            <button className="btn btn-secondary">View Public</button>
+                </div>
+
+                {/* Ratings by User */}
+
+                <div className="ratings-container-1">
+
+
+                    <div className="post-container">
+                        <div className="user-container">
+                            <h2 className="username" id="username">Username:
+                                <p id='username-input'>BPetruzziello</p>
+                            </h2>
+                            <h2 className="rating-score" id="rating-score">Rating:
+                                <p id='rating-score-input'>5.33</p> / 10
+                            </h2>
+                            <h2 className="profile-pic" id="profile-pic">
+                                <div className="square-profile-post" id='square'>
+                                    <p id='user-letter-post'>B</p>
+                                </div>
+                            </h2>
+                            <div className="reasoning-container" >
+                                <h2 id='reasoning'>Reasoning</h2>
+                                <p id="user-input-response" >
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem harum ipsum
+                                    exercitationem illum, distinctio porro? Quidem vero, labore consectetur
+                                    sunt ipsam eum cum? Exercitationem quam natus facere atque quibusdam qui.
+                                </p>
+                            </div>
+                            <div className="emotion-tag-container">
+                                <div className="emotion-container" id='emoticon'>
+                                    <h2 id='emoticon'>Emoticon</h2>
+                                    <p id="emoticon-img">
+                                        <FaAngry style={{ color: "red" }} />
+                                    </p>
+                                </div>
+                                <div className="tag-container" >
+                                    <h2 id='tag-options'>Tags:
+                                        <p className='tag1' id="tag" >Boring,</p>
+                                        <p className='tag1' id="tag">Dumb,</p>
+                                    </h2>
+                                </div>
+                            </div>
+                            <div className="button-container">
+                                <button className="edit" id='edit'>Edit</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                {/* this should hold the posted comments upon a click */}
+
             </div>
-                <div className="posted-comments container">
-                    <h2><em>comments will populate below</em></h2>
-                    <Post/>
-                    <Post/>
-                </div>
+
+
         </>
 
     )

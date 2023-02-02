@@ -264,3 +264,164 @@ return (
         </Box>
       </Container>
     </ThemeProvider>
+
+
++================+
+| Gues Feed code |
++================+
+ <div className="guest-feed">
+                 {/* fs: */}
+            <div className='summaryPart'>
+                <h2 className='welcomegreeting'>Welcome to RevRater, Where we connect to our future</h2>
+                <div className='tagline_comment'>
+                    <h4 className='tagline'>Find an Employee</h4>
+                    <h4 className='tagline'>Rate the Employee </h4>
+                    <h4 className='tagline'>View what others have to say !</h4>
+                </div>
+            </div>
+
+
+
+            <div className='TrainerRanking_Container' >
+                <div className='trainerRanking'>
+                    <h3>Current Trainer Rankings...</h3>
+                </div>
+
+                <div className='leaderboard'>
+
+                    <div className='imgcenter'>
+                        <h3 className='employeename'>Bonny N.</h3>
+                        <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
+
+                    </div>
+                    <div className='instructorinfo'>
+                        <h6>Skills: <em>java, html, React, Javascript</em></h6>
+                        <h6>Followers: <em>80 </em></h6>
+                        <h6>Reviews: <em>78</em></h6>
+                    </div>
+                    <div className='scoreBoard'>
+                        <h5>Overall Rating: <em>4.9/5</em></h5>
+                    </div>
+
+                </div>
+
+
+                <div className='leaderboard'>
+
+                    <div className='imgcenter'>
+                        <h3 className='employeename'>Bonny N.</h3>
+                        <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
+
+                    </div>
+                    <div className='instructorinfo'>
+                        <h6>Skills: <em>java, html, React, Javascript</em></h6>
+                        <h6>Followers: <em>80 </em></h6>
+                        <h6>Reviews: <em>78</em></h6>
+                    </div>
+                    <div className='scoreBoard'>
+                        <h5>Overall Rating: <em>4.9/5</em></h5>
+                    </div>
+
+                </div>
+
+                <div className='leaderboard'>
+
+                    <div className='imgcenter'>
+                        <h3 className='employeename'>Bonny N.</h3>
+                        <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
+
+                    </div>
+                    <div className='instructorinfo'>
+                        <h6>Skills: <em>java, html, React, Javascript</em></h6>
+                        <h6>Followers: <em>80 </em></h6>
+                        <h6>Reviews: <em>78</em></h6>
+                    </div>
+                    <div className='scoreBoard'>
+                        <h5>Overall Rating: <em>4.9/5</em></h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div className='userreview_container'>
+                <div className='userreview'>
+                    <h3>See what others are Saying...</h3>
+                </div>
+                <div className='userratings'>
+
+                    <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+
+                    <p> User: <em>NotaBot</em></p>
+                    <p>Trainer: <em>Benjamin P.</em></p>
+                    <p>Rating: <em>5/5</em></p>
+
+
+
+                    <button className='likebuttons'>Like </button>
+                    <button className='likebutton'>Reply</button>
+
+                </div>
+
+                {/* <div className='userratings'>
+                    <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+                    <p> User: <em>NotaBot</em></p>
+                    <p>Trainer: <em>Benjamin P.</em></p>
+                    <p>Rating: <em>5/5</em></p>
+                    <button className='likebuttons' onClick={login}>Like </button>
+                    <button className='likebutton' onClick={login}>Reply</button>
+                </div>
+                <div className='userratings'>
+                    <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+                    <p> User: <em>NotaBot</em></p>
+                    <p>Trainer: <em>Benjamin P.</em></p>
+                    <p>Rating: <em>5/5</em></p>
+                    <button className='likebuttons' onClick={login}>Like </button>
+                    <button className='likebutton' onClick={login}>Reply</button>
+                </div> */}
+            </div>
+            </div>
+
+
++===========================+
+| Removed from User Profile |
++===========================+
+"This was removed from UserProfile to make space for Johannes code. Will reformat anything for styling purposes"
+<div>UserProfile</div>
+            <div className="profile-container container">
+                <div className="row">
+                    <div className="col-md-4">
+                        <div className="user-stats">
+                            <ul>
+                                <li>Join Date: <em></em></li>
+                                <li>Number of Posts: <em></em></li>
+                                <li>Average Rating Given: <em>6.58</em></li>
+                                <li>Favorite Tag: <em>Hard Grader</em></li>
+                                <li>Favorite Reaction: <em></em></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="user-info">
+                            <div className="deets">
+                                <p className="details">First Name: <em id="dispPic">Harry</em></p>
+                                <p className="details">Last Name: <em>Limbres</em></p>
+                                <p className="details">Email: <em></em></p>
+                                <button className="btn btn-secondary">Reset Password</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="user-pic">
+                            <p id="profilePic">H</p>
+                            <button className="btn btn-secondary">View Public</button>
+                        </div>
+                    </div>
+                </div>
+                {/* this should hold the posted comments upon a click */}
+            </div>
+                <div className="posted-comments container">
+                    <h2><em>comments will populate below</em></h2>
+                    <Post/>
+                    <Post/>
+                </div>

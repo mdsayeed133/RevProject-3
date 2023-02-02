@@ -32,6 +32,21 @@ const Employees = () => {
                 <div className="display-Employees row" id="dispEmployee">
                     {/* this card format will auto generate the Employees */}
                     <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
+                    <EmployeeCard/>
                 </div>
             </div>
         </>
