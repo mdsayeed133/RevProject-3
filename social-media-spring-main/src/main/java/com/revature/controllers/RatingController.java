@@ -26,8 +26,13 @@ public class RatingController {
 
     @PostMapping
     public ResponseEntity<Rating> createRating(@RequestBody RatingDTO rDTO) {
-        Rating newRating = ratingService.createRating(rDTO);
-        return new ResponseEntity<>(newRating, HttpStatus.CREATED);
+        try {
+            Rating newRating = ratingService.createRating(rDTO);
+            return new ResponseEntity<>(newRating, HttpStatus.CREATED);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @GetMapping("/employees/{tagId}/tagSearch")

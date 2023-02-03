@@ -31,7 +31,7 @@ public class EmployeeController {
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<List<Employee>> getAllEmployees(){
         List<Employee> employees = employeeService.getAllEmployees();
         if(employees.isEmpty()){
@@ -40,10 +40,15 @@ public class EmployeeController {
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public ResponseEntity<Employee> createEmployee(@RequestBody AddEmployeeRequest addEmployeeRequest){
-        Employee employee = employeeService.createEmployee(addEmployeeRequest);
-        return new ResponseEntity<>(employee, HttpStatus.CREATED);
+        try {
+            Employee employee = employeeService.createEmployee(addEmployeeRequest);
+            return new ResponseEntity<>(employee, HttpStatus.CREATED);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @GetMapping("/{departmentId}/department")
