@@ -28,6 +28,9 @@ public class RatingService {
         this.tagService = tagService;
     }
 
+    public List<Rating> findByEmployee(Employee employee){
+        return ratingRepository.findByEmployee(employee).orElse(null);
+    }
     public Rating createRating(RatingDTO rDTO)
     {
         Employee emp = employeeService.getEmployeeById(rDTO.getEmployeeId());
@@ -37,6 +40,19 @@ public class RatingService {
 
         Rating newRating = new Rating(emp, rDTO.getScore(), tag1, tag2, tag3);
         return ratingRepository.save(newRating);
+    }
+
+    public Rating editRating(RatingDTO rDTO, int ratingId){
+        Rating rating= ratingRepository.findById(ratingId).orElse(null);
+        Tag tag1 = tagService.findById(rDTO.getTags1());
+        Tag tag2 = tagService.findById(rDTO.getTags2());
+        Tag tag3 = tagService.findById(rDTO.getTags3());
+        rating.setScore(rDTO.getScore());
+        rating.setTag1(tag1);
+        rating.setTag2(tag2);
+        rating.setTag3(tag3);
+        return ratingRepository.save(rating);
+
     }
     public List<Employee> searchEmployeesByTag(int tagId) {
         Tag tag= tagService.findById(tagId);

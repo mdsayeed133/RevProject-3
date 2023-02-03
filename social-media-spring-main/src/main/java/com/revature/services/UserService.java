@@ -6,11 +6,13 @@ import com.revature.repositories.EmployeeRepository;
 import com.revature.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
 
 @Service
+@Transactional
 public class UserService {
 
     private UserRepository userRepository;

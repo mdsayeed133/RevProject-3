@@ -10,18 +10,18 @@ public class RatingPostRequest {
 
     private int imageId;
 
-    private PostType postType;
+    private RatingDTO ratingDTO;
 
 
 
     public RatingPostRequest() {
     }
 
-    public RatingPostRequest(int userId, String text, int imageId, PostType postType) {
+    public RatingPostRequest(int userId, String text, int imageId, RatingDTO ratingDTO) {
         this.userId = userId;
         this.text = text;
         this.imageId = imageId;
-        this.postType = postType;
+        this.ratingDTO = ratingDTO;
     }
 
     public int getUserId() {
@@ -48,11 +48,11 @@ public class RatingPostRequest {
         this.imageId = imageId;
     }
 
-    public PostType getPostType() {
-        return postType;
+    public RatingDTO getRatingDTO() {
+        return ratingDTO;
     }
 
-    public void setPostType(PostType postType) {
-        this.postType = postType;
+    public void setRatingDTO(RatingDTO ratingDTO) {
+        this.ratingDTO = ratingDTO;
     }
 }

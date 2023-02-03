@@ -85,6 +85,15 @@ public class Post {
 		this.message = message;
 	}
 
+	public Post(String text, int imageId, List<Post> comments, User user, PostType type, Instant now) {
+		this.message = text;
+		this.imageId = imageId;
+		this.comments = comments;
+		this.author = user;
+		this.postType = type;
+		this.CreatedDate= now;
+	}
+
 	public String getMessage() {
 		return message;
 	}
