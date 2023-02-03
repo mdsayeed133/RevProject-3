@@ -27,7 +27,7 @@ public class FilterAspect {
 
         // If the user is not logged in
         if(session.getAttribute("user") == null) {
-            throw new FilterException("The phrase: "+);
+            throw new FilterException("The phrase: '"+ +"' is not acceptable as per our Terms of Service");
         }
 
         return pjp.proceed(pjp.getArgs()); // Call the originally intended method
