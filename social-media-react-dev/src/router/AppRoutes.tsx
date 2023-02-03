@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
-import AdvancedSearch from '../components/advancedSearch/advancedSearch';
+// import AdvancedSearch from '../components/AdvancedSearch/AdvancedSearch';
 import CreateComments from '../components/Comments/CreateComments';
 import ShowComments from '../components/Comments/ShowComments';
 import CreateEmployee from '../components/CreateEmployee/CreateEmployee';
@@ -22,7 +22,7 @@ export const AppRoutes: React.FC<unknown> = () => (
     <Route path="/userprofile" element={<UserProfile />}/>
     <Route path="/employees" element={<Employees/>}/>
     <Route path="/employeeprofile" element={<EmployeeProfile />}/>
-    <Route path="/advancedsearch" element={<AdvancedSearch/>}/>
+    {/* <Route path="/advancedsearch" element={<AdvancedSearch/>}/> */}
     <Route path="/createemployee" element={<CreateEmployee/>}/>
     <Route path="/createcomments" element={<CreateComments/>}/>
     <Route path="/showcomments" element={<ShowComments/>}/>

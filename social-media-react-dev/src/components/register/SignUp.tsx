@@ -47,7 +47,7 @@ const SignUp: React.FC<any> = (props: any) => {
                 <div className="text-container">
                     <h3>Please add your information</h3>
                     {/* firstname, lastname, username, password, address */}
-                    <div className="input-container">
+                    <div className="sign-container">
                         <div className="top-row d-flex">
                         <div className="holder">
                             <input className="input-box" type="text" name="firstName" placeholder="first name" onChange={gatherInput} />

@@ -20,21 +20,21 @@ export default function CreatePostForm() {
 
       <div className="CreatePostForm">
         <div className="headerContainer">
-          <h2 id="userInput">Username</h2>
-          <h2 className="score" id="userInput">
+          <p id="userInput">Username</p>
+          <p className="score" id="userInput">
             <input id="userInputScore" type="text" /> / 10
-          </h2>
-          <h2 className="profilePic" id="userInput"> ProfilePic </h2>
+          </p>
+          <p className="profilePic" id="userInput"> ProfilePic </p>
 
         </div>
         <div className="inputContainer">
-          <h2 id="inputQuestion">Enter your reasoning why</h2>
+          <p id="inputQuestion">Enter your reasoning why</p>
           <textarea id="userInputResponse" ></textarea>
           {/* <input id="userInputResponse" type="text" /> */}
         </div>
         {/* maybe drop tags and stick with emoji */}
         <div className="tagContainer">
-          <h2>Select Up To 3 Tags</h2>
+          <p>Select Up To 3 Tags</p>
           <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
             <option value="DEFAULT" disabled></option>
             <option value="boring">Boring</option>
@@ -81,7 +81,7 @@ export default function CreatePostForm() {
 
       {/* <section className="create-post-section">
         <div className="post-container container">
-          <h2>Create Your Post</h2>
+          <p>Create Your Post</p>
           <div className="post-box">
             <h4>Rating: 1-10</h4>
             <input type="number" name="rating" id="rating" placeholder="only 1-10 will count" />
