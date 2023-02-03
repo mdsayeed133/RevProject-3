@@ -15,9 +15,9 @@ public class ProfanityServiceTest {
     private ProfanityService profanityService;
 
     @Test
-    void filterProfanityTest(){
-        String testString= "FuCk and CuM or bitCh FuCk and CuM or bitCh FuCk and CuM or bitCh";
-        String expectedString= "**** and *** or ***** **** and *** or ***** **** and *** or *****";
+    void filterProfanityTest() {
+        String testString = "FuCk and CuM or bitCh FuCk and CuM or bitCh FuCk and CuM or bitCh";
+        String expectedString = "**** and *** or ***** **** and *** or ***** **** and *** or *****";
 
         String result = profanityService.filterProfanity(testString);
 
@@ -25,10 +25,30 @@ public class ProfanityServiceTest {
     }
 
     @Test
-    void testFilterConjoinedWords()
+    void testFilterConjoinedWords() {
+        String testString = "bitchass";
+        String expectedString = "********";
+
+        String result = profanityService.filterProfanity(testString);
+
+        assertThat(result, equalTo(expectedString));
+    }
+
+    @Test
+    void testForeignCharacterReplacement()
     {
-        String testString="assbitch";
-        String expectedString="********";
+        String testString = "bitchàss";
+        String expectedString = "********";
+
+        String result = profanityService.filterProfanity(testString);
+
+        assertThat(result, equalTo(expectedString));
+    }
+    @Test
+    void testBigReplace()
+    {
+        String testString = "bitchàss FuCk and CuM or bitCh FuCk and CuM or bitCh FuCk and CuM or bitChbitchàss FuCk and CuM or bitCh FuCk and CuM or bitCh FuCk and CuM or bitChbitchàss FuCk and CuM or bitCh FuCk and CuM or bitCh FuCk and CuM or bitCh";
+        String expectedString = "******** **** and *** or ***** **** and *** or ***** **** and *** or ************* **** and *** or ***** **** and *** or ***** **** and *** or ************* **** and *** or ***** **** and *** or ***** **** and *** or *****";
 
         String result = profanityService.filterProfanity(testString);
 
