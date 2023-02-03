@@ -9,42 +9,42 @@ const UserProfile = () => {
         <>
             <Navbar />
             <div className="user-profile-container container">
-                <div className="profile-grid">
+                <div className="profile-grid d-flex justify-content-around">
                     <div className="post-info-container">
                         <div className="join-date">
-                            <h4>Join Date:
+                            <p>Join Date:
                                 <p id="join-date-value">01/03/1989</p>
-                            </h4>
+                            </p>
                         </div>
                         <div className="post-info-details">
-                            <h4 >Number of Posts:
+                            <p >Number of Posts:
                                 <p id="post-info-details">5000</p>
-                            </h4>
-                            <h4>Average Rating Given:
+                            </p>
+                            <p>Average Rating Given:
                                 <p id="post-info-details">6.58</p> / 10
-                            </h4>
-                            <h4>Favorite Tag:
+                            </p>
+                            <p>Favorite Tag:
                                 <p id="post-info-details">Hard Grader</p>
-                            </h4>
-                            <h4 className='image' >Favorite Image:
+                            </p>
+                            <p className='image' >Favorite Image:
                                 <p id="trainer-favorite-img">
                                     <FaAngry />
                                 </p>
-                            </h4>
+                            </p>
                         </div>
                     </div>
 
                     <div className="profile-info-container">
                         <div className="personal-info-container">
-                            <h2 className="first-name" id='personal-fields'>First Name:
+                            <p className="first-name" id='personal-fields'>First Name:
                                 <p id='inputs'>Benjamin</p>
-                            </h2>
-                            <h2 className="last-name" id='fields'>Last Name:
+                            </p>
+                            <p className="last-name" id='fields'>Last Name:
                                 <p id='inputs'>Petruzziello</p>
-                            </h2>
-                            <h2 className="email" id='fields'>Email:
+                            </p>
+                            <p className="email" id='fields'>Email:
                                 <p id='inputs'>BPetruzziello@gmail.com</p>
-                            </h2>
+                            </p>
                         </div>
 
                         <div className="btn-box d-flex justify-content-around" id='password-btn'>
@@ -54,8 +54,11 @@ const UserProfile = () => {
                     </div>
 
                     <div className="image-profile-container">
-                        <div className="square" id='square'>
-                            <p id='user-letter'>B</p>
+                        <div className="holder">
+                            <div className="square" id='square'>
+                                <p id='user-letter'>B</p>
+                            </div>
+
                         </div>
                         <br></br>
                         <div className='buttons-container'>

@@ -41,9 +41,6 @@ const Post: React.FC<any> = (props:any) => {
                     <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
                 </div>
                 <div className=" justify-content-between">
-                    
-                    
-               
                     <div className="react-box">
                         <p className="comment-box " id="commentBox">
                             <Comments/>
