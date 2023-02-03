@@ -46,7 +46,8 @@ public class EmployeeService {
         return employeeRepository.save(newEmployee);
     }
 
-    public List<Employee> getEmployeeByDepartment(Department department){
+    public List<Employee> getEmployeeByDepartment(int departmentId){
+        Department department = departmentService.getDepartmentById(departmentId);
         return employeeRepository.findByDepartment(department).orElse(null);
     }
 

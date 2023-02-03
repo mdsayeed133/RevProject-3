@@ -82,9 +82,10 @@ class EmployeeServiceTest {
     @Test
      void testGetEmployeeByDepartment() {
         List<Employee> employees = Arrays.asList(mockEmployee);
+        when(departmentService.getDepartmentById(mockDepartment.getId())).thenReturn(mockDepartment);
         when(employeeRepository.findByDepartment(mockDepartment)).thenReturn(Optional.of(employees));
 
-        List<Employee> result = employeeService.getEmployeeByDepartment(mockDepartment);
+        List<Employee> result = employeeService.getEmployeeByDepartment(mockDepartment.getId());
 
         assertThat(employees, equalTo(result));
     }
