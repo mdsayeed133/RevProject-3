@@ -25,7 +25,6 @@ function App() {
 
   return (
     <UserContext.Provider value={value}>
-
       <Router>
         <AppRoutes></AppRoutes>
       </Router>

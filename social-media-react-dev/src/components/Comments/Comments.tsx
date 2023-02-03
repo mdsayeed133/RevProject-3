@@ -39,7 +39,6 @@ const Comments = () => {
       {showReplyForm && (
         <form className="reply-form" onSubmit={handleReplySubmit}>
           <textarea className='text_form' placeholder="Write your reply" name="reply"></textarea>
-
           <br />
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <button className='submit_form' type="submit">Submit</button>

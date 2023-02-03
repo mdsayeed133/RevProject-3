@@ -2,13 +2,15 @@ import React from 'react'
 import Navbar from '../navbar/Navbar'
 import './EmployeeProfile.css'
 import { useNavigate } from 'react-router'
+import Comments from '../Comments/Comments'
 const EmployeeProfile = () => {
 
     // useNavigate to "navigate"
     const navigate = useNavigate();
-    // const showComments = async () => {
-    //     navigate("/showcomments")
-    // }
+    const showComments = async () => {
+        // navigate("/showcomments")
+        
+    }
     const createComments = async () => {
         navigate("/createcomments")
     }
@@ -34,7 +36,7 @@ const EmployeeProfile = () => {
                             <h3>Department: <em>Trainer</em></h3>
                         </div>
                         <div className="btn-box d-flex justify-content-around">
-                            <button className="comment-btn">Show comments</button>
+                            <button className="comment-btn" onClick={showComments}>Show comments</button>
                             <button className="comment-btn" onClick={createComments}>Create comments</button>
                         </div>
                     </div>
@@ -55,6 +57,7 @@ const EmployeeProfile = () => {
                 {/* this should hold the posted comments upon a click */}
                 <div className="posted-comments d-none">
                     <h2><em>comments will populate below</em></h2>
+                    <Comments/>
                 </div>
             </div>
         </>

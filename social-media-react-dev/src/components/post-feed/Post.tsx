@@ -1,16 +1,16 @@
-import React from 'react'
-import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFill, BsFillEmojiFrownFill, BsFillEmojiNeutralFill, BsFillEmojiSmileFill, BsFillEmojiSunglassesFill} from "react-icons/bs";
+import React, { useState } from 'react'
+import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFill, BsFillEmojiFrownFill, BsFillEmojiNeutralFill, BsFillEmojiSmileFill, BsFillEmojiSunglassesFill } from "react-icons/bs";
 import Comments from '../Comments/Comments';
 
 
-const Post: React.FC<any> = (props:any) => {
+const Post: React.FC<any> = (props: any) => {
 
-    const showComment = async()=>{
+    const showComment = async () => {
         const comms = document.getElementById("commentBox")
 
     }
     const [userComments, setUserComments] = React.useState(false);
-    React.useEffect(()=> {
+    React.useEffect(() => {
         if (userComments) {
             var comms = document.getElementById("commentBox")
             comms?.classList.add("d-none")
@@ -19,6 +19,15 @@ const Post: React.FC<any> = (props:any) => {
             comms?.classList.remove("d-none")
         }
     }, [userComments])
+
+    // edit
+    const [showEditForm, setShowEdit] = useState(false);
+    const handleEditClick = async()=> {
+        setShowEdit(!showEditForm);
+    }
+
+    // edit function
+    // research redux store
 
     return (
         <>
@@ -38,12 +47,26 @@ const Post: React.FC<any> = (props:any) => {
                         <p>Department: <em>Trainer Department</em></p>
                         <p>Posted by: <em>User</em></p>
                     </div>
+                    {/* working code */}
                     <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
+                    
+                    {/* edit feature */}
+                    {showEditForm && (
+                        <form className="edit-form">
+                            <textarea className='edit-textarea' placeholder="Edit your post" name="edit"></textarea>
+                            <br />
+                            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                <button className='submit_form' type="submit">Submit</button>
+                                <button className='submit_form' type="button">Cancel</button>
+                            </div>
+                        </form>
+                    )}
+                    <button className="" onClick={handleEditClick}>Edit</button>
                 </div>
-                <div className=" justify-content-between">
+                <div className="">
                     <div className="react-box">
                         <p className="comment-box " id="commentBox">
-                            <Comments/>
+                            <Comments />
                         </p>
                     </div>
                 </div>

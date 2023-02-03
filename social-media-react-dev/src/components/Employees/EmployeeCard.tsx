@@ -21,7 +21,6 @@ const EmployeeCard = () => {
                         <p className="card-text">Department: <em>QC</em></p>
                         <div className="button-row">
                         <button className="btn btn-secondary" onClick={seeProfile}>See Profile</button>
-
                         </div>
                     </div>
                 </div>
