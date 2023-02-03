@@ -2,8 +2,10 @@ package com.revature.controllers;
 
 import com.revature.dtos.LoginRequest;
 import com.revature.dtos.RegisterRequest;
+import com.revature.exceptions.FilterException;
 import com.revature.models.User;
 import com.revature.services.AuthService;
+import com.revature.services.ProfanityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +21,11 @@ import java.util.Optional;
 public class AuthController {
 
     private AuthService authService;
+    private ProfanityService profService;
     @Autowired
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, ProfanityService profService) {
         this.authService = authService;
+        this.profService = profService;
     }
 
     @PostMapping("/login")
@@ -46,14 +50,20 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody RegisterRequest registerRequest) {
-         User created = new User(
+        if(profService.profanityLikely(registerRequest.getEmail()))
+            throw new FilterException();
+        User created = new User(
                 registerRequest.getEmail(),
                 registerRequest.getPassword(),
                 registerRequest.getFirstName(),
                 registerRequest.getLastName(),
                  Instant.now());
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(created));
+        created = authService.register(created);
+        if(created==null)
+        {
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
 

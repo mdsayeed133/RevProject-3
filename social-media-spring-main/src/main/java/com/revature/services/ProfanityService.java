@@ -62,7 +62,7 @@ public class ProfanityService {
         return returnedString;
     }
 
-    private boolean profanityLikely(String s)
+    public boolean profanityLikely(String s)
     {
         String temp = Normalizer.normalize(s.strip().toLowerCase(),Normalizer.Form.NFD);//strip white space, standardize spelling.
         temp = temp.replaceAll("\\p{M}}", ""); //removes any remaining "funny" characters.
