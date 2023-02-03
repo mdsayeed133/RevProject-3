@@ -39,17 +39,5 @@
 
 /* comment editing */
 .comment-box {
-    border: 1px solid black;
+    border: 0px solid black;
 }
-
-/* .reveal{
-    position: relative;
-    transform: translateY(180px);
-    opacity: 0;
-    transition: 1s all ease;
-  }
-  .reveal.active{
-    transform: translateY(0);
-    opacity: 1;
-  }
-   */
