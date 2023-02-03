@@ -40,6 +40,7 @@ public class LikeServiceTest {
     private User mockUser2;
     private Post mockPost;
     private Like mocklike;
+
     @BeforeEach
     public void setup(){
         mockUser = new User(0, "test@example.com", "password", "John", "Doe", Instant.now());
@@ -65,11 +66,12 @@ public class LikeServiceTest {
     @Test
     void likesAmountTest()
     {
+        when(likesRepo.countByPost(any())).thenReturn(1);
 
+        int result = service.likesAmount((mockPost.getId()));
+
+        assertThat(1, equalTo(result));
     }
-
-
-
 
 
 }
