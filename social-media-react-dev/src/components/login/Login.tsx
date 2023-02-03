@@ -73,19 +73,12 @@ export default function Login() {
 
             </div>
             <button className="login-button" onClick={login}>Login</button>
-        <Grid container>
-          <Grid item>
-            {/* <Link href="register" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link> */}
+            <div className="signup-row">
             <Link href="signup">
               {"Don't have an account? Try Sign Up"}
             </Link>
-          </Grid>
-        </Grid>
-
+            </div>
           </div>
-
           {/* <button className="login-button" onClick={reset}>Reset Password</button> */}
         </div>
       </div>

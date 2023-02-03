@@ -102,6 +102,10 @@ export const PostFeed:React.FC<any> = (props:any) => {
                         <div className="post-feed-content">
                             <h3>Display information here</h3>
                             <Post />
+                            <Post />
+                            <Post />
+                            <Post />
+                            <Post />
 
                         </div>
                     </div>
