@@ -61,25 +61,31 @@ public class PostService {
 	public Post createCommentPost(CommentPostRequest commentPostRequest){
 		User user = userService.getUserById(commentPostRequest.getUserId()).orElse(null);
 		Post newCommentPost = new Post(commentPostRequest.getPostId(), commentPostRequest.getText(), commentPostRequest.getImageId(), null, user, PostType.Comment, Instant.now());
+		Post ratingPost = postRepository.findById(commentPostRequest.getPostId()).orElse(null);
+		List<Post> temp = ratingPost.getComments();
+		temp.add(newCommentPost);
+		postRepository.save(newCommentPost);
 		return postRepository.save(newCommentPost);
 	}
 
 	public Post createReplyPost(CommentPostRequest replyPostRequest){
 		User user = userService.getUserById(replyPostRequest.getUserId()).orElse(null);
 		Post newReplyPost = new Post(replyPostRequest.getPostId(), replyPostRequest.getText(), replyPostRequest.getImageId(), null, user, PostType.Reply, Instant.now());
+		Post commentPost = postRepository.findById(replyPostRequest.getPostId()).orElse(null);
+		List<Post> temp = commentPost.getComments();
+		temp.add(newReplyPost);
+		postRepository.save(newReplyPost);
 		return postRepository.save(newReplyPost);
 	}
 
 	public List<Post> getPostsOfUser(int id){
 		User user = userService.getUserById(id).orElse(null);
-		List<Post> posts = postRepository.getPostsOfUser(user);
-		return posts;
+		return postRepository.findByUser(user);
 	}
 
 	public List<Post> getPostsAboutEmployee(int id){
 		Employee emp = employeeService.getEmployeeById(id);
-		List<Post> posts = postRepository.getPostsAboutEmployee(emp);
-		return posts;
+		return postRepository.findByEmployee(emp);
 	}
 
 	public List<Post> getUserFeed(int userId) {
@@ -100,7 +106,7 @@ public class PostService {
 		List<Employee> employees = userService.getAllFollowing(id);
 		List<Post> followed = new ArrayList<>();
 		for (Employee employee : employees){
-			List<Post> posts = postRepository.getPostsAboutEmployee(employee);
+			List<Post> posts = postRepository.findByEmployee(employee);
 			followed.addAll(posts);
 		}
 		followed.sort(Comparator.comparing(Post::getCreatedDate).reversed());
@@ -108,13 +114,30 @@ public class PostService {
 	}
 
 	public List<Post> getCommentsOfAPost(int id){
-		List<Post> comments = postRepository.getPostTypeOfPostType(PostType.Comment, id);
-		return comments;
+		Post post = getPostById(id);
+		return post.getComments();
 	}
 
 	public List<Post> getRepliesOfComment(int id){
-		List<Post> replies = postRepository.getPostTypeOfPostType(PostType.Reply, id);
-		return replies;
+		Post post = getPostById(id);
+		return post.getComments();
+	}
+
+	public Boolean editRatingPost(RatingPostRequest ratingsPostRequest, Rating rating){
+		Post post = postRepository.findById(ratingsPostRequest.getUserId()).orElse(null);
+		post.setMessage(ratingsPostRequest.getText());
+		post.setRating(rating);
+		post.setImageId(ratingsPostRequest.getImageId());
+		postRepository.save(post);
+		return true;
+	}
+
+	public Boolean editCommentPost(CommentPostRequest commentPostRequest){
+		Post post = postRepository.findById(commentPostRequest.getUserId()).orElse(null);
+		post.setMessage(commentPostRequest.getText());
+		post.setImageId(commentPostRequest.getImageId());
+		postRepository.save(post);
+		return true;
 	}
 
 }
