@@ -23,4 +23,15 @@ public class ProfanityServiceTest {
 
         assertThat(result, equalTo(expectedString));
     }
+
+    @Test
+    void testFilterConjoinedWords()
+    {
+        String testString="assbitch";
+        String expectedString="********";
+
+        String result = profanityService.filterProfanity(testString);
+
+        assertThat(result, equalTo(expectedString));
+    }
 }

@@ -8,27 +8,28 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.io.BufferedReader;
 
 @Service
 @Transactional
 public class ProfanityService {
-    public ArrayList<String> profanity;
+    public HashMap<String,Boolean> profanity;
     private File profanityConfig;
     public ProfanityService()
     {
         try{
             profanityConfig = new File("src/main/resources/profanityList.txt");
             BufferedReader reader = new BufferedReader(new FileReader(profanityConfig));
-            profanity = new ArrayList<String>();
+            profanity = new HashMap<String,Boolean>();
             String current = "";
             while (true)
             {
                 current = reader.readLine();
                 if (current==null)
                     break;
-                profanity.add(current);
+                profanity.put(current,true);
             }
             reader.close();
         }
@@ -42,10 +43,17 @@ public class ProfanityService {
     }
 
     public String filterProfanity(String text) {
-        for (String word : profanity) {
-            text = text.replaceAll("(?i)" + word, asterisks(word.length()));
+        String[] words = text.split(" ");
+        String returnedString = "";
+        for (int i = 0; i<words.length; i++)
+        {
+           if(profanity.get(words[i].toLowerCase())!=null)
+               words[i] = asterisks(words[i].length());
+           returnedString+=words[i];
+           if(i+1!=words.length)
+               returnedString+=" ";
         }
-        return text;
+        return returnedString;
     }
 
     private String asterisks(int length) {

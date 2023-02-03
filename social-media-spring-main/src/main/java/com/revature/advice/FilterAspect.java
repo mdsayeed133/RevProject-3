@@ -19,7 +19,7 @@ public class FilterAspect {
     public FilterAspect(HttpServletRequest req) {
         this.req = req;
     }
-
+/*
     @Around("@annotation(profanityfilter)")
     public Object filter(ProceedingJoinPoint pjp) throws Throwable {
 
@@ -31,5 +31,5 @@ public class FilterAspect {
 
         //if no issues, continue...
         return pjp.proceed(pjp.getArgs()); // Call the originally intended method
-    }
+    }*/
 }
