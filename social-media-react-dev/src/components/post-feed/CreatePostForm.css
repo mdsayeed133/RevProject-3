@@ -122,8 +122,13 @@
     text-align: center;
 
     margin-right: 10px;
+    background-color: aliceblue;
     
     
+}
+
+.default-tag {
+    background-color: aliceblue;
 }
 
 
@@ -135,10 +140,10 @@
 .button{
     display: inline-block;
     /* width: 35%; */
-    height: 40px;
+    height: 30px;
     background-color: #7ebdc3;
 
-    font-size: 20px;
+    font-size: 15px;
     letter-spacing: 1px;
     color: black;
     /* font-weight: bold; */

@@ -36,7 +36,7 @@ export default function CreatePostForm() {
         <div className="tagContainer">
           <p>Select Up To 3 Tags</p>
           <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
-            <option value="DEFAULT" disabled></option>
+            <option value="DEFAULT" disabled>please select</option>
             <option value="boring">Boring</option>
             <option value="interesting">Interesting</option>
             <option value="childish">Childish</option>
@@ -45,7 +45,7 @@ export default function CreatePostForm() {
             <option value="understanding">Understanding</option>
           </select>
           <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
-            <option value="DEFAULT" disabled></option>
+            <option value="DEFAULT" disabled>please select</option>
             <option value="boring">Boring</option>
             <option value="interesting">Interesting</option>
             <option value="childish">Childish</option>
@@ -54,7 +54,7 @@ export default function CreatePostForm() {
             <option value="understanding">Understanding</option>
           </select>
           <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
-            <option value="DEFAULT" disabled></option>
+            <option value="DEFAULT" disabled>please select</option>
             <option value="boring">Boring</option>
             <option value="interesting">Interesting</option>
             <option value="childish">Childish</option>
