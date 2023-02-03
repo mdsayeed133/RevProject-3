@@ -15,6 +15,8 @@ public interface PostRepository extends JpaRepository<Post, Integer>{
 
     List<Post> getPostsOfUser(User user);
 
+    List<Post> getPostTypeOfPostType(PostType post, int id);
+
     List<Post> getPostsAboutEmployee(Employee employee);
 
     Optional<Post> findByRating(Rating rating);

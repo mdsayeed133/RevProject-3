@@ -96,5 +96,25 @@ public class PostService {
 		return posts;
 	}
 
+	public List<Post> getPostByFollower(int id){
+		List<Employee> employees = userService.getAllFollowing(id);
+		List<Post> followed = new ArrayList<>();
+		for (Employee employee : employees){
+			List<Post> posts = postRepository.getPostsAboutEmployee(employee);
+			followed.addAll(posts);
+		}
+		followed.sort(Comparator.comparing(Post::getCreatedDate).reversed());
+		return followed;
+	}
+
+	public List<Post> getCommentsOfAPost(int id){
+		List<Post> comments = postRepository.getPostTypeOfPostType(PostType.Comment, id);
+		return comments;
+	}
+
+	public List<Post> getRepliesOfComment(int id){
+		List<Post> replies = postRepository.getPostTypeOfPostType(PostType.Reply, id);
+		return replies;
+	}
 
 }
