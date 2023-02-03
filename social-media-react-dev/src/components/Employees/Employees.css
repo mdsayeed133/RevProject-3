@@ -20,4 +20,14 @@
 .employee-img {
     display: flex;
     justify-content: center;
+    border-style: inset;
+    height: 120px;
+    padding-top: 20px;
 }
+.card-body {
+    text-align: center;
+}
+
+/* .button-row {
+    text-align: center;
+} */

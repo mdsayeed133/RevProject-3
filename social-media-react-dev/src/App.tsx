@@ -25,7 +25,6 @@ function App() {
 
   return (
     <UserContext.Provider value={value}>
-      {/* <button className="darkmode-switch" onClick={() => setDarkMode(!darkMode)}></button> */}
 
       <Router>
         <AppRoutes></AppRoutes>

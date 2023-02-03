@@ -19,7 +19,10 @@ const EmployeeCard = () => {
                     <div className="card-body">
                         <h5 className="card-title">Employee</h5>
                         <p className="card-text">Department: <em>QC</em></p>
-                        <button className="btn btn-primary" onClick={seeProfile}>See Profile</button>
+                        <div className="button-row">
+                        <button className="btn btn-secondary" onClick={seeProfile}>See Profile</button>
+
+                        </div>
                     </div>
                 </div>
             </div>

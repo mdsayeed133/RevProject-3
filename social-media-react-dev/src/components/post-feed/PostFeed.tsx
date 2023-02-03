@@ -8,15 +8,16 @@ import { UserContext } from '../../context/user.context';
 import TextField from '@mui/material/TextField';
 import { apiUpsertPost } from '../../remote/social-media-api/post.api';
 import Footer from '../Footer/Footer';
-import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFill, BsFillEmojiFrownFill, BsFillEmojiNeutralFill, BsFillEmojiSmileFill, BsFillEmojiSunglassesFill} from "react-icons/bs";
+// import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFill, BsFillEmojiFrownFill, BsFillEmojiNeutralFill, BsFillEmojiSmileFill, BsFillEmojiSunglassesFill } from "react-icons/bs";
 
 
 import '../post-feed/PostFeed.css'
 import { useNavigate } from 'react-router-dom';
 import Post from './Post';
+import Following from '../Followers/Following';
 
 
-export const PostFeed = () => {
+export const PostFeed:React.FC<any> = (props:any) => {
     // const [post, setPosts] = useState<Post[]>([])
     // const { user } = useContext(UserContext);
     // let welcomeText = 'Welcome!'
@@ -78,7 +79,7 @@ export const PostFeed = () => {
     const addEmployee = async()=>{
         navigate("/createemployee")
     }
-    const createPost = async()=>{
+    const createPost = async () => {
         navigate("/createpostform")
     }
 
@@ -98,24 +99,22 @@ export const PostFeed = () => {
                                     <button onClick={addEmployee}>Add Employee</button>
                                     <button onClick={createPost}>Create Post</button>
                                 </div>
-                                <p>Following:</p>
-                                <ul> <em>**this auto pops**</em>
-                                    <li><em>Ben P.</em></li>
-                                    <li><em>Trainer</em></li>
-                                </ul>
+                                <Following/>
                             </div>
                         </section>
                     </div>
                     <div className="col-md-7">
                         <div className="post-feed-content">
                             <h3>Display information here</h3>
-                            <Post/>
-                            <Post/>
-                            <Post/>
-                            <Post/>
-                            <Post/>
-                            <Post/>
-                            <Post/>
+                            <Post />
+                            <Post />
+                            <Post />
+                            {/* <Post />
+                            <Post />
+                            <Post />
+                            <Post />
+                            <Post />
+                            <Post /> */}
 
                         </div>
                     </div>
