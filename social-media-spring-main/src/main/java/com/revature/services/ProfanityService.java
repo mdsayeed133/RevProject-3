@@ -30,7 +30,6 @@ public class ProfanityService {
                     break;
                 profanity.add(current);
             }
-            System.out.println(profanity.toString());
             reader.close();
         }
         catch(IOException e)

@@ -23,13 +23,13 @@ public class FilterAspect {
     @Around("@annotation(profanityfilter)")
     public Object filter(ProceedingJoinPoint pjp) throws Throwable {
 
-        HttpSession session = req.getSession(); // Get the session (or create one)
 
-        // If the user is not logged in
-        if(session.getAttribute("user") == null) {
+        // If the data inserted contains an illegal phrase.
+        if() {
             throw new FilterException("The phrase: '"+ +"' is not acceptable as per our Terms of Service");
         }
 
+        //if no issues, continue...
         return pjp.proceed(pjp.getArgs()); // Call the originally intended method
     }
 }
