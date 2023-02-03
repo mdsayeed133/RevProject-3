@@ -40,11 +40,12 @@ const Post: React.FC<any> = (props:any) => {
                     </div>
                     <p className="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero cumque eius, accusamus officia mollitia. Architecto ducimus ipsum atque libero eos magnam deserunt. Doloremque quae culpa est, ipsa possimus autem!</p>
                 </div>
-                <div className="d-flex justify-content-between">
-                    <button>Create Comment</button>
-                    <button onClick={()=> setUserComments(!userComments)}>View comments</button>
+                <div className=" justify-content-between">
+                    
+                    
+               
                     <div className="react-box">
-                        <p className="comment-box d-none" id="commentBox">
+                        <p className="comment-box " id="commentBox">
                             <Comments/>
                         </p>
                     </div>
