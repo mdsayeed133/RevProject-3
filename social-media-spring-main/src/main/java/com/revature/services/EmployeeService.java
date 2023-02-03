@@ -1,6 +1,7 @@
 package com.revature.services;
 
 import com.revature.dtos.AddEmployeeRequest;
+import com.revature.exceptions.FilterException;
 import com.revature.models.Department;
 import com.revature.models.Employee;
 import com.revature.models.User;
@@ -21,12 +22,13 @@ public class EmployeeService {
     private UserService userService;
 
     private DepartmentService departmentService;
-
+    private ProfanityService profService;
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository, UserService userService, DepartmentService departmentService) {
+    public EmployeeService(EmployeeRepository employeeRepository, UserService userService, DepartmentService departmentService, ProfanityService profService) {
         this.employeeRepository = employeeRepository;
         this.userService = userService;
         this.departmentService = departmentService;
+        this.profService = profService;
     }
 
     public Employee getEmployeeById(int empId)
@@ -39,6 +41,8 @@ public class EmployeeService {
     }
 
     public Employee createEmployee(AddEmployeeRequest addEmployeeRequest){
+        if(profService.profanityLikely(addEmployeeRequest.getFirstName())||profService.profanityLikely(addEmployeeRequest.getLastName()))
+            throw new FilterException();
         int userId= addEmployeeRequest.getAuthorId();
         Department department= departmentService.getDepartmentById(addEmployeeRequest.getDepartmentId());
         User user = userService.getUserById(userId).orElse(null);
