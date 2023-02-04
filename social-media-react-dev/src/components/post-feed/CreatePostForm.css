@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+  }
+:root{
+    --color1: #dff2d8;
+    --color2: #c6dea6;
+    --color3: #7ebdc3;
+    --color4: #7a6263;
+    --color5: #ced097;
+}
+
+
+
+#reasonsBox {
+    height: 200px;
+    width: 30%;
+}
+
+
+.CreatePostForm{
+    
+    border: 1px solid gray;
+    border-radius: 40px;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin: 30px auto;
+    width: 790px;
+    height: 515px;
+
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+     */
+    box-shadow: 2px 2px 2px gray;
+
+    color: black;
+    text-align: center;
+    
+
+}
+/*HEADER Container*/
+
+.headerContainer{
+
+    width: 750px;
+    height: 50px;
+    margin-top: 8px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    
+
+}
+
+#userInput{
+    white-space: nowrap;
+    display: inline-block;
+}
+
+#userInputResponse {
+    background-color: aliceblue;
+    border: 1px solid black;
+}
+
+
+.score{
+    padding-left: 160px;
+}
+
+.profilePic{
+    padding-left: 160px;
+}
+
+.inputContainer{
+
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+
+}
+
+#inputQuestion{
+    padding-bottom: 10px;
+}
+
+.tagContainer{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+
+#userInputScore{
+    width: 40px;
+    height: 35px;
+    font-size: 14px;
+    text-align: center;
+    
+    position: absolute;
+    transform: translateX(-130%);
+            
+}
+
+
+#userInputResponse{
+    width: 610px;
+    height: 150px;
+    border-style: none;
+
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
+    line-height: 1em;
+
+    font-size: 16px;
+     
+}
+
+
+#tags{
+    border-style: none;
+    width: 200px;
+    height: 30px;
+    display: inline-block;
+    padding-left: -20px; 
+    text-align: center;
+
+    margin-right: 10px;
+    
+    
+}
+
+
+.buttonContainer{
+    padding-top: 25px;
+   text-align: center;
+}
+
+.button{
+    display: inline-block;
+    width: 610px;
+    height: 40px;
+    background-color: #7ebdc3;
+
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: black;
+    font-weight: bold;
+
+    border-style: none;
+
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: #94dce3;
+    opacity: 0.8;
+}

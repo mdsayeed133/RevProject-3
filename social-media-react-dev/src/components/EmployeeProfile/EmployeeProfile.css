@@ -1,0 +1,40 @@
+* {
+    scroll-behavior: smooth;
+}
+
+.profile-container {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 80%;
+    padding: 20px;
+    margin-top: 8%;
+}
+
+.name-box {
+    /* border: 1px solid black;
+    border-radius: 10px; */
+    padding: 10px;
+    text-align: center;
+}
+.btn-box {
+    /* border: 1px solid black; */
+    margin-top: 30px;
+    
+}
+button {
+    border-radius: 10px;
+    height: 40px;
+}
+.profile-pic {
+    /* border: 1px solid black;
+    border-radius: 10px; */
+    padding: 10px;
+}
+.profile-img {
+    width: 30%;
+}
+
+.posted-comments {
+    border: 1px solid black;
+    
+}

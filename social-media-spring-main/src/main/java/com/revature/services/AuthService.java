@@ -21,6 +21,12 @@ public class AuthService {
     }
 
     public User register(User user) {
-        return userService.save(user);
+        try{
+            return userService.save(user);
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
     }
 }

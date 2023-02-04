@@ -1,0 +1,23 @@
+.trainer-card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.employee-card {
+    width: 250px;
+    padding-top: 25px;
+}
+
+.card-img-top {
+    width: 25%;
+}
+
+.employee-columns {
+    padding: 10px;
+}
+
+.employee-img {
+    display: flex;
+    justify-content: center;
+}

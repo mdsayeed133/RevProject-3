@@ -1,0 +1,13 @@
+.nav-search {
+    width: 100%;
+}
+
+.darkmode-switch {
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.darkmode-switch:hover {
+    background-color: aliceblue;
+}
