@@ -16,8 +16,8 @@ import java.io.BufferedReader;
 @Service
 @Transactional
 public class ProfanityService {
-    public HashMap<String,Boolean> profanity;
-    public ArrayList<String> profanityList;
+    private HashMap<String,Boolean> profanity;
+    private ArrayList<String> profanityList;
     private File profanityConfig;
     public ProfanityService()
     {
@@ -34,9 +34,9 @@ public class ProfanityService {
                     break;
                 profanity.put(current,true);
             }
-            profanity.forEach((word,value)->{
-                profanityList.add(word);
-            });//value is always true.... so we're using this to map the hashmap to an arrayList for searching for 'lookalikes'.
+            profanity.forEach((word,value)->
+                profanityList.add(word)
+            );//value is always true.... so we're using this to map the hashmap to an arrayList for searching for 'lookalikes'.
             reader.close();
         }
         catch(IOException e)
@@ -50,16 +50,17 @@ public class ProfanityService {
 
     public String filterProfanity(String text) {
         String[] words = text.split(" ");
-        String returnedString = "";
+        StringBuilder returnedString= new StringBuilder();
         for (int i = 0; i<words.length; i++)
         {
            if(profanity.get(words[i].toLowerCase())!=null||profanityLikely(words[i]))
                words[i] = asterisks(words[i].length());
-           returnedString+=words[i];
+           returnedString.append(words[i]);
            if(i+1!=words.length)
-               returnedString+=" ";
+               returnedString.append(" ");
+
         }
-        return returnedString;
+        return returnedString.toString();
     }
 
     public boolean profanityLikely(String s)
@@ -82,10 +83,7 @@ public class ProfanityService {
             if (temp.contains(profanityList.get(i)))
                 count++;
         }
-        if (count>2)
-            return true;
-        else
-            return false;
+        return count>2;
     }
 
     private String asterisks(int length) {

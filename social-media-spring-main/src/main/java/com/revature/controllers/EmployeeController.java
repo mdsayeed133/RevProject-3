@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.dtos.AddEmployeeRequest;
+import com.revature.exceptions.FilterException;
 import com.revature.models.Department;
 import com.revature.models.Employee;
 import com.revature.services.EmployeeService;
@@ -41,7 +42,7 @@ public class EmployeeController {
     }
 
     @PostMapping()
-    public ResponseEntity<Employee> createEmployee(@RequestBody AddEmployeeRequest addEmployeeRequest){
+    public ResponseEntity<Employee> createEmployee(@RequestBody AddEmployeeRequest addEmployeeRequest) {
         try {
             Employee employee = employeeService.createEmployee(addEmployeeRequest);
             return new ResponseEntity<>(employee, HttpStatus.CREATED);

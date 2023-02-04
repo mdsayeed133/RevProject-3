@@ -65,7 +65,7 @@ public class UserService {
         User user = userRepository.findById(userId).orElse(null);
         Employee emp = employeeRepository.findById(employeeId).orElse(null);
         if(user==null||emp==null) return false;
-        ArrayList<Employee> list = (ArrayList<Employee>) user.getFollowedEmployees();
+        ArrayList<Employee> list = new ArrayList<Employee>(user.getFollowedEmployees());
         if(list.contains(emp)) {
             list.remove(emp);
             user.setFollowedEmployees(list);
@@ -78,7 +78,7 @@ public class UserService {
         User user = userRepository.findById(userId).orElse(null);
         Employee emp = employeeRepository.findById(employeeId).orElse(null);
         if(user==null||emp==null) return false;
-        ArrayList<Employee> list = (ArrayList<Employee>) user.getFollowedEmployees();
+        ArrayList<Employee> list = new ArrayList<Employee>(user.getFollowedEmployees());
         if(!list.contains(emp)) {
             list.add(emp);
             user.setFollowedEmployees(list);

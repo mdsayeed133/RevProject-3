@@ -28,8 +28,8 @@ public class RatingService {
         this.tagService = tagService;
     }
 
-    public List<Rating> findByEmployee(Employee employee){
-        return ratingRepository.findByEmployee(employee).orElse(null);
+    public Optional<List<Rating>> findByEmployee(Employee employee){
+        return ratingRepository.findByEmployee(employee);
     }
     public Rating createRating(RatingDTO rDTO)
     {

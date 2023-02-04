@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 @ExtendWith(MockitoExtension.class)
-public class ProfanityServiceTest {
+class ProfanityServiceTest {
     @InjectMocks
     private ProfanityService profanityService;
 

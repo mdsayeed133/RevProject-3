@@ -37,7 +37,8 @@ public class LikeService {
     public int likesAmount(int postId)
     {
         Post searchPost = postService.getPostById(postId);
-        return likesRepo.countByPost(searchPost);
+        int likes= likesRepo.countByPost(searchPost).orElse(0);
+        return likes;
     }
 
 

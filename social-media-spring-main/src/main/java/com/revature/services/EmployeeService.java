@@ -42,14 +42,15 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee createEmployee(AddEmployeeRequest addEmployeeRequest){
+    public Employee createEmployee(AddEmployeeRequest addEmployeeRequest) throws FilterException{
         if(profService.profanityLikely(addEmployeeRequest.getFirstName())||profService.profanityLikely(addEmployeeRequest.getLastName()))
             throw new FilterException();
-        int userId= addEmployeeRequest.getAuthorId();
         Department department= departmentService.getDepartmentById(addEmployeeRequest.getDepartmentId());
-        User user = userService.getUserById(userId).orElse(null);
+        User user = userService.getUserById(addEmployeeRequest.getAuthorId()).orElse(null);
         Employee newEmployee = new Employee(addEmployeeRequest.getFirstName(), addEmployeeRequest.getLastName(), user,department, Instant.now());
-        return employeeRepository.save(newEmployee);
+        Employee createdEmployee= employeeRepository.save(newEmployee);
+        userService.follow(addEmployeeRequest.getAuthorId(),createdEmployee.getId());
+        return createdEmployee;
     }
 
     public List<Employee> getEmployeeByDepartment(int departmentId){
