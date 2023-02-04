@@ -7,6 +7,7 @@ import com.revature.models.User;
 import com.revature.repositories.EmployeeRepository;
 import com.revature.services.DepartmentService;
 import com.revature.services.EmployeeService;
+import com.revature.services.ProfanityService;
 import com.revature.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,6 +36,8 @@ class EmployeeServiceTest {
     private EmployeeRepository employeeRepository;
     @Mock
     private DepartmentService departmentService;
+    @Mock
+    private ProfanityService profanityService;
     @InjectMocks
     private EmployeeService employeeService;
 
@@ -70,6 +73,7 @@ class EmployeeServiceTest {
     @Test
     void testCreateEmployee() {
         AddEmployeeRequest addEmployeeRequest = new AddEmployeeRequest(mockEmployee.getFirstName(),mockEmployee.getLastName(),mockEmployee.getAuthor().getId(),mockDepartment.getId());
+        when(profanityService.profanityLikely(any())).thenReturn(false);
         when(userService.getUserById(mockUser.getId())).thenReturn(Optional.of(mockUser));
         when(departmentService.getDepartmentById(addEmployeeRequest.getDepartmentId())).thenReturn(mockDepartment);
         when(employeeRepository.save(any())).thenReturn(mockEmployee);
