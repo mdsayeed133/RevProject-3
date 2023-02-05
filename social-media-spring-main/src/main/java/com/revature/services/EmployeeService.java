@@ -1,7 +1,7 @@
 package com.revature.services;
 
 import com.revature.dtos.AddEmployeeRequest;
-import com.revature.exceptions.FilterException;
+import com.revature.exceptions.ProfanityException;
 import com.revature.models.Department;
 import com.revature.models.Employee;
 import com.revature.models.User;
@@ -42,13 +42,14 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee createEmployee(AddEmployeeRequest addEmployeeRequest) throws FilterException{
+    public Employee createEmployee(AddEmployeeRequest addEmployeeRequest) throws ProfanityException {
         if(profService.profanityLikely(addEmployeeRequest.getFirstName())||profService.profanityLikely(addEmployeeRequest.getLastName()))
-            throw new FilterException();
+            throw new ProfanityException();
         Department department= departmentService.getDepartmentById(addEmployeeRequest.getDepartmentId());
         User user = userService.getUserById(addEmployeeRequest.getAuthorId()).orElse(null);
         Employee newEmployee = new Employee(addEmployeeRequest.getFirstName(), addEmployeeRequest.getLastName(), user,department, Instant.now());
         Employee createdEmployee= employeeRepository.save(newEmployee);
+        //auto follow employee when created
         userService.follow(addEmployeeRequest.getAuthorId(),createdEmployee.getId());
         return createdEmployee;
     }

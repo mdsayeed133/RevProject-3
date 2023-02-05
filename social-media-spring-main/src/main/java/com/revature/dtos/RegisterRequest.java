@@ -9,11 +9,6 @@ public class RegisterRequest {
     public RegisterRequest() {
     }
 
-    public RegisterRequest(String password, String firstName, String lastName) {
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
     public RegisterRequest(String email, String password, String firstName, String lastName) {
         this.email = email;

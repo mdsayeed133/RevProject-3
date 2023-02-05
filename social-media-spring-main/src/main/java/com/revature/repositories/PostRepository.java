@@ -13,7 +13,7 @@ public interface PostRepository extends JpaRepository<Post, Integer>{
 
     List<Post> findAllByPostType(PostType postType);
 
-    Optional<List<Post>> findByAuthor(User user);
+    Optional<List<Post>> findByAuthorAndPostType(User user, PostType postType);
 
     List<Post> findByPostType(PostType post);
 

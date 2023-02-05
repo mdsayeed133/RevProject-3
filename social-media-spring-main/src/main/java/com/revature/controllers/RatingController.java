@@ -28,9 +28,9 @@ public class RatingController {
     public ResponseEntity<Rating> createRating(@RequestBody RatingDTO rDTO) {
         try {
             Rating newRating = ratingService.createRating(rDTO);
-            return new ResponseEntity<>(newRating, HttpStatus.CREATED);
+            return ResponseEntity.status(HttpStatus.CREATED).body(newRating);
         } catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
 
     }
@@ -39,30 +39,38 @@ public class RatingController {
     public ResponseEntity<List<Employee>> searchEmployeesByTag(@PathVariable int tagId) {
         List<Employee> employees = ratingService.searchEmployeesByTag(tagId);
         if (employees == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.badRequest().build();
         }
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+        return ResponseEntity.ok(employees);
     }
 
     @GetMapping("/employee/{employeeId}/average")
     public ResponseEntity<Double> getEmployeeAvgRating(@PathVariable int employeeId) {
-        Double avgRating = ratingService.getEmployeeAvgRating(employeeId);
-        return new ResponseEntity<>(avgRating, HttpStatus.OK);
+        try {
+            Double avgRating = ratingService.getEmployeeAvgRating(employeeId);
+            return ResponseEntity.ok(avgRating);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping("/employee/{employeeId}/top3tags")
     public ResponseEntity<List<Tag>> getTop3TagsOfEmployee(@PathVariable int employeeId) {
         List<Tag> top3Tags = ratingService.getTop3TagsOfEmployee(employeeId);
         if (top3Tags == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
-        return new ResponseEntity<>(top3Tags, HttpStatus.OK);
+        return ResponseEntity.ok(top3Tags);
     }
 
     @GetMapping("/top3employees")
     public ResponseEntity<List<Employee>> getTop3Employees() {
-        List<Employee> top3Employees = ratingService.getTop3Employees();
-        return new ResponseEntity<>(top3Employees, HttpStatus.OK);
+        try {
+            List<Employee> top3Employees = ratingService.getTop3Employees();
+            return ResponseEntity.ok(top3Employees);
+        } catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
     }
 }
 

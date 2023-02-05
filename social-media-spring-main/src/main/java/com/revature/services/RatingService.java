@@ -44,6 +44,8 @@ public class RatingService {
 
     public Rating editRating(RatingDTO rDTO, int ratingId){
         Rating rating= ratingRepository.findById(ratingId).orElse(null);
+        Employee emp = employeeService.getEmployeeById(rDTO.getEmployeeId());
+        if(rating==null) rating= new Rating(ratingId,emp,0,null,null,null);
         Tag tag1 = tagService.findById(rDTO.getTags1());
         Tag tag2 = tagService.findById(rDTO.getTags2());
         Tag tag3 = tagService.findById(rDTO.getTags3());
@@ -53,6 +55,9 @@ public class RatingService {
         rating.setTag3(tag3);
         return ratingRepository.save(rating);
 
+    }
+    public void delete(Rating rating){
+        ratingRepository.delete(rating);
     }
     public List<Employee> searchEmployeesByTag(int tagId) {
         Tag tag= tagService.findById(tagId);

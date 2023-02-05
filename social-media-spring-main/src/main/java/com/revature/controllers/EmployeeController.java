@@ -1,8 +1,6 @@
 package com.revature.controllers;
 
 import com.revature.dtos.AddEmployeeRequest;
-import com.revature.exceptions.FilterException;
-import com.revature.models.Department;
 import com.revature.models.Employee;
 import com.revature.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
