@@ -25,11 +25,9 @@ public class PostController {
     }
 
     @PostMapping("/rating")
-    public ResponseEntity<PostResponse> createRatingPost(@RequestBody RatingPostRequest ratingPostRequest) {
+    public ResponseEntity<Post> createRatingPost(@RequestBody RatingPostRequest ratingPostRequest) {
         try {
             Post post = postService.createRatingPost(ratingPostRequest);
-            
-            PostResponse postResponse= new PostResponse(p)
             return ResponseEntity.status(HttpStatus.CREATED).body(post);
         }catch (Exception e){
             return ResponseEntity.badRequest().build();
@@ -50,6 +48,7 @@ public class PostController {
     public ResponseEntity<Post> createReplyPost(@RequestBody CommentPostRequest replyPostRequest) {
         try {
             Post post = postService.createReplyPost(replyPostRequest);
+
             return ResponseEntity.status(HttpStatus.CREATED).body(post);
         } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

@@ -108,7 +108,7 @@ public class RatingServiceTest {
     {
         RatingDTO rDTO = new RatingDTO(1,60,1,2,3);
         when(tagService.findById(rDTO.getTags1())).thenReturn(mockTag1);
-        when(ratingRepo.findByTag1OrTag2OrTag3(any(), any(), any())).thenReturn(Optional.ofNullable(mockEmployees));
+       // when(ratingRepo.findByTag1OrTag2OrTag3(any(), any(), any())).thenReturn(Optional.of(mockRating));
 
         List<Employee> expected = new ArrayList<>();
         expected.add(mockEmployee4);
