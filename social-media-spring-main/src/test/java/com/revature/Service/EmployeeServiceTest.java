@@ -23,7 +23,8 @@ import java.util.Optional;
 
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.hasItem;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
@@ -49,6 +50,20 @@ class EmployeeServiceTest {
         mockDepartment= new Department(1,"trainer");
         mockUser = new User(0, "test@example.com", "password", "John", "Doe", Instant.now());
         mockEmployee = new Employee(1,"Ben","1",mockUser,mockDepartment,Instant.now());
+    }
+
+    @Test
+    void testGetEmployeeByName()
+    {
+        String search= mockEmployee.getFirstName();//John
+        employeeRepository.save(mockEmployee);
+        List<Employee> employeeList= List.of(new Employee[]{mockEmployee});
+        when(employeeRepository.findByFirstNameContainingIgnoreCase(search)).thenReturn(Optional.of(employeeList));
+        List<Employee> result = employeeService.getEmployeeByName(search);
+
+        assertThat(result, notNullValue());
+        assertThat(result.size(), is(1));
+        assertThat(result, hasItem(mockEmployee));
     }
 
     @Test
