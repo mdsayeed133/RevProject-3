@@ -6,6 +6,7 @@ import Select from 'react-select'
 
 import '../post-feed/CreatePostForm.css'
 import Navbar from '../navbar/Navbar';
+import { BsFillEmojiAngryFill } from 'react-icons/bs';
 
 export default function CreatePostForm() {
 
@@ -20,12 +21,22 @@ export default function CreatePostForm() {
 
       <div className="CreatePostForm">
         <div className="headerContainer">
-          <p id="userInput">Username</p>
+          <p>Employee: </p>
+          <input type="text" placeholder="employee name" />
           <p className="score" id="userInput">
             <input id="userInputScore" type="text" /> / 10
           </p>
-          <p className="profilePic" id="userInput"> ProfilePic </p>
-
+          <p className="reaction">Select reaction</p>
+          <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
+            <option value="DEFAULT" disabled>please select</option>
+            <option value="1">happy face</option>
+            <option value="2">sad face</option>
+            <option value="3">dizzy face</option>
+            <option value="4">emotionless face</option>
+            <option value="5">neutral face</option>
+            <option value="6">happy face</option>
+            <option value="7">cool face</option>
+          </select>
         </div>
         <div className="inputContainer">
           <p id="inputQuestion">Enter your reasoning why</p>

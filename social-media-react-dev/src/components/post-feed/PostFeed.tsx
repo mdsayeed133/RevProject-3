@@ -106,7 +106,6 @@ export const PostFeed:React.FC<any> = (props:any) => {
                             <Post />
                             <Post />
                             <Post />
-
                         </div>
                     </div>
                     <div className="col-md-2">

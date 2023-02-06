@@ -27,8 +27,7 @@ const Employees = () => {
         <>
             <Navbar />
             <div className="Employees-container container">
-                <h1>Display employees</h1>
-                <p><em>auto populate...</em></p>
+                <h2>Here is a collection of all employees available for review on RevRater...</h2>
                 <div className="display-Employees row" id="dispEmployee">
                     {/* this card format will auto generate the Employees */}
                     <EmployeeCard/>
