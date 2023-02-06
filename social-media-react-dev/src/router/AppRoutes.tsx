@@ -23,15 +23,15 @@ import { User } from '../interfaces/users';
 //changes made..
 export const AppRoutes: React.FC<unknown> = () => (
 
+
     // const [targetAccount, setTargetAccount] = React.useState<Ac>();
-    const [user, setUser] = React.useState<User>();
-    const [loggedIn, setLoggedStatus] = React.useState(false);
+    // const [loggedIn, setLoggedStatus] = React.useState(false);
   <>
     <Routes>
       <Route path="/" element={<PostFeed />} />
-      <Route path="/login" element={<Login setLoggedIn={setLoggedStatus} setTargetUser={setUser}/>} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/userprofile" element={<UserProfile targetUser={user} setTargetUser={setUser}/>} />
+      <Route path="/userprofile" element={<UserProfile />} />
       <Route path="/employees" element={<Employees />} />
       <Route path="/employeeprofile" element={<EmployeeProfile />} />
       <Route path="/createemployee" element={<CreateEmployee />} />
