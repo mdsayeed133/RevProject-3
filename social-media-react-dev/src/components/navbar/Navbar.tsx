@@ -76,7 +76,7 @@ const Navbar: React.FC<any> = (props:any) => {
   }, [darkMode])
 
   return (
-    <div className="">
+    <>
 
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent">
@@ -120,7 +120,7 @@ const Navbar: React.FC<any> = (props:any) => {
         </Toolbar>
       </AppBar>
     </Box>
-    </div>
+    </>
   );
 }
 

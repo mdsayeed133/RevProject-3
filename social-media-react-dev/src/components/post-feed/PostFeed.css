@@ -8,6 +8,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     background-color: aliceblue;
+    box-shadow: 2px 2px 2px gray;
 }
 .post-message-body {
     border-top: 1px solid black;
@@ -31,12 +32,16 @@
 }
 .add-button > button {
     height: 50px;
+    margin-top: 10px;
     /* border: none; */
 }
 .widget {
     border: 1px solid black;
     border-radius: 10px;
     margin-top: 10px;
+    background-color: var(--color3);
+    padding: 10px;
+    box-shadow: 2px 2px 2px gray;
 }
 
 .make-sticky {

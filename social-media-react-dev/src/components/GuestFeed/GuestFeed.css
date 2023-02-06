@@ -23,32 +23,30 @@
 }
 
 .TrainerRanking_Container{
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
     float: left;
     width: 50%;
     position: relative;
-      
 }
 
 .userreview_container{
     background-color: lightcyan;
     width: 50%;
     float: left;
-      
 }
 
 .leaderboard{
-    border: 3px solid black;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px gray;
     vertical-align: middle;
     margin-top: 2%;
     margin-bottom: 40%;
     margin: 2%;
     padding: 10px;
     width: 90;
-    border-bottom: 5px solid black;
-    
-    
-       
+    background-color: aliceblue;
+
 }
 
 .userratings{
@@ -59,10 +57,7 @@
 
 .scoreBoard{
     white-space: nowrap;
-    
     text-align: right;
-   
-    
 }
 
 .imgfeed{
@@ -73,18 +68,15 @@
 }
 
 .instructorinfo{
-  text-align: center;
-  margin-top: -29%;
+    text-align: center;
+    margin-top: -29%;
     position: relative;
-    bottom: 10%;
-   
-    
+    bottom: 10%
 }
 
 .employeename{
     text-align: left;
     margin-top: 5px;
-   
 }
 
 .paragrapfeed{

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
-import AdvancedSearch from '../components/advancedSearch/AdvancedSearch';
+// import AdvancedSearch from '../components/advancedSearch/AdvancedSearch';
 import CreateComments from '../components/Comments/CreateComments';
 import ShowComments from '../components/Comments/ShowComments';
 import CreateEmployee from '../components/CreateEmployee/CreateEmployee';
@@ -15,10 +15,14 @@ import Employees from '../components/Employees/Employees';
 import UserProfile from '../components/UserProfile/UserProfile';
 
 export const AppRoutes: React.FC<unknown> = () => (
+  // const [user, setUser] = React.useState<User>();
+  // // const [email, setEmail] = React.useState<Email>();
+  // const [targetAccount, setTargetAccount] = React.useState<Ac>();
+  // const [loggedIn, setLoggedStatus] = React.useState(false);
   <>
     <Routes>
       <Route path="/" element={<PostFeed />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register />} />
       <Route path="/userprofile" element={<UserProfile />} />
       <Route path="/employees" element={<Employees />} />
@@ -29,7 +33,7 @@ export const AppRoutes: React.FC<unknown> = () => (
       <Route path="/createpostform" element={<CreatePostForm />} />
       <Route path="/guest" element={<GuestFeed />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/advancedsearch" element={<AdvancedSearch/>}/>
+      {/* <Route path="/advancedsearch" element={<AdvancedSearch/>}/> */}
     </Routes>
   </>
 )

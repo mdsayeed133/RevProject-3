@@ -1,6 +1,9 @@
 import React from 'react'
 
 const FollowedUsers: React.FC<any> = (props: any) => {
+    // remove function
+    // axios request
+    
     return (
         <div className="followed-user d-flex justify-content-around">
             <div className="user-div">

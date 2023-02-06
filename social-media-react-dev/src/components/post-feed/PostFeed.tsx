@@ -18,56 +18,7 @@ import Following from '../Followers/Following';
 
 
 export const PostFeed:React.FC<any> = (props:any) => {
-    // const [post, setPosts] = useState<Post[]>([])
-    // const { user } = useContext(UserContext);
-    // let welcomeText = 'Welcome!'
-    // let postForm = <></>;
-
-    // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-    //     const data = new FormData(event.currentTarget);
-    //     let payload = new Post(0, data.get('postText')?.toString() || '', data.get('postImage')?.toString() || '', [], user, 'Top');
-    //     await apiUpsertPost(payload);
-    //     fetchData();
-    // }
-
-    // if (user) {
-    //     postForm = <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-    //         <TextField
-    //             required
-    //             id="postText"
-    //             name='postText'
-    //             label="Thoughts You Would Like to Share?"
-    //             fullWidth
-    //         />
-    //         <TextField
-    //             id="postImage"
-    //             name="postImage"
-    //             label="Add an Image or Diagram?"
-    //             fullWidth
-    //             variant="standard"
-    //         />
-    //         <Button
-    //             type="submit"
-    //             variant="contained"
-    //             sx={{ mt: 3, ml: 1 }}
-    //             color="warning"
-    //         >
-    //             Create Post
-    //         </Button>
-    //     </Box>
-
-    //     welcomeText = `Welcome, ${user.firstName}!`
-    // }
-    // const fetchData = async () => {
-    //     const result = await apiGetAllPosts()
-    //     setPosts(result.payload.reverse())
-    // }
-
-    // useEffect(() => {
-    //     fetchData()
-    // }, []);
-
+    
     // navigate to post component
     const navigate = useNavigate();
 
@@ -102,10 +53,10 @@ export const PostFeed:React.FC<any> = (props:any) => {
                         <div className="post-feed-content">
                             <h3>Posts</h3>
                             <Post />
+                            {/* <Post />
                             <Post />
                             <Post />
-                            <Post />
-                            <Post />
+                            <Post /> */}
                         </div>
                     </div>
                     <div className="col-md-2">

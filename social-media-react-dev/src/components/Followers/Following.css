@@ -14,12 +14,23 @@
     border: 1px solid black;
     margin: 5px;
     box-shadow: 1px 1px 1px gray;
+    height: 35px;
+}
+
+.followed-user > button {
+    font-size: 10px;
+    height: 20px;
+    border: 1px solid gray;
+}
+.followed-user > button:hover {
+    background-color: var(--color3);
+
 }
 
 .user-div {
     border: 1px solid black;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     text-align: center;
 }

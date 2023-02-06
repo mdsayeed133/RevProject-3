@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import '../GuestFeed/GuestFeed.css'
 import Post from '../post-feed/Post'
+import GuestEmployee from './GuestEmployee'
 
 const GuestFeed: React.FC<any> = (props: any) => {
 
@@ -55,62 +56,11 @@ const GuestFeed: React.FC<any> = (props: any) => {
         </div> */}
         <div className='TrainerRanking_Container' >
           <div className='trainerRanking'>
-            <h3>Current Trainer Rankings...</h3>
+            <h3>Current Employee Rankings...</h3>
           </div>
-
-          <div className='leaderboard'>
-
-            <div className='imgcenter'>
-              <h3 className='employeename'>Bonny N.</h3>
-              <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
-
-            </div>
-            <div className='instructorinfo'>
-              <h6>Skills: <em>java, html, React, Javascript</em></h6>
-              <h6>Followers: <em>80 </em></h6>
-              <h6>Reviews: <em>78</em></h6>
-            </div>
-            <div className='scoreBoard'>
-              <h5>Overall Rating: <em>4.9/5</em></h5>
-            </div>
-
-          </div>
-
-
-          <div className='leaderboard'>
-
-            <div className='imgcenter'>
-              <h3 className='employeename'>Bonny N.</h3>
-              <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
-
-            </div>
-            <div className='instructorinfo'>
-              <h6>Skills: <em>java, html, React, Javascript</em></h6>
-              <h6>Followers: <em>80 </em></h6>
-              <h6>Reviews: <em>78</em></h6>
-            </div>
-            <div className='scoreBoard'>
-              <h5>Overall Rating: <em>4.9/5</em></h5>
-            </div>
-
-          </div>
-
-          <div className='leaderboard'>
-
-            <div className='imgcenter'>
-              <h3 className='employeename'>Bonny N.</h3>
-              <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
-
-            </div>
-            <div className='instructorinfo'>
-              <h6>Skills: <em>java, html, React, Javascript</em></h6>
-              <h6>Followers: <em>80 </em></h6>
-              <h6>Reviews: <em>78</em></h6>
-            </div>
-            <div className='scoreBoard'>
-              <h5>Overall Rating: <em>4.9/5</em></h5>
-            </div>
-          </div>
+          <GuestEmployee/>
+          <GuestEmployee/>
+          <GuestEmployee/>
         </div>
 
 
@@ -151,6 +101,8 @@ const GuestFeed: React.FC<any> = (props: any) => {
             <button className='likebuttons' onClick={login}>Like </button>
             <button className='likebutton' onClick={login}>Reply</button>
           </div>
+
+
         </div>
       </div>
 

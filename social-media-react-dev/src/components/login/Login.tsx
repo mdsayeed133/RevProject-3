@@ -22,7 +22,7 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const theme = createTheme();
 
-export default function Login() {
+const Login: React.FC<any> = (props:any) => {
   const { setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -51,7 +51,15 @@ export default function Login() {
 
   // login for success
   const login = async () => {
-    const response = await axios.post("", { email, password })
+    const response = await axios.post("localhost:5555/RevRater/auth/login", { email, password })
+
+    // if login successful
+    if (response.status === 200){
+      console.log(response.data)
+      props.setTargetUser(response.data);
+      props.setLoggedIn(true)  
+      navigate("/postfeed")
+    }
   }
 
   return (
@@ -145,3 +153,5 @@ export default function Login() {
     // </ThemeProvider>
   );
 }
+
+export default Login

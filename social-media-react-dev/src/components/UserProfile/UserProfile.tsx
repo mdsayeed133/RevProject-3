@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaAngry } from 'react-icons/fa'
 import Navbar from '../navbar/Navbar'
 import Post from '../post-feed/Post'
 import '../UserProfile/UserProfile.css'
 
-const UserProfile = () => {
+const UserProfile: React.FC<any> = (props:any) => {
+
+    const [tempFirst, setFirstName] = useState(props.targetUser.firstName);
+    const [tempLast, setLastName] = useState(props.targetUser.lastName);
+    const [tempEmail, setEmail] = useState(props.targetEmail.email);
+    const [tempPassword, setPassword] = useState(props.targetPassword.password);
+    
     return (
         <>
             <Navbar />
@@ -14,18 +20,18 @@ const UserProfile = () => {
                     <div className="post-info-container">
                         <div className="join-date">
                             <h2 id='fields'>Join Date:
-                                <p id="post-info-details">01/03/1989</p>
+                                <p id="post-info-details"><em>01/03/1989</em></p>
                             </h2>
                         </div>
                         <div className="post-info-details" >
                             <h2 id='fields' >Number of Posts:
-                                <p id="post-info-details">5000</p>
+                                <p id="post-info-details"><em>5000</em></p>
                             </h2>
                             <h2 id='fields'>Average Rating Given:
                                 <p id="post-info-details">6.58</p> / 10
                             </h2>
                             <h2 id='fields'>Favorite Tag:
-                                <p id="post-info-details">Hard Grader</p>
+                                <p id="post-info-details"><em>Hard Grader</em></p>
                             </h2>
                             <h2 className='image' id='fields'>Favorite Image:
                                 <p id="trainer-favorite-img">
@@ -36,14 +42,17 @@ const UserProfile = () => {
                     </div>
                     <div className="profile-info-container">
                         <div className="personal-info-container">
-                            <h2 className="first-name" id='fields'>First Name:
-                                <p id='inputs'>Benjamin</p>
+                            <h2 className="user-info" id='fields'>First Name:
+                                <p id='inputs'><em>{props.targetUser.firstName}</em></p>
                             </h2>
-                            <h2 className="last-name" id='fields'>Last Name:
-                                <p id='inputs'>Petruzziello</p>
+                            <h2 className="user-info" id='fields'>Last Name:
+                                <p id='inputs'><em>{props.targetUser.lastName}</em></p>
                             </h2>
                             <h2 className="email" id='fields'>Email:
-                                <p id='inputs'>BPetruzziello@gmail.com</p>
+                                <p id='inputs'><em>{props.targetUser.email}</em></p>
+                            </h2>
+                            <h2 className="user-info">Password:
+                                <p id='inpus'><em>{props.targetUser.password}</em></p>
                             </h2>
                         </div>
 
