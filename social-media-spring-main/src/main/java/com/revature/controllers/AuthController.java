@@ -37,8 +37,6 @@ public class AuthController {
         }
 
         UserResponseDTO uDTO = new UserResponseDTO(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getCreatedDate());
-
-
         session.setAttribute("user", user);
 
         return ResponseEntity.ok(uDTO);

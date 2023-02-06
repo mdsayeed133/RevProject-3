@@ -1,7 +1,9 @@
 package com.revature.controllers;
 
+import com.revature.dtos.EmployeeResponseDTO;
 import com.revature.dtos.FollowRequest;
 import com.revature.dtos.PasswordResetRequest;
+import com.revature.dtos.UserResponseDTO;
 import com.revature.models.Employee;
 import com.revature.models.User;
 import com.revature.services.UserService;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,16 +27,26 @@ public class UserController {
     }
 
     @GetMapping("/{id}/id")
-    public ResponseEntity<User> getUserById(@PathVariable int id){
-        Optional<User> user = userService.getUserById(id);
-        if(user.isPresent()) return ResponseEntity.ok(user.get());
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable int id){
+        Optional<User> optional = userService.getUserById(id);
+        if(optional.isPresent()){
+            User user= optional.get();
+            UserResponseDTO dto= new UserResponseDTO(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(),user.getCreatedDate());
+            return ResponseEntity.ok(dto);
+        }
         return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/followed/{userId}/id")
-    public ResponseEntity<List<Employee>> getAllFollowing(@PathVariable int userId){
+    public ResponseEntity<List<EmployeeResponseDTO>> getAllFollowing(@PathVariable int userId){
         List<Employee> followedEmployees = userService.getAllFollowing(userId);
-        if(followedEmployees != null) return ResponseEntity.ok(followedEmployees);
+        if(followedEmployees != null) {
+            List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+            for(Employee employee:followedEmployees){
+                EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+                responseDTOS.add(dto);
+            }
+            return ResponseEntity.ok(responseDTOS);}
         return ResponseEntity.notFound().build();
     }
 
@@ -45,9 +58,15 @@ public class UserController {
     }
 
     @GetMapping("/{search}/search")
-    public ResponseEntity<List<User>> searchUsers(@PathVariable String search){
+    public ResponseEntity<List<UserResponseDTO>> searchUsers(@PathVariable String search){
         List<User> searchResults = userService.getUserByName(search);
-        if(searchResults != null) return ResponseEntity.ok(searchResults);
+        if(searchResults != null){
+            List<UserResponseDTO> UserDTOs= new ArrayList<>();
+            for (User user : searchResults) {
+                UserResponseDTO dto= new UserResponseDTO(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(),user.getCreatedDate());
+                UserDTOs.add(dto);
+            }
+            return ResponseEntity.ok(UserDTOs);}
         return ResponseEntity.notFound().build();
     }
 
