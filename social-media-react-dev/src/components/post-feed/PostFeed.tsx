@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Container, Grid, Button } from '@mui/material';
+// import { Box, Container, Grid, Button } from '@mui/material';
 import Navbar from '../navbar/Navbar';
-import { PostCard } from './PostCard';
-import { apiGetAllPosts } from '../../remote/social-media-api/postFeed.api';
-import { useContext } from 'react';
-import { UserContext } from '../../context/user.context';
-import TextField from '@mui/material/TextField';
-import { apiUpsertPost } from '../../remote/social-media-api/post.api';
+// import { PostCard } from './PostCard';
+// import { apiGetAllPosts } from '../../remote/social-media-api/postFeed.api';
+// import { useContext } from 'react';
+// import { UserContext } from '../../context/user.context';
+// import TextField from '@mui/material/TextField';
+// import { apiUpsertPost } from '../../remote/social-media-api/post.api';
 import Footer from '../Footer/Footer';
 // import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFill, BsFillEmojiFrownFill, BsFillEmojiNeutralFill, BsFillEmojiSmileFill, BsFillEmojiSunglassesFill } from "react-icons/bs";
 
@@ -90,11 +90,11 @@ export const PostFeed:React.FC<any> = (props:any) => {
                     <div className="col-md-3">
                         <section className="sidebar-section">
                             <div className="widget make-sticky">
-                                <div className="add-button">
+                                <div className="add-button d-flex">
                                     <button onClick={addEmployee}>Add Employee</button>
                                     <button onClick={createPost}>Create Post</button>
                                 </div>
-                                <Following/>
+                                {/* <Following/> */}
                             </div>
                         </section>
                     </div>
@@ -107,6 +107,11 @@ export const PostFeed:React.FC<any> = (props:any) => {
                             <Post />
                             <Post />
 
+                        </div>
+                    </div>
+                    <div className="col-md-2">
+                        <div className="post-feed-following">
+                            <Following/>
                         </div>
                     </div>
                 </div>

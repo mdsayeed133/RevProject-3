@@ -7,6 +7,7 @@
     border-radius: 10px;
     margin-top: 15px;
     margin-bottom: 15px;
+    background-color: aliceblue;
 }
 .post-message-body {
     border-top: 1px solid black;
@@ -24,6 +25,13 @@
     /* test sticky css */
     /* position: absolute; */
     
+}
+.add-button {
+    height: 70px;
+}
+.add-button > button {
+    height: 50px;
+    /* border: none; */
 }
 .widget {
     border: 1px solid black;

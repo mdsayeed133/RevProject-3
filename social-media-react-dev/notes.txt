@@ -425,3 +425,54 @@ return (
                     <Post/>
                     <Post/>
                 </div>
+
+
++===========================+
+| Removed from user profile |
++===========================+
+       {/* Ratings by User */}
+
+                <div className="ratings-container-1">
+
+
+                    <div className="post-container">
+                        <div className="user-container">
+                            <h2 className="username" id="username">Username:
+                                <p id='username-input'>BPetruzziello</p>
+                            </h2>
+                            <h2 className="rating-score" id="rating-score">Rating:
+                                <p id='rating-score-input'>5.33</p> / 10
+                            </h2>
+                            <h2 className="profile-pic" id="profile-pic">
+                                <div className="square-profile-post" id='square'>
+                                    <p id='user-letter-post'>B</p>
+                                </div>
+                            </h2>
+                            <div className="reasoning-container" >
+                                <h2 id='reasoning'>Reasoning</h2>
+                                <p id="user-input-response" >
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem harum ipsum
+                                    exercitationem illum, distinctio porro? Quidem vero, labore consectetur
+                                    sunt ipsam eum cum? Exercitationem quam natus facere atque quibusdam qui.
+                                </p>
+                            </div>
+                            <div className="emotion-tag-container">
+                                <div className="emotion-container" id='emoticon'>
+                                    <h2 id='emoticon'>Emoticon</h2>
+                                    <p id="emoticon-img">
+                                        <FaAngry style={{ color: "red" }} />
+                                    </p>
+                                </div>
+                                <div className="tag-container" >
+                                    <h2 id='tag-options'>Tags:
+                                        <p className='tag1' id="tag" >Boring,</p>
+                                        <p className='tag1' id="tag">Dumb,</p>
+                                    </h2>
+                                </div>
+                            </div>
+                            <div className="button-container">
+                                <button className="edit" id='edit'>Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>

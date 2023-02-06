@@ -1,14 +1,15 @@
 import React from 'react'
+import '../Followers/Following.css'
+import FollowedUsers from './FollowedUsers'
 
-const Following: React.FC<any> = (props:any) => {
+const Following: React.FC<any> = (props: any) => {
     return (
         <>
             <div className="follower-list">
-                <ul>
-                    <li>follower1</li>
-                    <li>follower2</li>
-                    <li>follower3</li>
-                </ul>
+                <h3>Following:</h3>
+                <div className="follower-item">
+                    <FollowedUsers />
+                </div>
             </div>
         </>
     )

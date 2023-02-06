@@ -1,0 +1,24 @@
+
+.follower-list {
+    margin-top: 50px;
+    padding-left: 15px;
+    border-left: 3px solid black;
+}
+
+
+.followed-user {
+    background-color: aliceblue;
+    padding: 5px;
+    font-size: 13px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.user-div {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+}
