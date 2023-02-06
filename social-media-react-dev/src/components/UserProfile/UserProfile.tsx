@@ -34,7 +34,6 @@ const UserProfile = () => {
                             </h2>
                         </div>
                     </div>
-
                     <div className="profile-info-container">
                         <div className="personal-info-container">
                             <h2 className="first-name" id='fields'>First Name:
