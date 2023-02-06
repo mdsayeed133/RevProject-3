@@ -64,9 +64,7 @@ public class PostService {
 		ArrayList<Post> currentComments = new ArrayList<>(ratingPost.getComments());
 		currentComments.add(newCommentPost);
 		ratingPost.setComments(currentComments);
-		//TODO: test in postman for double comments
-		postRepository.save(ratingPost);
-		return postRepository.save(newCommentPost);
+		return postRepository.save(ratingPost);
 	}
 
 	public Post createReplyPost(CommentPostRequest replyPostRequest)throws PostNotFound {
@@ -78,9 +76,7 @@ public class PostService {
 		ArrayList<Post> currentReply = new ArrayList<>(commentPost.getComments());
 		currentReply.add(newReplyPost);
 		commentPost.setComments(currentReply);
-		//TODO: test in postman for double reply
-		postRepository.save(commentPost);
-		return postRepository.save(newReplyPost);
+		return postRepository.save(commentPost);
 	}
 
 	public List<Post> getRatingPostsOfUser(int id) throws UserNotFound {
