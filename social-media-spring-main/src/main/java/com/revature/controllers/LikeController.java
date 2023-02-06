@@ -20,12 +20,12 @@ public class LikeController {
     }
 
     @PostMapping("/like")
-    public ResponseEntity<Like> likePost(@RequestBody LikesDTO lDTO){
+    public ResponseEntity<String> likePost(@RequestBody LikesDTO lDTO){
         try {
             Like like = likeService.likePost(lDTO);
-            return ResponseEntity.accepted().body(like);
+            return ResponseEntity.accepted().body("User #" + lDTO.getUserId() + " has liked post #" + lDTO.getPostId());
         }catch (Exception e){
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body("Like unsuccessful");
         }
     }
 

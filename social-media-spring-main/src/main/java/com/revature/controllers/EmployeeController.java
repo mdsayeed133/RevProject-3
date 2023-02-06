@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.dtos.AddEmployeeRequest;
+import com.revature.dtos.EmployeeResponseDTO;
 import com.revature.models.Employee;
 import com.revature.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +23,14 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}/id")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable int id){
+    public ResponseEntity<EmployeeResponseDTO> getEmployeeById(@PathVariable int id){
         Employee employee = employeeService.getEmployeeById(id);
         if(employee == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(employee, HttpStatus.OK);
+        EmployeeResponseDTO eDTO = new EmployeeResponseDTO(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getAuthor(), employee.getDepartment(), employee.getDate());
+
+        return new ResponseEntity<>(eDTO, HttpStatus.OK);
     }
 
     @GetMapping()

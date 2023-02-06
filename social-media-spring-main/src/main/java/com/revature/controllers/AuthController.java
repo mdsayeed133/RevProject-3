@@ -29,6 +29,7 @@ public class AuthController {
         this.profService = profService;
     }
 
+    //Login works
     @PostMapping("/login")
     public ResponseEntity<UserResponseDTO> login(@RequestBody LoginRequest loginRequest, HttpSession session) {
         Optional<User> optional = authService.findByCredentials(loginRequest.getEmail(), loginRequest.getPassword());
@@ -46,18 +47,29 @@ public class AuthController {
         return ResponseEntity.ok(uDTO);
     }
 
+    //Logout works
     @PostMapping("/logout")
-    public ResponseEntity<Void> logout(HttpSession session) {
+    public ResponseEntity<String> logout(HttpSession session) {
+        if(session.getAttribute("user") == (null))
+        {
+            return ResponseEntity.ok().body("You wasn't logged in foo!");
+        }
         session.removeAttribute("user");
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body("You've been successfully signed out");
     }
 
+
+
+    //Register works
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody RegisterRequest registerRequest) {
+    public ResponseEntity<UserResponseDTO> register(@RequestBody RegisterRequest registerRequest, HttpSession session) {
        try {
-           User created = authService.register(registerRequest);
-           return ResponseEntity.status(HttpStatus.CREATED).body(created);
+           User user = authService.register(registerRequest);
+           UserResponseDTO uDTO = new UserResponseDTO(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getDate());
+           session.setAttribute("user", user);
+
+           return ResponseEntity.status(HttpStatus.CREATED).body(uDTO);
        } catch (ProfanityException pe){
            return  ResponseEntity.notFound().build();
        } catch (Exception e){
