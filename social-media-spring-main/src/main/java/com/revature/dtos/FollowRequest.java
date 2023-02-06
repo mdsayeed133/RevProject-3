@@ -6,7 +6,7 @@ public class FollowRequest {
 
     public FollowRequest(int userId, int employeeId) {
         this.userId = userId;
-        employeeId = employeeId;
+        this.employeeId = employeeId;
     }
 
     public int getUserId() {
