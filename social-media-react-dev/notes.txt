@@ -5,6 +5,32 @@
 - Jamboard here: https://jamboard.google.com/d/1k31R5UEf_kJtuk1af1_Z0shsMJMrC2EdkRc38tTJRRI/viewer?f=5
 
 
++=================+
+| Login DTO/input |
++=================+
+{
+    "id": 1,
+    "email": "Batchelor3467@hotmail.com",
+    "password": "m54l!",
+    "firstName": "Damon",
+    "lastName": "Batchelor",
+    "date": "2023-02-06T20:14:35.477282Z"
+}
+[3:22 PM]
+registration sample dto:
+[3:22 PM]
+{
+    "email":"personAmazing@hotmail.com",
+    "password": "password",
+    "firstName":"Person",
+    "lastName":"Amazing"
+}
+
+
+
+
+
+
 
 *Coolors.co 
 +===============+

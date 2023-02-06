@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, Routes } from "react-router-dom";
+import React, {useState, useEffect} from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import AdvancedSearch from '../components/advancedSearch/AdvancedSearch';
 import CreateComments from '../components/Comments/CreateComments';
 import ShowComments from '../components/Comments/ShowComments';
@@ -13,18 +13,25 @@ import SignUp from '../components/register/SignUp';
 import EmployeeProfile from '../components/EmployeeProfile/EmployeeProfile';
 import Employees from '../components/Employees/Employees';
 import UserProfile from '../components/UserProfile/UserProfile';
+import { User } from '../interfaces/users';
 
+
+
+
+
+
+//changes made..
 export const AppRoutes: React.FC<unknown> = () => (
-  // const [user, setUser] = React.useState<User>();
-  // // const [email, setEmail] = React.useState<Email>();
-  // const [targetAccount, setTargetAccount] = React.useState<Ac>();
-  // const [loggedIn, setLoggedStatus] = React.useState(false);
+
+    // const [targetAccount, setTargetAccount] = React.useState<Ac>();
+    const [user, setUser] = React.useState<User>();
+    const [loggedIn, setLoggedStatus] = React.useState(false);
   <>
     <Routes>
       <Route path="/" element={<PostFeed />} />
-      <Route path="/login" element={<Login/>} />
+      <Route path="/login" element={<Login setLoggedIn={setLoggedStatus} setTargetUser={setUser}/>} />
       <Route path="/register" element={<Register />} />
-      <Route path="/userprofile" element={<UserProfile />} />
+      <Route path="/userprofile" element={<UserProfile targetUser={user} setTargetUser={setUser}/>} />
       <Route path="/employees" element={<Employees />} />
       <Route path="/employeeprofile" element={<EmployeeProfile />} />
       <Route path="/createemployee" element={<CreateEmployee />} />
