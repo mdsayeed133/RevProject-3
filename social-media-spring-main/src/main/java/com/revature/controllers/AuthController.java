@@ -53,8 +53,10 @@ public class AuthController {
        try {
            User created = authService.register(registerRequest);
            return ResponseEntity.status(HttpStatus.CREATED).body(created);
+       } catch (ProfanityException pe){
+           return  ResponseEntity.notFound().build();
        } catch (Exception e){
-           return  ResponseEntity.badRequest().build();
+           return ResponseEntity.badRequest().build();
        }
     }
 

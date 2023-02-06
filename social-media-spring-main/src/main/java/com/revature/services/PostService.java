@@ -14,6 +14,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -38,14 +39,11 @@ public class PostService {
 		this.profanityService = profanityService;
 	}
 
-	public Post getPostById(int postId)
+	public Optional<Post> getPostById(int postId)
 	{
-		return postRepository.findById(postId).orElse(null);
+		return postRepository.findById(postId);
 	}
 
-	public List<Post> getAll() {
-		return this.postRepository.findAll();
-	}
 
 
 	public Post createRatingPost(RatingPostRequest ratingPostRequest){

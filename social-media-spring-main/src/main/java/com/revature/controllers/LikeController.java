@@ -31,7 +31,11 @@ public class LikeController {
 
     @GetMapping("/{postId}/amount")
     public ResponseEntity<Integer> likesAmount(@PathVariable int postId){
-        int likes= likeService.likesAmount(postId);
-        return ResponseEntity.accepted().body(likes);
+        try {
+            int likes = likeService.likesAmount(postId);
+            return ResponseEntity.accepted().body(likes);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

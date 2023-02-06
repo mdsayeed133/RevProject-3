@@ -16,8 +16,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.Instant;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -53,7 +51,7 @@ class LikeServiceTest {
     void likePostTest()
     {
         LikesDTO lDTO = new LikesDTO(mockPost.getId(), mockUser.getId());
-        when(postService.getPostById(lDTO.getPostId())).thenReturn(mockPost);
+        when(postService.getPostById(lDTO.getPostId())).thenReturn(Optional.of(mockPost));
         when(userService.getUserById(lDTO.getUserId())).thenReturn(Optional.of(mockUser));
         when(likesRepo.save(any())).thenReturn(mocklike);
 

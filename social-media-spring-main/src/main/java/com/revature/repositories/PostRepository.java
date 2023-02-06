@@ -11,12 +11,8 @@ import java.util.Optional;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Integer>{
 
-    List<Post> findAllByPostType(PostType postType);
 
     Optional<List<Post>> findByAuthorAndPostType(User user, PostType postType);
-
-    List<Post> findByPostType(PostType post);
-
 
     Optional<Post> findByRating(Rating rating);
 
