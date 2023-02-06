@@ -2,7 +2,9 @@ package com.revature.controllers;
 
 import com.revature.dtos.AddEmployeeRequest;
 import com.revature.dtos.EmployeeResponseDTO;
+import com.revature.dtos.UserResponseDTO;
 import com.revature.models.Employee;
+import com.revature.models.User;
 import com.revature.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +31,8 @@ public class EmployeeController {
         if(employee == null){
             return ResponseEntity.notFound().build();
         }
-        EmployeeResponseDTO eDTO = new EmployeeResponseDTO(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getAuthor(), employee.getDepartment(), employee.getCreatedDate());
+        UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+        EmployeeResponseDTO eDTO = new EmployeeResponseDTO(employee.getId(), employee.getFirstName(), employee.getLastName(), userResponseDTO, employee.getDepartment(), employee.getCreatedDate());
 
         return ResponseEntity.ok(eDTO);
     }
@@ -41,7 +44,8 @@ public class EmployeeController {
 
         List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
         for(Employee employee:employees){
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
             responseDTOS.add(dto);
         }
         return ResponseEntity.ok(responseDTOS);
@@ -51,7 +55,8 @@ public class EmployeeController {
     public ResponseEntity<EmployeeResponseDTO> createEmployee(@RequestBody AddEmployeeRequest addEmployeeRequest) {
         try {
             Employee employee = employeeService.createEmployee(addEmployeeRequest);
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
             return ResponseEntity.ok(dto);
         } catch (Exception e){
             return ResponseEntity.badRequest().build();
@@ -67,7 +72,8 @@ public class EmployeeController {
         }
         List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
         for(Employee employee:employees){
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
             responseDTOS.add(dto);
         }
         return ResponseEntity.ok(responseDTOS);
@@ -79,7 +85,8 @@ public class EmployeeController {
         if(employees.isEmpty()){return ResponseEntity.noContent().build();}
         List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
         for(Employee employee:employees){
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
             responseDTOS.add(dto);
         }
         return ResponseEntity.ok(responseDTOS);

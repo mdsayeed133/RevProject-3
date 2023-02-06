@@ -11,11 +11,11 @@ public class EmployeeResponseDTO {
     private int id;
     private String firstName;
     private String lastName;
-    private User author;
+    private UserResponseDTO author;
     private Department department;
     private Instant createdDate;
 
-    public EmployeeResponseDTO(int id, String firstName, String lastName, User author, Department department, Instant createdDate) {
+    public EmployeeResponseDTO(int id, String firstName, String lastName, UserResponseDTO author, Department department, Instant createdDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,11 +53,11 @@ public class EmployeeResponseDTO {
         this.lastName = lastName;
     }
 
-    public User getAuthor() {
+    public UserResponseDTO getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(UserResponseDTO author) {
         this.author = author;
     }
 

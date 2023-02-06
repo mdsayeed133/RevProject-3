@@ -43,7 +43,8 @@ public class UserController {
         if(followedEmployees != null) {
             List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
             for(Employee employee:followedEmployees){
-                EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+                UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+                EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
                 responseDTOS.add(dto);
             }
             return ResponseEntity.ok(responseDTOS);}

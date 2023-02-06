@@ -65,6 +65,7 @@ class LikeServiceTest {
     void likesAmountTest()
     {
         when(likesRepo.countByPost(any())).thenReturn(Optional.of(1));
+        when(postService.getPostById(0)).thenReturn(Optional.of(mockPost));
 
         int result = service.likesAmount((mockPost.getId()));
 

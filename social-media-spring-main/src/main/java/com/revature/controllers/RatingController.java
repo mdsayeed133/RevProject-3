@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import com.revature.dtos.EmployeeResponseDTO;
 import com.revature.dtos.RatingDTO;
+import com.revature.dtos.UserResponseDTO;
 import com.revature.models.Employee;
 import com.revature.models.Rating;
 import com.revature.models.Tag;
@@ -45,7 +46,8 @@ public class RatingController {
         }
         List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
         for(Employee employee:employees){
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
             responseDTOS.add(dto);
         }
         return ResponseEntity.ok(responseDTOS);
@@ -76,7 +78,8 @@ public class RatingController {
             List<Employee> employees = ratingService.getTop3Employees();
             List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
             for(Employee employee:employees){
-                EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+                UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+                EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
                 responseDTOS.add(dto);
             }
             return ResponseEntity.ok(responseDTOS);
