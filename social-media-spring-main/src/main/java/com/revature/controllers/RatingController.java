@@ -1,8 +1,8 @@
 package com.revature.controllers;
 
-import com.revature.dtos.EmployeeResponseDTO;
+import com.revature.dtos.EmployeeResponse;
 import com.revature.dtos.RatingDTO;
-import com.revature.dtos.UserResponseDTO;
+import com.revature.dtos.UserResponse;
 import com.revature.models.Employee;
 import com.revature.models.Rating;
 import com.revature.models.Tag;
@@ -39,15 +39,15 @@ public class RatingController {
     }
 
     @GetMapping("/employees/{tagId}/tagSearch")
-    public ResponseEntity<List<EmployeeResponseDTO>> searchEmployeesByTag(@PathVariable int tagId) {
+    public ResponseEntity<List<EmployeeResponse>> searchEmployeesByTag(@PathVariable int tagId) {
         List<Employee> employees = ratingService.searchEmployeesByTag(tagId);
         if (employees == null) {
             return ResponseEntity.badRequest().build();
         }
-        List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+        List<EmployeeResponse> responseDTOS = new ArrayList<>();
         for(Employee employee:employees){
-            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
+            UserResponse userResponse = new UserResponse(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponse dto= new EmployeeResponse(employee.getId(),employee.getFirstName(),employee.getLastName(), userResponse,employee.getDepartment(),employee.getCreatedDate());
             responseDTOS.add(dto);
         }
         return ResponseEntity.ok(responseDTOS);
@@ -73,13 +73,13 @@ public class RatingController {
     }
 
     @GetMapping("/top3employees")
-    public ResponseEntity<List<EmployeeResponseDTO>> getTop3Employees() {
+    public ResponseEntity<List<EmployeeResponse>> getTop3Employees() {
         try {
             List<Employee> employees = ratingService.getTop3Employees();
-            List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+            List<EmployeeResponse> responseDTOS = new ArrayList<>();
             for(Employee employee:employees){
-                UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
-                EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
+                UserResponse userResponse = new UserResponse(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+                EmployeeResponse dto= new EmployeeResponse(employee.getId(),employee.getFirstName(),employee.getLastName(), userResponse,employee.getDepartment(),employee.getCreatedDate());
                 responseDTOS.add(dto);
             }
             return ResponseEntity.ok(responseDTOS);

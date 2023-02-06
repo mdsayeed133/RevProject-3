@@ -2,7 +2,7 @@ package com.revature.controllers;
 
 import com.revature.dtos.LoginRequest;
 import com.revature.dtos.RegisterRequest;
-import com.revature.dtos.UserResponseDTO;
+import com.revature.dtos.UserResponse;
 import com.revature.exceptions.ProfanityException;
 import com.revature.models.User;
 import com.revature.services.AuthService;
@@ -28,7 +28,7 @@ public class AuthController {
 
     //Login works
     @PostMapping("/login")
-    public ResponseEntity<UserResponseDTO> login(@RequestBody LoginRequest loginRequest, HttpSession session) {
+    public ResponseEntity<UserResponse> login(@RequestBody LoginRequest loginRequest, HttpSession session) {
         Optional<User> optional = authService.findByCredentials(loginRequest.getEmail(), loginRequest.getPassword());
         User user = optional.get();
 
@@ -36,7 +36,7 @@ public class AuthController {
             return ResponseEntity.badRequest().build();
         }
 
-        UserResponseDTO uDTO = new UserResponseDTO(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getCreatedDate());
+        UserResponse uDTO = new UserResponse(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getCreatedDate());
         session.setAttribute("user", user);
 
         return ResponseEntity.ok(uDTO);
@@ -58,10 +58,10 @@ public class AuthController {
 
     //Register works
     @PostMapping("/register")
-    public ResponseEntity<UserResponseDTO> register(@RequestBody RegisterRequest registerRequest, HttpSession session) {
+    public ResponseEntity<UserResponse> register(@RequestBody RegisterRequest registerRequest, HttpSession session) {
        try {
            User user = authService.register(registerRequest);
-           UserResponseDTO uDTO = new UserResponseDTO(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getCreatedDate());
+           UserResponse uDTO = new UserResponse(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getCreatedDate());
            session.setAttribute("user", user);
            return ResponseEntity.status(HttpStatus.CREATED).body(uDTO);
        } catch (ProfanityException pe){

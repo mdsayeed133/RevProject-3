@@ -1,14 +1,8 @@
 package com.revature.dtos;
 
-import com.revature.models.Employee;
-import org.springframework.data.annotation.CreatedDate;
-
-import javax.persistence.Column;
-import javax.persistence.ManyToMany;
 import java.time.Instant;
-import java.util.List;
 
-public class UserResponseDTO {
+public class UserResponse {
 
     private int id;
     private String email;
@@ -17,7 +11,7 @@ public class UserResponseDTO {
     private String lastName;
     private Instant date;
 
-    public UserResponseDTO(int id, String email, String password, String firstName, String lastName, Instant date) {
+    public UserResponse(int id, String email, String password, String firstName, String lastName, Instant date) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -26,7 +20,7 @@ public class UserResponseDTO {
         this.date = date;
     }
 
-    public UserResponseDTO()
+    public UserResponse()
     {
 
     }

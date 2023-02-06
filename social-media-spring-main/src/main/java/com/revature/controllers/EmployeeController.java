@@ -1,11 +1,10 @@
 package com.revature.controllers;
 
 import com.revature.dtos.AddEmployeeRequest;
-import com.revature.dtos.EmployeeResponseDTO;
-import com.revature.dtos.UserResponseDTO;
+import com.revature.dtos.EmployeeResponse;
+import com.revature.dtos.UserResponse;
 import com.revature.exceptions.ProfanityException;
 import com.revature.models.Employee;
-import com.revature.models.User;
 import com.revature.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,37 +26,37 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}/id")
-    public ResponseEntity<EmployeeResponseDTO> getEmployeeById(@PathVariable int id){
+    public ResponseEntity<EmployeeResponse> getEmployeeById(@PathVariable int id){
         Employee employee = employeeService.getEmployeeById(id);
         if(employee == null){
             return ResponseEntity.notFound().build();
         }
-        UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
-        EmployeeResponseDTO eDTO = new EmployeeResponseDTO(employee.getId(), employee.getFirstName(), employee.getLastName(), userResponseDTO, employee.getDepartment(), employee.getCreatedDate());
+        UserResponse userResponse = new UserResponse(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+        EmployeeResponse eDTO = new EmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName(), userResponse, employee.getDepartment(), employee.getCreatedDate());
 
         return ResponseEntity.ok(eDTO);
     }
 
     @GetMapping()
-    public ResponseEntity<List<EmployeeResponseDTO>> getAllEmployees(){
+    public ResponseEntity<List<EmployeeResponse>> getAllEmployees(){
         List<Employee> employees = employeeService.getAllEmployees();
         if(employees.isEmpty()){return ResponseEntity.noContent().build();}
 
-        List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+        List<EmployeeResponse> responseDTOS = new ArrayList<>();
         for(Employee employee:employees){
-            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
+            UserResponse userResponse = new UserResponse(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponse dto= new EmployeeResponse(employee.getId(),employee.getFirstName(),employee.getLastName(), userResponse,employee.getDepartment(),employee.getCreatedDate());
             responseDTOS.add(dto);
         }
         return ResponseEntity.ok(responseDTOS);
     }
 
     @PostMapping()
-    public ResponseEntity<EmployeeResponseDTO> createEmployee(@RequestBody AddEmployeeRequest addEmployeeRequest) {
+    public ResponseEntity<EmployeeResponse> createEmployee(@RequestBody AddEmployeeRequest addEmployeeRequest) {
         try {
             Employee employee = employeeService.createEmployee(addEmployeeRequest);
-            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
+            UserResponse userResponse = new UserResponse(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponse dto= new EmployeeResponse(employee.getId(),employee.getFirstName(),employee.getLastName(), userResponse,employee.getDepartment(),employee.getCreatedDate());
             return ResponseEntity.ok(dto);
         } catch (ProfanityException pe){
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
@@ -68,28 +67,28 @@ public class EmployeeController {
     }
 
     @GetMapping("/{departmentId}/department")
-    public ResponseEntity<List<EmployeeResponseDTO>> getEmployeeByDepartment(@PathVariable int departmentId){
+    public ResponseEntity<List<EmployeeResponse>> getEmployeeByDepartment(@PathVariable int departmentId){
         List<Employee> employees = employeeService.getEmployeeByDepartment(departmentId);
         if(employees == null){
             return ResponseEntity.notFound().build();
         }
-        List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+        List<EmployeeResponse> responseDTOS = new ArrayList<>();
         for(Employee employee:employees){
-            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
+            UserResponse userResponse = new UserResponse(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponse dto= new EmployeeResponse(employee.getId(),employee.getFirstName(),employee.getLastName(), userResponse,employee.getDepartment(),employee.getCreatedDate());
             responseDTOS.add(dto);
         }
         return ResponseEntity.ok(responseDTOS);
     }
 
     @GetMapping("/{search}/search")
-    public ResponseEntity<List<EmployeeResponseDTO>> getEmployeeByName(@PathVariable String search){
+    public ResponseEntity<List<EmployeeResponse>> getEmployeeByName(@PathVariable String search){
         List<Employee> employees = employeeService.getEmployeeByName(search);
         if(employees.isEmpty()){return ResponseEntity.noContent().build();}
-        List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+        List<EmployeeResponse> responseDTOS = new ArrayList<>();
         for(Employee employee:employees){
-            UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
-            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
+            UserResponse userResponse = new UserResponse(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
+            EmployeeResponse dto= new EmployeeResponse(employee.getId(),employee.getFirstName(),employee.getLastName(), userResponse,employee.getDepartment(),employee.getCreatedDate());
             responseDTOS.add(dto);
         }
         return ResponseEntity.ok(responseDTOS);

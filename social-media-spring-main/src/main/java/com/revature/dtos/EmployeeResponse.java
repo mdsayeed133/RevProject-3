@@ -1,21 +1,19 @@
 package com.revature.dtos;
 
 import com.revature.models.Department;
-import com.revature.models.User;
 
-import javax.persistence.*;
 import java.time.Instant;
 
-public class EmployeeResponseDTO {
+public class EmployeeResponse {
 
     private int id;
     private String firstName;
     private String lastName;
-    private UserResponseDTO author;
+    private UserResponse author;
     private Department department;
     private Instant createdDate;
 
-    public EmployeeResponseDTO(int id, String firstName, String lastName, UserResponseDTO author, Department department, Instant createdDate) {
+    public EmployeeResponse(int id, String firstName, String lastName, UserResponse author, Department department, Instant createdDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,7 +22,7 @@ public class EmployeeResponseDTO {
         this.createdDate = createdDate;
     }
 
-    public EmployeeResponseDTO()
+    public EmployeeResponse()
     {
 
     }
@@ -53,11 +51,11 @@ public class EmployeeResponseDTO {
         this.lastName = lastName;
     }
 
-    public UserResponseDTO getAuthor() {
+    public UserResponse getAuthor() {
         return author;
     }
 
-    public void setAuthor(UserResponseDTO author) {
+    public void setAuthor(UserResponse author) {
         this.author = author;
     }
 

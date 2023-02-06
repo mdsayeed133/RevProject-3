@@ -22,7 +22,8 @@ public class EmployeeSearchService {
         List<Employee> listByName= employeeService.getEmployeeByName(searchRequest.getName());
         List<Employee> listByTag= ratingService.searchEmployeesByTag(searchRequest.getTagId());
         List<Employee> listByDepartment= employeeService.getEmployeeByDepartment(searchRequest.getDepartmentId());
-
+        if(searchRequest.getTagId()==0 && searchRequest.getDepartmentId()==0)
+            return listByName;
         if(searchRequest.getTagId()==0)
             return listByName.stream().filter(listByDepartment::contains).collect(Collectors.toList());
         if(searchRequest.getDepartmentId()==0)
