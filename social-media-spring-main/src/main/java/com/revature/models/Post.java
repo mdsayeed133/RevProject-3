@@ -18,8 +18,8 @@ public class Post {
 	private int imageId;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Post> comments;
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@Column(nullable = false)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(nullable = false)
 	private User author;
 
 	private PostType postType;
