@@ -56,7 +56,8 @@ public class EmployeeService {
 
     public List<Employee> getEmployeeByDepartment(int departmentId){
         Department department = departmentService.getDepartmentById(departmentId);
-        return employeeRepository.findByDepartment(department).orElse(null);
+        List<Employee> employees= employeeRepository.findByDepartment(department).orElse(null);
+        return new ArrayList<>(employees);
     }
 
     public List<Employee> getEmployeeByName(String search){
