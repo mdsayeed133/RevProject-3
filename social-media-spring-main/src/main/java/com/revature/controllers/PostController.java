@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.dtos.CommentPostRequest;
+import com.revature.dtos.PostResponse;
 import com.revature.dtos.RatingPostRequest;
 import com.revature.exceptions.PostNotFound;
 import com.revature.models.Post;
@@ -24,9 +25,11 @@ public class PostController {
     }
 
     @PostMapping("/rating")
-    public ResponseEntity<Post> createRatingPost(@RequestBody RatingPostRequest ratingPostRequest) {
+    public ResponseEntity<PostResponse> createRatingPost(@RequestBody RatingPostRequest ratingPostRequest) {
         try {
             Post post = postService.createRatingPost(ratingPostRequest);
+
+            PostResponse postResponse= new PostResponse(p)
             return ResponseEntity.status(HttpStatus.CREATED).body(post);
         }catch (Exception e){
             return ResponseEntity.badRequest().build();

@@ -1,14 +1,11 @@
 package com.revature.controllers;
 
 import com.revature.dtos.EmployeeResponse;
-import com.revature.dtos.RatingDTO;
 import com.revature.dtos.UserResponse;
 import com.revature.models.Employee;
-import com.revature.models.Rating;
 import com.revature.models.Tag;
 import com.revature.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,16 +24,6 @@ public class RatingController {
         this.ratingService = ratingService;
     }
 
-    @PostMapping
-    public ResponseEntity<Rating> createRating(@RequestBody RatingDTO rDTO) {
-        try {
-            Rating newRating = ratingService.createRating(rDTO);
-            return ResponseEntity.status(HttpStatus.CREATED).body(newRating);
-        } catch (Exception e){
-            return ResponseEntity.badRequest().build();
-        }
-
-    }
 
     @GetMapping("/employees/{tagId}/tagSearch")
     public ResponseEntity<List<EmployeeResponse>> searchEmployeesByTag(@PathVariable int tagId) {
