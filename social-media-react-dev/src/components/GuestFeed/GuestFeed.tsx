@@ -3,6 +3,7 @@ import Navbar from '../navbar/Navbar'
 import { useNavigate } from 'react-router-dom'
 
 import '../GuestFeed/GuestFeed.css'
+import Post from '../post-feed/Post'
 
 const GuestFeed: React.FC<any> = (props: any) => {
 
@@ -14,12 +15,11 @@ const GuestFeed: React.FC<any> = (props: any) => {
   return (
     <>
       <Navbar />
-      <div>GuestFeed</div>
       {/* attempt at a guest carousel */}
 
       {/* ======================================================== */}
       {/* fs: */}
-      <div className="guest-feed">
+      <div className="guest-feed container">
         {/* beginning of carousel */}
         <div className="container marketing">
         <h2 className='welcomegreeting text-center'>Welcome to RevRater, Where we connect to our future</h2>
@@ -28,19 +28,19 @@ const GuestFeed: React.FC<any> = (props: any) => {
               <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
               <h2 className="fw-normal">Find an Employee</h2>
               <p className="text-justify">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-              <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p>
+              {/* <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p> */}
             </div>
             <div className="col-lg-4">
               <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
               <h2 className="fw-normal">Rate the Employee</h2>
               <p className="text-justify">Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-              <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p>
+              {/* <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p> */}
             </div>
             <div className="col-lg-4">
               <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
               <h2 className="fw-normal">View what others say!</h2>
               <p className="text-justify">And lastly this, the third column of representative placeholder content.</p>
-              <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p>
+              {/* <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p> */}
             </div>
           </div>
         </div>
@@ -53,7 +53,6 @@ const GuestFeed: React.FC<any> = (props: any) => {
             <h4 className='tagline'>View what others have to say !</h4>
           </div>
         </div> */}
-
         <div className='TrainerRanking_Container' >
           <div className='trainerRanking'>
             <h3>Current Trainer Rankings...</h3>
@@ -119,6 +118,8 @@ const GuestFeed: React.FC<any> = (props: any) => {
           <div className='userreview'>
             <h3>See what others are Saying...</h3>
           </div>
+          {/* <Post/>
+          <Post/> */}
           <div className='userratings'>
 
             <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
