@@ -119,8 +119,6 @@ public class RatingServiceTest {
         List<Employee> result = service.searchEmployeesByTag(mockTag1.getId());
 
         assertThat(result, contains(mockEmployee4));
-
-
     }
 
 
