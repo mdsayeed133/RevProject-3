@@ -1,6 +1,6 @@
 def generateTagsTable():
     tagsFile = open("tags.txt","r")
-    statement = "insert into tags(tag_name) values"
+    statement = "insert into tag(tag_name) values"
     firstLine = True
     generatedTags = []
     for line in tagsFile:
