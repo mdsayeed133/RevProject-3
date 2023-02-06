@@ -3,9 +3,7 @@ package com.revature.models;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -41,7 +39,7 @@ public class Employee {
 
     @CreatedDate
     @Column(name = "date", updatable = false)
-    private Instant date;
+    private Instant createdDate;
 
     public Employee() {
     }
@@ -53,22 +51,22 @@ public class Employee {
         this.department = department;
     }
 
-    public Employee(String firstName, String lastName, User author, Department department, Instant date) {
+    public Employee(String firstName, String lastName, User author, Department department, Instant createdDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.author = author;
         this.department = department;
-        this.date = date;
+        this.createdDate = createdDate;
     }
 
-    public Employee(int id, String firstName, String lastName, User author, Department department, List<User> followers, Instant date) {
+    public Employee(int id, String firstName, String lastName, User author, Department department, List<User> followers, Instant createdDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.author = author;
         this.department = department;
         this.followers = followers;
-        this.date = date;
+        this.createdDate = createdDate;
     }
 
     public Employee(String firstName, String lastName, User author, Department department, List<User> followers) {
@@ -79,13 +77,13 @@ public class Employee {
         this.followers = followers;
     }
 
-    public Employee(int id, String firstName, String lastName, User author, Department department, Instant date) {
+    public Employee(int id, String firstName, String lastName, User author, Department department, Instant createdDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.author = author;
         this.department = department;
-        this.date = date;
+        this.createdDate = createdDate;
     }
 
     public Integer getId() {
@@ -136,12 +134,12 @@ public class Employee {
         this.followers = followers;
     }
 
-    public Instant getDate() {
-        return date;
+    public Instant getCreatedDate() {
+        return createdDate;
     }
 
-    public void setDate(Instant date) {
-        this.date = date;
+    public void setCreatedDate(Instant createdDate) {
+        this.createdDate = createdDate;
     }
 }
 

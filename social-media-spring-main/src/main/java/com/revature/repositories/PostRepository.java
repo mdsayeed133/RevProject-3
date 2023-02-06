@@ -16,6 +16,5 @@ public interface PostRepository extends JpaRepository<Post, Integer>{
 
     Optional<Post> findByRating(Rating rating);
 
-    //Post findById(int id);
 
 }

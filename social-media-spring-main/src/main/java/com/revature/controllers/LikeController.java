@@ -1,7 +1,6 @@
 package com.revature.controllers;
 
 import com.revature.dtos.LikesDTO;
-import com.revature.models.Like;
 import com.revature.services.LikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,7 @@ public class LikeController {
     @PostMapping("/like")
     public ResponseEntity<String> likePost(@RequestBody LikesDTO lDTO){
         try {
-            Like like = likeService.likePost(lDTO);
+            likeService.likePost(lDTO);
             return ResponseEntity.accepted().body("User #" + lDTO.getUserId() + " has liked post #" + lDTO.getPostId());
         }catch (Exception e){
             return ResponseEntity.badRequest().body("Like unsuccessful");
@@ -35,7 +34,7 @@ public class LikeController {
             int likes = likeService.likesAmount(postId);
             return ResponseEntity.accepted().body(likes);
         }catch (Exception e){
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(0);
         }
     }
 }

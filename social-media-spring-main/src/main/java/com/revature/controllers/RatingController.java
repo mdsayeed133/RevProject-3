@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import com.revature.dtos.EmployeeResponseDTO;
 import com.revature.dtos.RatingDTO;
 import com.revature.models.Employee;
 import com.revature.models.Rating;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,12 +38,17 @@ public class RatingController {
     }
 
     @GetMapping("/employees/{tagId}/tagSearch")
-    public ResponseEntity<List<Employee>> searchEmployeesByTag(@PathVariable int tagId) {
+    public ResponseEntity<List<EmployeeResponseDTO>> searchEmployeesByTag(@PathVariable int tagId) {
         List<Employee> employees = ratingService.searchEmployeesByTag(tagId);
         if (employees == null) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(employees);
+        List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+        for(Employee employee:employees){
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            responseDTOS.add(dto);
+        }
+        return ResponseEntity.ok(responseDTOS);
     }
 
     @GetMapping("/employee/{employeeId}/average")
@@ -64,10 +71,15 @@ public class RatingController {
     }
 
     @GetMapping("/top3employees")
-    public ResponseEntity<List<Employee>> getTop3Employees() {
+    public ResponseEntity<List<EmployeeResponseDTO>> getTop3Employees() {
         try {
-            List<Employee> top3Employees = ratingService.getTop3Employees();
-            return ResponseEntity.ok(top3Employees);
+            List<Employee> employees = ratingService.getTop3Employees();
+            List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+            for(Employee employee:employees){
+                EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+                responseDTOS.add(dto);
+            }
+            return ResponseEntity.ok(responseDTOS);
         } catch (Exception e){
             return ResponseEntity.badRequest().build();
         }

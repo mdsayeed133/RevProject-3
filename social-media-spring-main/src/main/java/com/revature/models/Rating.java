@@ -1,7 +1,5 @@
 package com.revature.models;
 
-import org.springframework.core.metrics.StartupStep;
-
 import javax.persistence.*;
 
 @Entity

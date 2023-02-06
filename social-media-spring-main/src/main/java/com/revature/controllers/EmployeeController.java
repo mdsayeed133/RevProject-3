@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,49 +27,62 @@ public class EmployeeController {
     public ResponseEntity<EmployeeResponseDTO> getEmployeeById(@PathVariable int id){
         Employee employee = employeeService.getEmployeeById(id);
         if(employee == null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
-        EmployeeResponseDTO eDTO = new EmployeeResponseDTO(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getAuthor(), employee.getDepartment(), employee.getDate());
+        EmployeeResponseDTO eDTO = new EmployeeResponseDTO(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getAuthor(), employee.getDepartment(), employee.getCreatedDate());
 
-        return new ResponseEntity<>(eDTO, HttpStatus.OK);
+        return ResponseEntity.ok(eDTO);
     }
 
     @GetMapping()
-    public ResponseEntity<List<Employee>> getAllEmployees(){
+    public ResponseEntity<List<EmployeeResponseDTO>> getAllEmployees(){
         List<Employee> employees = employeeService.getAllEmployees();
-        if(employees.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        if(employees.isEmpty()){return ResponseEntity.noContent().build();}
+
+        List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+        for(Employee employee:employees){
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            responseDTOS.add(dto);
         }
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+        return ResponseEntity.ok(responseDTOS);
     }
 
     @PostMapping()
-    public ResponseEntity<Employee> createEmployee(@RequestBody AddEmployeeRequest addEmployeeRequest) {
+    public ResponseEntity<EmployeeResponseDTO> createEmployee(@RequestBody AddEmployeeRequest addEmployeeRequest) {
         try {
             Employee employee = employeeService.createEmployee(addEmployeeRequest);
-            return new ResponseEntity<>(employee, HttpStatus.CREATED);
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            return ResponseEntity.ok(dto);
         } catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().build();
         }
 
     }
 
     @GetMapping("/{departmentId}/department")
-    public ResponseEntity<List<Employee>> getEmployeeByDepartment(@PathVariable int departmentId){
+    public ResponseEntity<List<EmployeeResponseDTO>> getEmployeeByDepartment(@PathVariable int departmentId){
         List<Employee> employees = employeeService.getEmployeeByDepartment(departmentId);
         if(employees == null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+        List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+        for(Employee employee:employees){
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            responseDTOS.add(dto);
+        }
+        return ResponseEntity.ok(responseDTOS);
     }
 
     @GetMapping("/{search}/search")
-    public ResponseEntity<List<Employee>> getEmployeeByName(@PathVariable String search){
+    public ResponseEntity<List<EmployeeResponseDTO>> getEmployeeByName(@PathVariable String search){
         List<Employee> employees = employeeService.getEmployeeByName(search);
-        if(employees.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        if(employees.isEmpty()){return ResponseEntity.noContent().build();}
+        List<EmployeeResponseDTO> responseDTOS = new ArrayList<>();
+        for(Employee employee:employees){
+            EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),employee.getAuthor(),employee.getDepartment(),employee.getCreatedDate());
+            responseDTOS.add(dto);
         }
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+        return ResponseEntity.ok(responseDTOS);
     }
 
 

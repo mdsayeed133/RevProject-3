@@ -13,12 +13,13 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "TEXT", nullable = false)
 	private String message;
 	private int imageId;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Post> comments;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@Column(nullable = false)
 	private User author;
 
 	private PostType postType;
@@ -28,22 +29,22 @@ public class Post {
 	private Rating rating;
 
 	@CreatedDate
-	private Instant CreatedDate;
+	private Instant createdDate;
 
 	public Post() {
 	}
 
-	public Post(String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant CreatedDate) {
+	public Post(String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant createdDate) {
 		this.message = message;
 		this.imageId = imageId;
 		this.comments = comments;
 		this.author = author;
 		this.postType = postType;
 		this.rating = rating;
-		this.CreatedDate = CreatedDate;
+		this.createdDate = createdDate;
 	}
 
-	public Post(int id, String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant CreatedDate) {
+	public Post(int id, String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant createdDate) {
 		this.id = id;
 		this.message = message;
 		this.imageId = imageId;
@@ -51,17 +52,17 @@ public class Post {
 		this.author = author;
 		this.postType = postType;
 		this.rating = rating;
-		this.CreatedDate = CreatedDate;
+		this.createdDate = createdDate;
 	}
 
-	public Post(int id, String message, int imageId, List<Post> comments, User author, PostType postType, Instant CreatedDate) {
+	public Post(int id, String message, int imageId, List<Post> comments, User author, PostType postType, Instant createdDate) {
 		this.id = id;
 		this.message = message;
 		this.imageId = imageId;
 		this.comments = comments;
 		this.author = author;
 		this.postType = postType;
-		this.CreatedDate = CreatedDate;
+		this.createdDate = createdDate;
 	}
 
 	public Post(String message, List<Post> comments, User author, PostType postType) {
@@ -91,7 +92,7 @@ public class Post {
 		this.comments = comments;
 		this.author = user;
 		this.postType = type;
-		this.CreatedDate= now;
+		this.createdDate = now;
 	}
 
 	public String getMessage() {
@@ -143,11 +144,11 @@ public class Post {
 	}
 
 	public Instant getCreatedDate() {
-		return CreatedDate;
+		return createdDate;
 	}
 
 	public void setCreatedDate(Instant createdDate) {
-		CreatedDate = createdDate;
+		this.createdDate = createdDate;
 	}
 
 	public int getId() {

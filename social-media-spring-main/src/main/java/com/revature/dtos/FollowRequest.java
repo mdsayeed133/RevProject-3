@@ -2,11 +2,11 @@ package com.revature.dtos;
 
 public class FollowRequest {
     private int userId;
-    private int EmployeeId;
+    private int employeeId;
 
     public FollowRequest(int userId, int employeeId) {
         this.userId = userId;
-        EmployeeId = employeeId;
+        employeeId = employeeId;
     }
 
     public int getUserId() {
@@ -18,10 +18,10 @@ public class FollowRequest {
     }
 
     public int getEmployeeId() {
-        return EmployeeId;
+        return employeeId;
     }
 
     public void setEmployeeId(int employeeId) {
-        EmployeeId = employeeId;
+        employeeId = employeeId;
     }
 }

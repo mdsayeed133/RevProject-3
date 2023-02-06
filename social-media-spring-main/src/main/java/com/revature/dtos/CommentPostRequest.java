@@ -1,6 +1,5 @@
 package com.revature.dtos;
 
-import com.revature.models.PostType;
 
 public class CommentPostRequest {
         private int userId;

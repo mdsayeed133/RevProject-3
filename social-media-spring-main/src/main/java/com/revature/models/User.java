@@ -4,7 +4,6 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,37 +23,38 @@ public class User {
     private List<Employee> followedEmployees;
 
     @CreatedDate
-    private Instant date;
+    @Column(name = "date", updatable = false)
+    private Instant createdDate;
 
     public User() {
     }
 
-    public User(int id, String email, String password, String firstName, String lastName, Instant date) {
+    public User(int id, String email, String password, String firstName, String lastName, Instant createdDate) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.date = date;
+        this.createdDate = createdDate;
     }
 
-    public User(int id, String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant date) {
+    public User(int id, String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant createdDate) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.followedEmployees = followedEmployees;
-        this.date = date;
+        this.createdDate = createdDate;
     }
 
-    public User(String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant date) {
+    public User(String email, String password, String firstName, String lastName, List<Employee> followedEmployees, Instant createdDate) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.followedEmployees = followedEmployees;
-        this.date = date;
+        this.createdDate = createdDate;
     }
 
     public User(String email, String password, String firstName, String lastName, List<Employee> followedEmployees) {
@@ -72,12 +72,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public User(String email, String password, String firstName, String lastName, Instant date) {
+    public User(String email, String password, String firstName, String lastName, Instant createdDate) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.date = date;
+        this.createdDate = createdDate;
     }
 
     public int getId() {
@@ -128,11 +128,11 @@ public class User {
         this.followedEmployees = followedEmployees;
     }
 
-    public Instant getDate() {
-        return date;
+    public Instant getCreatedDate() {
+        return createdDate;
     }
 
-    public void setDate(Instant date) {
-        this.date = date;
+    public void setCreatedDate(Instant createdDate) {
+        this.createdDate = createdDate;
     }
 }

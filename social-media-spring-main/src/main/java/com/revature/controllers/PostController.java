@@ -1,18 +1,15 @@
 package com.revature.controllers;
 
-import java.util.List;
-
 import com.revature.dtos.CommentPostRequest;
 import com.revature.dtos.RatingPostRequest;
-import com.revature.exceptions.PostNotFound;
+import com.revature.models.Post;
+import com.revature.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.revature.annotations.Authorized;
-import com.revature.models.Post;
-import com.revature.services.PostService;
+import java.util.List;
 
 @RestController
 @RequestMapping("/posts")
@@ -125,7 +122,7 @@ public class PostController {
     @PutMapping("/{id}/post/edit")
     public ResponseEntity<Object> editRatingPost(@RequestBody RatingPostRequest ratingPostRequest, @PathVariable int id){
         try {
-            Boolean result = postService.editRatingPost(ratingPostRequest, id);
+            boolean result = postService.editRatingPost(ratingPostRequest, id);
             if(result) return ResponseEntity.ok().build();
             return ResponseEntity.badRequest().build();
         }catch (Exception e){
@@ -136,7 +133,7 @@ public class PostController {
     @PutMapping("/{id}/comment/edit")
     public ResponseEntity<Object> editCommentPost(@RequestBody CommentPostRequest commentPostRequest, @PathVariable int id){
         try {
-            Boolean result = postService.editCommentPost(commentPostRequest, id);
+            boolean result = postService.editCommentPost(commentPostRequest, id);
             if(result) return ResponseEntity.ok().build();
             return ResponseEntity.badRequest().build();
         }catch (Exception e){
@@ -147,7 +144,7 @@ public class PostController {
     @PutMapping("/{id}/reply/edit")
     public ResponseEntity<Object> editReplyPost(@RequestBody CommentPostRequest commentPostRequest, @PathVariable int id){
         try {
-            Boolean result = postService.editRelyPost(commentPostRequest, id);
+            boolean result = postService.editRelyPost(commentPostRequest, id);
             if(result) return ResponseEntity.ok().build();
             return ResponseEntity.badRequest().build();
         }catch (Exception e){
