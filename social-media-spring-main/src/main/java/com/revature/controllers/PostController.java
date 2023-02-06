@@ -3,7 +3,6 @@ package com.revature.controllers;
 import com.revature.dtos.*;
 import com.revature.exceptions.PostNotFound;
 import com.revature.models.*;
-import com.revature.repositories.RatingRepository;
 import com.revature.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,13 +18,11 @@ import java.util.List;
 public class PostController {
 
     private final PostService postService;
-    private final RatingRepository ratingRepository;
+
 
     @Autowired
-    public PostController(PostService postService,
-                          RatingRepository ratingRepository) {
+    public PostController(PostService postService) {
         this.postService = postService;
-        this.ratingRepository = ratingRepository;
     }
 
     @PostMapping("/rating")
