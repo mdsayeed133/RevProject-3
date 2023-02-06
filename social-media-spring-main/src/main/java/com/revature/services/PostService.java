@@ -64,7 +64,8 @@ public class PostService {
 		ArrayList<Post> currentComments = new ArrayList<>(ratingPost.getComments());
 		currentComments.add(newCommentPost);
 		ratingPost.setComments(currentComments);
-		return postRepository.save(ratingPost);
+		postRepository.save(ratingPost);
+		return newCommentPost;
 	}
 
 	public Post createReplyPost(CommentPostRequest replyPostRequest)throws PostNotFound {
@@ -76,7 +77,8 @@ public class PostService {
 		ArrayList<Post> currentReply = new ArrayList<>(commentPost.getComments());
 		currentReply.add(newReplyPost);
 		commentPost.setComments(currentReply);
-		return postRepository.save(commentPost);
+		postRepository.save(commentPost);
+		return newReplyPost;
 	}
 
 	public List<Post> getRatingPostsOfUser(int id) throws UserNotFound {

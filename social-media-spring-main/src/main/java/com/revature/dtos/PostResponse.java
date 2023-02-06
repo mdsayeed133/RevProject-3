@@ -14,11 +14,10 @@ public class PostResponse {
     private int imageId;
     private UserResponse author;
     private PostType postType;
-    private List<Post> comments;
     private RatingResponse rating;
     private Instant createdDate;
 
-    public PostResponse(int id, String message, int imageId, UserResponse author, PostType postType, RatingResponse rating,List<Post> comments, Instant createdDate) {
+    public PostResponse(int id, String message, int imageId, UserResponse author, PostType postType, RatingResponse rating, Instant createdDate) {
         this.id = id;
         this.message = message;
         this.imageId = imageId;
