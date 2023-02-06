@@ -1,16 +1,16 @@
 package com.revature.controllers;
 
-import com.revature.dtos.CommentPostRequest;
-import com.revature.dtos.PostResponse;
-import com.revature.dtos.RatingPostRequest;
+import com.revature.dtos.*;
 import com.revature.exceptions.PostNotFound;
-import com.revature.models.Post;
+import com.revature.models.*;
+import com.revature.repositories.RatingRepository;
 import com.revature.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,37 +19,43 @@ import java.util.List;
 public class PostController {
 
     private final PostService postService;
+    private final RatingRepository ratingRepository;
+
     @Autowired
-    public PostController(PostService postService) {
+    public PostController(PostService postService,
+                          RatingRepository ratingRepository) {
         this.postService = postService;
+        this.ratingRepository = ratingRepository;
     }
 
     @PostMapping("/rating")
-    public ResponseEntity<Post> createRatingPost(@RequestBody RatingPostRequest ratingPostRequest) {
+    public ResponseEntity<PostResponse> createRatingPost(@RequestBody RatingPostRequest ratingPostRequest) {
         try {
             Post post = postService.createRatingPost(ratingPostRequest);
-            return ResponseEntity.status(HttpStatus.CREATED).body(post);
+            PostResponse response= createPostResponse(post);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
         }catch (Exception e){
             return ResponseEntity.badRequest().build();
         }
     }
 
     @PostMapping("/comment")
-    public ResponseEntity<Post> createCommentPost(@RequestBody CommentPostRequest commentPostRequest) {
+    public ResponseEntity<PostResponse> createCommentPost(@RequestBody CommentPostRequest commentPostRequest) {
         try {
             Post post = postService.createCommentPost(commentPostRequest);
-            return ResponseEntity.status(HttpStatus.CREATED).body(post);
+            PostResponse response= createPostResponse(post);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 
     @PostMapping("/reply")
-    public ResponseEntity<Post> createReplyPost(@RequestBody CommentPostRequest replyPostRequest) {
+    public ResponseEntity<PostResponse> createReplyPost(@RequestBody CommentPostRequest replyPostRequest) {
         try {
             Post post = postService.createReplyPost(replyPostRequest);
-
-            return ResponseEntity.status(HttpStatus.CREATED).body(post);
+            PostResponse response= createPostResponse(post);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
@@ -58,10 +64,15 @@ public class PostController {
     }
 
     @GetMapping("/{id}/user/ratings")
-    public ResponseEntity<List<Post>> getRatingPostsOfUser(@PathVariable int id) {
+    public ResponseEntity<List<PostResponse>> getRatingPostsOfUser(@PathVariable int id) {
         try {
             List<Post> posts = postService.getRatingPostsOfUser(id);
-            return ResponseEntity.ok(posts);
+            List<PostResponse> responses = new ArrayList<>();
+            for(Post post: posts){
+                PostResponse response= createPostResponse(post);
+                responses.add(response);
+            }
+            return ResponseEntity.ok(responses);
         } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
@@ -70,10 +81,15 @@ public class PostController {
     }
 
     @GetMapping("/{id}/user/comments")
-    public ResponseEntity<List<Post>> getCommentPostsOfUser(@PathVariable int id) {
+    public ResponseEntity<List<PostResponse>> getCommentPostsOfUser(@PathVariable int id) {
         try {
             List<Post> posts = postService.getCommentPostsOfUser(id);
-            return ResponseEntity.ok(posts);
+            List<PostResponse> responses = new ArrayList<>();
+            for(Post post: posts){
+                PostResponse response= createPostResponse(post);
+                responses.add(response);
+            }
+            return ResponseEntity.ok(responses);
         } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
@@ -82,10 +98,15 @@ public class PostController {
     }
 
     @GetMapping("/{id}/user/replies")
-    public ResponseEntity<List<Post>> getReplyPostsOfUser(@PathVariable int id) {
+    public ResponseEntity<List<PostResponse>> getReplyPostsOfUser(@PathVariable int id) {
         try {
             List<Post> posts = postService.getReplyPostsOfUser(id);
-            return ResponseEntity.ok(posts);
+            List<PostResponse> responses = new ArrayList<>();
+            for(Post post: posts){
+                PostResponse response= createPostResponse(post);
+                responses.add(response);
+            }
+            return ResponseEntity.ok(responses);
         } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
@@ -94,10 +115,15 @@ public class PostController {
     }
 
     @GetMapping("/{id}/emp/posts")
-    public ResponseEntity<List<Post>> getPostsAboutEmployee(@PathVariable int id){
+    public ResponseEntity<List<PostResponse>> getPostsAboutEmployee(@PathVariable int id){
         try{
             List<Post> posts = postService.getPostsAboutEmployee(id);
-            return ResponseEntity.ok(posts);
+            List<PostResponse> responses = new ArrayList<>();
+            for(Post post: posts){
+                PostResponse response= createPostResponse(post);
+                responses.add(response);
+            }
+            return ResponseEntity.ok(responses);
         } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
@@ -106,19 +132,29 @@ public class PostController {
     }
 
     @GetMapping("/{id}/user/feed")
-    public ResponseEntity<List<Post>> getUserFeed(@PathVariable int id){
+    public ResponseEntity<List<PostResponse>> getUserFeed(@PathVariable int id){
         try{
             List<Post> posts= postService.getUserFeed(id);
-            return ResponseEntity.ok(posts);
+            List<PostResponse> responses = new ArrayList<>();
+            for(Post post: posts){
+                PostResponse response= createPostResponse(post);
+                responses.add(response);
+            }
+            return ResponseEntity.ok(responses);
         }catch (Exception e){
             return ResponseEntity.badRequest().build();
         }
     }
     @GetMapping("/{id}/post/comments")
-    public ResponseEntity<List<Post>> getCommentsOfAPost(@PathVariable int id){
+    public ResponseEntity<List<PostResponse>> getCommentsOfAPost(@PathVariable int id){
         try{
             List<Post> comments= postService.getCommentsOfAPost(id);
-            return ResponseEntity.ok(comments);
+            List<PostResponse> responses = new ArrayList<>();
+            for(Post post: comments){
+                PostResponse response= createPostResponse(post);
+                responses.add(response);
+            }
+            return ResponseEntity.ok(responses);
         } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
@@ -126,10 +162,15 @@ public class PostController {
         }
     }
     @GetMapping("/{id}/comment/replies")
-    public ResponseEntity<List<Post>> getRepliesOfComment(@PathVariable int id){
+    public ResponseEntity<List<PostResponse>> getRepliesOfComment(@PathVariable int id){
         try{
             List<Post> replies= postService.getRepliesOfComment(id);
-            return ResponseEntity.ok(replies);
+            List<PostResponse> responses = new ArrayList<>();
+            for(Post post: replies){
+                PostResponse response= createPostResponse(post);
+                responses.add(response);
+            }
+            return ResponseEntity.ok(responses);
         } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
@@ -179,6 +220,19 @@ public class PostController {
         } catch (Exception e){
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    private PostResponse createPostResponse(Post post) {
+        User user = post.getAuthor();
+        UserResponse userResponse = new UserResponse(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getCreatedDate());
+        RatingResponse ratingResponse = null;
+        if (post.getPostType() == PostType.Rating) {
+            Rating rating = post.getRating();
+            Employee employee = rating.getEmployee();
+            EmployeeResponse employeeResponse = new EmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName(), userResponse, employee.getDepartment(), employee.getCreatedDate());
+            ratingResponse = new RatingResponse(rating.getId(), employeeResponse, rating.getId(), rating.getTag1(), rating.getTag2(), rating.getTag3());
+        }
+        return new PostResponse(post.getId(), post.getMessage(), post.getImageId(), userResponse, post.getPostType(), ratingResponse, post.getCreatedDate());
     }
 }
 
