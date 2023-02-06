@@ -25,7 +25,10 @@ public class AuthService {
     }
 
     public User register(RegisterRequest registerRequest) throws ProfanityException {
-        if(profanityService.profanityLikely(registerRequest.getEmail())) throw  new ProfanityException();
+        String[] beforeEmailPart = registerRequest.getEmail().split("@");
+        if(beforeEmailPart.length>2)
+            throw new ProfanityException("Too many @ Symbols in email request.");
+        if(profanityService.profanityLikely(beforeEmailPart[0])) throw  new ProfanityException();
         if(profanityService.profanityLikely(registerRequest.getFirstName())) throw  new ProfanityException();
         if(profanityService.profanityLikely(registerRequest.getLastName())) throw  new ProfanityException();
         User created = new User(
