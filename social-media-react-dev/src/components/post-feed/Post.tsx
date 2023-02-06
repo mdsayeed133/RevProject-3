@@ -53,7 +53,7 @@ const Post: React.FC<any> = (props: any) => {
                     {/* edit feature */}
                     {showEditForm && (
                         <form className="edit-form">
-                            <textarea className='edit-textarea' placeholder="Edit your post" name="edit"></textarea>
+                            <textarea className='edit-textarea' placeholder="Edit your post *should load text*" name="edit"></textarea>
                             <br />
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
                                 <button className='submit_form' type="submit">Submit</button>

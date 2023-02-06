@@ -100,7 +100,7 @@ export const PostFeed:React.FC<any> = (props:any) => {
                     </div>
                     <div className="col-md-7">
                         <div className="post-feed-content">
-                            <h3>Display information here</h3>
+                            <h3>Posts</h3>
                             <Post />
                             <Post />
                             <Post />
