@@ -82,7 +82,7 @@ def generatePosts(employees, users, tags):
     postCounter = 1
     ratingsCounter = 1
     postInsertStatement = "insert into posts(created_date,image_id,message,post_type,author_id,rating_id) values"
-    postsCommentsStatement = "insert into posts_comments(comments_id,post_id) values"
+    postsCommentsStatement = "insert into posts_comments(post_id,comments_id) values"
     ratingsInsertStatement =  "insert into ratings(score,employee_id,tag_1,tag_2,tag_3) values"
     likesInsertStatement  = "insert into likes(post_id, user_id) values"
     posts = []
