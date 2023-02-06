@@ -61,8 +61,12 @@ public class RatingService {
     }
     public List<Employee> searchEmployeesByTag(int tagId) {
         Tag tag= tagService.findById(tagId);
-        List<Employee> employees = ratingRepository.findByTag1OrTag2OrTag3(tag, tag, tag).orElse(null);
-        if(employees==null)return new ArrayList<>();
+        List<Rating> ratings = ratingRepository.findByTag1OrTag2OrTag3(tag, tag, tag).orElse(null);
+        if(ratings==null)return new ArrayList<>();
+        List<Employee> employees= new ArrayList<>();
+        for(Rating rating: ratings){
+            employees.add(rating.getEmployee());
+        }
 
         /* This is initializing an empty HashMap called "employeeCount". It then iterates through the list of employees and for each employee,
         it retrieves the current count of that employee from the HashMap (if it exists), or sets it to 0 if it doesn't exist in the HashMap. Finally,

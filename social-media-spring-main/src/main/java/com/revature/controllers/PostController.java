@@ -28,7 +28,7 @@ public class PostController {
     public ResponseEntity<PostResponse> createRatingPost(@RequestBody RatingPostRequest ratingPostRequest) {
         try {
             Post post = postService.createRatingPost(ratingPostRequest);
-
+            
             PostResponse postResponse= new PostResponse(p)
             return ResponseEntity.status(HttpStatus.CREATED).body(post);
         }catch (Exception e){

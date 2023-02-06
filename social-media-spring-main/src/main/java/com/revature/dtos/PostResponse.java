@@ -12,10 +12,10 @@ public class PostResponse {
     private int imageId;
     private UserResponse author;
     private PostType postType;
-    private Rating rating;
+    private RatingResponse rating;
     private Instant createdDate;
 
-    public PostResponse(int id, String message, int imageId, UserResponse author, PostType postType, Rating rating, Instant createdDate) {
+    public PostResponse(int id, String message, int imageId, UserResponse author, PostType postType, RatingResponse rating, Instant createdDate) {
         this.id = id;
         this.message = message;
         this.imageId = imageId;
@@ -68,11 +68,11 @@ public class PostResponse {
         this.postType = postType;
     }
 
-    public Rating getRating() {
+    public RatingResponse getRating() {
         return rating;
     }
 
-    public void setRating(Rating rating) {
+    public void setRating(RatingResponse rating) {
         this.rating = rating;
     }
 

@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface RatingRepository extends JpaRepository<Rating, Integer> {
     Optional<List<Rating>> findByEmployee(Employee employee);
 
-   Optional<List<Employee>> findByTag1OrTag2OrTag3(Tag tag1,Tag tag2,Tag tag3);
+   Optional<List<Rating>> findByTag1OrTag2OrTag3(Tag tag1,Tag tag2,Tag tag3);
 
 
 }
