@@ -65,7 +65,7 @@ public class AuthController {
            session.setAttribute("user", user);
            return ResponseEntity.status(HttpStatus.CREATED).body(uDTO);
        } catch (ProfanityException pe){
-           return  ResponseEntity.notFound().build();
+           return  ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
        } catch (Exception e){
            return ResponseEntity.badRequest().build();
        }

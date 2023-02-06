@@ -3,6 +3,7 @@ package com.revature.controllers;
 import com.revature.dtos.AddEmployeeRequest;
 import com.revature.dtos.EmployeeResponseDTO;
 import com.revature.dtos.UserResponseDTO;
+import com.revature.exceptions.ProfanityException;
 import com.revature.models.Employee;
 import com.revature.models.User;
 import com.revature.services.EmployeeService;
@@ -58,6 +59,8 @@ public class EmployeeController {
             UserResponseDTO userResponseDTO= new UserResponseDTO(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
             EmployeeResponseDTO dto= new EmployeeResponseDTO(employee.getId(),employee.getFirstName(),employee.getLastName(),userResponseDTO,employee.getDepartment(),employee.getCreatedDate());
             return ResponseEntity.ok(dto);
+        } catch (ProfanityException pe){
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
         } catch (Exception e){
             return ResponseEntity.badRequest().build();
         }
