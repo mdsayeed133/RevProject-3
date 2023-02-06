@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import com.revature.dtos.LoginRequest;
 import com.revature.dtos.RegisterRequest;
+import com.revature.dtos.UserResponseDTO;
 import com.revature.exceptions.ProfanityException;
 import com.revature.models.User;
 import com.revature.services.AuthService;
@@ -29,16 +30,20 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<User> login(@RequestBody LoginRequest loginRequest, HttpSession session) {
+    public ResponseEntity<UserResponseDTO> login(@RequestBody LoginRequest loginRequest, HttpSession session) {
         Optional<User> optional = authService.findByCredentials(loginRequest.getEmail(), loginRequest.getPassword());
+        User user = optional.get();
 
-        if(!optional.isPresent()) {
+        if(user == null) {
             return ResponseEntity.badRequest().build();
         }
 
-        session.setAttribute("user", optional.get());
+        UserResponseDTO uDTO = new UserResponseDTO(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getDate());
 
-        return ResponseEntity.ok(optional.get());
+
+        session.setAttribute("user", user);
+
+        return ResponseEntity.ok(uDTO);
     }
 
     @PostMapping("/logout")
