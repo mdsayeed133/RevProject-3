@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import com.revature.dtos.CommentPostRequest;
 import com.revature.dtos.RatingPostRequest;
+import com.revature.exceptions.PostNotFound;
 import com.revature.models.Post;
 import com.revature.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +48,10 @@ public class PostController {
         try {
             Post post = postService.createReplyPost(replyPostRequest);
             return ResponseEntity.status(HttpStatus.CREATED).body(post);
-        } catch (Exception e) {
+        } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (Exception e){
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -57,8 +60,10 @@ public class PostController {
         try {
             List<Post> posts = postService.getRatingPostsOfUser(id);
             return ResponseEntity.ok(posts);
-        } catch (Exception e) {
+        } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (Exception e){
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -67,8 +72,10 @@ public class PostController {
         try {
             List<Post> posts = postService.getCommentPostsOfUser(id);
             return ResponseEntity.ok(posts);
-        } catch (Exception e) {
+        } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (Exception e){
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -77,8 +84,10 @@ public class PostController {
         try {
             List<Post> posts = postService.getReplyPostsOfUser(id);
             return ResponseEntity.ok(posts);
-        } catch (Exception e) {
+        } catch (PostNotFound pe) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (Exception e){
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -87,8 +96,10 @@ public class PostController {
         try{
             List<Post> posts = postService.getPostsAboutEmployee(id);
             return ResponseEntity.ok(posts);
+        } catch (PostNotFound pe) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -106,8 +117,10 @@ public class PostController {
         try{
             List<Post> comments= postService.getCommentsOfAPost(id);
             return ResponseEntity.ok(comments);
+        } catch (PostNotFound pe) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
     }
     @GetMapping("/{id}/comment/replies")
@@ -115,8 +128,10 @@ public class PostController {
         try{
             List<Post> replies= postService.getRepliesOfComment(id);
             return ResponseEntity.ok(replies);
+        } catch (PostNotFound pe) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Exception e){
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
     }
     @PutMapping("/{id}/post/edit")
@@ -124,9 +139,11 @@ public class PostController {
         try {
             boolean result = postService.editRatingPost(ratingPostRequest, id);
             if(result) return ResponseEntity.ok().build();
-            return ResponseEntity.badRequest().build();
-        }catch (Exception e){
             return ResponseEntity.notFound().build();
+        } catch (PostNotFound pe) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (Exception e){
+            return ResponseEntity.badRequest().build();
         }
     }
 
