@@ -15,6 +15,7 @@ import '../post-feed/PostFeed.css'
 import { useNavigate } from 'react-router-dom';
 import Post from './Post';
 import Following from '../Followers/Following';
+import NewNavbar from '../navbar/NewNavbar';
 
 
 export const PostFeed:React.FC<any> = (props:any) => {
@@ -35,6 +36,7 @@ export const PostFeed:React.FC<any> = (props:any) => {
         // component to edit for changes in the PostFeed
         <>
             <Navbar />
+            {/* <NewNavbar/> */}
             {/* kw: create sticky sidebar containing "following/add trainer"? */}
             <div className="post-feed-container container">
                 <div className="row">

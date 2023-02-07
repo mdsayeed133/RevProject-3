@@ -3,6 +3,8 @@
 export interface UserDTO {
     email?: string,
     password?: string
+    
+
 }
 
 export interface User{
@@ -11,4 +13,6 @@ export interface User{
     password: string;
     firstName: string;
     lastName: string;
+    date: string;
+
 }

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react'
 import { FaUserCircle } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +10,15 @@ const EmployeeCard = () => {
     const seeProfile = async () => {
         navigate('/employeeprofile')
     }
+
+    // const [employee, setEmployee] = useState<EmpC[]>([]);
+
+    // try getting employee data
+    const displayAllEmployees = async () => {
+        const response = await axios.get("localhost:5555/RevRater/employee");
+        console.log(response)
+    }
+
     return (
         <>
             <div className="col-md-3 employee-columns">

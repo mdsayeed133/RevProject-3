@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { UserContext, User } from './context/user.context';
 import { AppRoutes } from './router/AppRoutes';
 import { ThemeContext } from './context/theme-context';
+import NewNavbar from './components/navbar/NewNavbar';
 
 
 function App() {
@@ -35,15 +36,21 @@ function App() {
     }
   }, [darkMode])
 
+  // return (
+  //   <ThemeContext.Provider value={{ theme, setTheme }}>
+  //     <UserContext.Provider value={value}>
+  //       <Router>
+  //         <AppRoutes></AppRoutes>
+  //       </Router>
+  //     </UserContext.Provider>
+  //   </ThemeContext.Provider>
+  // );
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <UserContext.Provider value={value}>
-        <Router>
-          <AppRoutes></AppRoutes>
-        </Router>
-      </UserContext.Provider>
-    </ThemeContext.Provider>
-  );
+    <Router>
+      {/* <NewNavbar/> */}
+      <AppRoutes></AppRoutes>
+    </Router>
+  )
 }
 
 export default App;

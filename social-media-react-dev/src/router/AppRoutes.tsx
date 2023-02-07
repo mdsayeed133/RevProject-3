@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import AdvancedSearch from '../components/advancedSearch/AdvancedSearch';
 import CreateComments from '../components/Comments/CreateComments';
 import ShowComments from '../components/Comments/ShowComments';
 import CreateEmployee from '../components/CreateEmployee/CreateEmployee';
@@ -14,6 +13,7 @@ import EmployeeProfile from '../components/EmployeeProfile/EmployeeProfile';
 import Employees from '../components/Employees/Employees';
 import UserProfile from '../components/UserProfile/UserProfile';
 import { User } from '../interfaces/users';
+import AdvancedSearch from '../components/advancedSearch/advancedSearch';
 
 
 
@@ -40,7 +40,7 @@ export const AppRoutes: React.FC<unknown> = () => (
       <Route path="/createpostform" element={<CreatePostForm />} />
       <Route path="/guest" element={<GuestFeed />} />
       <Route path="/signup" element={<SignUp />} />
-      {/* <Route path="/advancedsearch" element={<AdvancedSearch/>}/> */}
+      <Route path="/advancedsearch" element={<AdvancedSearch/>}/>
     </Routes>
   </>
 )

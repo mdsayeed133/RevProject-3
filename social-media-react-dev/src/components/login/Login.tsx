@@ -40,7 +40,8 @@ const Login: React.FC<any> = (props:any) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const gatherInput = (input: any) => {
+  const gatherInput = async (input: any) => {
+    const response = await axios.post("localhost:5555/RevRater/auth/login", {email, password})
     //update
     if (input.target.name === "email") {
       setEmail(input.target.value)
@@ -56,9 +57,9 @@ const Login: React.FC<any> = (props:any) => {
     // if login successful
     if (response.status === 200){
       console.log(response.data)
-      props.setTargetUser(response.data);
-      props.setLoggedIn(true)  
-      navigate("/postfeed")
+      // props.setTargetUser(response.data);
+      // props.setLoggedIn(true)  
+      // navigate("/postfeed")
     }
   }
 

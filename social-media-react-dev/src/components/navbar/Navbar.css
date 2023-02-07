@@ -11,3 +11,16 @@
 .darkmode-switch:hover {
     background-color: aliceblue;
 }
+.newnavbar {
+    height: 50px;
+    margin-top: 20px;
+}
+.advanced-search-bar {
+    border: 1px solid black;
+    width: 40%
+}
+
+.status-and-switch {
+    border: 1px solid black;
+    width: 15%;
+}
