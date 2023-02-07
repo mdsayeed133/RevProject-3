@@ -29,6 +29,20 @@ body {
     left: 48%;
     z-index: 1;
 }
+.dark-btn {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    font-size: 25px;
+    text-decoration: none;
+    border: none;
+    margin-top: 5px;
+}
+.dark-btn:hover {
+    color: goldenrod;
+    background-color: #acd1d4;
+    transition: .5s ease-in;
+}
 
 /* moon icon */
 .icon {

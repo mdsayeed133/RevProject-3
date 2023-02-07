@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <div className="darkmode-switch">
-        <button onClick={() => setDarkMode(!darkMode)} className="btn btn-secondary dark-btn">DarkMode</button>
+        <button onClick={() => setDarkMode(!darkMode)} className="dark-btn">☾</button>
       </div>
       <Router>
         {/* <NewNavbar/> */}
