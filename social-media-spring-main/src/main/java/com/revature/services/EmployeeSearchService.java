@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @Service
@@ -25,7 +26,8 @@ public class EmployeeSearchService {
         List<Employee> listByName= employeeService.getEmployeeByName(searchRequest.getName());
         List<Employee> listByTag= ratingService.searchEmployeesByTag(searchRequest.getTagId());
         List<Employee> listByDepartment= employeeService.getEmployeeByDepartment(searchRequest.getDepartmentId());
-
+        if(searchRequest.getTagId()==0 && searchRequest.getDepartmentId()==0&&(searchRequest.getName()==null||searchRequest.getName().equals("")))
+            return new ArrayList<>();
         if(searchRequest.getTagId()==0 && searchRequest.getDepartmentId()==0)
             return listByName;
         if((searchRequest.getName()==null||searchRequest.getName().equals(""))&& searchRequest.getDepartmentId()==0)
