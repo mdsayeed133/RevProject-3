@@ -176,7 +176,7 @@ public class PostController {
     }
     @PutMapping("/{id}/post/edit")
     public ResponseEntity<Object> editRatingPost(@RequestBody RatingPostRequest ratingPostRequest, @PathVariable int id){
-        try {
+        try {//TODO: Incorporate session at the controller level to prevent users from modifying other people's posts.
             boolean result = postService.editRatingPost(ratingPostRequest, id);
             if(result) return ResponseEntity.ok().build();
             return ResponseEntity.notFound().build();
@@ -189,7 +189,7 @@ public class PostController {
 
     @PutMapping("/{id}/comment/edit")
     public ResponseEntity<Object> editCommentPost(@RequestBody CommentPostRequest commentPostRequest, @PathVariable int id){
-        try {
+        try {//TODO: Incorporate session at the controller level to prevent users from modifying other people's posts.
             boolean result = postService.editCommentPost(commentPostRequest, id);
             if(result) return ResponseEntity.ok().build();
             return ResponseEntity.badRequest().build();
@@ -200,7 +200,7 @@ public class PostController {
 
     @PutMapping("/{id}/reply/edit")
     public ResponseEntity<Object> editReplyPost(@RequestBody CommentPostRequest commentPostRequest, @PathVariable int id){
-        try {
+        try {//TODO: Incorporate session at the controller level to prevent users from modifying other people's posts.
             boolean result = postService.editRelyPost(commentPostRequest, id);
             if(result) return ResponseEntity.ok().build();
             return ResponseEntity.badRequest().build();
