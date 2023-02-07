@@ -23,11 +23,13 @@ public class EmployeeSearchService {
 
     public List<Employee> combinedEmployeeSearch(SearchRequest searchRequest){
 
+        if(searchRequest.getTagId()==0 && searchRequest.getDepartmentId()==0&&(searchRequest.getName()==null||searchRequest.getName().equals("")))
+            return new ArrayList<>();
+
         List<Employee> listByName= employeeService.getEmployeeByName(searchRequest.getName());
         List<Employee> listByTag= ratingService.searchEmployeesByTag(searchRequest.getTagId());
         List<Employee> listByDepartment= employeeService.getEmployeeByDepartment(searchRequest.getDepartmentId());
-        if(searchRequest.getTagId()==0 && searchRequest.getDepartmentId()==0&&(searchRequest.getName()==null||searchRequest.getName().equals("")))
-            return new ArrayList<>();
+
         if(searchRequest.getTagId()==0 && searchRequest.getDepartmentId()==0)
             return listByName;
         if((searchRequest.getName()==null||searchRequest.getName().equals(""))&& searchRequest.getDepartmentId()==0)

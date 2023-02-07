@@ -14,15 +14,17 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.Instant;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItem;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.hamcrest.Matchers.contains;
 
 @ExtendWith(MockitoExtension.class)
 public class RatingServiceTest {
@@ -64,10 +66,7 @@ public class RatingServiceTest {
     public void setup(){
 
         mockDepartment = new Department(1, "department name");
-        mockDepartment = new Department(2, "fire department");
-        mockRating = new Rating(mockEmployee2, 70, mockTag1, mockTag2, mockTag3);
-        mockRating = new Rating(mockEmployee3, 80, mockTag1, mockTag2, mockTag3);
-        mockRating = new Rating(mockEmployee4, 90, mockTag1, mockTag1, mockTag3);
+        mockDepartment2 = new Department(2, "fire department");
 
         mockUser = new User(0, "test@example.com", "password", "John", "Doe", Instant.now());
         mockUser2 = new User(0, "test2@example.com", "password", "John2", "Doe", Instant.now());
@@ -79,12 +78,14 @@ public class RatingServiceTest {
         mockEmployee3 = new Employee("Bob3", "The builder is fast", mockUser3, mockDepartment2);
         mockEmployee4 = new Employee("Bob4", "The builder is a dork", mockUser4, mockDepartment);
 
-
         mockTag1 = new Tag(1, "Good");
         mockTag2 = new Tag(2, "Bad");
-        mockTag1 = new Tag(3, "Average");
-        mockRating = new Rating(mockEmployee, 60, mockTag1, mockTag2, mockTag3);
+        mockTag3 = new Tag(3, "Average");
 
+        mockRating = new Rating(mockEmployee2, 10, mockTag1, mockTag2, mockTag3);
+        mockRating2 = new Rating(mockEmployee3, 80, mockTag1, mockTag2, mockTag3);
+        mockRating3 = new Rating(mockEmployee4, 90, mockTag1, mockTag1, mockTag3);
+        mockRating4 = new Rating(mockEmployee2, 10, mockTag1, mockTag2, mockTag3);
 
     }
 
@@ -104,22 +105,94 @@ public class RatingServiceTest {
     }
 
     @Test
-    public void searchEmployeeByTagTest()
+    public void editRatingTest()
     {
         RatingDTO rDTO = new RatingDTO(1,60,1,2,3);
+        when(employeeService.getEmployeeById(rDTO.getEmployeeId())).thenReturn(mockEmployee);
         when(tagService.findById(rDTO.getTags1())).thenReturn(mockTag1);
-       // when(ratingRepo.findByTag1OrTag2OrTag3(any(), any(), any())).thenReturn(Optional.of(mockRating));
+        when(tagService.findById(rDTO.getTags2())).thenReturn(mockTag2);
+        when(tagService.findById(rDTO.getTags3())).thenReturn(mockTag3);
+        when(ratingRepo.findById(1)).thenReturn(Optional.empty());
+        when(ratingRepo.save(any(Rating.class))).thenAnswer(i -> i.getArguments()[0]);
+        Rating rating = service.editRating(rDTO, 1);
+        assertEquals(rDTO.getScore(), rating.getScore());
+        assertEquals(mockEmployee, rating.getEmployee());
+        assertEquals(mockTag1, rating.getTag1());
+        assertEquals(mockTag2, rating.getTag2());
+        assertEquals(mockTag3, rating.getTag3());
+    }
+    @Test
+    public void testDelete() {
+        service.delete(mockRating);
+        verify(ratingRepo).delete(mockRating);
+    }
 
-        List<Employee> expected = new ArrayList<>();
-        expected.add(mockEmployee4);
-        expected.add(mockEmployee2);
-        expected.add(mockEmployee);
-        expected.add(mockEmployee3);
+    @Test
+    public void searchEmployeesByTagTest() {
+        List<Rating> ratings = Arrays.asList(mockRating3, mockRating2,mockRating, mockRating3);
+
+        when(tagService.findById(mockTag1.getId())).thenReturn(mockTag1);
+        when(ratingRepo.findByTag1OrTag2OrTag3(any(Tag.class), any(Tag.class), any(Tag.class))).thenReturn(Optional.of(ratings));
 
         List<Employee> result = service.searchEmployeesByTag(mockTag1.getId());
+        List<Employee> expected = Arrays.asList(mockEmployee4, mockEmployee3);
 
-        assertThat(result, contains(mockEmployee4));
+        assertThat(result, hasItem(mockEmployee2));
+        verify(tagService).findById(mockTag1.getId());
     }
+
+    @Test
+    public void testGetEmployeeAvgRating_ReturnAverage() {
+        when(employeeService.getEmployeeById(mockEmployee2.getId())).thenReturn(mockEmployee2);
+
+        List<Rating> ratings = Arrays.asList(mockRating,mockRating4);
+
+        when(ratingRepo.findByEmployee(mockEmployee2)).thenReturn(Optional.of(ratings));
+
+        double avg = service.getEmployeeAvgRating(mockEmployee2.getId());
+        assertEquals(10.0, avg, 0.0001);
+    }
+
+    @Test
+    void testGetTop3TagsOfEmployee() {
+        when(employeeService.getEmployeeById(mockEmployee2.getId())).thenReturn(mockEmployee2);
+        List<Rating> ratings = Arrays.asList(mockRating,mockRating4);
+        when(ratingRepo.findByEmployee(mockEmployee2)).thenReturn(Optional.of(ratings));
+
+        List<Tag> top3Tags = service.getTop3TagsOfEmployee(mockEmployee2.getId());
+
+        // Verify the result
+        assertNotNull(top3Tags);
+        assertEquals(3, top3Tags.size());
+    }
+
+    @Test
+    public void getTop3EmployeesTest() {
+        List<Rating> ratings = Arrays.asList(mockRating,mockRating2,mockRating3,mockRating4);
+        when(ratingRepo.findAll()).thenReturn(ratings);
+
+        // call the method under test
+        List<Employee> top3Employees = service.getTop3Employees();
+
+        // assert the results
+        assertNotNull(top3Employees);
+        assertEquals(3, top3Employees.size());
+        verify(ratingRepo).findAll();
+    }
+
+    @Test
+    public void testFindByEmployee() {
+
+        List<Rating> ratings = Arrays.asList(mockRating, mockRating2);
+
+        when(ratingRepo.findByEmployee(mockEmployee2)).thenReturn(Optional.of(ratings));
+
+        Optional<List<Rating>> result = service.findByEmployee(mockEmployee2);
+
+        assertTrue(result.isPresent());
+        assertEquals(ratings, result.get());
+    }
+
 
 
 }
