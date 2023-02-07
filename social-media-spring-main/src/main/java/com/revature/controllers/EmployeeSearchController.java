@@ -8,6 +8,7 @@ import com.revature.services.EmployeeSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,7 @@ public class EmployeeSearchController {
     }
 
     @GetMapping
-    public ResponseEntity<List<EmployeeResponse>> combinedEmployeeSearch(SearchRequest searchRequest){
+    public ResponseEntity<List<EmployeeResponse>> combinedEmployeeSearch(@RequestBody SearchRequest searchRequest){
         List<Employee> employees = employeeSearchService.combinedEmployeeSearch(searchRequest);
         if(employees.isEmpty()){return ResponseEntity.noContent().build();}
         List<EmployeeResponse> responseDTOS = new ArrayList<>();
