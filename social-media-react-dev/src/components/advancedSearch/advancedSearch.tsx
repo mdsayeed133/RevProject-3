@@ -1,12 +1,14 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar'
+import './advancedSearch.css'
+
 
 const AdvancedSearch: React.FC<any> = (props:any) => {
   return (
     <>
       <Navbar />
       <div className='advancedSearch_container'>advancedSearch</div>
-      <div className='choose_container container'>
+      <div className='choose_container'>
         <h4>Where</h4>
         <div className="where">
           <input type="checkbox" id='where' name='where' value="All" />All

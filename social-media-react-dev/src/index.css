@@ -17,8 +17,12 @@ code {
 * {
   scroll-behavior: smooth;
 }
+button:hover {
+  background-color: var(--color3);
+  transition: .5s ease-in;
+}
 
 .dark {
   background-color: #474c55;
-  color: rgb(181, 176, 176);
+  color: black;
 }

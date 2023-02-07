@@ -59,7 +59,7 @@ const Login: React.FC<any> = (props:any) => {
       console.log(response.data)
       // props.setTargetUser(response.data);
       // props.setLoggedIn(true)  
-      // navigate("/postfeed")
+      navigate("/postfeed")
     }
   }
 
