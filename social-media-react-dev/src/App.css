@@ -1,6 +1,7 @@
 
 .App {
-    text-align: center;
+    /* text-align: center; */
+    text-align: justify;
 }
 * {
     scroll-behavior: smooth;
@@ -16,4 +17,14 @@
 
 body {
     background-color: var(--color1);
+}
+
+.click-icon:hover {
+    background-color: red;
+}
+.darkmode-switch {
+    margin: 0 auto;
+    position: absolute;
+    left: 48%;
+    z-index: 1;
 }

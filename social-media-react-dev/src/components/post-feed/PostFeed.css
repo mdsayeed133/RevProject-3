@@ -31,7 +31,7 @@
     height: 70px;
 }
 .add-button > button {
-    height: 50px;
+    height: 40px;
     margin-top: 10px;
     /* border: none; */
 }
@@ -42,6 +42,7 @@
     background-color: var(--color3);
     padding: 10px;
     box-shadow: 2px 2px 2px gray;
+    height: 150px;
 }
 
 .make-sticky {

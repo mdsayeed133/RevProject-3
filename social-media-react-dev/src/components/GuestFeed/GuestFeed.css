@@ -30,11 +30,16 @@
 }
 
 .userreview_container{
-    background-color: lightcyan;
     width: 50%;
     float: left;
 }
 
+/* .tease-btn {
+    position: absolute;
+    top: 475px;
+    right: 10%;
+    z-index: 1;
+} */
 .leaderboard{
     border: 1px solid black;
     border-radius: 10px;
@@ -52,6 +57,7 @@
 .userratings{
     border: 3px solid black;
     margin-top: 2%;
+    background-color: aliceblue;
     
 }
 
@@ -101,4 +107,9 @@
 
 #myCarousel {
     height: 500px;
+}
+
+/* blur background */
+.make-blur {
+    filter: blur(5px);
 }

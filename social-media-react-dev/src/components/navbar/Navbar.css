@@ -1,16 +1,20 @@
 .nav-search {
     width: 100%;
 }
+.nav-container {
+    /* background-color: white; */
+    height: 150px;
+}
 
-.darkmode-switch {
+/* .darkmode-switch {
     height: 30px;
     width: 30px;
     border: 1px solid black;
     border-radius: 50%;
-}
-.darkmode-switch:hover {
+} */
+/* .darkmode-switch:hover {
     background-color: aliceblue;
-}
+} */
 .newnavbar {
     height: 50px;
     margin-top: 20px;

@@ -5,7 +5,7 @@ import { UserContext, User } from './context/user.context';
 import { AppRoutes } from './router/AppRoutes';
 import { ThemeContext } from './context/theme-context';
 import NewNavbar from './components/navbar/NewNavbar';
-
+import {GiMoon} from 'react-icons/gi'
 
 function App() {
 
@@ -17,17 +17,6 @@ function App() {
   const storedDarkMode = localStorage.getItem("DARK_MODE");
   const [darkMode, setDarkMode] = React.useState(false);
 
-
-  //darkmode#2
-  // Detecting the default theme
-  const isBrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const getDefaultTheme = (): string => {
-    const localStorageTheme = localStorage.getItem('default-theme');
-    const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
-    return localStorageTheme || browserDefault;
-  };
-  const [theme, setTheme] = useState(getDefaultTheme());
-
   React.useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark");
@@ -35,6 +24,8 @@ function App() {
       document.body.classList.remove("dark");
     }
   }, [darkMode])
+
+
 
   // return (
   //   <ThemeContext.Provider value={{ theme, setTheme }}>
@@ -46,10 +37,15 @@ function App() {
   //   </ThemeContext.Provider>
   // );
   return (
-    <Router>
-      {/* <NewNavbar/> */}
-      <AppRoutes></AppRoutes>
-    </Router>
+    <div className="App">
+      <div className="darkmode-switch">
+        <button onClick={() => setDarkMode(!darkMode)} className="btn btn-secondary dark-btn">DarkMode</button>
+      </div>
+      <Router>
+        {/* <NewNavbar/> */}
+        <AppRoutes></AppRoutes>
+      </Router>
+    </div>
   )
 }
 

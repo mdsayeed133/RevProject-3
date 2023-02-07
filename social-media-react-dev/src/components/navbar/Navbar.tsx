@@ -63,24 +63,45 @@ const Navbar: React.FC<any> = (props:any) => {
 // })
 
   // working on darkmode.... fun
-  const toggleDarkMode = ()=> setDarkMode(darkMode ? false:true);
-  const storedDarkMode = localStorage.getItem("DARK_MODE");
-  const [darkMode, setDarkMode] = React.useState(false);
+  // const toggleDarkMode = ()=> setDarkMode(darkMode ? false:true);
+  // const storedDarkMode = localStorage.getItem("darkMode");
+  // const [darkMode, setDarkMode] = React.useState(false);
 
-  React.useEffect(()=> {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode])
+  // React.useEffect(()=> {
+  //   if (darkMode) {
+  //     document.body.classList.add("dark");
+  //   } else {
+  //     document.body.classList.remove("dark");
+  //   }
+  // }, [darkMode])
+
+
+//   const [darkMode, setDarkMode] = useState(
+//     localStorage.getItem("darkMode") || false
+// );
+// const turnDarkModeOn = () => {
+//     localStorage.setItem("darkMode", "true");
+//     setDarkMode(true);
+//     document.body.classList.add("darkMode");
+// };
+
+// const turnDarkModeOff = () => {
+//     localStorage.setItem("darkMode", "false");
+//     setDarkMode(false);
+//     document.body.classList.remove("darkMode");
+// };
+
+// useEffect(() => {
+//     darkMode
+//         ? document.body.classList.add("darkMode")
+//         : document.body.classList.remove("darkMode");
+// }, [darkMode]);
 
   return (
     <>
-
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent">
-        <Toolbar className="d-flex justify-content-around">
+        <Toolbar className="d-flex justify-content-around nav-container">
           <Typography variant="h6" component="div">
             RevRater
           </Typography>
@@ -103,7 +124,9 @@ const Navbar: React.FC<any> = (props:any) => {
                 <h3 id="userStatus"></h3>
               </Link>
             </div>
-            <button className="darkmode-switch" onClick={()=>setDarkMode(!darkMode)}></button>
+            {/* <button className="darkmode-switch" onClick={()=>setDarkMode(!darkMode)}></button> */}
+            {/* <button onClick={turnDarkModeOn}>on</button>
+            <button onClick={turnDarkModeOff}>off</button> */}
             <Tooltip disableFocusListener disableTouchListener title={tipTitle}>
               <IconButton
                 size="large"

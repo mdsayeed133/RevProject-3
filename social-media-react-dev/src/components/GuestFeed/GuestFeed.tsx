@@ -23,7 +23,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
       <div className="guest-feed container">
         {/* beginning of carousel */}
         <div className="container marketing">
-        <h2 className='welcomegreeting text-center'>Welcome to RevRater, Where we connect to our future</h2>
+          <h2 className='welcomegreeting text-center'>Welcome to RevRater, Where we connect to our future</h2>
           <div className="row">
             <div className="col-lg-4">
               <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
@@ -58,51 +58,49 @@ const GuestFeed: React.FC<any> = (props: any) => {
           <div className='trainerRanking'>
             <h3>Current Employee Rankings...</h3>
           </div>
-          <GuestEmployee/>
-          <GuestEmployee/>
-          <GuestEmployee/>
+          <GuestEmployee />
+          <GuestEmployee />
+          <GuestEmployee />
         </div>
 
 
         <div className='userreview_container'>
-          <div className='userreview'>
+          <div className='userreview d-flex'>
             <h3>See what others are Saying...</h3>
+            <button className="tease-btn btn btn-secondary" onClick={login}>Sign Up</button>
           </div>
           {/* <Post/>
           <Post/> */}
-          <div className='userratings'>
+          <div className="make-blur">
+            <div className='userratings'>
 
-            <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+              <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
 
-            <p> User: <em>NotaBot</em></p>
-            <p>Trainer: <em>Benjamin P.</em></p>
-            <p>Rating: <em>5/5</em></p>
+              <p> User: <em>NotaBot</em></p>
+              <p>Trainer: <em>Benjamin P.</em></p>
+              <p>Rating: <em>5/5</em></p>
+              <button className='likebuttons' onClick={login}>Like </button>
+              <button className='likebutton' onClick={login}>Reply</button>
 
+            </div>
 
-
-            <button className='likebuttons' onClick={login}>Like </button>
-            <button className='likebutton' onClick={login}>Reply</button>
-
+            <div className='userratings'>
+              <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+              <p> User: <em>NotaBot</em></p>
+              <p>Trainer: <em>Benjamin P.</em></p>
+              <p>Rating: <em>5/5</em></p>
+              <button className='likebuttons' onClick={login}>Like </button>
+              <button className='likebutton' onClick={login}>Reply</button>
+            </div>
+            <div className='userratings'>
+              <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+              <p> User: <em>NotaBot</em></p>
+              <p>Trainer: <em>Benjamin P.</em></p>
+              <p>Rating: <em>5/5</em></p>
+              <button className='likebuttons' onClick={login}>Like </button>
+              <button className='likebutton' onClick={login}>Reply</button>
+            </div>
           </div>
-
-          <div className='userratings'>
-            <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
-            <p> User: <em>NotaBot</em></p>
-            <p>Trainer: <em>Benjamin P.</em></p>
-            <p>Rating: <em>5/5</em></p>
-            <button className='likebuttons' onClick={login}>Like </button>
-            <button className='likebutton' onClick={login}>Reply</button>
-          </div>
-          <div className='userratings'>
-            <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
-            <p> User: <em>NotaBot</em></p>
-            <p>Trainer: <em>Benjamin P.</em></p>
-            <p>Rating: <em>5/5</em></p>
-            <button className='likebuttons' onClick={login}>Like </button>
-            <button className='likebutton' onClick={login}>Reply</button>
-          </div>
-
-
         </div>
       </div>
 

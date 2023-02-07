@@ -43,7 +43,7 @@ export const PostFeed:React.FC<any> = (props:any) => {
                     <div className="col-md-3">
                         <section className="sidebar-section">
                             <div className="widget make-sticky">
-                                <div className="add-button d-flex">
+                                <div className="add-button d-block">
                                     <button onClick={addEmployee}>Add Employee</button>
                                     <button onClick={createPost}>Create Post</button>
                                 </div>
