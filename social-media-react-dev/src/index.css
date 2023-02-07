@@ -17,6 +17,7 @@ code {
 * {
   scroll-behavior: smooth;
 }
+
 button:hover {
   background-color: var(--color3);
   transition: .5s ease-in;

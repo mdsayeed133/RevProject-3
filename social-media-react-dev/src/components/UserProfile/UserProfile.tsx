@@ -6,10 +6,10 @@ import '../UserProfile/UserProfile.css'
 
 const UserProfile: React.FC<any> = (props:any) => {
 
-    const [tempFirst, setFirstName] = useState(props.targetUser.firstName);
-    const [tempLast, setLastName] = useState(props.targetUser.lastName);
-    const [tempEmail, setEmail] = useState(props.targetEmail.email);
-    const [tempPassword, setPassword] = useState(props.targetPassword.password);
+    // const [tempFirst, setFirstName] = useState(props.targetUser.firstName);
+    // const [tempLast, setLastName] = useState(props.targetUser.lastName);
+    // const [tempEmail, setEmail] = useState(props.targetEmail.email);
+    // const [tempPassword, setPassword] = useState(props.targetPassword.password);
     
     return (
         <>
@@ -43,16 +43,16 @@ const UserProfile: React.FC<any> = (props:any) => {
                     <div className="profile-info-container">
                         <div className="personal-info-container">
                             <h2 className="user-info" id='fields'>First Name:
-                                <p id='inputs'><em>{props.targetUser.firstName}</em></p>
+                                <p id='inputs'><em>first name</em></p>
                             </h2>
                             <h2 className="user-info" id='fields'>Last Name:
-                                <p id='inputs'><em>{props.targetUser.lastName}</em></p>
+                                <p id='inputs'><em>last name</em></p>
                             </h2>
                             <h2 className="email" id='fields'>Email:
-                                <p id='inputs'><em>{props.targetUser.email}</em></p>
+                                <p id='inputs'><em>email</em></p>
                             </h2>
                             <h2 className="user-info">Password:
-                                <p id='inpus'><em>{props.targetUser.password}</em></p>
+                                <p id='inpus'><em>password</em></p>
                             </h2>
                         </div>
 

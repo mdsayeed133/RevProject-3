@@ -5,6 +5,9 @@
     /* background-color: white; */
     height: 150px;
 }
+#revRater {
+    width: 10%;
+}
 
 /* .darkmode-switch {
     height: 30px;

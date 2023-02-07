@@ -84,6 +84,9 @@ Total number: 7
 **Pexels.com**
 - chalkboard [Photo by Miguel Á. Padriñán: https://www.pexels.com/photo/5-strike-symbol-1010973/]
 
+RevRater
+#2ab4aa#3bblightseagreenhsl(175,62,43)rgb(42,180,170)
+
 
 
 +==============+

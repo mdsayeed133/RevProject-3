@@ -3,8 +3,13 @@ import Navbar from '../navbar/Navbar'
 import './EmployeeProfile.css'
 import { useNavigate } from 'react-router'
 import Comments from '../Comments/Comments'
-const EmployeeProfile = () => {
+import { Employee } from '../../interfaces/employee';
+import axios from 'axios'
 
+const EmployeeProfile: React.FC<any> = (props: { employee: Employee }) => {
+//const EmployeeProfile: React.FC<{ employee: Employee }> = (props) => {
+
+    const employee = props.employee;
     // useNavigate to "navigate"
     const navigate = useNavigate();
     const showComments = async () => {
@@ -15,15 +20,11 @@ const EmployeeProfile = () => {
         navigate("/createcomments")
     }
     // const comments = 'yes';
+    //const employee = props.employee;
+    // const showEmployeeProfile = async () => {
+    //     const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/employee${}${}`)
+    // }
 
-    // React.useEffect(()=> {
-    //     if (comments !=){
-    //         console.log("show comments")
-    //     } else {
-    //         const element: HTMLElement = document.getElementById('showComment') as HTMLElement
-    //         element.innerHTML = 'display everything'
-    //     }
-    // })
     return (
         <>
             <Navbar />
@@ -32,8 +33,8 @@ const EmployeeProfile = () => {
                 <div className="row">
                     <div className="col-md-6 name-box">
                         <div className="">
-                            <h2 className="profile-name" id="trainerName">Name: <em>Ben P.</em></h2>
-                            <h3>Department: <em>Trainer</em></h3>
+                            <h2 className="profile-name" id="trainerName">Name: {employee.firstName} {employee.lastName}</h2>
+                            {/* <h3>Department: {employee.department}</h3> */}
                         </div>
                         <div className="btn-box d-flex justify-content-around">
                             <button className="comment-btn" onClick={showComments}>Show comments</button>
@@ -43,7 +44,7 @@ const EmployeeProfile = () => {
                     <div className="col-md-6">
                         <div className="profile-pic d-flex justify-content-around">
                             <div className="status-box">
-                                <p>Rating: <em>7.89/10</em></p>
+                                <p>Rating: </p>
                             </div>
                             <div className="image-container d-block">
                                 <img src="https://via.placeholder.com/150" alt="" />

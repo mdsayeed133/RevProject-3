@@ -1,11 +1,12 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { FaUserCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../navbar/Navbar'
 import EmployeeCard from './EmployeeCard';
 import './Employees.css'
 
-const Employees = () => {
+const Employees: React.FC<any> = (props:any) => {
 
     // import navigate
     const navigate = useNavigate();
@@ -14,15 +15,26 @@ const Employees = () => {
         navigate('/employeeprofile')
     }
 
-    // for(var counter:number = 1; counter<10; counter++){
-    //     console.log("for loop executed : " + counter)
+    // display employees
+    // const displayAllEmployees = async () => {
+    //     const response = await axios.get("http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/employee");
+    //     console.log(response)
+    //     // map through data
     // }
-    // const dispEmp = async()=>{
-    //     for(let counter:number = 0; counter<20; counter++){
-    //         let empDisplay:HTMLElement = document.getElementById("empDisplay") as HTMLElement;
-    //         empDisplay.innerText ="Hello";
-    //     }
-    // }
+    // =======================================
+
+    // fetch data of all employees
+    const [employees, setEmployees] = React.useState<any[]>([]);
+    React.useEffect(() => {
+        const fetchData = async () => {
+            const response = await axios.get("http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/employee");
+            setEmployees(response.data);
+            // var storedEmployee = employees.map(())
+        }
+        fetchData();
+    }, []);
+
+
     return (
         <>
             <Navbar />
@@ -30,7 +42,11 @@ const Employees = () => {
                 <h2>Here is a collection of all employees available for review on RevRater...</h2>
                 <div className="display-Employees row" id="dispEmployee">
                     {/* this card format will auto generate the Employees */}
-                    <EmployeeCard/>
+                    {/* map here */}
+                    {employees.map((employee, index) => (
+                        <EmployeeCard key={index} employee={employee} />
+                    ))}
+                    {/* <EmployeeCard/> */}
                 </div>
             </div>
         </>
