@@ -66,7 +66,7 @@ public class RatingController {
             List<EmployeeResponse> responseDTOS = new ArrayList<>();
             for(Employee employee:employees){
                 UserResponse userResponse = new UserResponse(employee.getAuthor().getId(),employee.getAuthor().getEmail(),employee.getAuthor().getPassword(),employee.getAuthor().getFirstName(),employee.getAuthor().getLastName(),employee.getAuthor().getCreatedDate());
-                EmployeeResponse dto= new EmployeeResponse(employee.getId(),employee.getFirstName(),employee.getLastName(), userResponse,employee.getDepartment(),employee.getCreatedDate());
+                EmployeeResponse dto = new EmployeeResponse(employee.getId(),employee.getFirstName(),employee.getLastName(), userResponse,employee.getDepartment(),employee.getCreatedDate());
                 responseDTOS.add(dto);
             }
             return ResponseEntity.ok(responseDTOS);
