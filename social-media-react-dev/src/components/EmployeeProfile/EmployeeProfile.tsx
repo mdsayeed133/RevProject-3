@@ -14,6 +14,7 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
 
     let {id} = useParams(); //path = '/employeeprofile/:id'
     const currentUser:U = props.currentUser;
+    const [userID, setUserID]= useState(-1);
     // useNavigate to "navigate"
     const navigate = useNavigate();
     const [employee, setEmployee] = useState<Employee>({id:0,firstName:"",lastName:"",author:{id:0,email:"",password:"",firstName:"",lastName:"",date:""},department:{id:0,title:""},createdDate:""});
@@ -74,7 +75,18 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
         }
     }
 
+    function setCurrentUser()
+    {
+        console.log("I was called.")
+        if(currentUser==null){
+            setUserID(-1);
+        }else{
+            setUserID(currentUser.id);
+        }
+    }
+
     useEffect(() => {
+        setCurrentUser();
         fetchEmployeeData();
         fetchEmployeeRating();
         fetchEmployeeTopTags();
@@ -106,7 +118,9 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
                             <div className="image-container d-block">
                                 <img src="https://via.placeholder.com/150" alt="" />
                                 <br></br>
-                                <Follow userId={currentUser.id} employeeId={employee.id}/>
+                                <div className="followBox">
+                                    <Follow userId={userID} employeeId={employee.id}/>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -9,9 +9,9 @@
     margin-bottom: 15px;
     background-color: rgba(240, 248, 255, 0.562);
     box-shadow: 2px -12px 2px rgba(0, 0, 0, 0.349);
-    width: 35vw;
-    height: 22vw;
-    line-height: 1vw;
+    width: 75%;
+    /* height: 22vw; */
+    /* line-height: 1vw; */
 }
 .post-message-body {
     border-top: 1px solid black;

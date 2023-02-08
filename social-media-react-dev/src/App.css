@@ -21,10 +21,9 @@
     background-color: red;
 }
 .darkmode-switch {
- 
     position: absolute;
-    margin-left: 37%;
-   margin-top: .5%;
+    top: 20px;
+    left: 30%;
     z-index: 1;
 }
 .dark-btn {

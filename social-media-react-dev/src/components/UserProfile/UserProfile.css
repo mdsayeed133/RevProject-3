@@ -188,6 +188,9 @@
     position: relative;
     font-size: 20px;
 }
+.posts-ocntainer {
+    text-align: center;
+}
 
 .post-container div, .username-reasoning-field, #input-field, #user-inputs, 
 .emotion-tag-container h2, .emotion-tag-container p{

@@ -5,9 +5,9 @@
 }
 
 .employee-card {
-    width: 12vw;
-    height: 16vw;
-    padding-top: 25px;
+    width: 85%;
+    /* height: 16vw; */
+    padding-top: 20px;
     background-color: rgba( 255,255, 255, 0.1);
     box-shadow: 0px -15px 20px 0px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
@@ -15,11 +15,11 @@
     color: white;
 
 }
-
+/* 
 .display-Employees :hover{
     transform: scale(1.1);
     
-}
+} */
 
 
 .card-img-top {
@@ -27,15 +27,14 @@
 }
 
 .employee-columns {
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .employee-img {
     display: flex;
     justify-content: center;
-    
-    height: 102px;
-    padding-top: 20px;
+    /* height: 102px; */
+    padding-top: 10px;
     background-color: rgba(248, 248, 248, 0);
 }
 .card-body {
