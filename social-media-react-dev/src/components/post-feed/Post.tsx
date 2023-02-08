@@ -28,6 +28,15 @@ const Post: React.FC<any> = (props: {post:RatingPost}) => {
     }
 
     // axios get url("http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/1/user/feed")
+    // const [posts, setPosts] = React.useState<any[]>([]);
+    // React.useEffect(() => {
+    //     const fetchData = async () => {
+    //         const response = await axios.get("http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/1/user/feed");
+    //         setEmployees(response.data);
+    //         // var storedEmployee = employees.map(())
+    //     }
+    //     fetchData();
+    // }, []);
 
     return (
         <>
