@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../navbar/Navbar'
 import Post from '../post-feed/Post'
 import '../UserProfile/UserProfile.css'
-import { Post as p } from '../../interfaces/RatingPost'
+import { Post as p, Rating } from '../../interfaces/RatingPost'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -13,6 +13,7 @@ const UserProfile: React.FC<any> = (props: any) => {
     const user = props.currentUser;
     const [postCount, setPostCount] = useState(0);
     const [averageRating, setAverageRating] = useState(-1);
+    const defaultRating:Rating = {id: 0, employee: {id: 0, firstName: "", lastName: "", author: {id: 0, email: "", password: "", firstName: "", lastName: "",date: ""}, department: {id: 0,title: ""},createdDate: ""},score: 0,tag1: { id: 0,tagName: ""},tag2: { id: 0, tagName: ""},tag3: { id: 0, tagName: ""}}
     const [posts, setPosts] = useState<p[]>([{
         id: 0,
         message: "",
@@ -26,40 +27,7 @@ const UserProfile: React.FC<any> = (props: any) => {
             date: ""
         },
         postType: "",
-        rating: {
-            id: 0,
-            employee: {
-                id: 0,
-                firstName: "",
-                lastName: "",
-                author: {
-                    id: 0,
-                    email: "",
-                    password: "",
-                    firstName: "",
-                    lastName: "",
-                    date: ""
-                },
-                department: {
-                    id: 0,
-                    title: ""
-                },
-                createdDate: ""
-            },
-            score: 0,
-            tag1: {
-                id: 0,
-                tagName: ""
-            },
-            tag2: {
-                id: 0,
-                tagName: ""
-            },
-            tag3: {
-                id: 0,
-                tagName: ""
-            }
-        },
+        rating: defaultRating,
         createdDate: ""
     }]);
     const [comments, setComments] = useState<p[]>([{
@@ -75,40 +43,7 @@ const UserProfile: React.FC<any> = (props: any) => {
             date: ""
         },
         postType: "",
-        rating: {
-            id: 0,
-            employee: {
-                id: 0,
-                firstName: "",
-                lastName: "",
-                author: {
-                    id: 0,
-                    email: "",
-                    password: "",
-                    firstName: "",
-                    lastName: "",
-                    date: ""
-                },
-                department: {
-                    id: 0,
-                    title: ""
-                },
-                createdDate: ""
-            },
-            score: 0,
-            tag1: {
-                id: 0,
-                tagName: ""
-            },
-            tag2: {
-                id: 0,
-                tagName: ""
-            },
-            tag3: {
-                id: 0,
-                tagName: ""
-            }
-        },
+        rating: defaultRating,
         createdDate: ""
     }]);
     const [replies, setReplies] = useState<p[]>([{
@@ -124,42 +59,10 @@ const UserProfile: React.FC<any> = (props: any) => {
             date: ""
         },
         postType: "",
-        rating: {
-            id: 0,
-            employee: {
-                id: 0,
-                firstName: "",
-                lastName: "",
-                author: {
-                    id: 0,
-                    email: "",
-                    password: "",
-                    firstName: "",
-                    lastName: "",
-                    date: ""
-                },
-                department: {
-                    id: 0,
-                    title: ""
-                },
-                createdDate: ""
-            },
-            score: 0,
-            tag1: {
-                id: 0,
-                tagName: ""
-            },
-            tag2: {
-                id: 0,
-                tagName: ""
-            },
-            tag3: {
-                id: 0,
-                tagName: ""
-            }
-        },
+        rating: defaultRating,
         createdDate: ""
     }]);
+
 
     function updatePostCount() {
         setPostCount(posts.length + comments.length + replies.length);
@@ -227,6 +130,67 @@ const UserProfile: React.FC<any> = (props: any) => {
         }
     }
 
+    function hideComponents(activeValue:String)
+    {
+        if(activeValue=="postbox")
+        {
+            //hide comment and reply
+            let commentsToHide = document.getElementsByClassName("commentbox");
+            let repliesToHide = document.getElementsByClassName("replybox");
+            let postsToShow = document.getElementsByClassName("postbox");
+            for (let i = 0; i<postsToShow.length;i++)
+            {
+                postsToShow[i].classList.remove("d-none");
+            }
+            for (let i = 0; i<commentsToHide.length;i++)
+            {
+                commentsToHide[i].classList.add("d-none");
+            }
+            for (let i = 0; i<repliesToHide.length;i++)
+            {
+                repliesToHide[i].classList.add("d-none");
+            }
+        }
+        else if(activeValue=="commentbox")
+        {
+            //hide post and reply
+            let postsTohide = document.getElementsByClassName("postbox");
+            let repliesToHide = document.getElementsByClassName("replybox");
+            let commentsToShow = document.getElementsByClassName("commentbox");
+            for (let i = 0; i<commentsToShow.length;i++)
+            {
+                commentsToShow[i].classList.remove("d-none");
+            }
+            for (let i = 0; i<postsTohide.length;i++)
+            {
+                postsTohide[i].classList.add("d-none");
+            }
+            for (let i = 0; i<repliesToHide.length;i++)
+            {
+                repliesToHide[i].classList.add("d-none");
+            }
+        }
+        else
+        {
+            //hide post and comment
+            let postsTohide = document.getElementsByClassName("postbox");
+            let commentsToHide = document.getElementsByClassName("commentbox");
+            let repliesToShow = document.getElementsByClassName("replybox");
+            for(let i = 0; i < repliesToShow.length; i++)
+            {
+                repliesToShow[i].classList.remove("d-none");
+            }
+            for (let i = 0; i<postsTohide.length;i++)
+            {
+                postsTohide[i].classList.add("d-none");
+            }
+            for (let i = 0; i<commentsToHide.length;i++)
+            {
+                commentsToHide[i].classList.add("d-none");
+            }
+        }
+    }
+
 
     React.useEffect(() => {
         getPosts();
@@ -240,6 +204,7 @@ const UserProfile: React.FC<any> = (props: any) => {
 
     return (
         <>
+            {hideComponents("postbox")}
             <Navbar />
             {/* include batch, username, follow */}
             <div className="user-profile-container container">
@@ -290,6 +255,29 @@ const UserProfile: React.FC<any> = (props: any) => {
                             <br></br>
                         </div>
                     </div>
+                </div>
+                <div className="post-container-navigator">
+                    <button className="getPost" id='nav-button' onClick={()=>hideComponents("postbox")}>Get Posts</button>
+                    <button className="getComment" id='nav-button' onClick = {()=>hideComponents("commentbox")}>Get Comments</button>
+                    <button className="getReply" id='nav-button' onClick = {() => hideComponents("replybox")}>Get Replies</button>
+                </div>
+                <div className="posts-container">
+                    {posts.map((post, index) => (
+                        <div className = "postbox">
+                            <Post key={index} post={post}/>
+                        </div>
+                    ))}
+                    {comments.map((comment, index) => (
+                        <div className = "commentbox">
+                            <Post key={index} post={comment}/>
+                        </div>
+                    ))}
+                    {replies.map((reply, index) => (
+                        <div className = "replybox">
+                            <Post key={index} post={reply}/>
+                        </div>
+                    ))}
+                    
                 </div>
                 {/*<Post />*/}
                 {/* Ratings by User */}
