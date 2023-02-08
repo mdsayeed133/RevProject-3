@@ -14,6 +14,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
 import '../navbar/Navbar.css'
 import { FaUserCircle } from 'react-icons/fa';
+import logo from '../navbar/logo.png'
 
 const Navbar: React.FC<any> = (props: any) => {
 
@@ -76,7 +77,7 @@ const Navbar: React.FC<any> = (props: any) => {
             {/* <Typography variant="h6" component="div">
             RevRater
           </Typography> */}
-            <img src="fatimat_revrater.png" className="img-fluid" id="revRater" />
+            <img alt='logo' src={logo} className="img-fluid" id="revRater"/>
             <div className="d-block">
               <input type="search" name="searchbox" id="searchbox" placeholder="enter employee name here" className="nav-search" />
               <div className="d-flex justify-content-around">
