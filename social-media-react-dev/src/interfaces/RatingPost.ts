@@ -11,7 +11,11 @@ export interface Post {
         date: string;
     };
     postType: string;
-    rating: {
+    rating: Rating;
+    createdDate: string;
+    }
+
+export interface Rating {
         id: number;
         employee: {
             id: number;
@@ -45,5 +49,3 @@ export interface Post {
             tagName: string;
         };
     };
-    createdDate: string;
-    }
