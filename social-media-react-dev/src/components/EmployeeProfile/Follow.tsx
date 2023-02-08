@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Follow = (props: { userId: Number, employeeId: Number }) => {
     const [follow, setFollow] = useState(false);
-    const [response, setResponse] = useState<any>(null);
+    const [response, setResponse] = useState<any>("");
+
 
     const handleFollow = async () => {
         try {
@@ -15,7 +16,8 @@ const Follow = (props: { userId: Number, employeeId: Number }) => {
             setFollow(true);
         } catch (error) {
             console.error(error);
-        }
+            
+        } 
     };
 
     const handleUnfollow = async () => {
@@ -28,8 +30,11 @@ const Follow = (props: { userId: Number, employeeId: Number }) => {
             setFollow(false);
         } catch (error) {
             console.error(error);
+            
         }
     };
+
+    
 
     return (
         <>
