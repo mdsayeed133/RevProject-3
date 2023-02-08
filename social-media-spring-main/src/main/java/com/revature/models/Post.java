@@ -13,7 +13,8 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String text;
+	@Column(columnDefinition = "TEXT")
+	private String message;
 	private int imageId;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Post> comments;
@@ -22,43 +23,64 @@ public class Post {
 
 	private PostType postType;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "rating_id")
 	private Rating rating;
 
 	@CreatedDate
-	private Instant date;
+	private Instant CreatedDate;
 
 	public Post() {
 	}
 
-	public Post(String text, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant date) {
-		this.text = text;
+	public Post(String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant CreatedDate) {
+		this.message = message;
 		this.imageId = imageId;
 		this.comments = comments;
 		this.author = author;
 		this.postType = postType;
 		this.rating = rating;
-		this.date = date;
+		this.CreatedDate = CreatedDate;
 	}
 
-	public Post(int id, String text, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant date) {
+	public Post(int id, String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating, Instant CreatedDate) {
 		this.id = id;
-		this.text = text;
+		this.message = message;
 		this.imageId = imageId;
 		this.comments = comments;
 		this.author = author;
 		this.postType = postType;
 		this.rating = rating;
-		this.date = date;
+		this.CreatedDate = CreatedDate;
 	}
 
-	public String getText() {
-		return text;
+	public Post(String message, List<Post> comments, User author, PostType postType) {
+		this.message = message;
+		this.comments = comments;
+		this.author = author;
+		this.postType = postType;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public Post(String message, int imageId, List<Post> comments, User author, PostType postType, Rating rating) {
+		this.message = message;
+		this.imageId = imageId;
+		this.comments = comments;
+		this.author = author;
+		this.postType = postType;
+		this.rating = rating;
+	}
+
+	public Post(int id, String message) {
+		this.id = id;
+		this.message = message;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public int getImageId() {

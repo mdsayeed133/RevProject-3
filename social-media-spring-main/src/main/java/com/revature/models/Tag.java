@@ -3,7 +3,7 @@ package com.revature.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tag")
+@Table(name = "tags")
 public class Tag {
 
     @Id
@@ -14,7 +14,7 @@ public class Tag {
     @Column(nullable = false, unique = true)
     private String tagName ;
 
-    public Tag(){};
+    public Tag(){}
 
     public Tag(int id, String tagName){
         this.id = id;

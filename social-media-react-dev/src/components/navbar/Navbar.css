@@ -2,8 +2,9 @@
     width: 100%;
 }
 .nav-container {
-    background-color: #2ab4aa;
-    height: 150px;
+    background-color: #212222;
+    height: 80px;
+    color: white;
 }
 #revRater {
     width: 15%;

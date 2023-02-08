@@ -43,10 +43,14 @@ const Employees: React.FC<any> = (props:any) => {
                 <div className="display-Employees row" id="dispEmployee">
                     {/* this card format will auto generate the Employees */}
                     {/* map here */}
+                    
                     {employees.map((employee, index) => (
-                        <EmployeeCard key={index} employee={employee} />
+                      
+                       < EmployeeCard key={index} employee={employee} />
+                     
                     ))}
                     {/* <EmployeeCard/> */}
+                    
                 </div>
             </div>
         </>
