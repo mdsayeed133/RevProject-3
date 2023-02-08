@@ -67,6 +67,7 @@ class UserServiceTest {
     void getUserByIdTest() {
         when(userRepository.findById(0)).thenReturn(Optional.of(mockUser));
         Optional<User> result = userService.getUserById(0);
+        System.out.print(result);
         assertThat(result.get(), equalTo(mockUser));
     }
 
