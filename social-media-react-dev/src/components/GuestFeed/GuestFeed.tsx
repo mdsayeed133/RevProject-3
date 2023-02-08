@@ -99,6 +99,14 @@ const GuestFeed: React.FC<any> = (props: any) => {
               <button disabled={true} className='likebuttons' onClick={login}>Like </button>
               <button disabled={true} className='likebutton' onClick={login}>Reply</button>
             </div>
+            <div className='userratings'>
+              <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+              <p> User: <em>NotaBot</em></p>
+              <p>Trainer: <em>Benjamin P.</em></p>
+              <p>Rating: <em>5/5</em></p>
+              <button disabled={true} className='likebuttons' onClick={login}>Like </button>
+              <button disabled={true} className='likebutton' onClick={login}>Reply</button>
+            </div>
           </div>
         </div>
 

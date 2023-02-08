@@ -20,6 +20,7 @@
 
 .welcomegreeting{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 3%;
 }
 
 .TrainerRanking_Container{
@@ -113,3 +114,31 @@
 .make-blur {
     filter: blur(5px);
 }
+@keyframes backglow {
+    0% {
+      box-shadow: 0 0 20px #8346b6;
+    }
+    100% {
+      box-shadow: 0 0 40px #5c96b1;
+    }
+  }
+  
+.col-lg-4{
+    background-color:darken(#0a1325, 4%); 
+    width: 15vw;
+    height: 15vw;
+    line-height: 1vw;
+    margin-left: 7%;
+    margin-bottom: 2%;
+    text-align: center;
+    padding: 1px;
+    color: #020305;
+    background-color: #cfd2dd;
+    animation: textColor 10s ease infinite, glow 2s ease-in-out infinite alternate, rotate-glow 4s linear infinite, backglow 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 0 10px #91cac7, 0 0 10px #7e0fff;
+    transform-origin: center;
+}
+.col-lg-4:hover{
+    transform: scale(1.1);
+}
+
