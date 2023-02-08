@@ -14,7 +14,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
 import '../navbar/Navbar.css'
 import { FaUserCircle } from 'react-icons/fa';
-import logo from '../navbar/logo.png'
+import logo from '../navbar/logo.png' 
 
 const Navbar: React.FC<any> = (props: any) => {
 
