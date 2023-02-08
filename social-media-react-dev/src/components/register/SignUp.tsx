@@ -42,6 +42,8 @@ const SignUp: React.FC<any> = (props: any) => {
         const response = await axios.post("http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/auth/register", { email, password, firstName, lastName });
         if (response.status === 201) {
             console.log(response);
+            props.changeUser(response.data);
+            props.changeStatus(true);
             setTimeout(()=>{navigate("/")},3000);
         }
         else if(response.status === 406) //blocked on profanity filter

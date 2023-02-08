@@ -24,7 +24,7 @@ import { socialApiResponse } from '../../remote/social-media-api/socialClient';
 
 const theme = createTheme();
 
-export default function Login() {
+export const Login:React.FC<any> = (props:any) => {
   // const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
@@ -47,6 +47,8 @@ export default function Login() {
     // const response = await apiLogin(email, password);
     if (response.status === 200) {
       console.log(response);
+      props.changeUser(response.data);
+      props.changeStatus(true);
       navigate("/");
     }
     else if (response.status === 500)
@@ -103,3 +105,5 @@ export default function Login() {
 
   );
 }
+
+export default Login

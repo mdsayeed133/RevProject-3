@@ -10,14 +10,11 @@ import { Employee } from '../../interfaces/employee';
 const EmployeeCard = (props: { employee: Employee }) => {
         const navigate = useNavigate();
         const employee = props.employee;
-        /*
-        const seeProfile = async () => {
-            navigate('/employeeprofile', {state:props.employee})
-        }
-        */
+        
         
         const seeProfile = () => {
-            navigate('/employeeprofile', { state: { employee } });
+            const employeeId = employee.id;
+            navigate(`/employeeprofile/${employeeId}`);
         }
         
         

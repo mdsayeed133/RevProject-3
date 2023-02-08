@@ -23,6 +23,7 @@ const Navbar: React.FC<any> = (props:any) => {
   const [tipTitle, setTipTitle] = useState('');
 
 
+  // access login/signup components
   useEffect(() => {
     if (user) {
       setLoggedIn(<LogoutIcon />);
@@ -42,17 +43,19 @@ const Navbar: React.FC<any> = (props:any) => {
     }
   }
   // change guest name
-  var status = false;
+  // var status = false;
   // var status = true;
-  React.useEffect(()=>{
-    if(status != true){
-      var element: HTMLElement = document.getElementById('userStatus') as HTMLElement; 
-      element.innerHTML = `GUEST`;
-    } else {
-      const element: HTMLElement = document.getElementById('userStatus') as HTMLElement;
-      element.innerHTML = `Logged in`;
-    }
-  })
+  // React.useEffect(()=>{
+  //   if(status != true){
+  //     var element: HTMLElement = document.getElementById('userStatus') as HTMLElement; 
+  //     element.innerHTML = `GUEST`;
+  //   } else {
+  //     const element: HTMLElement = document.getElementById('userStatus') as HTMLElement;
+  //     element.innerHTML = `Logged in`;
+  //   }
+  // })
+
+
 //   React.useEffect(() => {
 //     if (status != true) {
 //         console.log('not logged in')
@@ -62,50 +65,17 @@ const Navbar: React.FC<any> = (props:any) => {
 //     }
 // })
 
-  // working on darkmode.... fun
-  // const toggleDarkMode = ()=> setDarkMode(darkMode ? false:true);
-  // const storedDarkMode = localStorage.getItem("darkMode");
-  // const [darkMode, setDarkMode] = React.useState(false);
 
-  // React.useEffect(()=> {
-  //   if (darkMode) {
-  //     document.body.classList.add("dark");
-  //   } else {
-  //     document.body.classList.remove("dark");
-  //   }
-  // }, [darkMode])
-
-
-//   const [darkMode, setDarkMode] = useState(
-//     localStorage.getItem("darkMode") || false
-// );
-// const turnDarkModeOn = () => {
-//     localStorage.setItem("darkMode", "true");
-//     setDarkMode(true);
-//     document.body.classList.add("darkMode");
-// };
-
-// const turnDarkModeOff = () => {
-//     localStorage.setItem("darkMode", "false");
-//     setDarkMode(false);
-//     document.body.classList.remove("darkMode");
-// };
-
-// useEffect(() => {
-//     darkMode
-//         ? document.body.classList.add("darkMode")
-//         : document.body.classList.remove("darkMode");
-// }, [darkMode]);
 
   return (
     <>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent">
         <Toolbar className="d-flex justify-content-around nav-container">
-          <Typography variant="h6" component="div">
+          {/* <Typography variant="h6" component="div">
             RevRater
-          </Typography>
-          {/* <img src="revrater.png" className="img-fluid" id="revRater"/> */}
+          </Typography> */}
+          <img src="fatimat_revrater.png" className="img-fluid" id="revRater"/>
           <div className="d-block">
             <input type="search" name="searchbox" id="searchbox" placeholder="enter employee name here"className="nav-search" />
             <div className="d-flex justify-content-around">
@@ -122,7 +92,7 @@ const Navbar: React.FC<any> = (props:any) => {
           <div className="d-flex">
             <div>
               <Link to="/userprofile">
-                <h3 id="userStatus"></h3>
+                <h3 id="userStatus"><em>props pass here</em></h3>
               </Link>
             </div>
             {/* <button className="darkmode-switch" onClick={()=>setDarkMode(!darkMode)}></button> */}

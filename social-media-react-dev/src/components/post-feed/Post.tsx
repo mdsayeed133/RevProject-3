@@ -26,8 +26,7 @@ const Post: React.FC<any> = (props: any) => {
         setShowEdit(!showEditForm);
     }
 
-    // edit function
-    // research redux store
+    // axios get url("http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/1/user/feed")
 
     return (
         <>

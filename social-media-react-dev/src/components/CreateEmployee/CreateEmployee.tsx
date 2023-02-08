@@ -3,6 +3,7 @@ import './CreateEmployee.css'
 import Navbar from '../navbar/Navbar'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import axios from 'axios'
 
 const CreateEmployee: React.FC<any> = (props: any) => {
   const navigate = useNavigate();
@@ -31,6 +32,15 @@ const CreateEmployee: React.FC<any> = (props: any) => {
     }
     setError("");
     employeeprofile();
+  }
+  // create employee function
+  const createEmployee = async () => {
+    console.log("firstName: "+ firstName + "\nlastName: " + lastName + "\nDepartment: " + department);
+    const response = await axios.post("http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/employee", {firstName, lastName, department});
+    if (response.status === 202){
+      console.log(response);
+      // test
+    }
   }
 
   return (
@@ -68,7 +78,7 @@ const CreateEmployee: React.FC<any> = (props: any) => {
                 </select>
               </div>
               
-              <button type='submit'>Submit</button>
+              <button type='submit' onClick={createEmployee}>Submit</button>
 
             </form>
 
