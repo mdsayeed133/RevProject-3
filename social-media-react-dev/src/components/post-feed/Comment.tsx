@@ -8,8 +8,9 @@ import four from './four.png';
 import five from './five.png';
 import six from './six.png';
 import seven from './seven.png';
+import Like from '../Comments/Like';
 
-const Comment: React.FC<any> = (props: {post:RatingPost}) => {
+const Comment: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
 
     const [ratingPost, setPostContents] = useState<RatingPost>(props.post);
     const showComment = async () => {
@@ -63,6 +64,7 @@ const Comment: React.FC<any> = (props: {post:RatingPost}) => {
                     </div>
                     {/* working code */}
                     <p className="message">{ratingPost.message}</p>
+                    <Like postId={ratingPost.id} userId={props.userId}/>
                 </div>
             </div>
         </>

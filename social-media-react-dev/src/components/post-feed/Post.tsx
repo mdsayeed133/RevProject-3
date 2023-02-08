@@ -4,7 +4,7 @@ import Comments from '../Comments/Comments';
 import { Post as RatingPost } from '../../interfaces/RatingPost';
 
 
-const Post: React.FC<any> = (props: {post:RatingPost}) => {
+const Post: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
 
     const postData:RatingPost= props.post;
 
@@ -28,7 +28,7 @@ const Post: React.FC<any> = (props: {post:RatingPost}) => {
                         <p>Posted by: <em>{postData.author.email}</em></p>
                     </div>
                     {/* working code */}
-                    <Comment post={postData}/>
+                    <Comment post={postData} userId={props.userId}/>
                 </div>
                 <div className="">
                     <div className="react-box">
