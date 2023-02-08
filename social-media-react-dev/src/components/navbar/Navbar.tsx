@@ -77,7 +77,7 @@ const Navbar: React.FC<any> = (props: any) => {
             {/* <Typography variant="h6" component="div">
             RevRater
           </Typography> */}
-            <img alt='logo' src={logo} className="img-fluid" id="revRater"/>
+            <img alt='revrater logo' src="fatimat_revrater.png" className="img-fluid" id="revRater"/>
             <div className="d-block">
               {/* <input type="search" name="searchbox" id="searchbox" placeholder="enter employee name here" className="nav-search" /> */}
               <div className="d-flex justify-content-around">
