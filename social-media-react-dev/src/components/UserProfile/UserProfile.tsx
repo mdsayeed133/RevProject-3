@@ -4,13 +4,14 @@ import Post from '../post-feed/Post'
 import '../UserProfile/UserProfile.css'
 import { Post as p, Rating } from '../../interfaces/RatingPost'
 import axios from 'axios'
+import { User } from '../../interfaces/users'
 import { useNavigate } from 'react-router-dom'
 
 
 const UserProfile: React.FC<any> = (props: any) => {
 
     const navigate = useNavigate();
-    const user = props.currentUser;
+    const [user, setUser] = useState<User>(props.currentUser);
     const [postCount, setPostCount] = useState(0);
     const [averageRating, setAverageRating] = useState(-1);
     const defaultRating:Rating = {id: 0, employee: {id: 0, firstName: "", lastName: "", author: {id: 0, email: "", password: "", firstName: "", lastName: "",date: ""}, department: {id: 0,title: ""},createdDate: ""},score: 0,tag1: { id: 0,tagName: ""},tag2: { id: 0, tagName: ""},tag3: { id: 0, tagName: ""}}
@@ -106,6 +107,10 @@ const UserProfile: React.FC<any> = (props: any) => {
             if (response.status == 200) {
                 if(response.data.length>0)
                 {
+                    for(let i=0;i<response.data.length;i++)
+                    {
+                        response.data[i].rating = defaultRating
+                    }
                     setComments(response.data);
                     updatePostCount();
                 }
@@ -121,6 +126,10 @@ const UserProfile: React.FC<any> = (props: any) => {
             if (response.status == 200) {
                 if(response.data.length>0)
                 {
+                    for(let i=0;i<response.data.length;i++)
+                    {
+                        response.data[i].rating = defaultRating
+                    }
                     setReplies(response.data);
                     updatePostCount();
                 }
@@ -205,6 +214,8 @@ const UserProfile: React.FC<any> = (props: any) => {
     return (
         <>
             {hideComponents("postbox")}
+            {console.log("These are your props:"+props)}
+            {console.log("This is your user:"+user)}
             <Navbar />
             {/* include batch, username, follow */}
             <div className="user-profile-container container">
@@ -216,12 +227,12 @@ const UserProfile: React.FC<any> = (props: any) => {
                             </h2>
                         </div>
                         <div className="post-info-details" >
-                            <h2 id='fields' >Number of Posts:
+                            {/*<h2 id='fields' >Number of Posts:
                                 <p id="post-info-details"><em>{postCount}</em></p>
                             </h2>
                             <h2 id='fields'>Average Rating Given:
                                 <p id="post-info-details">{averageRating}</p> / 10
-                            </h2>
+                            </h2>*/}
                         </div>
                     </div>
                     <div className="profile-info-container">
