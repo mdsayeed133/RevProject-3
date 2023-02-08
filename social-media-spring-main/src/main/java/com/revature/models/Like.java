@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "likes", uniqueConstraints = { @UniqueConstraint(columnNames = { "post_id", "user_id" }) })
-public class Likes {
+public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -18,16 +18,16 @@ public class Likes {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Likes() {
+    public Like() {
     }
 
-    public Likes(int id, Post post, User user) {
+    public Like(int id, Post post, User user) {
         this.id = id;
         this.post = post;
         this.user = user;
     }
 
-    public Likes(Post post, User user) {
+    public Like(Post post, User user) {
         this.post = post;
         this.user = user;
     }

@@ -4,14 +4,16 @@ import './EmployeeProfile.css'
 import { useNavigate } from 'react-router'
 import Comments from '../Comments/Comments'
 import { Employee } from '../../interfaces/employee';
+import { User as U } from '../../interfaces/users';
 import { Tag } from '../../interfaces/tag';
 import axios from 'axios'
 import { useParams } from "react-router-dom";
+import Follow from "./Follow"
 
-const EmployeeProfile: React.FC<any> = (props: any) => {
+const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
 
     let {id} = useParams(); //path = '/employeeprofile/:id'
-    const currentUser = props.currentUser;
+    const currentUser:U = props.currentUser;
     // useNavigate to "navigate"
     const navigate = useNavigate();
     const [employee, setEmployee] = useState<Employee>({id:0,firstName:"",lastName:"",author:{id:0,email:"",password:"",firstName:"",lastName:"",date:""},department:{id:0,title:""},createdDate:""});
@@ -104,8 +106,7 @@ const EmployeeProfile: React.FC<any> = (props: any) => {
                             <div className="image-container d-block">
                                 <img src="https://via.placeholder.com/150" alt="" />
                                 <br></br>
-                                <button className="follow-btn">Follow</button>
-                                <button className="follow-btn">Unfollow</button>
+                                <Follow userId={currentUser.id} employeeId={employee.id}/>
                             </div>
                         </div>
                     </div>

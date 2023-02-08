@@ -5,8 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FFDEE9;
+  background-image:radial-gradient( circle farthest-corner at -8.9% 51.2%,  rgb(197, 212, 218) 0%, rgba(207, 203, 194, 0.829) 15.9%, rgb(154, 170, 199) 15.9%, rgb(201, 180, 160) 24.4%, rgb(149, 137, 182) 24.5%, rgb(110, 143, 204) 66% );
+
+  height: 100vh;
+<<<<<<< HEAD
+  background-attachment: fixed !important;
+
+  /* background-color: aliceblue; /
+  / text-align: center; */
+=======
+ 
+  
+  
+
   /* background-color: aliceblue; */
   /* text-align: center; */
+>>>>>>> 666bc8ce94af7e41d86bcb6759c4128e7ec9abef
 }
 
 code {
@@ -17,13 +32,18 @@ code {
 * {
   scroll-behavior: smooth;
 }
-
 button:hover {
   background-color: var(--color3);
   transition: .5s ease-in;
 }
 
 .dark {
-  background-color: #474c55;
-  color: black;
+  background-color: #321d4c;
+background-image:radial-gradient( circle farthest-corner at -8.9% 51.2%,  rgba(255,124,0,1) 0%, rgba(255,124,0,1) 15.9%, rgba(255,163,77,1) 15.9%, rgba(255,163,77,1) 24.4%, rgba(19,30,37,1) 24.5%, rgba(19,30,37,1) 66% );
+color:silver;
+<<<<<<< HEAD
 }
+
+=======
+}
+>>>>>>> 666bc8ce94af7e41d86bcb6759c4128e7ec9abef

@@ -27,7 +27,16 @@ registration sample dto:
 }
 
 
-
++=======================+
+| Create Employee tests |
++=======================+
+example
+{
+    "firstName":"Rachna",
+    "lastName":"Tyagi",
+    "authorId":1,
+    "departmentId":10
+}
 
 
 

@@ -4,11 +4,13 @@ import com.revature.dtos.LoginRequest;
 import com.revature.dtos.RegisterRequest;
 import com.revature.models.User;
 import com.revature.services.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.time.Instant;
 import java.util.Optional;
 
 @RestController
@@ -16,8 +18,8 @@ import java.util.Optional;
 @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000"}, allowCredentials = "true")
 public class AuthController {
 
-    private final AuthService authService;
-
+    private AuthService authService;
+    @Autowired
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
@@ -48,7 +50,8 @@ public class AuthController {
                 registerRequest.getEmail(),
                 registerRequest.getPassword(),
                 registerRequest.getFirstName(),
-                registerRequest.getLastName());
+                registerRequest.getLastName(),
+                 Instant.now());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(created));
     }
