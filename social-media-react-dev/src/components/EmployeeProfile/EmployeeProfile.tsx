@@ -9,6 +9,7 @@ import { Tag } from '../../interfaces/tag';
 import axios from 'axios'
 import { useParams } from "react-router-dom";
 import Follow from "./Follow"
+import { FaUserCircle } from 'react-icons/fa'
 
 const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
 
@@ -115,8 +116,9 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
                             <div className="status-box">
                                 <p>Rating: {employeeRating}</p>
                             </div>
-                            <div className="image-container d-block">
-                                <img src="https://via.placeholder.com/150" alt="" />
+                            <div className="image-container d-block text-center">
+                                {/* <img src="https://via.placeholder.com/150" alt="" /> */}
+                                <FaUserCircle size="10em"/>
                                 <br></br>
                                 <div className="followBox">
                                     <Follow userId={userID} employeeId={employee.id}/>

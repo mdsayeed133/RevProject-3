@@ -1,3 +1,10 @@
 .choose_container{
     text-align: center;
 }
+
+
+.advanced-searchbar-container {
+    border: 1px solid black;
+    width: 60%;
+    margin: 0 auto;
+}
