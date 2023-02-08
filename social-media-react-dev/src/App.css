@@ -15,10 +15,7 @@
     --color5: #ced097;
 }
 
-body {
-    /* background-color: var(--color1); */
-    /* background-color: aliceblue; */
-}
+
 
 .click-icon:hover {
     background-color: red;

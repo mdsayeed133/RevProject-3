@@ -15,6 +15,7 @@ import UserProfile from '../components/UserProfile/UserProfile';
 import { User } from '../interfaces/users';
 import AdvancedSearch from '../components/advancedSearch/advancedSearch';
 import { Login } from '../components/login/Login';
+import PublicUserProfile from '../components/UserProfile/PublicUserProfile';
 
 
 
@@ -38,6 +39,7 @@ export const AppRoutes: React.FC<unknown> = (props:any) => {
       <Route path="/" element={<PostFeed />} />
       <Route path="/login" element={<Login changeUser={setUser} changeStatus={setLoggedStatus}/>} />
       <Route path="/userprofile" element={<UserProfile currentUser={realUser}/>} />
+      <Route path="/user/:id" element={<PublicUserProfile />} />
       <Route path="/employees" element={<Employees />} />
       <Route path="/employeeprofile/:id" element={<EmployeeProfile currentUser={realUser}/>} />
       <Route path="/createemployee" element={<CreateEmployee />} />

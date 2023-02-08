@@ -10,13 +10,13 @@ import { useParams } from "react-router-dom";
 
 const EmployeeProfile: React.FC<any> = (props: any) => {
 
-    let id = useParams(); //path = '/employeeprofile/:id'
+    let {id} = useParams(); //path = '/employeeprofile/:id'
     const currentUser = props.currentUser;
     // useNavigate to "navigate"
     const navigate = useNavigate();
-    const [employee, setEmployee] = useState<Employee>(null);
+    const [employee, setEmployee] = useState<Employee>({id:0,firstName:"",lastName:"",author:{id:0,email:"",password:"",firstName:"",lastName:"",date:""},department:{id:0,title:""},createdDate:""});
     const [employeeRating, setRating] = useState(0);
-    const [tags, setTags] = useState<Tag[]>([]);
+    const [tags, setTags] = useState<Tag[]>([{id:0,tagName:"None"},{id:0,tagName:"None"},{id:0,tagName:"None, be the first to rate me!"}]);
 
     const showComments = async () => {
         // navigate("/showcomments")
@@ -32,6 +32,7 @@ const EmployeeProfile: React.FC<any> = (props: any) => {
     // }
     const fetchEmployeeData = async () => {
         try {
+            console.log("This is what the id is:"+id)
             const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/employee/${id}/id`);
             if (response.status == 200) {
                 setEmployee(response.data);
@@ -59,7 +60,10 @@ const EmployeeProfile: React.FC<any> = (props: any) => {
             const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/rating/post/employee/${id}/top3tags`);
             if (response.status == 200)
             {
-                setTags(response.data);
+                if (response.data.length==3)
+                {
+                    setTags(response.data);
+                }
             }
         }
         catch(error)
@@ -85,7 +89,7 @@ const EmployeeProfile: React.FC<any> = (props: any) => {
                             <h2 className="profile-name" id="trainerName">Name: {employee.firstName} {employee.lastName}</h2>
                             <h2 className="profile-dept">Department: {employee.department.title}</h2>
                             <h5 className="profile-auth">Author: {employee.author.email} </h5>
-                            <h5 className="profile-tags">Most Popular Tags: {tags[0].TagName}, {tags[1].TagName}, {tags[2].TagName}</h5>
+                            <h5 className="profile-tags">Most Popular Tags: {tags[0].tagName}, {tags[1].tagName}, {tags[2].tagName}</h5>
                         </div>
                         <div className="btn-box d-flex justify-content-around">
                             <button className="comment-btn" onClick={showComments}>Show comments</button>
@@ -109,7 +113,7 @@ const EmployeeProfile: React.FC<any> = (props: any) => {
                 {/* this should hold the posted comments upon a click */}
                 <div className="posted-comments d-none">
                     <h2><em>comments will populate below</em></h2>
-                    <Comments />
+                    {/*<Comments />*/}
                 </div>
             </div>
         </>

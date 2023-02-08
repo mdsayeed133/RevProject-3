@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { BsFillEmojiAngryFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFill, BsFillEmojiFrownFill, BsFillEmojiNeutralFill, BsFillEmojiSmileFill, BsFillEmojiSunglassesFill } from "react-icons/bs";
 import Comments from '../Comments/Comments';
+import { Post as RatingPost } from '../../interfaces/RatingPost';
 
 
-const Post: React.FC<any> = (props: any) => {
+const Post: React.FC<any> = (props: {post:RatingPost}) => {
 
+    const ratingPost:RatingPost= props.post;
     const showComment = async () => {
         const comms = document.getElementById("commentBox")
 
@@ -34,13 +35,14 @@ const Post: React.FC<any> = (props: any) => {
                 {/* example card */}
                 <div className="post-user d-flex">
                     {/* <img src="genericUser.png" className="post-user-image" alt="" /> */}
-                    <BsFillEmojiAngryFill size="4em" />
+                    {/* <BsFillEmojiAngryFill size="4em" /> */}
+                    <div className="user-div"></div>
                     <h4><em>"I really couldn't get much out of it...</em></h4>
                 </div>
                 <div className="post-message-body">
                     <div className="post-headline d-flex justify-content-between">
-                        <p>Name: <em>Trainer Name</em></p>
-                        <p>Rating: <em>5/10</em></p>
+                        <p>Name: <em>{ratingPost.rating.employee.firstName} {ratingPost.rating.employee.lastName}</em></p>
+                        <p>Rating: <em>{ratingPost.rating.score}/10</em></p>
                     </div>
                     <div className="post-message d-flex justify-content-between">
                         <p>Department: <em>Trainer Department</em></p>

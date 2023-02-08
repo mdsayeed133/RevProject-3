@@ -576,7 +576,8 @@ return (
 
 
 
-+==============+
-| Removed from |
-+==============+
++===========================+
+| Removed from User Profile |
++===========================+
+import { BsFillEmojiAngryFill, BsFillEmojiFrownFill, BsFillEmojiDizzyFill, BsFillEmojiExpressionlessFill, BsFillEmojiNeutralFill, BsFillEmojiSmileFill, BsEmojiSunglassesFill} from 'react-icons/bs'
 
