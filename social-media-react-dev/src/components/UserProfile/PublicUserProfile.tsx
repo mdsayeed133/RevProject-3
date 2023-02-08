@@ -242,7 +242,8 @@ const PublicUserProfile: React.FC<any> = (any) => {
 
     React.useEffect(() => {
       getUserById();  
-    }, [])
+    }, []) //useEffect is how we can call a function as soon as a page loads.
+
     // const [tempFirst, setFirstName] = useState(props.targetUser.firstName);
     // const [tempLast, setLastName] = useState(props.targetUser.lastName);
     // const [tempEmail, setEmail] = useState(props.targetEmail.email);

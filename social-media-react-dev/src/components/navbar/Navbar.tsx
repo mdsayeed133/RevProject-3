@@ -80,10 +80,10 @@ const Navbar: React.FC<any> = (props:any) => {
             <input type="search" name="searchbox" id="searchbox" placeholder="enter employee name here"className="nav-search" />
             <div className="d-flex justify-content-around">
               <div>
-                <Link to="/">Main Feed</Link> |
+                <Link to="/postfeed">Main Feed</Link> |
                 <Link to="/employees" >Employees</Link> |
                 <Link to="/createemployee">Create Employees | </Link>
-                <Link to="/guest"> Guest Feed | </Link>
+                {/* <Link to="/guest"> Guest Feed | </Link> */}
                 <Link to="/advancedsearch">Advanced Search</Link>
               </div>
             </div>
