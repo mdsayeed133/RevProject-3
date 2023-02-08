@@ -96,7 +96,7 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
         <>
             <Navbar />
             {/* create barebones trainer profile. use jamboard as reference */}
-            <div className="profile-container container">
+            <div className="profile-container container transparent">
                 <div className="row">
                     <div className="col-md-6 name-box">
                         <div className="half">
