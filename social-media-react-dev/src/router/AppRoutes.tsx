@@ -36,7 +36,8 @@ export const AppRoutes: React.FC<unknown> = (props:any) => {
     // const [loggedIn, setLoggedStatus] = React.useState(false);
   <>
     <Routes>
-      <Route path="/" element={<PostFeed />} />
+      {/* <Route path="/" element={<PostFeed />} /> */}
+      <Route path="/" element={<GuestFeed/>}/>
       <Route path="/login" element={<Login changeUser={setUser} changeStatus={setLoggedStatus}/>} />
       <Route path="/userprofile" element={<UserProfile currentUser={realUser}/>} />
       <Route path="/user/:id" element={<PublicUserProfile />} />
@@ -46,7 +47,8 @@ export const AppRoutes: React.FC<unknown> = (props:any) => {
       <Route path="/createcomments" element={<CreateComments />} />
       <Route path="/showcomments" element={<ShowComments />} />
       <Route path="/createpostform" element={<CreatePostForm />} />
-      <Route path="/guest" element={<GuestFeed />} />
+      <Route path="/postfeed" element={<PostFeed/>}/>
+      {/* <Route path="/guest" element={<GuestFeed />} /> */}
       <Route path="/signup" element={<SignUp changeUser={setUser} changeStatus={setLoggedStatus}/>} />
       <Route path="/advancedsearch" element={<AdvancedSearch/>}/>
     </Routes>

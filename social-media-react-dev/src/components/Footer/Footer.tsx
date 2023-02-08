@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="footer">
                 <div className="footer-container container">
                     <div className="row">
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <h5 className="subheader">Team Members</h5>
                             <ul>
                                 <li>Zackery</li>
@@ -23,7 +23,7 @@ const Footer = () => {
                                 <li>Keitron</li>
                             </ul>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <div className="tech-stack">
                                 <h5 className="subheader">Technology Used</h5>
                                 <div className="icon-list">
@@ -40,20 +40,37 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <div className="socials-stack">
                                 <h5 className="subheader">Socials</h5>
                                 <ul>
-                                    <TbBrandMeta/>
+                                    <TbBrandMeta size="2em"/>
                                     <BsReddit size="2em"/>
                                     <FaDiscord size="2em"/>
                                     <FaTelegramPlane size="2em"/>
-                                    <li><TbBrandMeta size="2em"/></li>
+                                    {/* <li><TbBrandMeta size="2em"/></li>
                                     <li><BsReddit size="2em"/></li>
                                     <li><FaDiscord size="2em"/></li>
-                                    <li><FaTelegramPlane size="2em"/></li>
+                                    <li><FaTelegramPlane size="2em"/></li> */}
                                 </ul>
                             </div>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="contact">
+                                <h5 className="subheader">Contact</h5>
+                                <ul>
+                                    <li>email</li>
+                                    <li>phone</li>
+                                    <li>address</li>
+                                    <li>twitter</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="colophon col-12 d-flex">
+                            <img src="revrater.png" className="img-fluid" />
+                            <p>TeamNarwhal & Alchemy Production</p>
                         </div>
                     </div>
                 </div>
