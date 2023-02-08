@@ -13,8 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
 import '../navbar/Navbar.css'
+import { FaUserCircle } from 'react-icons/fa';
 
-const Navbar: React.FC<any> = (props:any) => {
+const Navbar: React.FC<any> = (props: any) => {
 
   const navigate = useNavigate();
 
@@ -56,64 +57,66 @@ const Navbar: React.FC<any> = (props:any) => {
   // })
 
 
-//   React.useEffect(() => {
-//     if (status != true) {
-//         console.log('not logged in')
-//     } else {
-//         const element: HTMLElement = document.getElementById('stat') as HTMLElement
-//         element.innerHTML = `Welcome to Revature Banking, ${props.targetUser.firstName}`
-//     }
-// })
+  //   React.useEffect(() => {
+  //     if (status != true) {
+  //         console.log('not logged in')
+  //     } else {
+  //         const element: HTMLElement = document.getElementById('stat') as HTMLElement
+  //         element.innerHTML = `Welcome to Revature Banking, ${props.targetUser.firstName}`
+  //     }
+  // })
 
 
 
   return (
     <>
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="transparent">
-        <Toolbar className="d-flex justify-content-around nav-container">
-          {/* <Typography variant="h6" component="div">
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" color="transparent">
+          <Toolbar className="d-flex justify-content-around nav-container">
+            {/* <Typography variant="h6" component="div">
             RevRater
           </Typography> */}
-          <img src="fatimat_revrater.png" className="img-fluid" id="revRater"/>
-          <div className="d-block">
-            <input type="search" name="searchbox" id="searchbox" placeholder="enter employee name here"className="nav-search" />
-            <div className="d-flex justify-content-around">
-              <div>
-                <Link to="/postfeed">Main Feed</Link> |
-                <Link to="/employees" >Employees</Link> |
-                <Link to="/createemployee">Create Employees | </Link>
-                {/* <Link to="/guest"> Guest Feed | </Link> */}
-                <Link to="/advancedsearch">Advanced Search</Link>
+            <img src="fatimat_revrater.png" className="img-fluid" id="revRater" />
+            <div className="d-block">
+              <input type="search" name="searchbox" id="searchbox" placeholder="enter employee name here" className="nav-search" />
+              <div className="d-flex justify-content-around">
+                <div>
+                  <Link to="/postfeed">Main Feed</Link> |
+                  <Link to="/employees" >Employees</Link> |
+                  <Link to="/createemployee">Create Employees | </Link>
+                  {/* <Link to="/guest"> Guest Feed | </Link> */}
+                  <Link to="/advancedsearch">Advanced Search</Link>
+                </div>
               </div>
-            </div>
 
-          </div>
-          <div className="d-flex">
-            <div>
-              <Link to="/userprofile">
-                <h3 id="userStatus"><em>props pass here</em></h3>
-              </Link>
             </div>
-            {/* <button className="darkmode-switch" onClick={()=>setDarkMode(!darkMode)}></button> */}
-            {/* <button onClick={turnDarkModeOn}>on</button>
+            <div className="d-flex">
+              <div>
+                <Link to="/userprofile">
+                  {/* <h3 id="userStatus"><em>props pass here</em></h3> */}
+                  <FaUserCircle size="3em" className="user-profile-icon" />
+
+                </Link>
+              </div>
+              {/* <button className="darkmode-switch" onClick={()=>setDarkMode(!darkMode)}></button> */}
+              {/* <button onClick={turnDarkModeOn}>on</button>
             <button onClick={turnDarkModeOff}>off</button> */}
-            <Tooltip disableFocusListener disableTouchListener title={tipTitle}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={() => handleAuth()}
-                color="inherit"
-              >
-                {loggedIn}
-              </IconButton>
-            </Tooltip>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </Box>
+              <Tooltip disableFocusListener disableTouchListener title={tipTitle}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={() => handleAuth()}
+                  color="inherit"
+                >
+                  {loggedIn}
+                </IconButton>
+              </Tooltip>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </Box>
     </>
   );
 }
