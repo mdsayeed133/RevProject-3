@@ -4,6 +4,10 @@
 - All <em> tags refer to information that is to be rendered using React 
 - Jamboard here: https://jamboard.google.com/d/1k31R5UEf_kJtuk1af1_Z0shsMJMrC2EdkRc38tTJRRI/viewer?f=5
 
++=======================+
+| Elasticbeanstalk link |
++=======================+
+http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com
 
 +=================+
 | Login DTO/input |
