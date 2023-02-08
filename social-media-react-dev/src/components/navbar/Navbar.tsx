@@ -77,7 +77,7 @@ const Navbar: React.FC<any> = (props: any) => {
             {/* <Typography variant="h6" component="div">
             RevRater
           </Typography> */}
-            <img alt='revrater logo' src="fatimat_revrater.png" className="img-fluid" id="revRater" />
+            <img alt='RevRater logo' src="fatimat_revrater.png" className="img-fluid" id="revRater" />
             <div className="d-block">
               <div className="d-flex justify-content-around">
                 <Link to="/postfeed">Main Feed</Link> |
