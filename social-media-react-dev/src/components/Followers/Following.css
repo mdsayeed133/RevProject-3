@@ -1,0 +1,36 @@
+
+.follower-list {
+    margin-top: 50px;
+    padding-left: 15px;
+    border-left: 3px solid black;
+}
+
+
+.followed-user {
+    background-color: aliceblue;
+    padding: 5px;
+    font-size: 13px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 5px;
+    box-shadow: 1px 1px 1px gray;
+    height: 35px;
+}
+
+.followed-user > button {
+    font-size: 10px;
+    height: 20px;
+    border: 1px solid gray;
+}
+.followed-user > button:hover {
+    background-color: var(--color3);
+
+}
+
+.user-div {
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+}

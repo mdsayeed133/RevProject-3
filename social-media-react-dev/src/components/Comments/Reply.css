@@ -1,0 +1,21 @@
+.reply_message{
+    border-left: 3px solid black;
+    margin-left: 5%;
+    padding-left: 30px;
+
+}
+.reply {
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    padding-top: 10px;
+    background-color: aliceblue;
+    margin-top: 10px;
+}
+.user-profile {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: 25px
+}

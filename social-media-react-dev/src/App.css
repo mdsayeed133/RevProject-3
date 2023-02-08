@@ -1,15 +1,52 @@
 
 .App {
-    text-align: center;
+    /* text-align: center; */
+    text-align: justify;
 }
 * {
     scroll-behavior: smooth;
 }
 
-/* :root{
+:root{
     --color1: #dff2d8;
     --color2: #c6dea6;
     --color3: #7ebdc3;
     --color4: #7a6263;
     --color5: #ced097;
-} */
+}
+
+
+
+.click-icon:hover {
+    background-color: red;
+}
+.darkmode-switch {
+    margin: 0 auto;
+    position: absolute;
+    left: 48%;
+    z-index: 1;
+}
+.dark-btn {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    font-size: 25px;
+    text-decoration: none;
+    border: none;
+    margin-top: 5px;
+}
+.dark-btn:hover {
+    color: goldenrod;
+    background-color: #acd1d4;
+    transition: .5s ease-in;
+}
+
+/* moon icon */
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }

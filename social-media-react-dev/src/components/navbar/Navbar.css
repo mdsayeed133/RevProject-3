@@ -1,13 +1,33 @@
 .nav-search {
     width: 100%;
 }
+.nav-container {
+    background-color: #2ab4aa;
+    height: 150px;
+}
+#revRater {
+    width: 15%;
+}
 
-.darkmode-switch {
+/* .darkmode-switch {
     height: 30px;
     width: 30px;
     border: 1px solid black;
     border-radius: 50%;
-}
-.darkmode-switch:hover {
+} */
+/* .darkmode-switch:hover {
     background-color: aliceblue;
+} */
+.newnavbar {
+    height: 50px;
+    margin-top: 20px;
+}
+.advanced-search-bar {
+    border: 1px solid black;
+    width: 40%
+}
+
+.status-and-switch {
+    border: 1px solid black;
+    width: 15%;
 }

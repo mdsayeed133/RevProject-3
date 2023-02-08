@@ -7,6 +7,8 @@
     border-radius: 10px;
     margin-top: 15px;
     margin-bottom: 15px;
+    background-color: aliceblue;
+    box-shadow: 2px 2px 2px gray;
 }
 .post-message-body {
     border-top: 1px solid black;
@@ -16,7 +18,7 @@
     width: 20%;
 }
 .sidebar-section {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 10px;
     height: 100%;
     position: relative;
@@ -25,10 +27,24 @@
     /* position: absolute; */
     
 }
+.add-button {
+    height: 50px;
+}
+.add-button > button {
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    /* border: none; */
+}
 .widget {
     border: 1px solid black;
     border-radius: 10px;
     margin-top: 10px;
+    background-color: aliceblue;
+    padding: 10px;
+    box-shadow: 2px 2px 2px gray;
+    height: 150px;
 }
 
 .make-sticky {
@@ -39,5 +55,5 @@
 
 /* comment editing */
 .comment-box {
-    border: 1px solid black;
+    border: 0px solid black;
 }

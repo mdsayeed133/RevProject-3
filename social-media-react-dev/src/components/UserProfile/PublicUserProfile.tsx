@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import Navbar from '../navbar/Navbar'
 import Post from '../post-feed/Post'
 import '../UserProfile/UserProfile.css'
-import { Post as p } from '../../interfaces/RatingPost'
+import { Post as p } from '../../interfaces/RatingPost';
+import { useParams } from "react-router-dom";
+import { User } from '../../interfaces/users';
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 
 
-const UserProfile: React.FC<any> = (props: any) => {
-
-    const navigate = useNavigate();
-    const user = props.currentUser;
+const PublicUserProfile: React.FC<any> = (any) => {
+    let {id} = useParams();
+    const [user, setUser] = useState<User>({id:0,email:"",password:"",firstName:"",lastName:"",date:""});
     const [postCount, setPostCount] = useState(0);
     const [averageRating, setAverageRating] = useState(-1);
     const [posts, setPosts] = useState<p[]>([{
@@ -175,15 +175,10 @@ const UserProfile: React.FC<any> = (props: any) => {
         setAverageRating(currentTotal);
     }
 
-    function navigateToPublic()
-    {
-        navigate(`/user/${user.id}`);
-    }
-
     const getPosts = async () => {
         try {
             console.log("This is the userId:" + user.id);
-            const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/${user.id}/user/ratings`);
+            const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/${id}/user/ratings`);
             if (response.status == 200) {
                 if(response.data.length>0)
                 {
@@ -199,7 +194,7 @@ const UserProfile: React.FC<any> = (props: any) => {
 
     const getComments = async () => {
         try {
-            const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/${user.id}/user/comments`);
+            const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/${id}/user/comments`);
             if (response.status == 200) {
                 if(response.data.length>0)
                 {
@@ -214,7 +209,7 @@ const UserProfile: React.FC<any> = (props: any) => {
 
     const getReplies = async () => {
         try {
-            const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/${user.id}/user/replies`);
+            const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/${id}/user/replies`);
             if (response.status == 200) {
                 if(response.data.length>0)
                 {
@@ -228,10 +223,25 @@ const UserProfile: React.FC<any> = (props: any) => {
     }
 
 
+    const getUserById = async() =>{
+        try{
+            const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/users/${id}/id`);
+            if(response.status == 200)
+            {
+                setUser(response.data);
+                getPosts();
+                getComments();
+                getReplies();
+            }
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    };
+
     React.useEffect(() => {
-        getPosts();
-        getComments();
-        getReplies();
+      getUserById();  
     }, [])
     // const [tempFirst, setFirstName] = useState(props.targetUser.firstName);
     // const [tempLast, setLastName] = useState(props.targetUser.lastName);
@@ -270,13 +280,6 @@ const UserProfile: React.FC<any> = (props: any) => {
                             <h2 className="email" id='fields'>Email:
                                 <p id='inputs'><em>{user.email}</em></p>
                             </h2>
-                            <h2 className="user-info">Password:
-                                <p id='inpus'><em>{user.password}</em></p>
-                            </h2>
-                        </div>
-
-                        <div className="btn-box d-flex justify-content-around" id='password-btn'>
-                            <button className="reset-password-btn">Reset Password</button>
                         </div>
                     </div>
 
@@ -285,10 +288,6 @@ const UserProfile: React.FC<any> = (props: any) => {
                             <p id='user-letter'>{user.email[0]}</p>
                         </div>
                         <br></br>
-                        <div className='buttons-container'>
-                            <button className="view-profile-btn" id='view-profile' onClick={navigateToPublic}>View Public Profile</button>
-                            <br></br>
-                        </div>
                     </div>
                 </div>
                 {/*<Post />*/}
@@ -299,4 +298,4 @@ const UserProfile: React.FC<any> = (props: any) => {
     )
 }
 
-export default UserProfile
+export default PublicUserProfile

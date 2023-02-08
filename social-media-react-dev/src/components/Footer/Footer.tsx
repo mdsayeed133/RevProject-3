@@ -45,6 +45,9 @@ const Footer = () => {
                                 <h5 className="subheader">Socials</h5>
                                 <ul>
                                     <TbBrandMeta/>
+                                    <BsReddit size="2em"/>
+                                    <FaDiscord size="2em"/>
+                                    <FaTelegramPlane size="2em"/>
                                     <li><TbBrandMeta size="2em"/></li>
                                     <li><BsReddit size="2em"/></li>
                                     <li><FaDiscord size="2em"/></li>
