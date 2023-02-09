@@ -29,7 +29,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
           <div className="row d-flex justify-content-around">
             <div className="col-md-4 mission-statement-box">
               <div className="hide-icon">
-                <MdOutlinePersonSearch className="hidden-icon" size="13vh"/>
+                <MdOutlinePersonSearch className="hidden-icon" size="8vh"/>
                 {/* <div className="special" id="special"></div> */}
               </div>
               <h2 className="fw-normal">Find an Employee</h2>
@@ -38,7 +38,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
             </div>
             <div className="col-md-4 mission-statement-box">
               <div className="hide-icon">
-                <MdOutlineRateReview className="hidden-icon" size="13vh"/>
+                <MdOutlineRateReview className="hidden-icon" size="8vh"/>
               </div>
               <h2 className="fw-normal">Rate the Employee</h2>
               <p className="text-justify">"At RevRater, we believe in holding everyone accountable to the judgement to other around them. We believe that this will help in maintaining high quality employees."</p>
@@ -46,7 +46,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
             </div>
             <div className="col-md-4 mission-statement-box">
               <div className="hide-icon">
-                <MdMarkChatRead className="hidden-icon" size="13vh"/>
+                <MdMarkChatRead className="hidden-icon" size="8vh"/>
               </div>
               <h2 className="fw-normal">View what others say!</h2>
               <p className="text-justify">"At RevRater, our users will have access to our database of employees as well as our completely anonymous users. Just sign in to leave your thoughts."</p>
