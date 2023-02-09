@@ -26,8 +26,8 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
         // navigate("/showcomments")
 
     }
-    const createComments = async () => {
-        navigate("/createcomments")
+    const createPost = async () => {
+        navigate("/createpostform")
     }
     // const comments = 'yes';
     //const employee = props.employee;
@@ -108,7 +108,7 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
                         </div>
                         <div className="btn-box d-flex justify-content-around">
                             <button className="comment-btn" onClick={showComments}>Show comments</button>
-                            <button className="comment-btn" onClick={createComments}>Create comments</button>
+                            <button className="comment-btn" onClick={createPost}>Create Post</button>
                         </div>
                     </div>
                     <div className="col-md-6">

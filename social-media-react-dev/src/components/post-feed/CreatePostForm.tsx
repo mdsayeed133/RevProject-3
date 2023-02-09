@@ -1,17 +1,30 @@
 import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import { Box, Button } from '@mui/material';
-import { apiUpsertPost } from '../../remote/social-media-api/post.api';
+
 import Select from 'react-select'
 
 import '../post-feed/CreatePostForm.css'
 import Navbar from '../navbar/Navbar';
-import { BsFillEmojiAngryFill } from 'react-icons/bs';
+import axios from 'axios';
 
-export default function CreatePostForm() {
+const CreatePostForm: React.FC<any> = (props) => {
 
+  // const defaultPost:Post ={}
 
+  const [postComments, setPostComments] = React.useState(false);
 
+  // const gatherInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (event.target.text === "email") {
+  // };
+
+  // //axios post request to post comment
+  // const postAComment = async () => {
+  //   try{
+  //     const response = await axios.post(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/comment`, userId, text, imageId, postId})
+  //     if(response.status === 200){
+  //       console.log()
+  //     }
+  //   } catch {}
+  // }
 
 
   return (
@@ -20,23 +33,14 @@ export default function CreatePostForm() {
       {/* johannes add info below */}
 
       <div className="CreatePostForm">
-        <div className="headerContainer">
-          <p>Employee: </p>
-          <input type="text" placeholder="employee name" />
+          <h1>Tell us your thoughts</h1>
+        <div className="headerContainer d-flex justify-content-around">
+          <div className="employee-name">
+            <p id="dispEmployeeName"><em>employee</em></p>
+          </div>
           <p className="score" id="userInput">
             <input id="userInputScore" type="text" /> / 10
           </p>
-          <p className="reaction">Select reaction</p>
-          <select name="tags" id="tags" required defaultValue={'DEFAULT'}>
-            <option value="DEFAULT" disabled>please select</option>
-            <option value="1">happy face</option>
-            <option value="2">sad face</option>
-            <option value="3">dizzy face</option>
-            <option value="4">emotionless face</option>
-            <option value="5">neutral face</option>
-            <option value="6">happy face</option>
-            <option value="7">cool face</option>
-          </select>
         </div>
         <div className="inputContainer">
           <p id="inputQuestion">Enter your reasoning why</p>
@@ -80,38 +84,9 @@ export default function CreatePostForm() {
         </div>
       </div>
 
-
-
-
-
-
-
-
-
-
-
-      {/* <section className="create-post-section">
-        <div className="post-container container">
-          <p>Create Your Post</p>
-          <div className="post-box">
-            <h4>Rating: 1-10</h4>
-            <input type="number" name="rating" id="rating" placeholder="only 1-10 will count" />
-            <div className="post-input">
-              <p>Reasoning:</p>
-              <input type="text" name="post" id="reasonsBox" />
-              <div className="tags d-flext">
-                <p>How did they make you feel?</p>
-                <div className="dropdowns">
-                </div>
-              </div>
-            </div>
-            <button>Post</button>
-          </div>
-        </div>
-      </section> */}
     </>
 
   );
 }
 
-// export default CreatePostForm;
+export default CreatePostForm;

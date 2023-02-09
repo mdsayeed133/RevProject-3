@@ -6,6 +6,7 @@ import '../GuestFeed/GuestFeed.css'
 import Post from '../post-feed/Post'
 import GuestEmployee from './GuestEmployee'
 import Footer from '../Footer/Footer'
+import { MdMarkChatRead, MdOutlinePersonSearch, MdOutlineRateReview } from "react-icons/md";
 
 const GuestFeed: React.FC<any> = (props: any) => {
 
@@ -25,21 +26,27 @@ const GuestFeed: React.FC<any> = (props: any) => {
         {/* beginning of carousel */}
         <div className="container marketing">
           <h2 className='welcomegreeting text-center'>Welcome to RevRater, Where we connect to our future</h2>
-          <div className="row">
+          <div className="row d-flex justify-content-around">
             <div className="col-md-4 mission-statement-box">
-              <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+              <div className="hide-icon">
+                <MdOutlinePersonSearch className="hidden-icon" size="10vh"/>
+              </div>
               <h2 className="fw-normal">Find an Employee</h2>
               <p className="text-justify">"At RevRater, our mission is to provide a fair, unbiased and fun service to users that will allow them to rate their employees"</p>
               {/* <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p> */}
             </div>
             <div className="col-md-4 mission-statement-box">
-              <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+              <div className="hide-icon">
+                <MdOutlineRateReview className="hidden-icon" size="10vh"/>
+              </div>
               <h2 className="fw-normal">Rate the Employee</h2>
               <p className="text-justify">Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
               {/* <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p> */}
             </div>
             <div className="col-md-4 mission-statement-box">
-              <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+              <div className="hide-icon">
+                <MdMarkChatRead className="hidden-icon" size="10vh"/>
+              </div>
               <h2 className="fw-normal">View what others say!</h2>
               <p className="text-justify">And lastly this, the third column of representative placeholder content.</p>
               {/* <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p> */}

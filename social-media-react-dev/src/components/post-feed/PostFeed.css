@@ -1,6 +1,25 @@
 /* .post-feed-container {
     height: 2000px;
 } */
+.post-feed-following {
+    border-left: 2px solid black;
+    margin-top: 40px;
+}
+.followed-employee {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    background-color: silver;
+    border-radius: 10px;
+    padding: 2px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+.followed-employee:hover {
+    /* color: var(--color3); */
+    /* color: #ff7c00; */
+    background-color: var(--color3);
+}
 .post-card {
     border: 1px solid black;
     padding: 10px;

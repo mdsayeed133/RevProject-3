@@ -224,6 +224,7 @@ const PublicUserProfile: React.FC<any> = (any) => {
     // const [tempEmail, setEmail] = useState(props.targetEmail.email);
     // const [tempPassword, setPassword] = useState(props.targetPassword.password);
 
+
     return (
         <>
             {hideComponents("postbox")}

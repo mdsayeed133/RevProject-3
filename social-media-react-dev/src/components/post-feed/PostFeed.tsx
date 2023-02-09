@@ -23,6 +23,7 @@ import axios from 'axios';
 
 
 export const PostFeed: React.FC<any> = (props: { user: User }) => {
+    let link = "";
     const defaultRating: Rating = { id: 0, employee: { id: 0, firstName: "", lastName: "", author: { id: 0, email: "", password: "", firstName: "", lastName: "", date: "" }, department: { id: 0, title: "" }, createdDate: "" }, score: 0, tag1: { id: 0, tagName: "" }, tag2: { id: 0, tagName: "" }, tag3: { id: 0, tagName: "" } }
     const defaultPost: P = {
         id: 0,
@@ -88,7 +89,7 @@ export const PostFeed: React.FC<any> = (props: { user: User }) => {
         try {
             const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/users/followed/${user.id}/id`);
             if (response.status === 200) {
-                setUserFeed(response.data);
+                setFollowing(response.data);
             }
         }
         catch (error) {
@@ -98,6 +99,7 @@ export const PostFeed: React.FC<any> = (props: { user: User }) => {
 
     useEffect(() => {
         retrieveFeed();
+        retrieveFollows();
     }, [])
 
     // I want to have the emoticons display
@@ -109,19 +111,18 @@ export const PostFeed: React.FC<any> = (props: { user: User }) => {
             {/* <NewNavbar/> */}
             {/* kw: create sticky sidebar containing "following/add trainer"? */}
             <div className="post-feed-container container">
-                <div className="row">
-                    <div className="col-md-3">
+                <div className="row d-flex justify-content-around">
+                    {/* <div className="col-md-3">
                         <section className="sidebar-section">
                             <div className="widget make-sticky">
                                 <div className="add-button d-block">
                                     <button onClick={addEmployee}>Add Employee</button>
                                     <button onClick={createPost}>Create Post</button>
                                 </div>
-                                {/* <Following/> */}
                             </div>
                         </section>
-                    </div>
-                    <div className="col-md-7">
+                    </div> */}
+                    <div className="col-md-9">
                         <div className="post-feed-content">
                             <h3>Posts From Other Users</h3>
                             {
@@ -132,13 +133,14 @@ export const PostFeed: React.FC<any> = (props: { user: User }) => {
                             {/* <Post /> */}
                         </div>
                     </div>
-                    <div className="col-md-2">
+                    <div className="col-md-3">
                         <div className="post-feed-following">
                             {/* <Following/> */}
                             <ul> Your Follows:
                                 {
                                     following.map((followed, index) => (
-                                        <li><Link to='/employeeprofile/'>{followed.firstName} {followed.lastName}</Link></li>)
+                                        
+                                        <li key={index}><Link to={`/employeeprofile/${followed.id}`} className="followed-employee">{followed.firstName} {followed.lastName}</Link></li>)
                                     )
                                 }
 

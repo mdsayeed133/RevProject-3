@@ -16,6 +16,10 @@
     width: 30%;
 }
 
+.CreatePostForm > h1 {
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
 
 .CreatePostForm{
     
@@ -25,7 +29,9 @@
     padding-left: 20px;
     margin: 30px auto;
     width: 60%;
-    height: 500px;
+    height: 450px;
+    background-color: rgba(248, 248, 248, 0.3);
+
 
     /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
      */

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Comments from '../Comments/Comments';
 import { Post as RatingPost } from '../../interfaces/RatingPost';
+import { Rating } from '../../interfaces/RatingPost';
 import one from './one.png'
 import two from './two.png';
 import three from './three.png';
@@ -9,10 +10,30 @@ import five from './five.png';
 import six from './six.png';
 import seven from './seven.png';
 import Like from '../Comments/Like';
+import axios from 'axios';
+import Post from './Post';
 
 const Comment: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
 
+    const defaultRating:Rating = {id: 0, employee: {id: 0, firstName: "", lastName: "", author: {id: 0, email: "", password: "", firstName: "", lastName: "",date: ""}, department: {id: 0,title: ""},createdDate: ""},score: 0,tag1: { id: 0,tagName: ""},tag2: { id: 0, tagName: ""},tag3: { id: 0, tagName: ""}}
     const [ratingPost, setPostContents] = useState<RatingPost>(props.post);
+    const [childrenPosts, setChildrenContents] = useState<RatingPost[]>([{
+        id: 0,
+        message: "",
+        imageId: 0,
+        author: {
+            id: 0,
+            email: "",
+            password: "",
+            firstName: "",
+            lastName: "",
+            date: ""
+        },
+        postType: "",
+        rating: defaultRating,
+        createdDate: ""
+    }]);
+
     const showComment = async () => {
         const comms = document.getElementById("commentBox")
 
@@ -27,7 +48,7 @@ const Comment: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
             comms?.classList.remove("d-none")
         }
     }, [userComments])
-
+/*
     function thereCanOnlyBeOne()
     {
         let allImageElements = document.getElementsByClassName("onlyOne");
@@ -45,26 +66,85 @@ const Comment: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
     }
 
     React.useEffect(()=>{thereCanOnlyBeOne()},[])
+*/
+    const showCommentsAndReplies = async () =>
+    {   
 
+        /**
+         * const element: HTMLElement = document.getElementById('stat') as HTMLElement
+            element.innerHTML = `Welcome to Revature Banking, ${props.targetUser.firstName}`
+         */
+        let targetDiv: HTMLElement = document.getElementById(''+ratingPost.id) as HTMLElement
+        // let targetDiv = document.getElementById(""+ratingPost.id);
+        targetDiv.classList.remove("d-none");
+        // targetDiv.innerHTML = `someting`
+        // targetDiv.innerHTML += `<h3>wow much content.</h3>`
+        console.log("This is the post type:"+props.post.postType);
+        if(props.post.postType=="Rating")
+        {
+            try{
+                const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/${props.post.id}/post/comments`);
+                if(response.status===200)
+                {
+                    for(let i=0;i<response.data.length;i++)
+                    {
+                        response.data[i].rating = defaultRating
+                    }
+                    setChildrenContents(response.data);
+                    console.log(childrenPosts);
+                    for(let i = 0; i<response.data.length;i++)
+                    {
+                        targetDiv.innerHTML += "<hr/><h5>"+response.data[i].author.email+" replied with...</h5>"+"<p>"+response.data[i].message+"</p><hr/>"
+                    }
+
+                }
+            }
+            catch(error)
+            {
+                console.error(error)
+            }
+        }
+        if(props.post.postType=="Comment")
+        {
+            try{
+                const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/${props.post.id}/comment/replies`);
+                if(response.status===200)
+                {
+                    for(let i=0;i<response.data.length;i++)
+                    {
+                        response.data[i].rating = defaultRating
+                    }
+                    for(let i = 0; i<response.data.length;i++)
+                    {
+                        targetDiv.innerHTML += "<hr/><h5>"+response.data[i].author.email+" replied with...</h5>"+"<p>"+response.data[i].message+"</p><hr/>"
+                    }
+                }
+            }
+            catch(error)
+            {
+                console.error(error)
+            }
+        }
+    }
+/*
+    React.useEffect(()=>{
+        showCommentsAndReplies();
+    },[])
+*/
     return (
         <>
-        {thereCanOnlyBeOne()}
             <div className="post-card">
                 {/* example card */}
                 <div className="post-message-body">
                     <div className="post-message d-flex justify-content-between">
                         <p>Posted by: <em>{ratingPost.author.email}</em></p>
-                        <img src={one} alt="Sick Reaction" id="1" className="onlyOne"/>
-                        <img src={two} alt="Angry Reaction" id="2" className="onlyOne"/>
-                        <img src={three} alt="Dizzy Reaction" id="3" className="onlyOne"/>
-                        <img src={four} alt="Neutral Reaction" id="4" className="onlyOne"/>
-                        <img src={five} alt="Happy Reaction" id="5" className="onlyOne"/>
-                        <img src={six} alt="Silly Reaction" id="6" className="onlyOne"/>
-                        <img src={seven} alt="Cool Reaction" id="7" className="onlyOne"/>
                     </div>
                     {/* working code */}
                     <p className="message">{ratingPost.message}</p>
                     <Like postId={ratingPost.id} userId={props.userId}/>
+                </div>
+                <button className="RepliesButton" onClick={showCommentsAndReplies}>Show Replies</button>
+                <div className="d-none" id={""+ratingPost.id}>
                 </div>
             </div>
         </>

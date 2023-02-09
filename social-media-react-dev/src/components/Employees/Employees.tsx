@@ -39,7 +39,7 @@ const Employees: React.FC<any> = (props: any) => {
         <>
             <Navbar />
             <div className="Employees-container container">
-                <h2>Here is a collection of all employees available for review on RevRater...</h2>
+                {/* <h2>Here is a collection of all employees available for review on RevRater...</h2> */}
                 <div className="display-Employees row" id="dispEmployee">
                     {/* this card format will auto generate the Employees */}
                     {/* map here */}

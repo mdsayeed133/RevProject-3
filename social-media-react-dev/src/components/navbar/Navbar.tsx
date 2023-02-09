@@ -14,7 +14,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
 import '../navbar/Navbar.css'
 import { FaUserCircle } from 'react-icons/fa';
-import logo from '../navbar/logo.png' 
+import logo from '../navbar/logo.png'
 
 const Navbar: React.FC<any> = (props: any) => {
 
@@ -77,7 +77,9 @@ const Navbar: React.FC<any> = (props: any) => {
             {/* <Typography variant="h6" component="div">
             RevRater
           </Typography> */}
-            <img alt='RevRater logo' src="fatimat_revrater.png" className="img-fluid" id="revRater" />
+            <Link to="/">
+              <img alt='RevRater logo' src="fatimat_revrater.png" className="img-fluid logo" id="revRater" />
+            </Link>
             <div className="d-block">
               <div className="d-flex justify-content-around">
                 <Link to="/postfeed">Main Feed</Link> |
