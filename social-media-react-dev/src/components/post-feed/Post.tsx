@@ -7,6 +7,14 @@ import { Post as RatingPost } from '../../interfaces/RatingPost';
 const Post: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
 
     const postData:RatingPost= props.post;
+    const checkMe = () =>
+    {
+        console.log(props.post);
+    }
+
+    React.useEffect(()=>{
+        checkMe();
+    },[])
 
     return (
         <>
