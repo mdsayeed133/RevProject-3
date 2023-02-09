@@ -68,9 +68,11 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="colophon col-12 d-flex">
-                            <img src="revrater.png" className="img-fluid" />
+                        <div className="colophon col-12 text-center">
                             <p>TeamNarwhal & Alchemy Production</p>
+                        </div>
+                        <div className="footer-logo col-12">
+                            <img src="fatimat_revrater.png" className="img-fluid footer-logo" />
                         </div>
                     </div>
                 </div>

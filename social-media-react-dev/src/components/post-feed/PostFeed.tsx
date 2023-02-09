@@ -12,14 +12,55 @@ import Footer from '../Footer/Footer';
 
 
 import '../post-feed/PostFeed.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Post from './Post';
 import Following from '../Followers/Following';
 import NewNavbar from '../navbar/NewNavbar';
+import { User } from '../../interfaces/users';
+import { Post as P, Rating } from '../../interfaces/RatingPost';
+import { Employee } from '../../interfaces/employee';
+import axios from 'axios';
 
 
-export const PostFeed:React.FC<any> = (props:any) => {
-    
+export const PostFeed: React.FC<any> = (props: { user: User }) => {
+    const defaultRating: Rating = { id: 0, employee: { id: 0, firstName: "", lastName: "", author: { id: 0, email: "", password: "", firstName: "", lastName: "", date: "" }, department: { id: 0, title: "" }, createdDate: "" }, score: 0, tag1: { id: 0, tagName: "" }, tag2: { id: 0, tagName: "" }, tag3: { id: 0, tagName: "" } }
+    const defaultPost: P = {
+        id: 0,
+        message: "",
+        imageId: 0,
+        author: {
+            id: 0,
+            email: "",
+            password: "",
+            firstName: "",
+            lastName: "",
+            date: ""
+        },
+        postType: "",
+        rating: defaultRating,
+        createdDate: ""
+    };
+    const defaultEmployee:Employee = {
+        id: 0,
+        firstName: "string",
+        lastName: "string",
+        author: {
+            id: 0,
+            email: "string",
+            password: "string",
+            firstName: "string",
+            lastName: "string",
+            date: "string"
+        },
+        department: {
+            id: 0,
+            title: "string"
+        },
+        createdDate: "string"
+    };
+    const user = props.user;
+    const [posts, setUserFeed] = useState<P[]>([defaultPost]);
+    const [following, setFollowing] = useState<Employee[]>([defaultEmployee]);
     // navigate to post component
     const navigate = useNavigate();
 
@@ -29,6 +70,35 @@ export const PostFeed:React.FC<any> = (props:any) => {
     const createPost = async () => {
         navigate("/createpostform")
     }
+
+    const retrieveFeed = async () => {
+        try {
+            const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/${user.id}/user/feed`);
+            if (response.status === 200) {
+                setUserFeed(response.data);
+            }
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
+    // http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/users/followed/
+
+    const retrieveFollows = async () => {
+        try {
+            const response = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/users/followed/${user.id}/id`);
+            if (response.status === 200) {
+                setUserFeed(response.data);
+            }
+        }
+        catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        retrieveFeed();
+    }, [])
 
     // I want to have the emoticons display
 
@@ -53,17 +123,26 @@ export const PostFeed:React.FC<any> = (props:any) => {
                     </div>
                     <div className="col-md-7">
                         <div className="post-feed-content">
-                            <h3>Posts</h3>
-                            <Post />
-                            {/* <Post />
-                            <Post />
-                            <Post />
-                            <Post /> */}
+                            <h3>Posts From Other Users</h3>
+                            {
+                                posts.map((post,index)=>(
+                                    <Post key={index} post={post} userId ={user.id}/>
+                                ))
+                            }
+                            {/* <Post /> */}
                         </div>
                     </div>
                     <div className="col-md-2">
                         <div className="post-feed-following">
-                            <Following/>
+                            {/* <Following/> */}
+                            <ul> Your Follows:
+                                {
+                                    following.map((followed, index) => (
+                                        <li><Link to='/employeeprofile/'>{followed.firstName} {followed.lastName}</Link></li>)
+                                    )
+                                }
+
+                            </ul>
                         </div>
                     </div>
                 </div>
