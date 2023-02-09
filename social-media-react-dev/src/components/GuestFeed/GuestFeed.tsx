@@ -41,7 +41,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
                 <MdOutlineRateReview className="hidden-icon" size="13vh"/>
               </div>
               <h2 className="fw-normal">Rate the Employee</h2>
-              <p className="text-justify">Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+              <p className="text-justify">"At RevRater, we believe in holding everyone accountable to the judgement to other around them. We believe that this will help in maintaining high quality employees."</p>
               {/* <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p> */}
             </div>
             <div className="col-md-4 mission-statement-box">
@@ -49,7 +49,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
                 <MdMarkChatRead className="hidden-icon" size="13vh"/>
               </div>
               <h2 className="fw-normal">View what others say!</h2>
-              <p className="text-justify">And lastly this, the third column of representative placeholder content.</p>
+              <p className="text-justify">"At RevRater, our users will have access to our database of employees as well as our completely anonymous users. Just sign in to leave your thoughts."</p>
               {/* <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p> */}
             </div>
           </div>

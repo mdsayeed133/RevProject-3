@@ -82,11 +82,10 @@ const Navbar: React.FC<any> = (props: any) => {
             </Link>
             <div className="d-block">
               <div className="d-flex justify-content-around">
-                <Link to="/postfeed">Main Feed</Link> |
-                <Link to="/employees" >Employees</Link> |
-                <Link to="/createemployee">Create Employees | </Link>
-                {/* <Link to="/guest"> Guest Feed | </Link> */}
-                <Link to="/advancedsearch">Advanced Search</Link>
+                <Link className="nav-heads" to="/postfeed">Main Feed</Link> |
+                <Link className="nav-heads" to="/employees" >Employees</Link> |
+                <Link className="nav-heads" to="/createemployee">Create Employees </Link> |
+                <Link className="nav-heads" to="/advancedsearch">Advanced Search</Link>
               </div>
 
             </div>

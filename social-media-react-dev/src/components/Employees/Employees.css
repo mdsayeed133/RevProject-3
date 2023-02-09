@@ -2,6 +2,7 @@
     margin-top: 10px;
     margin-bottom: 20px;
     width: 50%;
+    padding: 10px;
 }
 
 .employee-card {
@@ -14,13 +15,14 @@
     border-radius: 15px;
     padding: 10px;
     color: white;
+    height: 300px;
 
 }
-/* 
+
 .display-Employees :hover{
-    transform: scale(1.1);
-    
-} */
+    transform: scale(1.05);
+    transition: ease-in 0.25s;
+}
 
 
 .card-img-top {
@@ -52,4 +54,5 @@
 
 .display-Employees {
     margin-top: 50px;
+    margin-bottom: 25px;
 }

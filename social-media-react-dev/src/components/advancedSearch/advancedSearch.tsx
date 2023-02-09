@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import EmployeeCard from '../Employees/EmployeeCard'
 import Navbar from '../navbar/Navbar'
 import './advancedSearch.css'
@@ -9,10 +9,10 @@ import{ Employee} from '../../interfaces/employee'
 const AdvancedSearch: React.FC<any> = (props: any) => {
 
   // employee props
-  // const [employees, setEmployees] = useState<Employee[]>([]);
-  // const [name, setName] = useState<string>("");
-  // const [departmentId, setDepartmentId] = useState<number>(1);
-  // const [tagId, setTagId] = useState<number>(0);
+//   const [employees, setEmployees] = useState<Employee[]>([]);
+//   const [name, setName] = useState<string>("");
+//   const [departmentId, setDepartmentId] = useState<number>(1);
+//   const [tagId, setTagId] = useState<number>(0);
 
 // const fetchEmployees = async () => {
 //   const response = await axios.post(

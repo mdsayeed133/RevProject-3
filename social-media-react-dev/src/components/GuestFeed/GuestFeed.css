@@ -140,7 +140,8 @@
     transform-origin: center;
 }
 .mission-statement-box:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
+    transition: ease-in 0.25s;
 }
 
 .marketing {
