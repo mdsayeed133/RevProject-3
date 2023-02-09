@@ -269,9 +269,9 @@ const PublicUserProfile: React.FC<any> = (any) => {
                     </div>
                 </div>
                 <div className="post-container-navigator">
-                    <button className="getPost" id='nav-button' onClick={()=>hideComponents("postbox")}>Get Posts</button>
-                    <button className="getComment" id='nav-button' onClick = {()=>hideComponents("commentbox")}>Get Comments</button>
-                    <button className="getReply" id='nav-button' onClick = {() => hideComponents("replybox")}>Get Replies</button>
+                    <button className="pu-btn" id='nav-button' onClick={()=>hideComponents("postbox")}>Get Posts</button>
+                    <button className="pu-btn" id='nav-button' onClick = {()=>hideComponents("commentbox")}>Get Comments</button>
+                    <button className="pu-btn" id='nav-button' onClick = {() => hideComponents("replybox")}>Get Replies</button>
                 </div>
                 <div className="posts-container">
                     {posts.map((post, index) => (

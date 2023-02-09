@@ -12,6 +12,7 @@ import seven from './seven.png';
 import Like from '../Comments/Like';
 import axios from 'axios';
 import Post from './Post';
+import '../post-feed/CreatePostForm.css'
 
 const Comment: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
 
@@ -33,6 +34,14 @@ const Comment: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
         rating: defaultRating,
         createdDate: ""
     }]);
+
+    const [message, setMessage] = useState<String>("");
+
+    const updateMessage = (event:React.ChangeEvent<HTMLInputElement>) =>
+    {
+        setMessage(event.target.value);
+        console.log(message);
+    }
 
     const showComment = async () => {
         const comms = document.getElementById("commentBox")
@@ -126,6 +135,25 @@ const Comment: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
             }
         }
     }
+    const submitResponse = async(target:number, elementId:string) =>
+    {
+        try{
+            const response = await axios.post(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/posts/comment`,{userId:props.userId,text:message,imageId:5,postId:props.post.id})
+            if(response.status==201)
+            {
+                alert("Your post has been submitted, refresh the page and view the comments to see your new post!");
+            }
+            if(response.status==406)
+            {
+                alert("Your post could not be accepted, it violates our profanity policy.");
+            }
+        }
+        catch(error)
+        {
+            console.log("Issue with submitting request!");
+            console.error(error);
+        }
+    }
 /*
     React.useEffect(()=>{
         showCommentsAndReplies();
@@ -142,6 +170,11 @@ const Comment: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
                     {/* working code */}
                     <p className="message">{ratingPost.message}</p>
                     <Like postId={ratingPost.id} userId={props.userId}/>
+                    <br/>
+                    <input id={"currentInputBox"+ratingPost.id} type="text" placeholder="Enter your reply here." className="comment-box" onChange={updateMessage}></input>
+                    <button className="CreateReplyButton" id={"reply"+ratingPost.id} onClick={()=>{
+                        submitResponse(props.post.id, "currentInputBox"+ratingPost.id);
+                    }}>Reply to this Post!</button>
                 </div>
                 <button className="RepliesButton" onClick={showCommentsAndReplies}>Show Replies</button>
                 <div className="d-none" id={""+ratingPost.id}>

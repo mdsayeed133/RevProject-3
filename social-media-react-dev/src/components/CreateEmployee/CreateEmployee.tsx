@@ -1,15 +1,14 @@
 import React from 'react'
 import './CreateEmployee.css'
 import Navbar from '../navbar/Navbar'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 
 const CreateEmployee: React.FC<any> = (props: any) => {
   const navigate = useNavigate();
-
   const employeeprofile = async () => {
-    navigate("/employeeprofile")
+    navigate("/employeeprofile/");
   }
 
   const [firstName, setFirstName] = useState("");

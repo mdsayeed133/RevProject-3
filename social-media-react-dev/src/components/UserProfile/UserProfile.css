@@ -322,3 +322,10 @@
 .tag{
     padding-left: 10px;
 }
+
+.pu-btn {
+    font-size: 15px;
+}
+.post-container-navigator>button {
+    font-size: 15px;
+}

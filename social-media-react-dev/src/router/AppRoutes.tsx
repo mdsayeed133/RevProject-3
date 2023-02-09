@@ -46,7 +46,7 @@ export const AppRoutes: React.FC<unknown> = (props:any) => {
       <Route path="/createemployee" element={<CreateEmployee />} />
       <Route path="/createcomments" element={<CreateComments />} />
       <Route path="/showcomments" element={<ShowComments />} />
-      <Route path="/createpostform" element={<CreatePostForm />} />
+      <Route path="/createpostform/:id" element={<CreatePostForm user={realUser}/>} />
       <Route path="/postfeed" element={<PostFeed user={realUser}/>}/>
       {/* <Route path="/guest" element={<GuestFeed />} /> */}
       <Route path="/signup" element={<SignUp changeUser={setUser} changeStatus={setLoggedStatus}/>} />

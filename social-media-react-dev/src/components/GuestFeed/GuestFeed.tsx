@@ -29,7 +29,8 @@ const GuestFeed: React.FC<any> = (props: any) => {
           <div className="row d-flex justify-content-around">
             <div className="col-md-4 mission-statement-box">
               <div className="hide-icon">
-                <MdOutlinePersonSearch className="hidden-icon" size="10vh"/>
+                <MdOutlinePersonSearch className="hidden-icon" size="13vh"/>
+                {/* <div className="special" id="special"></div> */}
               </div>
               <h2 className="fw-normal">Find an Employee</h2>
               <p className="text-justify">"At RevRater, our mission is to provide a fair, unbiased and fun service to users that will allow them to rate their employees"</p>
@@ -37,7 +38,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
             </div>
             <div className="col-md-4 mission-statement-box">
               <div className="hide-icon">
-                <MdOutlineRateReview className="hidden-icon" size="10vh"/>
+                <MdOutlineRateReview className="hidden-icon" size="13vh"/>
               </div>
               <h2 className="fw-normal">Rate the Employee</h2>
               <p className="text-justify">Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
@@ -45,7 +46,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
             </div>
             <div className="col-md-4 mission-statement-box">
               <div className="hide-icon">
-                <MdMarkChatRead className="hidden-icon" size="10vh"/>
+                <MdMarkChatRead className="hidden-icon" size="13vh"/>
               </div>
               <h2 className="fw-normal">View what others say!</h2>
               <p className="text-justify">And lastly this, the third column of representative placeholder content.</p>

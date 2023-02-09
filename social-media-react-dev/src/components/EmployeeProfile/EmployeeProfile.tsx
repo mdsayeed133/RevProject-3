@@ -27,7 +27,7 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
 
     }
     const createPost = async () => {
-        navigate("/createpostform")
+        navigate("/createpostform/"+employee.id);
     }
     // const comments = 'yes';
     //const employee = props.employee;
