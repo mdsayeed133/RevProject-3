@@ -84,6 +84,10 @@ const UserProfile: React.FC<any> = (props: any) => {
         navigate(`/user/${user.id}`);
     }
 
+    function navigateToReset(){
+        navigate("/ResetPassword");
+    }
+
     const getPosts = async () => {
         try {
             console.log("This is the userId:" + user.id);
@@ -252,7 +256,7 @@ const UserProfile: React.FC<any> = (props: any) => {
                         </div>
 
                         <div className="btn-box d-flex justify-content-around" id='password-btn'>
-                            <button className="reset-password-btn">Reset Password</button>
+                            <button className="reset-password-btn" onClick={navigateToReset}>Reset Password</button>
                         </div>
                     </div>
 
@@ -275,17 +279,17 @@ const UserProfile: React.FC<any> = (props: any) => {
                 <div className="posts-container">
                     {posts.map((post, index) => (
                         <div className = "postbox">
-                            <Post key={index} post={post} userId = {user.id}/>
+                            <Post key={index} post={post}/>
                         </div>
                     ))}
                     {comments.map((comment, index) => (
                         <div className = "commentbox">
-                            <Post key={index} post={comment} userId = {user.id}/>
+                            <Post key={index} post={comment}/>
                         </div>
                     ))}
                     {replies.map((reply, index) => (
                         <div className = "replybox">
-                            <Post key={index} post={reply} userId = {user.id}/>
+                            <Post key={index} post={reply}/>
                         </div>
                     ))}
                     

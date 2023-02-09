@@ -16,6 +16,7 @@ import { User } from '../interfaces/users';
 import AdvancedSearch from '../components/advancedSearch/advancedSearch';
 import { Login } from '../components/login/Login';
 import PublicUserProfile from '../components/UserProfile/PublicUserProfile';
+import ResetPassword from '../components/ResetPassword/ResetPassword';
 
 
 
@@ -46,11 +47,12 @@ export const AppRoutes: React.FC<unknown> = (props:any) => {
       <Route path="/createemployee" element={<CreateEmployee />} />
       <Route path="/createcomments" element={<CreateComments />} />
       <Route path="/showcomments" element={<ShowComments />} />
-      <Route path="/createpostform/:id" element={<CreatePostForm user={realUser}/>} />
-      <Route path="/postfeed" element={<PostFeed user={realUser}/>}/>
+      <Route path="/createpostform" element={<CreatePostForm />} />
+      <Route path="/postfeed" element={<PostFeed/>}/>
       {/* <Route path="/guest" element={<GuestFeed />} /> */}
       <Route path="/signup" element={<SignUp changeUser={setUser} changeStatus={setLoggedStatus}/>} />
       <Route path="/advancedsearch" element={<AdvancedSearch/>}/>
+      <Route path="/ResetPassword" element={<ResetPassword currentUser={realUser}/>}/>
     </Routes>
   </>
 )}
