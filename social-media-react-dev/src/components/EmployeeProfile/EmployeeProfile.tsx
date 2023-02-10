@@ -16,7 +16,7 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
     const {id} = useParams(); //path = '/employeeprofile/:id'
     const intId:number = parseInt(id as string);
     const currentUser:U = props.currentUser;
-    const [userID, setUserID]= useState(currentUser.id==null? -1:currentUser.id);
+    const [userID, setUserID]= useState(props.currentUser==null? -1:currentUser.id);
     // useNavigate to "navigate"
     const navigate = useNavigate();
     const [employee, setEmployee] = useState<Employee>({id:0,firstName:"",lastName:"",author:{id:0,email:"",password:"",firstName:"",lastName:"",date:""},department:{id:0,title:""},createdDate:""});
@@ -86,12 +86,23 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
             setUserID(currentUser.id);
         }
     }
+    const hideElements = () =>
+    {
+        let box = document.getElementById("followBox") as HTMLElement;
+        let post = document.getElementById("postButton") as HTMLElement;
+        if(userID==-1)
+        {
+            box.innerHTML="<h4 className='followBox'>Sign in to Follow!</h4>";
+            post.innerHTML="<h4>Sign in to Post!</h4>";
+        }
+    }
 
     useEffect(() => {
         setCurrentUser();
         fetchEmployeeData();
         fetchEmployeeRating();
         fetchEmployeeTopTags();
+        hideElements();
     }, []);
 
     return (
@@ -105,11 +116,11 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
                             <h2 className="profile-name" id="trainerName">Name: {employee.firstName} {employee.lastName}</h2>
                             <h2 className="profile-dept">Department: {employee.department.title}</h2>
                             <h5 className="profile-auth">Author: {employee.author.email} </h5>
-                            <h5 className="profile-tags">Most Popular Tags: {tags[0].tagName}, {tags[1].tagName}, {tags[2].tagName}</h5>
+                            <h5 className="profile-tags">Most popular tags: {tags[0].tagName}, {tags[1].tagName}, {tags[2].tagName}</h5>
                         </div>
                         <div className="btn-box d-flex justify-content-around">
                             <button className="comment-btn" onClick={showComments}>Show comments</button>
-                            <button className="comment-btn" onClick={createPost}>Create Post</button>
+                            <div id="postButton"><button className="comment-btn" onClick={createPost}>Create post</button></div>
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -121,7 +132,7 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
                                 {/* <img src="https://via.placeholder.com/150" alt="" /> */}
                                 <FaUserCircle size="10em"/>
                                 <br></br>
-                                <div className="followBox">
+                                <div className="followBox" id="followBox">
                                     <Follow userId={userID} employeeId={intId}/>
                                 </div>
                             </div>
@@ -130,7 +141,7 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
                 </div>
                 {/* this should hold the posted comments upon a click */}
                 <div className="posted-comments d-none">
-                    <h2><em>comments will populate below</em></h2>
+                    <h2><em>Comments will populate below</em></h2>
                     {/*<Comments />*/}
                 </div>
             </div>

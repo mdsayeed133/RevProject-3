@@ -4,17 +4,18 @@
 .nav-container {
     background-color: #212222;
     height: 80px;
-    color: white;
+    color: orange;
 }
 #revRater {
     width: 45%;
+    /* background-color: white; */
 }
 .nav-heads{
     color: silver;
     text-decoration: none;
     font-size: 20px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 70px;
+    margin-right: 70px;
 }
 /* .darkmode-switch {
     height: 30px;
@@ -41,4 +42,8 @@
 
 .user-profile-icon {
     color: silver;
+}
+
+.navigation-list {
+    /* background-color: whitesmoke; */
 }

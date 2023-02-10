@@ -76,14 +76,14 @@ const CreateEmployee: React.FC<any> = (props: any) => {
           <div className='create_employee'>
             <form onSubmit={handleSubmit}>
               <div className='firstname'>
-                <h3>First Name</h3>
+                <h3>First name</h3>
                 <input type="text" value={firstName}
                   placeholder='First Name'
                   onChange={(e) => setFirstName(e.target.value)} required
                 />
               </div>
               <div>
-                <h4>Last Name</h4>
+                <h4>Last name</h4>
                 <input type="text" value={lastName} placeholder='Last Name'
                   onChange={(e) => setLastName(e.target.value)} required />
               </div>

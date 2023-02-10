@@ -10,7 +10,7 @@ const GuestEmployee: React.FC<any> = (props: any) => {
                     <img className='imgfeed' src="https://via.placeholder.com/150" alt="" />
                 </div>
                 <div className='instructorinfo'>
-                    <p>Skills: <em>java, html, React, Javascript</em></p>
+                    <p>Skills: <em>Java, HTML, React, Javascript</em></p>
                     <p>Followers: <em>80 </em></p>
                     <p>Reviews: <em>78</em></p>
                 </div>

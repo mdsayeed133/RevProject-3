@@ -254,7 +254,7 @@ const UserProfile: React.FC<any> = (props: any) => {
                 <div className="profile-grid">
                     <div className="post-info-container">
                         <div className="join-date">
-                            <h2 id='fields'>Join Date:
+                            <h2 id='fields'>Join date:
                                 <p id="post-info-details"><em>{user.date}</em></p>
                             </h2>
                         </div>
@@ -269,10 +269,10 @@ const UserProfile: React.FC<any> = (props: any) => {
                     </div>
                     <div className="profile-info-container">
                         <div className="personal-info-container">
-                            <h2 className="user-info" id='fields'>First Name:
+                            <h2 className="user-info" id='fields'>First name:
                                 <p id='inputs'><em>{user.firstName}</em></p>
                             </h2>
-                            <h2 className="user-info" id='fields'>Last Name:
+                            <h2 className="user-info" id='fields'>Last name:
                                 <p id='inputs'><em>{user.lastName}</em></p>
                             </h2>
                             <h2 className="email" id='fields'>Email:

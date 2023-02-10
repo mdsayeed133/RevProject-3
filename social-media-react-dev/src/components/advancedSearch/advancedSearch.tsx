@@ -58,32 +58,32 @@ const AdvancedSearch: React.FC<any> = (props: any) => {
             <div className="select-dropbox" id="tags-drop">
               <select name="tags" id="advancedtags" >
                 <option value="0">Select a tag</option>
-                <option value="1">aggravating</option>
-                <option value="2">amusing</option>
-                <option value="3">anxious</option>
-                <option value="4">bad</option>
-                <option value="5">boring</option>
-                <option value="6">challenging</option>
-                <option value="7">childish</option>
-                <option value="8">confusing</option>
-                <option value="9">discouraging</option>
-                <option value="10">disliked</option>
-                <option value="11">engaging</option>
-                <option value="12">friendly</option>
-                <option value="13">frustrating</option>
-                <option value="14">fulfilling</option>
-                <option value="15">glhf</option>
-                <option value="16">good</option>
-                <option value="17">inconsiderate</option>
-                <option value="18">infuriating</option>
-                <option value="19">musical</option>
-                <option value="20">nerd</option>
-                <option value="21">offputting</option>
-                <option value="22">rage-inducing</option>
-                <option value="23">respected</option>
-                <option value="24">respectful</option>
-                <option value="25">stressful</option>
-                <option value="26">understanding</option>
+                <option value="1">Aggravating</option>
+                <option value="2">Amusing</option>
+                <option value="3">Anxious</option>
+                <option value="4">Bad</option>
+                <option value="5">Boring</option>
+                <option value="6">Challenging</option>
+                <option value="7">Childish</option>
+                <option value="8">Confusing</option>
+                <option value="9">Discouraging</option>
+                <option value="10">Disliked</option>
+                <option value="11">Engaging</option>
+                <option value="12">Friendly</option>
+                <option value="13">Frustrating</option>
+                <option value="14">Fulfilling</option>
+                <option value="15">Glhf</option>
+                <option value="16">Good</option>
+                <option value="17">Inconsiderate</option>
+                <option value="18">Infuriating</option>
+                <option value="19">Musical</option>
+                <option value="20">Nerdy</option>
+                <option value="21">Offputting</option>
+                <option value="22">Rage-inducing</option>
+                <option value="23">Respected</option>
+                <option value="24">Respectful</option>
+                <option value="25">Stressful</option>
+                <option value="26">Understanding</option>
               </select>
             </div>
           </section>

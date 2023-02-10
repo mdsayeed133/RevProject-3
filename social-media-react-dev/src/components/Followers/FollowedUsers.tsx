@@ -12,7 +12,7 @@ const FollowedUsers: React.FC<any> = (props: any) => {
                 <p><span>U</span></p>
             </div>
             <p><em>Username</em></p>
-            <button>unfollow</button>
+            <button>Unfollow</button>
         </div>
     )
 }

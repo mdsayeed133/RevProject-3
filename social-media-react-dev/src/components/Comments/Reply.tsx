@@ -8,7 +8,7 @@ const Reply = () => {
             <div className="user-profile">
               <p>L</p>
             </div>
-            <p className='reply_message'>This will render with data from <em>Linda Belcher</em></p>
+            <p className='reply_message'>This will render data from <em>Linda Belcher</em></p>
           </div>
             {/* <div className="reply-to-reply">
               <p>reply</p>

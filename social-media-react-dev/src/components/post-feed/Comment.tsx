@@ -174,9 +174,9 @@ const Comment: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
                     <input id={"currentInputBox"+ratingPost.id} type="text" placeholder="Enter your reply here." className="comment-box" onChange={updateMessage}></input>
                     <button className="CreateReplyButton" id={"reply"+ratingPost.id} onClick={()=>{
                         submitResponse(props.post.id, "currentInputBox"+ratingPost.id);
-                    }}>Reply to this Post!</button>
+                    }}>Reply to post</button>
                 </div>
-                <button className="RepliesButton" onClick={showCommentsAndReplies}>Show Replies</button>
+                <button className="RepliesButton" onClick={showCommentsAndReplies}>Show replies</button>
                 <div className="d-none" id={""+ratingPost.id}>
                 </div>
             </div>

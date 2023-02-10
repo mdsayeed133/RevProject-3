@@ -65,6 +65,7 @@ const Follow = (props: { userId: number, employeeId: number }) => {
             }
         } catch (error) {
             console.error(error);
+           // setFollow(true);
         }
   };
      

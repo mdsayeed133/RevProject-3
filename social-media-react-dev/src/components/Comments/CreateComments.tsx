@@ -5,7 +5,7 @@ const CreateComments: React.FC<any> = (props:any) => {
     return (
         <>
         <Navbar/>
-        <div>CreateComments</div>
+        <div>Create Comment</div>
         </>
     )
 }

@@ -51,12 +51,12 @@ export const Login:React.FC<any> = (props:any) => {
       props.changeStatus(true);
       // navigate("/");
       navigate("/userprofile");
-      alert("You logged in")
+      alert("You logged in.")
     }
     else if (response.status === 500)
     {
       console.log(response);
-      alert("Login Failed.");
+      alert("Login failed.");
     }
   };
 

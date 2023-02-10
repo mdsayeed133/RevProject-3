@@ -90,7 +90,7 @@ const SignUp: React.FC<any> = (props: any) => {
                         </div>
                         {/* <input className="input-box" type="text" name="email" placeholder="email" onChange={gatherInput} id="emailInput" /> */}
                     </div>
-                    <button className="signup-button" onClick={signupSubmit}>Sign Up</button>
+                    <button className="signup-button" onClick={signupSubmit}>Sign up</button>
                 </div>
 
             </div>

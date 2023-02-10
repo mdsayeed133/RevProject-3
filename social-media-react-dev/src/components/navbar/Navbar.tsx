@@ -80,11 +80,11 @@ const Navbar: React.FC<any> = (props: any) => {
             <Link to="/">
               <img alt='RevRater logo' src="fatimat_revrater.png" className="img-fluid logo" id="revRater" />
             </Link>
-            <div className="d-block">
+            <div className="navigation-list">
               <div className="d-flex justify-content-around">
                 <Link className="nav-heads" to="/postfeed">Main Feed</Link> |
                 <Link className="nav-heads" to="/employees" >Employees</Link> |
-                <Link className="nav-heads" to="/createemployee">Create Employees </Link> |
+                <Link className="nav-heads" to="/createemployee">Create Employee </Link> |
                 <Link className="nav-heads" to="/advancedsearch">Advanced Search</Link>
               </div>
 

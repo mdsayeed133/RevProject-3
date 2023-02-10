@@ -25,11 +25,12 @@ const GuestFeed: React.FC<any> = (props: any) => {
       <div className="guest-feed container">
         {/* beginning of carousel */}
         <div className="container marketing">
-          <h2 className='welcomegreeting text-center'>Welcome to RevRater, Where we connect to our future</h2>
+          <br></br>
+          <h2 className='welcomegreeting text-center'><i>Welcome to RevRater, Where we Connect to our Future!</i></h2>
           <div className="row d-flex justify-content-around">
             <div className="col-md-4 mission-statement-box">
               <div className="hide-icon">
-                <MdOutlinePersonSearch className="hidden-icon" size="8vh"/>
+                <MdOutlinePersonSearch className="hidden-icon" size="7.5vh"/>
                 {/* <div className="special" id="special"></div> */}
               </div>
               <h2 className="fw-normal">Find an Employee</h2>
@@ -38,7 +39,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
             </div>
             <div className="col-md-4 mission-statement-box">
               <div className="hide-icon">
-                <MdOutlineRateReview className="hidden-icon" size="8vh"/>
+                <MdOutlineRateReview className="hidden-icon" size="7.5vh"/>
               </div>
               <h2 className="fw-normal">Rate the Employee</h2>
               <p className="text-justify">"At RevRater, we believe in holding everyone accountable to the judgement to other around them. We believe that this will help in maintaining high quality employees."</p>
@@ -46,7 +47,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
             </div>
             <div className="col-md-4 mission-statement-box">
               <div className="hide-icon">
-                <MdMarkChatRead className="hidden-icon" size="8vh"/>
+                <MdMarkChatRead className="hidden-icon" size="7.5vh"/>
               </div>
               <h2 className="fw-normal">View what others say!</h2>
               <p className="text-justify">"At RevRater, our users will have access to our database of employees as well as our completely anonymous users. Just sign in to leave your thoughts."</p>
@@ -65,7 +66,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
         </div> */}
         <div className='TrainerRanking_Container' >
           <div className='trainerRanking'>
-            <h3>Current Employee Rankings...</h3>
+            <h3>Current employee rankings...</h3>
           </div>
           <GuestEmployee />
           <GuestEmployee />
@@ -73,7 +74,7 @@ const GuestFeed: React.FC<any> = (props: any) => {
         </div>
         <div className='userreview_container'>
           <div className='userreview d-flex'>
-            <h3>See what others are Saying...</h3>
+            <h3>See what others are saying...</h3>
             <button className="tease-btn btn btn-secondary" onClick={login}>Sign Up</button>
           </div>
           {/* <Post/>
@@ -81,9 +82,9 @@ const GuestFeed: React.FC<any> = (props: any) => {
           <div className="make-blur">
             <div className='userratings'>
 
-              <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
+              <p className='paragrapfeed'> <em>I was able to sleep properly for the first time in weeks</em></p>
 
-              <p> User: <em>NotaBot</em></p>
+              <p>User: <em>NotaBot</em></p>
               <p>Trainer: <em>Benjamin P.</em></p>
               <p>Rating: <em>5/5</em></p>
               <button disabled={true} className='likebuttons' onClick={login}>Like </button>
@@ -93,23 +94,23 @@ const GuestFeed: React.FC<any> = (props: any) => {
 
             <div className='userratings'>
               <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
-              <p> User: <em>NotaBot</em></p>
+              <p>User: <em>NotaBot</em></p>
               <p>Trainer: <em>Benjamin P.</em></p>
               <p>Rating: <em>5/5</em></p>
               <button disabled={true} className='likebuttons' onClick={login}>Like </button>
               <button disabled={true} className='likebutton' onClick={login}>Reply</button>
             </div>
             <div className='userratings'>
-              <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
-              <p> User: <em>NotaBot</em></p>
+              <p className='paragrapfeed'> <em>I was able to sleep properly for the first time in weeks</em></p>
+              <p>User: <em>NotaBot</em></p>
               <p>Trainer: <em>Benjamin P.</em></p>
               <p>Rating: <em>5/5</em></p>
               <button disabled={true} className='likebuttons' onClick={login}>Like </button>
               <button disabled={true} className='likebutton' onClick={login}>Reply</button>
             </div>
             <div className='userratings'>
-              <p className='paragrapfeed'> <em>i was able to sleep properly for the first time in weeks</em></p>
-              <p> User: <em>NotaBot</em></p>
+              <p className='paragrapfeed'> <em>I was able to sleep properly for the first time in weeks</em></p>
+              <p>User: <em>NotaBot</em></p>
               <p>Trainer: <em>Benjamin P.</em></p>
               <p>Rating: <em>5/5</em></p>
               <button disabled={true} className='likebuttons' onClick={login}>Like </button>

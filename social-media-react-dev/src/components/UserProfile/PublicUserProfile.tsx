@@ -8,9 +8,10 @@ import { User } from '../../interfaces/users';
 import axios from 'axios'
 
 
-const PublicUserProfile: React.FC<any> = (any) => {
+const PublicUserProfile: React.FC<any> = (props:any) => {
     let {id} = useParams();
     const [user, setUser] = useState<User>({id:0,email:"",password:"",firstName:"",lastName:"",date:""});
+    const [currentUser, setCurrentUser] = useState<User>(props.currentUser==null?{id:0,email:"",password:"",firstName:"",lastName:"",date:""}:props.currentUser);
     const [postCount, setPostCount] = useState(0);
     const [averageRating, setAverageRating] = useState(-1);
     const defaultRating:Rating = {id: 0, employee: {id: 0, firstName: "", lastName: "", author: {id: 0, email: "", password: "", firstName: "", lastName: "",date: ""}, department: {id: 0,title: ""},createdDate: ""},score: 0,tag1: { id: 0,tagName: ""},tag2: { id: 0, tagName: ""},tag3: { id: 0, tagName: ""}}
@@ -267,7 +268,7 @@ const PublicUserProfile: React.FC<any> = (any) => {
                 <div className="profile-grid">
                     <div className="post-info-container">
                         <div className="join-date">
-                            <h2 id='fields'>Join Date:
+                            <h2 id='fields'>Join date:
                                 <p id="post-info-details"><em>{user.date}</em></p>
                             </h2>
                         </div>
@@ -282,10 +283,10 @@ const PublicUserProfile: React.FC<any> = (any) => {
                     </div>
                     <div className="profile-info-container">
                         <div className="personal-info-container">
-                            <h2 className="user-info" id='fields'>First Name:
+                            <h2 className="user-info" id='fields'>First name:
                                 <p id='inputs'><em>{user.firstName}</em></p>
                             </h2>
-                            <h2 className="user-info" id='fields'>Last Name:
+                            <h2 className="user-info" id='fields'>Last name:
                                 <p id='inputs'><em>{user.lastName}</em></p>
                             </h2>
                             <h2 className="email" id='fields'>Email:

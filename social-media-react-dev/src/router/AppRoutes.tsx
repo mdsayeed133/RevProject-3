@@ -40,7 +40,7 @@ export const AppRoutes: React.FC<unknown> = (props:any) => {
       <Route path="/" element={<GuestFeed/>}/>
       <Route path="/login" element={<Login changeUser={setUser} changeStatus={setLoggedStatus}/>} />
       <Route path="/userprofile" element={<UserProfile currentUser={realUser}/>} />
-      <Route path="/user/:id" element={<PublicUserProfile />} />
+      <Route path="/user/:id" element={<PublicUserProfile currentUser={realUser}/>} />
       <Route path="/employees" element={<Employees />} />
       <Route path="/employeeprofile/:id" element={<EmployeeProfile currentUser={realUser}/>} />
       <Route path="/createemployee" element={<CreateEmployee />} />

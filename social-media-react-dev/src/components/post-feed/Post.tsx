@@ -36,7 +36,7 @@ const Post: React.FC<any> = (props: {post:RatingPost, userId:number}) => {
                         <p>Posted by: <em>{postData.author.email}</em></p>
                     </div>
                     {/* working code */}
-                    <Comment post={postData} userId={props.userId}/>
+                    <Comment post={props.post} userId={props.userId}/>
                 </div>
                 <div className="">
                     <div className="react-box">

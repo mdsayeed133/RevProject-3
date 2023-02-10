@@ -23,7 +23,7 @@
 .darkmode-switch {
     position: absolute;
     top: 20px;
-    left: 30%;
+    left: 15%;
     z-index: 1;
 }
 .dark-btn {
