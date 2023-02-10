@@ -16,11 +16,12 @@
     padding: 10px;
     color: white;
     height: 300px;
+    margin: 3px;
 
 }
 
 .display-Employees :hover{
-    transform: scale(1.05);
+    transform: scale(1.015);
     transition: ease-in 0.25s;
 }
 

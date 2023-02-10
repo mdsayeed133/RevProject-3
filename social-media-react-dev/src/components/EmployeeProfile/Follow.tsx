@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const Follow = (props: { userId: Number, employeeId: Number }) => {
+const Follow = (props: { userId: number, employeeId: number }) => {
     const [follow, setFollow] = useState(false);
     const [response, setResponse] = useState<any>("");
-
 
     const handleFollow = async () => {
         try {
@@ -16,8 +16,8 @@ const Follow = (props: { userId: Number, employeeId: Number }) => {
             setFollow(true);
         } catch (error) {
             console.error(error);
-            
-        } 
+
+        }
     };
 
     const handleUnfollow = async () => {
@@ -30,14 +30,54 @@ const Follow = (props: { userId: Number, employeeId: Number }) => {
             setFollow(false);
         } catch (error) {
             console.error(error);
-            
+
         }
     };
-
+/*
+    const fetchData = async () => {
+        try{
+            console.log("This is your user:" + props.userId);
+            console.log("This is the target employee id: "+ props.employeeId);
+            const res = await axios.get(`http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/users/isFollowing`, {userId, employeeId});
+            setFollow(res.data);
+        }
+        catch(error)
+        {console.error(error);}
+    };
+    */
     
+    const fetchData = async () => {
+        try {
+            console.log("This is your user:" + props.userId);
+            console.log("This is the target employee id: " + props.employeeId);
+            const res = await axios.get(
+              "http://aaagh-env.eba-hd2up2kh.us-east-1.elasticbeanstalk.com/RevRater/users/isFollowing",
+              {
+                params: {
+                  userId: props.userId,
+                  employeeId: props.employeeId,
+                },
+              }
+            );
+            if(res.status==200)
+            {
+                setFollow(res.data);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+  };
+     
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
+
 
     return (
-        <>
+        <> 
             {follow ? (
                 <button className="follow-btn" onClick={handleUnfollow}>
                     Unfollow
@@ -48,6 +88,7 @@ const Follow = (props: { userId: Number, employeeId: Number }) => {
                 </button>
             )}
             <h5>{response}</h5>
+            
         </>
     );
 

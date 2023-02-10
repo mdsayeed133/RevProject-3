@@ -91,6 +91,11 @@ const UserProfile: React.FC<any> = (props: any) => {
             if (response.status == 200) {
                 if(response.data.length>0)
                 {
+                    let components = document.getElementsByClassName("postbox");
+                    for(let i = 0; i<components.length;i++)
+                    {
+                        components[i].classList.remove("unfilled");
+                    }
                     setPosts(response.data);
                     updatePostCount();
                     updateAverageRating();
@@ -107,6 +112,11 @@ const UserProfile: React.FC<any> = (props: any) => {
             if (response.status == 200) {
                 if(response.data.length>0)
                 {
+                    let components = document.getElementsByClassName("commentbox");
+                    for(let i = 0; i<components.length;i++)
+                    {
+                        components[i].classList.remove("unfilled");
+                    }
                     for(let i=0;i<response.data.length;i++)
                     {
                         response.data[i].rating = defaultRating
@@ -126,6 +136,11 @@ const UserProfile: React.FC<any> = (props: any) => {
             if (response.status == 200) {
                 if(response.data.length>0)
                 {
+                    let components = document.getElementsByClassName("replybox");
+                    for(let i = 0; i<components.length;i++)
+                    {
+                        components[i].classList.remove("unfilled");
+                    }
                     for(let i=0;i<response.data.length;i++)
                     {
                         response.data[i].rating = defaultRating
@@ -149,7 +164,10 @@ const UserProfile: React.FC<any> = (props: any) => {
             let postsToShow = document.getElementsByClassName("postbox");
             for (let i = 0; i<postsToShow.length;i++)
             {
-                postsToShow[i].classList.remove("d-none");
+                if(!postsToShow[i].classList.contains("unfilled"))
+                {
+                    postsToShow[i].classList.remove("d-none");
+                }
             }
             for (let i = 0; i<commentsToHide.length;i++)
             {
@@ -168,7 +186,10 @@ const UserProfile: React.FC<any> = (props: any) => {
             let commentsToShow = document.getElementsByClassName("commentbox");
             for (let i = 0; i<commentsToShow.length;i++)
             {
-                commentsToShow[i].classList.remove("d-none");
+                if(!commentsToShow[i].classList.contains("unfilled"))
+                {
+                    commentsToShow[i].classList.remove("d-none");
+                }
             }
             for (let i = 0; i<postsTohide.length;i++)
             {
@@ -187,7 +208,10 @@ const UserProfile: React.FC<any> = (props: any) => {
             let repliesToShow = document.getElementsByClassName("replybox");
             for(let i = 0; i < repliesToShow.length; i++)
             {
-                repliesToShow[i].classList.remove("d-none");
+                if(!repliesToShow[i].classList.contains("unfilled"))
+                {
+                    repliesToShow[i].classList.remove("d-none");
+                }
             }
             for (let i = 0; i<postsTohide.length;i++)
             {
@@ -197,6 +221,15 @@ const UserProfile: React.FC<any> = (props: any) => {
             {
                 commentsToHide[i].classList.add("d-none");
             }
+        }
+    }
+    
+    function hideUnfilled()
+    {
+        let components = document.getElementsByClassName("unfilled");
+        for(let i = 0; i<components.length;i++)
+        {
+            components[i].classList.add("d-none");
         }
     }
 
@@ -214,8 +247,7 @@ const UserProfile: React.FC<any> = (props: any) => {
     return (
         <>
             {hideComponents("postbox")}
-            {console.log("These are your props:"+props)}
-            {console.log("This is your user:"+user)}
+            {hideUnfilled()}
             <Navbar />
             {/* include batch, username, follow */}
             <div className="user-profile-container container">
@@ -274,17 +306,17 @@ const UserProfile: React.FC<any> = (props: any) => {
                 </div>
                 <div className="posts-container">
                     {posts.map((post, index) => (
-                        <div className = "postbox">
+                        <div className = "postbox unfilled">
                             <Post key={index} post={post} userId = {user.id}/>
                         </div>
                     ))}
                     {comments.map((comment, index) => (
-                        <div className = "commentbox">
+                        <div className = "commentbox unfilled">
                             <Post key={index} post={comment} userId = {user.id}/>
                         </div>
                     ))}
                     {replies.map((reply, index) => (
-                        <div className = "replybox">
+                        <div className = "replybox unfilled">
                             <Post key={index} post={reply} userId = {user.id}/>
                         </div>
                     ))}

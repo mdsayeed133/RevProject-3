@@ -13,9 +13,10 @@ import { FaUserCircle } from 'react-icons/fa'
 
 const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
 
-    let {id} = useParams(); //path = '/employeeprofile/:id'
+    const {id} = useParams(); //path = '/employeeprofile/:id'
+    const intId:number = parseInt(id as string);
     const currentUser:U = props.currentUser;
-    const [userID, setUserID]= useState(-1);
+    const [userID, setUserID]= useState(currentUser.id==null? -1:currentUser.id);
     // useNavigate to "navigate"
     const navigate = useNavigate();
     const [employee, setEmployee] = useState<Employee>({id:0,firstName:"",lastName:"",author:{id:0,email:"",password:"",firstName:"",lastName:"",date:""},department:{id:0,title:""},createdDate:""});
@@ -121,7 +122,7 @@ const EmployeeProfile: React.FC<any> = (props: {currentUser:U}) => {
                                 <FaUserCircle size="10em"/>
                                 <br></br>
                                 <div className="followBox">
-                                    <Follow userId={userID} employeeId={employee.id}/>
+                                    <Follow userId={userID} employeeId={intId}/>
                                 </div>
                             </div>
                         </div>
